@@ -16,14 +16,14 @@ import static com.inolia_zaicek.more_mod_tetra.MoreModTetra.MODID;
 
 public class MoreModTetraTab {
     public static final DeferredRegister<CreativeModeTab> creative_mode_tab= DeferredRegister.create(Registries.CREATIVE_MODE_TAB,MODID);
-    public static final String MoreModTetraTab="more_mod_tetra.name";
+    public static final String MoreModTetraTab="item_group.more_mod_tetra.tab";
     public static final Supplier<CreativeModeTab> materials=creative_mode_tab.register("item",()-> CreativeModeTab.builder()
             //槽位位置
             .withTabsBefore(CreativeModeTabs.COMBAT)
             //物品栏名称
             .title(Component.translatable(MoreModTetraTab))
             //图标
-            .icon(MoreModTetraItemRegister.FireArcaneIngot.get()::getDefaultInstance)
+            .icon(MoreModTetraItemRegister.CopperLantern.get()::getDefaultInstance)
             .displayItems((itemDisplayParameters, output) -> {
                 // 遍历 CommonItem 列表中的物品
                 for(RegistryObject<Item> curios: MoreModTetraItemRegister.CommonItem){
