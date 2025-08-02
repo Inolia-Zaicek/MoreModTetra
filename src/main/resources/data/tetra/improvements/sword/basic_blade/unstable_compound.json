@@ -1,0 +1,13 @@
+[
+  {
+    "key": "unstable_compound",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "more_mod_tetra:unstable_compound": 1
+    }
+  }
+]

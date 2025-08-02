@@ -1,0 +1,44 @@
+{
+    "replace": true,
+    "slots": ["toolbelt/belt"],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "materialSlotCount": 1,
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "undying_effect_trait_up"
+                }
+            },
+            {
+                "type": "tetra:module",
+                "module": "toolbelt/belt_socket"
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "l2hostility:undying" ],
+                "count":8
+            },
+            "improvements": {
+                "undying_effect_trait_up": 1
+            }
+        }
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2hostility"
+        }
+    ]
+}

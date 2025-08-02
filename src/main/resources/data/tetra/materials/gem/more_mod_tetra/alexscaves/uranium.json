@@ -1,0 +1,36 @@
+{
+    "key": "alex_uranium",
+    "category": "gem",
+    "primary": 5.5,
+    "secondary": 3.2,
+    "tertiary": 2.5,
+    "durability": 750,
+    "integrityCost": 1,
+    "integrityGain": 3,
+    "magicCapacity": 72,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 5,
+    "tints": {
+        "glyph": "5eff5e",
+        "texture": "5eff5e"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "alexscaves:uranium" ]
+    },
+    "effects" : {
+        "more_mod_tetra:radioactive_material": 1
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "alexscaves"
+        }
+    ]
+}
