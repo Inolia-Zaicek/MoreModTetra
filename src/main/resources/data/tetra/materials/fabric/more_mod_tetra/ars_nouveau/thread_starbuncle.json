@@ -1,0 +1,41 @@
+{
+    "key": "thread_starbuncle",
+    "category": "ars_thread",
+    "primary": 2.5,
+    "secondary": 2.5,
+    "tertiary": 7.5,
+    "durability": 750,
+    "integrityCost": 1,
+    "integrityGain": 8,
+    "magicCapacity": 300,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "7d5baf",
+        "texture": "7d5baf"
+    },
+    "attributes": {
+        "ars_nouveau:ars_nouveau.perk.mana_regen": 0.2,
+        "ars_nouveau:ars_nouveau.perk.max_mana": 10,
+        "ars_nouveau:ars_nouveau.perk.spell_damage": 0.5,
+        "**generic.movement_speed": 0.4
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": [
+            "ars_nouveau:thread_starbuncle"
+        ]
+    },
+    "requiredTools": {
+        "cut": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "ars_nouveau"
+        }
+    ]
+}

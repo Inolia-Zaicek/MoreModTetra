@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " BB",
+    "BAB",
+    "BB "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:writable_book"
+    },
+    "B": {
+      "tag": "tetra:swords"
+    }
+  },
+  "result": {
+    "item": "tetra:scroll_rolled",
+    "count": 1,
+    "nbt": {
+      "BlockEntityTag": {
+        "data": [
+          {
+            "key": "sword/mmt_katana",
+            "schematics": [ "tetra:sword/mmt_katana"],
+            "intricate": false,
+            "material": 2,
+            "ribbon": "ffffff",
+            "glyphs": [ 3, 8, 1, 4 ]
+          }
+        ]
+      }
+    }
+  }
+}

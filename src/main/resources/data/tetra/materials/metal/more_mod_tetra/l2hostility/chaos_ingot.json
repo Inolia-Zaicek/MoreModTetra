@@ -1,0 +1,36 @@
+{
+    "key": "chaos_ingot",
+    "category": "metal",
+    "primary": 10.67,
+    "secondary": 4.2,
+    "tertiary": 5.1,
+    "durability": 3000,
+    "integrityCost": 2,
+    "integrityGain": 9,
+    "magicCapacity": 160,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "c700ff",
+        "texture": "c700ff"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "effects" : {
+        "more_mod_tetra:hostility_control": 15
+    },
+    "material": {
+        "items": [ "l2hostility:chaos_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2complements"
+        }
+    ]
+}

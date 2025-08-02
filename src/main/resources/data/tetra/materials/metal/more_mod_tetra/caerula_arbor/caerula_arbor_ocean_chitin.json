@@ -1,0 +1,33 @@
+{
+    "key": "caerula_arbor_ocean_chitin",
+    "category": "special_material",
+    "primary": 5.1,
+    "secondary": 1.8,
+    "tertiary": 5,
+    "durability": 1220,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 34,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 5,
+    "tints": {
+        "glyph": "CFA87B",
+        "texture": "CFA87B"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "caerula_arbor:ocean_chitin" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "caerula_arbor"
+        }
+    ]
+}

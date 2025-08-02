@@ -1,0 +1,38 @@
+{
+    "replace": true,
+    "slots": [
+        "sword/fuller"
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "biomancy"
+        }
+    ],
+    "materialSlotCount": 1,
+    "rarity": "temporary",
+    "displayType": "minor",
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 4,
+        "textureY": 225
+    },
+    "translation": {
+        "secondaryAttributes": {
+            "generic.attack_speed": 0.1
+        },
+        "durability": 1
+    },
+    "requirement": {
+        "type": "tetra:locked",
+        "key": "tetra:sword/mmt_biomancy_despoil_sickle"
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+            "moduleKey": "sword/more_mod_tetra/biomancy/mmt_biomancy_despoil_sickle_fuller",
+            "moduleVariant": "mmt_biomancy_despoil_sickle_fuller/",
+            "experienceFactor": 1
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "key": "dispell_effect_trait_up",
+    "level": 1,
+    "integrity": -4,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "more_mod_tetra:dispell_effect_trait": 1
+    }
+  }
+]

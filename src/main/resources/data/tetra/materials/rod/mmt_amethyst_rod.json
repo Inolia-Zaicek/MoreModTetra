@@ -1,0 +1,30 @@
+{
+    "key": "mmt_amethyst_rod",
+    "primary": 4.2,
+    "secondary": 2.3,
+    "tertiary": 0,
+    "durability": 452,
+    "integrityCost": 2,
+    "integrityGain": 3,
+    "magicCapacity": 100,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "af49f0",
+        "texture": "af49f0"
+    },
+    "attributes": {
+        "forge:attack_range": 2,
+        "forge:reach_distance": 2
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "more_mod_tetra:amethyst_rod" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    }
+}

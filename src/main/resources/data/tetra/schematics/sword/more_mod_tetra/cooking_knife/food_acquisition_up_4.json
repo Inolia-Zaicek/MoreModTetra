@@ -1,0 +1,24 @@
+{
+    "replace": true,
+    "slots": [ "sword/blade" ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 64,
+        "textureY": 160
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "food_acquisition_up",
+        "level":3
+    },
+    "outcomes": [
+        {
+            "improvements": {
+                "food_acquisition_up": 4
+            }
+        }
+    ]
+}

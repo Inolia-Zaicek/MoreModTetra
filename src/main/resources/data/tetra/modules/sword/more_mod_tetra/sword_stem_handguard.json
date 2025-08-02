@@ -1,0 +1,30 @@
+{
+  "replace": true,
+  "slots": [ "sword/pommel" ],
+  "type": "tetra:basic_module",
+  "variants": [
+    {
+      "materials": [ "tetra:wood/", "tetra:bone/", "tetra:stone/", "tetra:metal/" ],
+      "key": "sword_stem_handguard/",
+      "durability": 15,
+      "integrity": -1,
+      "effects": {
+        "more_mod_tetra:duel": 15
+      },
+      "extract": {
+        "secondaryEffects": {
+          "counterweight": 1
+        },
+        "durability": 0.05,
+        "glyph": {
+          "textureX": 32,
+          "textureY": 112
+        },
+        "availableTextures": [ "" ],
+        "models": [ {
+          "location": "more_mod_tetra:item/module/sword/more_mod_tetra/sword_stem_handguard"
+        } ]
+      }
+    }
+  ]
+}

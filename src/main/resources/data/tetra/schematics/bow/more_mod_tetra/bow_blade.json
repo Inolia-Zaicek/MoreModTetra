@@ -1,0 +1,33 @@
+{
+    "replace": true,
+    "slots": [
+        "bow/stave"
+    ],
+    "rarity": "temporary",
+    "materialSlotCount": 1,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 80,
+        "textureY": 80
+    },
+    "displayType": "improvement",
+    "requirement": {
+        "type": "tetra:module",
+        "module": "bow/more_mod_tetra/blade_bow"
+    },
+    "translation": {
+        "primaryAttributes": {
+            "generic.attack_damage": 3
+        },
+        "durability": 1
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+            "countFactor": 1,
+            "improvements": {
+                "bow_blade": 0
+            }
+        }
+    ]
+}

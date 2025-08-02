@@ -1,0 +1,52 @@
+{
+    "replace": true,
+    "slots": [ "sword/blade" ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "malum"
+        }
+    ],
+    "materialSlotCount": 0,
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 0,
+        "textureY": 160
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:or",
+                "requirements": [
+                    {
+                        "type": "tetra:module",
+                        "module": "sword/more_mod_tetra/malum/mmt_malum_scythe"
+                    },
+                    {
+                        "type": "tetra:module",
+                        "module": "sword/more_mod_tetra/malum/mmt_malum_scythe_fuller"
+                    }
+                ]
+            },
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "mmt_malum_scythe_up"
+                }
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "experienceCost": 1,
+            "improvements": {
+                "mmt_malum_scythe_up": 1
+            }
+        }
+    ]
+}

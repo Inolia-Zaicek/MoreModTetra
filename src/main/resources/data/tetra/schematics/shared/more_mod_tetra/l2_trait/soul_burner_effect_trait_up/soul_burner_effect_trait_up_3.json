@@ -1,0 +1,33 @@
+{
+    "replace": true,
+    "slots": ["toolbelt/belt"],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "materialSlotCount": 1,
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "soul_burner_effect_trait_up",
+        "level":2
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "l2hostility:soul_burner" ],
+                "count":8
+            },
+            "improvements": {
+                "soul_burner_effect_trait_up": 3
+            }
+        }
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2hostility"
+        }
+    ]
+}

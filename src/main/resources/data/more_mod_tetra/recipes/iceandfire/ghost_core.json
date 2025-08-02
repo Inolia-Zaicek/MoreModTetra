@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " A ",
+        "A#A",
+        " A "
+    ],
+    "key": {
+        "#": {
+            "item": "iceandfire:ghost_ingot"
+        },
+        "A": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:ghost_core",
+        "count": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "iceandfire"
+        }
+    ]
+}

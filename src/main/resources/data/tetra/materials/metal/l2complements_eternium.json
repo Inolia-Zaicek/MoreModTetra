@@ -1,0 +1,38 @@
+{
+    "replace": true,
+    "key": "l2complements_eternium",
+    "category": "metal",
+    "primary": 8.6,
+    "secondary": 6.5,
+    "tertiary": 0,
+    "durability": 9999,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 999,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "8c99ff",
+        "texture": "8c99ff"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "effects" : {
+        "more_mod_tetra:eternium_durability": 15,
+        "unbreaking": 4
+    },
+    "material": {
+        "items": [ "l2complements:eternium_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2complements"
+        }
+    ]
+}

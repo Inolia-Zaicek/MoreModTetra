@@ -1,0 +1,33 @@
+{
+    "replace": true,
+    "slots": ["toolbelt/belt"],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "materialSlotCount": 1,
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "tanky_effect_trait_up",
+        "level":1
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "l2hostility:tank" ],
+                "count":8
+            },
+            "improvements": {
+                "tanky_effect_trait_up": 2
+            }
+        }
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2hostility"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "key": "spreading_roots",
+    "category": "fibre",
+    "primary": 2.5,
+    "secondary": 0.5,
+    "tertiary": 2,
+    "durability": 100,
+    "integrityCost": 1,
+    "integrityGain": 3,
+    "magicCapacity": 84,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "663300",
+        "texture": "663300"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "more_mod_tetra:spreading_roots" ]
+    },
+    "requiredTools": {
+        "cut": "minecraft:stone"
+    },
+    "effects": {
+        "minecraft:infinity": 1
+    }
+}

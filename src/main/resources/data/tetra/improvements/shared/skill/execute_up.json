@@ -1,0 +1,57 @@
+[
+  {
+    "key": "execute_up",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "execute": [6,1]
+    }
+  },
+  {
+    "key": "execute_up",
+    "level": 2,
+    "integrity": -1,
+    "aspects": {
+      "honed": 2
+    },
+    "effects": {
+      "execute": [7, 2]
+    }
+  },
+  {
+    "key": "execute_up",
+    "level": 3,
+    "integrity": -2,
+    "aspects": {
+      "honed": 3
+    },
+    "effects": {
+      "execute": [8, 3]
+    }
+  },
+  {
+    "key": "execute_up",
+    "level": 4,
+    "integrity": -2,
+    "aspects": {
+      "honed": 4
+    },
+    "effects": {
+      "execute": [9, 4]
+    }
+  },
+  {
+    "key": "execute_up",
+    "level": 5,
+    "integrity": -3,
+    "aspects": {
+      "honed": 5
+    },
+    "effects": {
+      "execute": [10, 5]
+    }
+  }
+]

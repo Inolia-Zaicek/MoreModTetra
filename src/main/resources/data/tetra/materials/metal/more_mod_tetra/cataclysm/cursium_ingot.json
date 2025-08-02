@@ -1,0 +1,37 @@
+{
+    "key": "cursium_ingot",
+    "category": "metal",
+    "primary": 12.67,
+    "secondary": 3.91,
+    "tertiary": 3.12,
+    "durability": 5741,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 121,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 11,
+    "tints": {
+        "glyph": "00ffcb",
+        "texture": "00ffcb"
+    },
+    "effects" : {
+        "more_mod_tetra:ghost_form": 2,
+        "quickStrike": 10
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "cataclysm:cursium_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "cataclysm"
+        }
+    ]
+}

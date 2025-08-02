@@ -1,0 +1,33 @@
+{
+    "key": "more_mod_tetra_sound_arcane_ingot",
+    "category": "iron_spell_arcane_ingot",
+    "primary": 9.24,
+    "secondary": 4.9,
+    "tertiary": 5.5,
+    "durability": 2500,
+    "integrityCost": 2,
+    "integrityGain": 10,
+    "magicCapacity": 1000,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "7AD85B",
+        "texture": "7AD85B"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "more_mod_tetra:sound_arcane_ingot" ]
+    },
+        "effects" : {
+      "more_mod_tetra:sound_arcane_edge": 20
+	},
+      "attributes": {
+      "**alshanex_familiars:sound_spell_power": 0.04
+  },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    }
+}

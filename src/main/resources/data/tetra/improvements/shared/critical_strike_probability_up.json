@@ -1,0 +1,57 @@
+[
+  {
+    "key": "critical_strike_probability_up",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "criticalStrike": [5, 0.15]
+    }
+  },
+  {
+    "key": "critical_strike_probability_up",
+    "level": 2,
+    "integrity": -2,
+    "aspects": {
+      "honed": 2
+    },
+    "effects": {
+      "criticalStrike": [7.5, 0.3]
+    }
+  },
+  {
+    "key": "critical_strike_probability_up",
+    "level": 3,
+    "integrity": -3,
+    "aspects": {
+      "honed": 3
+    },
+    "effects": {
+      "criticalStrike": [10, 0.45]
+    }
+  },
+  {
+    "key": "critical_strike_probability_up",
+    "level": 4,
+    "integrity": -4,
+    "aspects": {
+      "honed": 4
+    },
+    "effects": {
+      "criticalStrike": [15, 0.6]
+    }
+  },
+  {
+    "key": "critical_strike_probability_up",
+    "level": 5,
+    "integrity": -5,
+    "aspects": {
+      "honed": 5
+    },
+    "effects": {
+      "criticalStrike": [20, 0.75]
+    }
+  }
+]

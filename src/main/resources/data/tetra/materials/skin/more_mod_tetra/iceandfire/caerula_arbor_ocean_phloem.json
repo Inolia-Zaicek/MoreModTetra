@@ -1,0 +1,40 @@
+{
+    "key": "caerula_arbor_ocean_phloem",
+    "category": "skin",
+    "primary": 1.5,
+    "secondary": 1.5,
+    "tertiary": 5,
+    "durability": 635,
+    "integrityCost": 1,
+    "integrityGain": 4,
+    "magicCapacity": 500,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "attributes": {
+        "**generic.attack_damage": 0.1,
+        "**tetra:draw_damage": 0.1,
+        "**tetra:ability_damage": 0.1
+    },
+    "tints": {
+        "glyph": "252D7D",
+        "texture": "252D7D"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "caerula_arbor:ocean_phloem" ]
+    },
+    "requiredTools": {
+        "cut": "minecraft:gold"
+    },
+    "effects": {
+        "more_mod_tetra:sanity_hurt": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "caerula_arbor"
+        }
+    ]
+}

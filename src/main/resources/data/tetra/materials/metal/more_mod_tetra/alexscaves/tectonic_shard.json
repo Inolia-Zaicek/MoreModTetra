@@ -1,0 +1,36 @@
+{
+    "key": "alex_tectonic_shard",
+    "category": "special_material",
+    "primary": 8.3,
+    "secondary": 2.1,
+    "tertiary": 5.5,
+    "durability": 2031,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 200,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "DE0000",
+        "texture": "DE0000"
+    },
+    "effects" : {
+        "more_mod_tetra:lava_mob": 7
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "alexscaves:tectonic_shard" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "alexscaves"
+        }
+    ]
+}

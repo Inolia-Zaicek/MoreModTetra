@@ -1,0 +1,34 @@
+{
+    "replace": true,
+    "slots": [
+        "sword/blade"
+    ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 64,
+        "textureY": 160
+    },
+    "translation": {
+        "primaryAttributes": {
+            "generic.attack_damage": 3.5
+        },
+        "secondaryAttributes": {
+            "generic.attack_speed": -1
+        },
+        "tools": {
+            "cut": [ 2, 3 ]
+        },
+        "durability": 4,
+        "integrity": -3,
+        "magicCapacity": 3
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+            "moduleKey": "sword/more_mod_tetra/cooking_knife",
+            "moduleVariant": "cooking_knife/"
+        }
+    ]
+}

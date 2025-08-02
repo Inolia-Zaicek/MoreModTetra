@@ -1,0 +1,142 @@
+[
+    {
+        "key": "mmt_iron_spell_summon_damage",
+        "level": 1,
+        "integrity": -1,
+        "aspects": {
+            "honed": 1
+        },
+        "attributes": {
+            "**irons_spellbooks:summon_damage": 0.01
+        },
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "irons_spellbooks"
+            }
+        ]
+    },
+    {
+        "key": "mmt_iron_spell_summon_damage",
+        "level": 2,
+        "integrity": -2,
+        "aspects": {
+            "honed": 2
+        },
+        "attributes": {
+            "**irons_spellbooks:summon_damage": 0.02
+        }
+    },
+    {
+        "key": "mmt_iron_spell_summon_damage",
+        "level": 3,
+        "integrity": -3,
+        "aspects": {
+            "honed": 3
+        },
+        "attributes": {
+            "**irons_spellbooks:summon_damage": 0.03
+        },
+        "glyph": {
+            "tint": "FFFFFF"
+        }
+    },
+    {
+        "key": "mmt_iron_spell_summon_damage",
+        "level": 4,
+        "integrity": -4,
+        "aspects": {
+            "honed": 4
+        },
+        "attributes": {
+            "**irons_spellbooks:summon_damage": 0.04
+        },
+        "glyph": {
+            "tint": "FFFFFF"
+        }
+    },
+    {
+        "key": "mmt_iron_spell_summon_damage",
+        "level": 5,
+        "integrity": -5,
+        "aspects": {
+            "honed": 5
+        },
+        "attributes": {
+            "**irons_spellbooks:summon_damage": 0.05
+        },
+        "glyph": {
+            "tint": "FFFFFF"
+        }
+    },
+    {
+        "key": "mmt_iron_spell_summon_damage",
+        "level": 6,
+        "integrity": -6,
+        "aspects": {
+            "honed": 6
+        },
+        "attributes": {
+            "**irons_spellbooks:summon_damage": 0.07
+        },
+        "glyph": {
+            "tint": "FFFFFF"
+        }
+    },
+    {
+        "key": "mmt_iron_spell_summon_damage",
+        "level": 7,
+        "integrity": -7,
+        "aspects": {
+            "honed": 7
+        },
+        "attributes": {
+            "**irons_spellbooks:summon_damage": 0.09
+        },
+        "glyph": {
+            "tint": "FFFFFF"
+        }
+    },
+    {
+        "key": "mmt_iron_spell_summon_damage",
+        "level": 8,
+        "integrity": -8,
+        "aspects": {
+            "honed": 8
+        },
+        "attributes": {
+            "**irons_spellbooks:summon_damage": 0.11
+        },
+        "glyph": {
+            "tint": "FFFFFF"
+        }
+    },
+    {
+        "key": "mmt_iron_spell_summon_damage",
+        "level": 9,
+        "integrity": -9,
+        "aspects": {
+            "honed": 9
+        },
+        "attributes": {
+            "**irons_spellbooks:summon_damage": 0.13
+        },
+        "glyph": {
+            "tint": "FFFFFF"
+        }
+    },
+    {
+        "key": "mmt_iron_spell_summon_damage",
+        "level": 10,
+        "integrity": -10,
+        "aspects": {
+            "honed": 10
+        },
+        "attributes": {
+            "**irons_spellbooks:summon_damage": 0.15
+        },
+        "glyph": {
+            "tint": "FFFFFF"
+        }
+    }
+]

@@ -1,0 +1,32 @@
+{
+    "replace": true,
+    "slots": [
+        "single/binding"
+    ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+    "materialSlotCount": 1,
+    "rarity": "temporary",
+    "displayType": "major",
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 96,
+        "textureY": 0
+    },
+    "requirement": {
+        "type": "tetra:locked",
+        "key": "tetra:single/more_mod_tetra_iron_spell_nature_staff"
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:socket/" ],
+            "moduleKey": "single/more_mod_tetra/iron_spell_nature/more_mod_tetra_iron_spell_nature_staff_socket",
+            "moduleVariant": "more_mod_tetra_iron_spell_nature_staff_socket/",
+            "experienceFactor": 1
+        }
+    ]
+}

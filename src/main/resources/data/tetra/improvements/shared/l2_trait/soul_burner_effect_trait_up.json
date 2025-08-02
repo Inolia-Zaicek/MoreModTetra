@@ -1,0 +1,35 @@
+[
+  {
+    "key": "soul_burner_effect_trait_up",
+    "level": 1,
+    "integrity": -2,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "more_mod_tetra:soul_burner_effect_trait": 1
+    }
+  },
+  {
+    "key": "soul_burner_effect_trait_up",
+    "level": 2,
+    "integrity": -2,
+    "aspects": {
+      "honed": 2
+    },
+    "effects": {
+      "more_mod_tetra:soul_burner_effect_trait": 2
+    }
+  },
+  {
+    "key": "soul_burner_effect_trait_up",
+    "level": 3,
+    "integrity": -2,
+    "aspects": {
+      "honed": 3
+    },
+    "effects": {
+      "more_mod_tetra:soul_burner_effect_trait": 3
+    }
+  }
+]

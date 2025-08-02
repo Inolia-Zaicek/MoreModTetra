@@ -1,0 +1,26 @@
+{
+  "replace": true,
+  "requirement": {
+    "type": "tetra:and",
+    "requirements": [
+      {
+        "type": "tetra:craft_type",
+        "craft": "module"
+      },
+      {
+        "type": "tetra:material",
+        "material": {
+          "items": [ "more_mod_tetra:spreading_roots" ]
+        }
+      }
+    ]
+  },
+  "outcomes": [
+      {
+          "type": "tetra:apply_enchantments",
+          "enchantments": {
+            "minecraft:infinity": 1
+          }
+      }
+  ]
+}

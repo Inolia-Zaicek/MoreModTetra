@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "pattern": [
+    " B ",
+    "CAC",
+    " B "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:writable_book"
+    },
+    "B": {
+      "item": "iceandfire:dragonbone"
+    },
+    "C": {
+      "item": "iceandfire:manuscript"
+    }
+  },
+  "result": {
+    "item": "tetra:scroll_rolled",
+    "count": 1,
+    "nbt": {
+      "BlockEntityTag": {
+        "data": [
+          {
+            "key": "iceandfire/mmt_iceandfire_dragon_scroll",
+            "schematics": [ "tetra:iceandfire/mmt_iceandfire_dragon_scroll"],
+            "intricate": false,
+            "material": 1,
+            "ribbon": "b2b2b2",
+            "glyphs": [ 3, 8, 1, 4 ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+    "key": "crimson_gem",
+    "category": "gem",
+    "primary": 6.9,
+    "secondary": 3.2,
+    "tertiary": 0,
+    "durability": 2001,
+    "integrityCost": 2,
+    "integrityGain": 2,
+    "magicCapacity": 60,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "7f00ff",
+        "texture": "7f00ff"
+    },
+    "attributes": {
+        "*eidolon:chanting_speed": 0.5,
+        "generic.armor_toughness": 0.5
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "eidolon:crimson_gem" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "eidolon"
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "replace": true,
+    "slots": [
+        "sword/blade",
+        "single/head",
+        "double/head_left",
+        "bow/string",
+        "bow/stave",
+        "crossbow/stave"
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "botania"
+        }
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "materialSlotCount": 1,
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 48,
+        "textureY": 96
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:improvement",
+                "improvement": "mana_regeneration_up",
+                "level":2
+            },
+            {
+                "type": "tetra:locked",
+                "key": "tetra:shared/mmt_botania_scroll"
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "botania:terrasteel_ingot" ],
+                "count":2
+            },
+            "improvements": {
+                "mana_regeneration_up": 3
+            }
+        }
+    ]
+}

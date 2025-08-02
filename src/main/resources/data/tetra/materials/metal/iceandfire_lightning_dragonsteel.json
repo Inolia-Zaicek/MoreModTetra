@@ -1,0 +1,39 @@
+{
+  "replace": true,
+  "key": "iceandfire_lightning_dragonsteel",
+  "category": "metal",
+  "primary": 24,
+  "secondary": 4.5,
+  "tertiary": 2,
+  "durability": 8000,
+  "integrityCost": 4,
+  "integrityGain": 6,
+  "magicCapacity": 60,
+  "toolLevel": "tetra:maxed_forge_hammer",
+  "toolEfficiency": 10,
+  "tints": {
+    "glyph": "856fb5",
+    "texture": "856fb5"
+  },
+  "textures": [
+    "metal",
+    "default"
+  ],
+  "material": {
+    "items": [
+      "iceandfire:dragonsteel_lightning_ingot"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:lightning_dragonsteel_material": 20
+  },
+  "requiredTools": {
+    "hammer_dig": "minecraft:iron"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ]
+}
