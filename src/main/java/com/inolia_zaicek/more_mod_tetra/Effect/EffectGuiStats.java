@@ -401,6 +401,10 @@ public class EffectGuiStats {
     public static final String unstableCompoundName = MoreModTetra.MODID + ".effect.unstable_compound.name";
     public static final String unstableCompoundTooltip = MoreModTetra.MODID + ".effect.unstable_compound.tooltip";
     //本体
+    public static final ItemEffect growingEffect = ItemEffect.get(MoreModTetra.MODID + ":growing");
+    public static final String growingName = MoreModTetra.MODID + ".effect.growing.name";
+    public static final String growingTooltip = MoreModTetra.MODID + ".effect.growing.tooltip";
+
     public static final ItemEffect duelEffect = ItemEffect.get(MoreModTetra.MODID + ":duel");
     public static final String duelName = MoreModTetra.MODID + ".effect.duel.name";
     public static final String duelTooltip = MoreModTetra.MODID + ".effect.duel.tooltip";
@@ -408,6 +412,10 @@ public class EffectGuiStats {
     public static final ItemEffect invulnerabilityBladeEffect = ItemEffect.get(MoreModTetra.MODID + ":invulnerability_blade");
     public static final String invulnerabilityBladeName = MoreModTetra.MODID + ".effect.invulnerability_blade.name";
     public static final String invulnerabilityBladeTooltip = MoreModTetra.MODID + ".effect.invulnerability_blade.tooltip";
+
+    public static final ItemEffect devouringStoneEffect = ItemEffect.get(MoreModTetra.MODID + ":devouring_stone");
+    public static final String devouringStoneName = MoreModTetra.MODID + ".effect.devouring_stone.name";
+    public static final String devouringStoneTooltip = MoreModTetra.MODID + ".effect.devouring_stone.tooltip";
     //灾变
     public static final ItemEffect blazingBrandEffect = ItemEffect.get(MoreModTetra.MODID + ":blazing_brand");
     public static final String blazingBrandName = MoreModTetra.MODID + ".effect.blazing_brand.name";
@@ -707,6 +715,10 @@ public class EffectGuiStats {
     public static final ItemEffect hideBladeEffect = ItemEffect.get(MoreModTetra.MODID + ":hide_blade");
     public static final String hideBladeName = MoreModTetra.MODID + ".effect.hide_blade.name";
     public static final String hideBladeTooltip = MoreModTetra.MODID + ".effect.hide_blade.tooltip";
+
+    public static final ItemEffect ripeningHaloEffect = ItemEffect.get(MoreModTetra.MODID + ":ripening_halo");
+    public static final String ripeningHaloName = MoreModTetra.MODID + ".effect.ripening_halo.name";
+    public static final String ripeningHaloTooltip = MoreModTetra.MODID + ".effect.ripening_halo.tooltip";
 
     public static final ItemEffect entityResonanceEffect = ItemEffect.get(MoreModTetra.MODID + ":entity_resonance");
     public static final String entityResonanceName = MoreModTetra.MODID + ".effect.entity_resonance.name";

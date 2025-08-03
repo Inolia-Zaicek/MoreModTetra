@@ -37,6 +37,8 @@ public class MoreModTetraItemRegister {
 
     public static final TagKey<Item> malum_scythe_effect = TagKey.create(Registries.ITEM,new ResourceLocation("more_mod_tetra","malum_scythe_effect"));
     public static final TagKey<Item> iron_spell_casting = TagKey.create(Registries.ITEM,new ResourceLocation("more_mod_tetra","iron_spell_casting"));
+    public static final TagKey<Item> stoneTag = TagKey.create(Registries.ITEM,new ResourceLocation("minecraft","stone_tool_materials"));
+    public static final TagKey<Item> stoneTag2 = TagKey.create(Registries.ITEM,new ResourceLocation("forge","stone"));
     //原版
     public static final RegistryObject<Item> CopperLantern = registerCommonMaterials(ZeroingITEM,"copper_lantern", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> ReverseMirror = registerCommonMaterials(ZeroingITEM,"reverse_mirror", () -> new Item(new Item.Properties().stacksTo(64)));
@@ -53,6 +55,8 @@ public class MoreModTetraItemRegister {
     public static final RegistryObject<Item> FloatingThreads = registerCommonMaterials(ZeroingITEM,"floating_threads", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> SpreadingRoots = registerCommonMaterials(ZeroingITEM,"spreading_roots", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> GoldenSilk = registerCommonMaterials(ZeroingITEM,"golden_silk", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> BoneIngot = registerCommonMaterials(ZeroingITEM,"bone_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> DevouringStoneVine = registerCommonMaterials(ZeroingITEM,"devouring_stone_vine", () -> new Item(new Item.Properties().stacksTo(64)));
 
     //钱币
     public static final RegistryObject<Item> CopperMoney = registerCommonMaterials(ZeroingITEM,"copper_money", () -> new Item(new Item.Properties().stacksTo(64)));

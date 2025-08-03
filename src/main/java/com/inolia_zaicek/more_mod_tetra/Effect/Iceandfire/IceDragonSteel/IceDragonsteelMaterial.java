@@ -61,12 +61,27 @@ public class IceDragonsteelMaterial {
                     mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,200,2));
                     float number = (float) effectLevel / 100;
                     float numberA = (float) effectLevel / 200;
-                    //冰龙
-                    if(mob instanceof EntityFireDragon||mob instanceof EntityLightningDragon) {
-                        event.setAmount(event.getAmount()*(1+number));
+                    float damage =event.getAmount();
+                    event.setAmount(damage*(1-number));
+                    //非火龙
+                    if(mob instanceof EntityLightningDragon||mob instanceof EntityFireDragon) {
+                        mob.invulnerableTime=0;
+                        mob.setLastHurtByPlayer(player);
+                        mob.hurt(mob.damageSources().freeze(),damage*number*(1+number));
+                        mob.setLastHurtByPlayer(player);
                     }
                     if(mob instanceof EntityIceDragon) {
-                        event.setAmount(event.getAmount()*(1+numberA));
+                        mob.invulnerableTime=0;
+                        mob.setLastHurtByPlayer(player);
+                        mob.hurt(mob.damageSources().freeze(),damage*number*(1+numberA));
+                        mob.setLastHurtByPlayer(player);
+                    }
+                    //不是龙
+                    if(!(mob instanceof EntityFireDragon)&&!(mob instanceof EntityIceDragon)&&!(mob instanceof EntityLightningDragon)){
+                        mob.invulnerableTime=0;
+                        mob.setLastHurtByPlayer(player);
+                        mob.hurt(mob.damageSources().freeze(),damage*number);
+                        mob.setLastHurtByPlayer(player);
                     }
                     }
                 }

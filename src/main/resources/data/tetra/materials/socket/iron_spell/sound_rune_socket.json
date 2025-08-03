@@ -18,7 +18,7 @@
   "textures": [
     "perk_glow_0",
     "perk_sided_0"
-  ],
+],
   "material": {
     "items": [
       "alshanex_familiars:sound_rune"

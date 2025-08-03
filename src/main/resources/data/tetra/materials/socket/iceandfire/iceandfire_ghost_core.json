@@ -18,7 +18,7 @@
   "textures": [
     "perk_glow_0",
     "perk_sided_0"
-  ],
+],
   "attributes": {
     "**generic.attack_damage": 0.1,
     "**tetra:draw_damage": 0.1,

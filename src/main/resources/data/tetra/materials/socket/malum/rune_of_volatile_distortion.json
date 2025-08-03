@@ -18,7 +18,7 @@
   "textures": [
     "perk_glow_0",
     "perk_sided_0"
-  ],
+],
   "effects" : {
       "more_mod_tetra:rune_of_volatile_distortion": 1
   },

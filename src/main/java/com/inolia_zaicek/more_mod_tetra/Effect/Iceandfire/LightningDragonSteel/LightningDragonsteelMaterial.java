@@ -35,7 +35,7 @@ public class LightningDragonsteelMaterial {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static int hurt(LivingHurtEvent event) {
+    public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("iceandfire")) {
             //攻击
             if (event.getSource().getDirectEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
@@ -80,8 +80,8 @@ public class LightningDragonsteelMaterial {
                         mob.hurt(mob.damageSources().lightningBolt(),damage*number);
                         mob.setLastHurtByPlayer(player);
                     }
-                    }
                 }
+            }
             //挨打
             else if (event.getEntity() instanceof Player player && !(event.getSource().getEntity() instanceof Player)) {
                 ItemStack mainHandItem = player.getMainHandItem();
@@ -111,7 +111,6 @@ public class LightningDragonsteelMaterial {
                     }
                 }
             }
-            }
-        return 0;
+        }
     }
-    }
+}

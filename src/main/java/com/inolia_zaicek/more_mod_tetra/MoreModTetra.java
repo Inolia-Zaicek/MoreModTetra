@@ -216,6 +216,7 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(IAmStorm.class);
             MinecraftForge.EVENT_BUS.register(UnceasingStorm.class);
         }
+
         if(ModList.get().isLoaded("iceandfire")) {
             MinecraftForge.EVENT_BUS.register(FireDragonsteelMaterial.class);
             MinecraftForge.EVENT_BUS.register(IceDragonsteelMaterial.class);
@@ -229,8 +230,9 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(IceDragonPower.class);
             MinecraftForge.EVENT_BUS.register(LightningDragonPower.class);
             //幻灵
-            MinecraftForge.EVENT_BUS.register(UndeadHydra.class);MinecraftForge.EVENT_BUS.register(GhostSword.class);
+            //MinecraftForge.EVENT_BUS.register(UndeadHydra.class);MinecraftForge.EVENT_BUS.register(GhostSword.class);
         }
+
         if(ModList.get().isLoaded("enigmaticlegacy")) {
             MinecraftForge.EVENT_BUS.register(EvilIngotMaterial.class);
             MinecraftForge.EVENT_BUS.register(EtheriumIngotMaterial.class);
@@ -284,7 +286,7 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(RuneOfTheStorm.class);
         }
         //明日方舟
-
+        /*
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
             MinecraftForge.EVENT_BUS.register(MMTIngotDrop.class);
             MinecraftForge.EVENT_BUS.register(ExpandedCognition.class);
@@ -305,6 +307,7 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(CollapsingFear.class);
             MinecraftForge.EVENT_BUS.register(Dominion.class);
         }
+         */
         if(ModList.get().isLoaded("caerula_arbor")) {
             MinecraftForge.EVENT_BUS.register(SanityHurt.class);
         }
@@ -329,13 +332,16 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(IndustrialProtection.class);
         MinecraftForge.EVENT_BUS.register(FoodAcquisition.class);
         MinecraftForge.EVENT_BUS.register(InvulnerabilityBlade.class);
+        MinecraftForge.EVENT_BUS.register(DevouringStone.class);
+        MinecraftForge.EVENT_BUS.register(Growing.class);
+        MinecraftForge.EVENT_BUS.register(RipeningHalo.class);
     }
 
     @SubscribeEvent
     public void commonSetup(FMLCommonSetupEvent event){
         if(ModList.get().isLoaded("iceandfire")) {
             //幻灵
-            GhostSwordChannel.init();
+            //GhostSwordChannel.init();
         }
         if(ModList.get().isLoaded("botania")) {
             TerraRayChannel.init();
@@ -345,6 +351,9 @@ public class MoreModTetra {
     // 客户端设置事件，用于注册渲染器和GUI屏幕
     private void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            Growing.init();
+            RipeningHalo.init();
+            DevouringStone.init();
             InvulnerabilityBlade.init();
             FoodAcquisition.init();
             IndustrialProtection.init();

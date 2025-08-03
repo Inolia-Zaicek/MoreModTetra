@@ -56,8 +56,8 @@ public class EvilCurse {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                if (effectLevel > 0&&Minecraft.getInstance().player != null) {
-                    int curses = SuperpositionHandler.getCurseAmount(Minecraft.getInstance().player);
+                if (effectLevel > 0) {
+                    int curses = SuperpositionHandler.getCurseAmount(player);
                     float number = (float) effectLevel / 100;
                     float damage =event.getAmount();
                     event.setAmount(damage*(1+number*curses));
@@ -80,8 +80,8 @@ public class EvilCurse {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                if (effectLevel > 0&&Minecraft.getInstance().player != null) {
-                    int curses = SuperpositionHandler.getCurseAmount(Minecraft.getInstance().player);
+                if (effectLevel > 0 ) {
+                    int curses = SuperpositionHandler.getCurseAmount(player);
                     float number = (float) effectLevel / 100;
                     float damage = event.getAmount();
                     float mhp = player.getMaxHealth();

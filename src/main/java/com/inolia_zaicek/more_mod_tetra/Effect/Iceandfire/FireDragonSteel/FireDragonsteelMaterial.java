@@ -56,15 +56,30 @@ public class FireDragonsteelMaterial {
                     }
                 }
                 if (effectLevel > 0) {
-                    mob.setRemainingFireTicks(200);
+                    mob.setRemainingFireTicks(mob.getRemainingFireTicks()+200);
                     float number = (float) effectLevel / 100;
                     float numberA = (float) effectLevel / 200;
-                    //冰龙
-                    if(mob instanceof EntityIceDragon||mob instanceof EntityLightningDragon) {
-                        event.setAmount(event.getAmount()*(1+number));
+                    float damage =event.getAmount();
+                    event.setAmount(damage*(1-number));
+                    //非火龙
+                    if(mob instanceof EntityLightningDragon||mob instanceof EntityIceDragon) {
+                        mob.invulnerableTime=0;
+                        mob.setLastHurtByPlayer(player);
+                        mob.hurt(mob.damageSources().onFire(),damage*number*(1+number));
+                        mob.setLastHurtByPlayer(player);
                     }
                     if(mob instanceof EntityFireDragon) {
-                        event.setAmount(event.getAmount()*(1+numberA));
+                        mob.invulnerableTime=0;
+                        mob.setLastHurtByPlayer(player);
+                        mob.hurt(mob.damageSources().onFire(),damage*number*(1+numberA));
+                        mob.setLastHurtByPlayer(player);
+                    }
+                    //不是龙
+                    if(!(mob instanceof EntityFireDragon)&&!(mob instanceof EntityIceDragon)&&!(mob instanceof EntityLightningDragon)){
+                        mob.invulnerableTime=0;
+                        mob.setLastHurtByPlayer(player);
+                        mob.hurt(mob.damageSources().onFire(),damage*number);
+                        mob.setLastHurtByPlayer(player);
                     }
                     }
                 }
