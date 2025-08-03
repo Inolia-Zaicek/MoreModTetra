@@ -1,0 +1,44 @@
+{
+    "key": "avaritia_singularity_netherite",
+    "hidden": false,
+    "category": "socket",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 2500,
+    "integrityCost": 1,
+    "integrityGain": 0,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "806164",
+        "texture": "695e5f"
+    },
+    "textures": [
+        "default_glow"
+    ],
+    "material": {
+        "items": [
+            "avaritia:singularity_netherite"
+        ]
+    },
+    "attributes": {
+        "**generic.attack_speed": 1.0,
+        "**forge:attack_range": 1.0,
+        "**forge:reach_distance": 1.0,
+        "**generic.attack_damage": 2.0,
+        "**generic.armor": 1.0,
+        "**generic.armor_toughness": 1.0,
+        "**tetra:draw_speed": -1.0,
+        "**tetra:draw_strength": 1.0,
+        "**generic.max_health": 1.0,
+        "**generic.movement_speed": 1.0
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "avaritia"
+        }
+    ]
+}

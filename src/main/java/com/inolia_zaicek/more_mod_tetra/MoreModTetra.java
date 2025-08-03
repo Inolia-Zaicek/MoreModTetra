@@ -316,6 +316,9 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(DefeatDemons.class);
         MinecraftForge.EVENT_BUS.register(OverSlash.class);
         MinecraftForge.EVENT_BUS.register(UltimateSlash.class);
+        MinecraftForge.EVENT_BUS.register(FinalSlash.class);
+        MinecraftForge.EVENT_BUS.register(RisingSlash.class);
+        MinecraftForge.EVENT_BUS.register(ExceedSlash.class);
         MinecraftForge.EVENT_BUS.register(BanHeal.class);
         MinecraftForge.EVENT_BUS.register(BanHealEvent.class);
         MinecraftForge.EVENT_BUS.register(Powerless.class);
@@ -372,6 +375,9 @@ public class MoreModTetra {
             DefeatDemons.init();
             OverSlash.init();
             UltimateSlash.init();
+            FinalSlash.init();
+            RisingSlash.init();
+            ExceedSlash.init();
             ReverseMirror.init();
             UnderwaterOperations.init();
             EmergencyRescue.init();
@@ -629,6 +635,12 @@ public class MoreModTetra {
                     2,
                     //rgb十进制代码
                     16777215, 9, 3, 6, 2));
+            event.accept(this.setupSchematic("bow/mmt_bow_improvements", "more_mod_tetra",new String[]{"bow/mmt_bow_improvements"},
+                    false,
+                    //材料数量影响卷轴本体颜色
+                    2,
+                    //rgb十进制代码
+                    3407667, 9, 3, 6, 2));
             event.accept(this.setupSchematic("shared/mmt_critical_strike_improvements", "more_mod_tetra",
                     new String[]{"shared/mmt_critical_strike_improvements"},
                     false,

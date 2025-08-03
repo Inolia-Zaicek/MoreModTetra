@@ -1,7 +1,7 @@
 {
     "key": "fire_dragonbone",
     "category": "dragon_blood_bone",
-    "primary": 6.5,
+    "primary": 9.2,
     "secondary": 4.5,
     "tertiary": 3.5,
     "durability": 120,
@@ -16,7 +16,7 @@
     },
     "effects" : {
         "armorPenetration": 15,
-        "more_mod_tetra:fire_dragon_blood_coating": 30
+        "more_mod_tetra:fire_dragon_blood_coating": 75
     },
     "material": {
         "items": [ "more_mod_tetra:fire_dragonbone" ]

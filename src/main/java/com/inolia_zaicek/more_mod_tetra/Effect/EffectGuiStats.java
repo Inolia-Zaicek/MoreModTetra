@@ -676,6 +676,18 @@ public class EffectGuiStats {
     public static final String ultimateSlashName = MoreModTetra.MODID + ".effect.ultimate_slash.name";
     public static final String ultimateSlashTooltip = MoreModTetra.MODID + ".effect.ultimate_slash.tooltip";
 
+    public static final ItemEffect finalSlashEffect = ItemEffect.get(MoreModTetra.MODID + ":final_slash");
+    public static final String finalSlashName = MoreModTetra.MODID + ".effect.final_slash.name";
+    public static final String finalSlashTooltip = MoreModTetra.MODID + ".effect.final_slash.tooltip";
+
+    public static final ItemEffect exceedSlashEffect = ItemEffect.get(MoreModTetra.MODID + ":exceed_slash");
+    public static final String exceedSlashName = MoreModTetra.MODID + ".effect.exceed_slash.name";
+    public static final String exceedSlashTooltip = MoreModTetra.MODID + ".effect.exceed_slash.tooltip";
+
+    public static final ItemEffect risingSlashEffect = ItemEffect.get(MoreModTetra.MODID + ":rising_slash");
+    public static final String risingSlashName = MoreModTetra.MODID + ".effect.rising_slash.name";
+    public static final String risingSlashTooltip = MoreModTetra.MODID + ".effect.rising_slash.tooltip";
+
     public static final ItemEffect constantFluxEffect = ItemEffect.get(MoreModTetra.MODID + ":constant_flux");
     public static final String constantFluxName = MoreModTetra.MODID + ".effect.constant_flux.name";
     public static final String constantFluxTooltip = MoreModTetra.MODID + ".effect.constant_flux.tooltip";

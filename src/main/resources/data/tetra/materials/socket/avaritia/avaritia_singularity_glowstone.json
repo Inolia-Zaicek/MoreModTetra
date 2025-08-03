@@ -1,0 +1,44 @@
+{
+    "key": "avaritia_singularity_glowstone",
+    "hidden": false,
+    "category": "socket",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 2500,
+    "integrityCost": 1,
+    "integrityGain": 0,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "F8CD8B",
+        "texture": "F8CD8B"
+    },
+    "textures": [
+        "default_glow"
+    ],
+    "material": {
+        "items": [
+            "avaritia:singularity_glowstone"
+        ]
+    },
+    "attributes": {
+        "**generic.attack_speed": 1.2,
+        "**forge:attack_range": 0.6,
+        "**forge:reach_distance": 0.6,
+        "**generic.attack_damage": 0.6,
+        "**generic.armor": 0.6,
+        "**generic.armor_toughness": 0.6,
+        "**tetra:draw_speed": -0.6,
+        "**tetra:draw_strength": 0.6,
+        "**generic.max_health": 0.6,
+        "**generic.movement_speed": 0.6
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "avaritia"
+        }
+    ]
+}

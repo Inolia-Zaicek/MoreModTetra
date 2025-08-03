@@ -1,0 +1,39 @@
+{
+    "replace": true,
+    "slots": [
+        "bow/string",
+        "bow/stave",
+        "crossbow/stave"
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureX": 128,
+        "textureY": 32
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "suspend_up"
+                }
+            },
+            {
+                "type": "tetra:locked",
+                "key": "tetra:shared/mmt_bow_improvements"
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "experienceFactor": 2,
+            "improvements": {
+                "suspend_up": 1
+            }
+        }
+    ]
+}

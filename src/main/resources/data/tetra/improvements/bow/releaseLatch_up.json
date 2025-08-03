@@ -1,0 +1,13 @@
+[
+  {
+    "key": "releaseLatch_up",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "more_mod_tetra:releaseLatch": 1
+    }
+  }
+]

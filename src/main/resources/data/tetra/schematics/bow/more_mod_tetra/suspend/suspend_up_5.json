@@ -1,0 +1,29 @@
+{
+    "replace": true,
+    "slots": [
+        "bow/string",
+        "bow/stave",
+        "crossbow/stave"
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 32,
+        "textureY": 80
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "suspend_up",
+        "level":4
+    },
+    "outcomes": [
+        {
+            "experienceFactor": 2,
+            "improvements": {
+                "suspend_up": 5
+            }
+        }
+    ]
+}
