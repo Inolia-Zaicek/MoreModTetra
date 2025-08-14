@@ -12,6 +12,22 @@ import java.util.Objects;
 
 
 public class EffectGuiStats {
+    //额外植物学
+    public static final ItemEffect shiningPowerEffect = ItemEffect.get(MoreModTetra.MODID + ":shining_power");
+    public static final String shiningPowerName = MoreModTetra.MODID + ".effect.shining_power.name";
+    public static final String shiningPowerTooltip = MoreModTetra.MODID + ".effect.shining_power.tooltip";
+
+    public static final ItemEffect shadowiumPowerEffect = ItemEffect.get(MoreModTetra.MODID + ":shadowium_power");
+    public static final String shadowiumPowerName = MoreModTetra.MODID + ".effect.shadowium_power.name";
+    public static final String shadowiumPowerTooltip = MoreModTetra.MODID + ".effect.shadowium_power.tooltip";
+
+    public static final ItemEffect speedForceEffect = ItemEffect.get(MoreModTetra.MODID + ":speed_force");
+    public static final String speedForceName = MoreModTetra.MODID + ".effect.speed_force.name";
+    public static final String speedForceTooltip = MoreModTetra.MODID + ".effect.speed_force.tooltip";
+
+    public static final ItemEffect manaForceEffect = ItemEffect.get(MoreModTetra.MODID + ":mana_force");
+    public static final String manaForceName = MoreModTetra.MODID + ".effect.mana_force.name";
+    public static final String manaForceTooltip = MoreModTetra.MODID + ".effect.mana_force.tooltip";
     //恶意词条
     public static final ItemEffect cursedEffectTraitEffect = ItemEffect.get(MoreModTetra.MODID + ":cursed_effect_trait");
     public static final String cursedEffectTraitName = MoreModTetra.MODID + ".effect.cursed_effect_trait.name";

@@ -16,7 +16,9 @@
       "tags": [
         "forge:tools/knives","c:knives","bakery:knives","farmersdelight:tools/knives","forge:knives",
         "butcher:butcher_enchantable","kaleidoscope_cookery:kitchen_knife","minecraft:breaks_decorated_pots",
-        "farmersdelight:straw_harvesters","minecraft:tools"
+        "farmersdelight:straw_harvesters","minecraft:tools",
+        "forge:tools/scavenging",
+        "ends_delight:dragon_loot_tools"
       ],
       "attributes": {
         "generic.attack_speed": -1,

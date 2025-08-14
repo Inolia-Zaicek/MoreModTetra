@@ -23,7 +23,7 @@
         "items": [ "more_mod_tetra:golden_silk" ]
     },
     "effects": {
-        "mending": 1
+        "more_mod_tetra:mending": 1
     },
     "requiredTools": {
         "cut": "minecraft:gold"

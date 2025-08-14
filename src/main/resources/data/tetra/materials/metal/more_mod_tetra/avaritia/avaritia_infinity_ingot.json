@@ -14,9 +14,6 @@
         "glyph": "000000",
         "texture": "000000"
     },
-    "effects" : {
-        "more_mod_tetra:invulnerability_blade": 100
-    },
     "textures": [
         "heavy",
         "metal"
@@ -37,8 +34,8 @@
         "**tetra:draw_speed": -10,
         "**tetra:draw_strength": 10,
         "**generic.max_health": 10,
-        "tetra:draw_speed": -100,
-        "generic.attack_speed": 100
+        "tetra:draw_speed": -50,
+        "generic.attack_speed": 50
     },
     "conditions": [
         {

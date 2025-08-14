@@ -7,7 +7,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 
 public class L2Tanky extends MobEffect {
     private static final String HP_UUID = "0B52AA6C-1552-BA78-1575-6C45E81AB318";
-    private static final double HP = 0.2;
+    private static final double HP = 0.5;
     private static final String A_UUID = "0B52AA6C-1552-BA78-1575-6C45E81AB318";
     private static final double A = 10;
     private static final String AM_UUID = "0B52AA6C-1552-BA78-1575-6C45E81AB318";

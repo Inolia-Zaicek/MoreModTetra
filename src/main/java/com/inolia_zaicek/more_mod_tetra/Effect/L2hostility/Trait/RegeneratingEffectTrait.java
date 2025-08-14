@@ -8,6 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -63,10 +64,10 @@ public class RegeneratingEffectTrait {
                                 effectLevel += (int) offEffectLevel;
                             }
                         }
-                        if (effectLevel > 0&&event.player.tickCount % 20 == 0) {
+                        if (effectLevel > 0&&player.level().getGameTime() % 20L == 0) {
                             float mhp =player.getMaxHealth();
                             //5$*词条等级
-                            player.heal(effectLevel*mhp/10);
+                            player.heal(effectLevel*mhp/20);
                         }
                         }
             ));

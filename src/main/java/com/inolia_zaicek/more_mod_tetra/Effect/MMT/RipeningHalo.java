@@ -1,11 +1,9 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -30,9 +28,8 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import java.util.Random;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.ripeningHaloTooltip;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE, modid = MoreModTetra.MODID)
 public class RipeningHalo {
     @OnlyIn(Dist.CLIENT)
     public static void init() {
@@ -46,56 +43,88 @@ public class RipeningHalo {
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
+
     @SubscribeEvent
     public static void tick(TickEvent.PlayerTickEvent event) {
-            Player player = event.player;
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel=0;
-            if (mainHandItem.getItem() instanceof ModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, ripeningHaloEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
+        Player player = event.player;
+        Level world = player.level(); // 获取当前世界，可能是 ClientLevel 或 ServerLevel
+
+        // 确保只在服务器端处理游戏逻辑，避免在客户端执行服务端特有的操作
+        // 并且只在玩家没有在客户端世界时（即在服务器端）才执行后续逻辑
+        // 注意：PlayerTickEvent.Phase.START 是默认的。你可能需要考虑在 END 阶段做某些事情
+        // if (world.isClientSide && event.phase == TickEvent.Phase.START) return; // 如果是客户端，且不是END阶段，就直接返回
+        // 更好的做法是，将客户端和服务器端的逻辑分开处理。
+
+        ItemStack mainHandItem = player.getMainHandItem();
+        ItemStack offhandItem = player.getOffhandItem();
+        int effectLevel = 0;
+        if (mainHandItem.getItem() instanceof ModularItem item) {
+            float mainEffectLevel = item.getEffectLevel(mainHandItem, ripeningHaloEffect);
+            if (mainEffectLevel > 0) {
+                effectLevel += (int) mainEffectLevel;
             }
-            if (offhandItem.getItem() instanceof ModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, ripeningHaloEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
+        }
+        if (offhandItem.getItem() instanceof ModularItem item) {
+            float offEffectLevel = item.getEffectLevel(offhandItem, ripeningHaloEffect);
+            if (offEffectLevel > 0) {
+                effectLevel += (int) offEffectLevel;
             }
-            if (effectLevel > 0&&player.level().getGameTime() % (Math.max(2,20-effectLevel)) == 0) {
-                Level world = player.level();
-                Random random = new Random();
-                float rx = random.nextFloat() * 5.0F - 3.0F;
-                float rz = random.nextFloat() * 5.0F - 3.0F;
-                float ry = random.nextFloat() * 2.0F - 2.0F;
-                float ry0 = random.nextFloat() * 2.0F;
-                ((ServerLevel)player.getCommandSenderWorld()).sendParticles(ParticleTypes.HAPPY_VILLAGER, player.getX(), player.getY(), player.getZ(), 1, (double)0.5F, (double)1.0F, (double)0.5F, 0.1);
+        }
+
+        if (effectLevel > 0 && world.getGameTime() % (Math.max(2, 20 - effectLevel)) == 0) {
+            Random random = new Random();
+            float rx = random.nextFloat() * 5.0F - 3.0F;
+            float rz = random.nextFloat() * 5.0F - 3.0F;
+            float ry = random.nextFloat() * 2.0F - 2.0F;
+            float ry0 = random.nextFloat() * 2.0F;
+
+            // **修复点1：粒子效果的处理**
+            // 粒子效果通常在客户端显示。
+            // 如果是服务器端，ServerLevel 会将粒子发送到客户端。
+            // 如果是客户端，ClientLevel 可以直接渲染粒子。
+            if (world instanceof ServerLevel serverLevel) { // 如果是服务器端，安全地转换为 ServerLevel
+                serverLevel.sendParticles(ParticleTypes.HAPPY_VILLAGER, player.getX(), player.getY(), player.getZ(), 1, 0.5D, 1.0D, 0.5D, 0.1D);
+            } else { // 如果是客户端（ClientLevel），则在本地生成粒子
+                world.addParticle(ParticleTypes.HAPPY_VILLAGER, player.getX(), player.getY(), player.getZ(), 0.5D, 1.0D, 0.5D); // 参数可能需要调整
+            }
+
+
+            // **修复点2：骨粉效果只在服务器端执行**
+            // BonemealableBlock 的 performBonemeal 方法会修改方块状态，这是服务器端的行为。
+            // 因此，必须确保只在服务器端调用此逻辑。
+            if (!world.isClientSide) { // 只有在服务器端才执行骨粉逻辑
                 BlockPos posBelow = player.blockPosition().below();
-                BlockState blockStateBelow = player.level().getBlockState(posBelow);
+                BlockState blockStateBelow = world.getBlockState(posBelow);
                 Block below = blockStateBelow.getBlock();
+
                 if (below == Blocks.GRASS_BLOCK) {
-                    BlockPos pos = new BlockPos((int)((float)player.blockPosition().getX() + rx), (int)((float)player.blockPosition().getY() + ry), (int)((float)player.blockPosition().getZ() + rz));
+                    BlockPos pos = new BlockPos((int) ((float) player.blockPosition().getX() + rx), (int) ((float) player.blockPosition().getY() + ry), (int) ((float) player.blockPosition().getZ() + rz));
                     BlockState blockstate = world.getBlockState(pos);
                     Block var17 = blockstate.getBlock();
                     if (var17 instanceof BonemealableBlock) {
-                        BonemealableBlock igrowable = (BonemealableBlock)var17;
-                        if (igrowable.isValidBonemealTarget(world, pos, blockstate, world.isClientSide) && world instanceof ServerLevel && igrowable.isBonemealSuccess(world, world.random, pos, blockstate)) {
-                            igrowable.performBonemeal((ServerLevel)world, world.random, pos, blockstate);
+                        BonemealableBlock igrowable = (BonemealableBlock) var17;
+                        // 确保 world 是 ServerLevel 才能调用 performBonemeal
+                        if (igrowable.isValidBonemealTarget(world, pos, blockstate, false) // isClientSide 应该为 false 在服务端
+                                && world instanceof ServerLevel serverWorld // 再次确认是 ServerLevel
+                                && igrowable.isBonemealSuccess(world, world.random, pos, blockstate)) {
+                            igrowable.performBonemeal(serverWorld, world.random, pos, blockstate);
                         }
                     }
                 } else {
-                    BlockPos pos = new BlockPos((int)((float)player.blockPosition().getX() + rx), (int)((float)player.blockPosition().getY() + ry0), (int)((float)player.blockPosition().getZ() + rz));
+                    BlockPos pos = new BlockPos((int) ((float) player.blockPosition().getX() + rx), (int) ((float) player.blockPosition().getY() + ry0), (int) ((float) player.blockPosition().getZ() + rz));
                     BlockState blockstate = world.getBlockState(pos);
                     Block var22 = blockstate.getBlock();
                     if (var22 instanceof BonemealableBlock) {
-                        BonemealableBlock igrowable = (BonemealableBlock)var22;
-                        if (igrowable.isValidBonemealTarget(world, pos, blockstate, world.isClientSide) && world instanceof ServerLevel && igrowable.isBonemealSuccess(world, world.random, pos, blockstate)) {
-                            igrowable.performBonemeal((ServerLevel)world, world.random, pos, blockstate);
+                        BonemealableBlock igrowable = (BonemealableBlock) var22;
+                        // 确保 world 是 ServerLevel 才能调用 performBonemeal
+                        if (igrowable.isValidBonemealTarget(world, pos, blockstate, false) // isClientSide 应该为 false 在服务端
+                                && world instanceof ServerLevel serverWorld // 再次确认是 ServerLevel
+                                && igrowable.isBonemealSuccess(world, world.random, pos, blockstate)) {
+                            igrowable.performBonemeal(serverWorld, world.random, pos, blockstate);
                         }
                     }
                 }
             }
+        }
     }
 }

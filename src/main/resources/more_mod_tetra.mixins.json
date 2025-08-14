@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "com.inolia_zaicek.more_mod_tetra.Mixins",
   "compatibilityLevel": "JAVA_8",
-  "refmap": "daily_delight.refmap.json",
+  "refmap": "more_mod_tetra.refmap.json",
   "mixins": [
   ],
   "client": [

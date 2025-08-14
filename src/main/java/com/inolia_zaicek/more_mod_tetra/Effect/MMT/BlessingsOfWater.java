@@ -1,4 +1,4 @@
-package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility;
+package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -33,7 +33,6 @@ public class BlessingsOfWater {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if(ModList.get().isLoaded("l2complements")) {
             //挨打
             if (event.getEntity() instanceof Player player) {
                 ItemStack mainHandItem = player.getMainHandItem();
@@ -77,7 +76,6 @@ public class BlessingsOfWater {
                 if (effectLevel > 0) {
                     if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
                         event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
-                    }
                 }
             }
         }

@@ -120,11 +120,11 @@ public class Duel {
                             event.setAmount(damage - damage * 0.2f);
                         }
                     }
-                    //敌人打我都有buff
+                    //敌人打我&&都有buff（敌负我正
                     if (mob.hasEffect(MMTEffectsRegister.NeutralReverDuel.get())
                             && player.hasEffect(MMTEffectsRegister.BeneficialReverDuel.get())) {
-                        int BeLevel = mob.getEffect(MMTEffectsRegister.BeneficialReverDuel.get()).getAmplifier();
-                        int NeLevel = attacked.getEffect(MMTEffectsRegister.NeutralReverDuel.get()).getAmplifier();
+                        int BeLevel = mob.getEffect(MMTEffectsRegister.NeutralReverDuel.get()).getAmplifier();
+                        int NeLevel = attacked.getEffect(MMTEffectsRegister.BeneficialReverDuel.get()).getAmplifier();
                         event.setAmount(damage * (1-(BeLevel+NeLevel)/100f));
                     }
                 }

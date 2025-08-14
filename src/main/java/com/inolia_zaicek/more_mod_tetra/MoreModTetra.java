@@ -27,6 +27,10 @@ import com.inolia_zaicek.more_mod_tetra.Effect.Enigmaticlegacy.EtheriumGuard;
 import com.inolia_zaicek.more_mod_tetra.Effect.Enigmaticlegacy.EtheriumIngotMaterial;
 import com.inolia_zaicek.more_mod_tetra.Effect.Enigmaticlegacy.EvilCurse;
 import com.inolia_zaicek.more_mod_tetra.Effect.Enigmaticlegacy.EvilIngotMaterial;
+import com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany.ManaForce;
+import com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany.ShadowiumPower;
+import com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany.ShiningPower;
+import com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany.SpeedForce;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect.ColdWave;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect.Freeze;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect.FreezeRing;
@@ -230,7 +234,28 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(IceDragonPower.class);
             MinecraftForge.EVENT_BUS.register(LightningDragonPower.class);
             //幻灵
-            //MinecraftForge.EVENT_BUS.register(UndeadHydra.class);MinecraftForge.EVENT_BUS.register(GhostSword.class);
+            MinecraftForge.EVENT_BUS.register(UndeadHydra.class);MinecraftForge.EVENT_BUS.register(GhostSword.class);
+        }
+        //明日方舟
+        if(ModList.get().isLoaded("torchesbecomesunlight")) {
+            MinecraftForge.EVENT_BUS.register(MMTIngotDrop.class);
+            MinecraftForge.EVENT_BUS.register(ExpandedCognition.class);
+            MinecraftForge.EVENT_BUS.register(NociceptorInhibition.class);
+            MinecraftForge.EVENT_BUS.register(Notes.class);
+
+            MinecraftForge.EVENT_BUS.register(ColdWave.class);
+            MinecraftForge.EVENT_BUS.register(Freeze.class);
+            MinecraftForge.EVENT_BUS.register(FreezeRing.class);
+
+            MinecraftForge.EVENT_BUS.register(RitualOfHolyGuard.class);
+            MinecraftForge.EVENT_BUS.register(RitualOfExhortation.class);
+
+            MinecraftForge.EVENT_BUS.register(MarchingTimeAndRuinationTime.class);
+            MinecraftForge.EVENT_BUS.register(MarchingTimeHurt.class);
+            MinecraftForge.EVENT_BUS.register(SacrificeAndThrowingTheHalberd.class);
+
+            MinecraftForge.EVENT_BUS.register(CollapsingFear.class);
+            MinecraftForge.EVENT_BUS.register(Dominion.class);
         }
 
         if(ModList.get().isLoaded("enigmaticlegacy")) {
@@ -239,6 +264,12 @@ public class MoreModTetra {
 
             MinecraftForge.EVENT_BUS.register(EtheriumGuard.class);
             MinecraftForge.EVENT_BUS.register(EvilCurse.class);
+        }
+        if(ModList.get().isLoaded("extrabotany")) {
+            MinecraftForge.EVENT_BUS.register(ManaForce.class);
+            MinecraftForge.EVENT_BUS.register(ShadowiumPower.class);
+            MinecraftForge.EVENT_BUS.register(ShiningPower.class);
+            MinecraftForge.EVENT_BUS.register(SpeedForce.class);
         }
         if(ModList.get().isLoaded("botania")) {
             MinecraftForge.EVENT_BUS.register(PixieSummon.class);
@@ -266,7 +297,6 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(ObsessionOfWarden.class);
             MinecraftForge.EVENT_BUS.register(HidingInShulkerShell.class);
             MinecraftForge.EVENT_BUS.register(EterniumDurability.class);
-            MinecraftForge.EVENT_BUS.register(BlessingsOfWater.class);
             MinecraftForge.EVENT_BUS.register(HostilityControl.class);
             //词条
             MinecraftForge.EVENT_BUS.register(UndyingEffectTrait.class);
@@ -285,29 +315,6 @@ public class MoreModTetra {
         if(ModList.get().isLoaded("aquamirae")) {
             MinecraftForge.EVENT_BUS.register(RuneOfTheStorm.class);
         }
-        //明日方舟
-        /*
-        if(ModList.get().isLoaded("torchesbecomesunlight")) {
-            MinecraftForge.EVENT_BUS.register(MMTIngotDrop.class);
-            MinecraftForge.EVENT_BUS.register(ExpandedCognition.class);
-            MinecraftForge.EVENT_BUS.register(NociceptorInhibition.class);
-            MinecraftForge.EVENT_BUS.register(Notes.class);
-
-            MinecraftForge.EVENT_BUS.register(ColdWave.class);
-            MinecraftForge.EVENT_BUS.register(Freeze.class);
-            MinecraftForge.EVENT_BUS.register(FreezeRing.class);
-
-            MinecraftForge.EVENT_BUS.register(RitualOfHolyGuard.class);
-            MinecraftForge.EVENT_BUS.register(RitualOfExhortation.class);
-
-            MinecraftForge.EVENT_BUS.register(MarchingTimeAndRuinationTime.class);
-            MinecraftForge.EVENT_BUS.register(MarchingTimeHurt.class);
-            MinecraftForge.EVENT_BUS.register(SacrificeAndThrowingTheHalberd.class);
-
-            MinecraftForge.EVENT_BUS.register(CollapsingFear.class);
-            MinecraftForge.EVENT_BUS.register(Dominion.class);
-        }
-         */
         if(ModList.get().isLoaded("caerula_arbor")) {
             MinecraftForge.EVENT_BUS.register(SanityHurt.class);
         }
@@ -338,13 +345,14 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(DevouringStone.class);
         MinecraftForge.EVENT_BUS.register(Growing.class);
         MinecraftForge.EVENT_BUS.register(RipeningHalo.class);
+        MinecraftForge.EVENT_BUS.register(BlessingsOfWater.class);
     }
 
     @SubscribeEvent
     public void commonSetup(FMLCommonSetupEvent event){
         if(ModList.get().isLoaded("iceandfire")) {
             //幻灵
-            //GhostSwordChannel.init();
+            GhostSwordChannel.init();
         }
         if(ModList.get().isLoaded("botania")) {
             TerraRayChannel.init();
@@ -384,6 +392,7 @@ public class MoreModTetra {
             WorkWorkWork.init();
             EntityResonance.init();
             SmallShulker.init();
+            BlessingsOfWater.init();
             if(ModList.get().isLoaded("caerula_arbor")) {
                 SanityHurt.init();
             }
@@ -419,7 +428,6 @@ public class MoreModTetra {
                 ObsessionOfWarden.init();
                 HidingInShulkerShell.init();
                 EterniumDurability.init();
-                BlessingsOfWater.init();
                 MiracleAndMagic.init();
                 HostilityControl.init();
                 //词条
@@ -583,6 +591,12 @@ public class MoreModTetra {
                 TearsOfThunder.init();
                 IAmStorm.init();
                 UnceasingStorm.init();
+            }
+            if(ModList.get().isLoaded("extrabotany")) {
+                ManaForce.init();
+                ShadowiumPower.init();
+                ShiningPower.init();
+                SpeedForce.init();
             }
             if(ModList.get().isLoaded("iceandfire")) {
                 FireDragonsteelMaterial.init();

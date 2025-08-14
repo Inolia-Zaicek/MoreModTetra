@@ -4,6 +4,7 @@ import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
 import dev.xkmc.l2hostility.content.capability.mob.MobTraitCap;
 import dev.xkmc.l2hostility.init.registrate.LHTraits;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
@@ -16,6 +17,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -25,6 +27,8 @@ import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.ModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
+
+import java.util.Objects;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 @Mod.EventBusSubscriber(modid = MoreModTetra.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -48,7 +52,9 @@ public class UndyingEffectTrait {
             //检测到玩家寄了&&玩家没有鬼魅缠身buff
             if (event.getEntity() instanceof Player player
                     //非虚空伤害
-                    &&!event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)
+                    &&!event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)&&
+                    //无诅咒
+                    !player.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "curse"))))
             ) {
                 //饰品部分（莱特兰必定有饰品
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios

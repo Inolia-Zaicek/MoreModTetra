@@ -10,7 +10,7 @@
       "item": "minecraft:writable_book"
     },
     "B": {
-      "tag": "tetra:swords"
+      "item": "minecraft:iron_sword"
     }
   },
   "result": {

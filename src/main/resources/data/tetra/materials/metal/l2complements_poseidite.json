@@ -20,7 +20,7 @@
         "metal"
     ],
     "effects" : {
-        "more_mod_tetra:blessings_of_water": 10
+        "more_mod_tetra:blessings_of_water": 12
     },
     "material": {
         "items": [ "l2complements:poseidite_ingot" ]

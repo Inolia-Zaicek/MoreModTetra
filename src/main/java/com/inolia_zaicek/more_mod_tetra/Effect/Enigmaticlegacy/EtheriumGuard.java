@@ -58,7 +58,7 @@ public class EtheriumGuard {
                 float mhp =player.getMaxHealth();
                 float finish =hp/mhp;
                 if (effectLevel > 0&&finish<=0.5f) {
-                    float number = (float) effectLevel / 100;
+                    float number = Math.min(0.75f, (float) effectLevel / 100 );
                     event.setAmount(event.getAmount()*(1-number));
                 }
             }
