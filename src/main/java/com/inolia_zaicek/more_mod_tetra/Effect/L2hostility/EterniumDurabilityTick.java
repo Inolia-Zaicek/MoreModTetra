@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.eterniumDurabilityEffect;
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.recoveryEffect;
@@ -21,7 +21,7 @@ public class EterniumDurabilityTick {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             if(player.level().getGameTime() % 20L == 0) {
-                if (mainHandItem.getItem() instanceof ModularItem item) {
+                if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, eterniumDurabilityEffect);
                     if (mainEffectLevel > 0) {
                         //当前耐久
@@ -31,7 +31,7 @@ public class EterniumDurabilityTick {
                         mainHandItem.setDamageValue(Math.min(maxDurability, currentDurability + maxDurability * (int) (mainEffectLevel / 100)));
                     }
                 }
-                if (offhandItem.getItem() instanceof ModularItem item) {
+                if (offhandItem.getItem() instanceof IModularItem item) {
                     float offEffectLevel = item.getEffectLevel(offhandItem, eterniumDurabilityEffect);
                     if (offEffectLevel > 0) {
                         int currentDurability = offhandItem.getDamageValue();

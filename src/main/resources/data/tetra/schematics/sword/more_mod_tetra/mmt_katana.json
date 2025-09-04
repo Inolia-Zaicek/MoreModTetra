@@ -18,13 +18,13 @@
             "generic.attack_damage": 3
         },
         "primaryEffects": {
-            "skewering": 1.5
+            "skewering": 3
         },
         "secondaryEffects": {
-            "sweeping": 0.2
+            "sweeping": 2
         },
         "tertiaryEffects": {
-            "sweeping": 1.2
+            "sweeping": 1
         },
         "durability": 3,
         "integrity": -2,

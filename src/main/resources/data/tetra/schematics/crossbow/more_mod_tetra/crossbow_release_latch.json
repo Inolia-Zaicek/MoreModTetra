@@ -1,0 +1,38 @@
+{
+    "replace": true,
+    "slots": [ "crossbow/stock" ],
+    "materialSlotCount": 1,
+    "materialRevealSlot": 0,
+    "rarity": "temporary",
+    "glyph": {
+        "textureX": 80,
+        "textureY": 32
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:module",
+                "module": "crossbow/more_mod_tetra/submachine_stock"
+            },
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "crossbow_release_latch"
+                }
+            }
+        ]
+    },
+    "displayType": "improvement",
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "tetra:quick_latch" ]
+            },
+            "improvements": {
+                "crossbow_release_latch": 1
+            }
+        }
+    ]
+}

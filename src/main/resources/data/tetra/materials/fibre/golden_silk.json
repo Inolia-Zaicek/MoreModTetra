@@ -26,6 +26,6 @@
         "more_mod_tetra:mending": 1
     },
     "requiredTools": {
-        "cut": "minecraft:gold"
+        "cut": "minecraft:wood"
     }
 }

@@ -18,7 +18,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -41,13 +41,13 @@ public class ThreadDepths {
         Player player = event.player;
         ItemStack mainStack = player.getMainHandItem();
         ItemStack offStack = player.getOffhandItem();
-        if (mainStack.getItem() instanceof ModularItem item) {
+        if (mainStack.getItem() instanceof IModularItem item) {
             float level = item.getEffectLevel(mainStack, ThreadDepthsEffect);
             if (level > 0) {
                 player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING,20,0));
             }
         }
-        if (offStack.getItem() instanceof ModularItem item) {
+        if (offStack.getItem() instanceof IModularItem item) {
             float level = item.getEffectLevel(mainStack, ThreadDepthsEffect);
             if (level > 0) {
                 player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING,20,0));

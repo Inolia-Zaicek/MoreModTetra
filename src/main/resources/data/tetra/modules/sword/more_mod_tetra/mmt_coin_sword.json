@@ -14,7 +14,8 @@
       "materials": [ "tetra:metal/", "tetra:gem/" ],
       "key": "mmt_coin_sword/",
       "attributes": {
-        "generic.attack_speed": -1.5
+        "generic.attack_speed": -1.7,
+        "generic.attack_damage": -0.5
       },
       "effects": {
         "sweeping": 1,

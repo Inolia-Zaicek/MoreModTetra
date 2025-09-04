@@ -1,0 +1,30 @@
+{
+    "key": "fake_manyullyn_ingot",
+    "category": "metal",
+    "primary": 8.54,
+    "secondary": 3.9,
+    "tertiary": 4.5,
+    "durability": 1512,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 90,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "9060CA",
+        "texture": "9060CA"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "more_mod_tetra:fake_manyullyn_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:fake_insatiable": 4
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    }
+}

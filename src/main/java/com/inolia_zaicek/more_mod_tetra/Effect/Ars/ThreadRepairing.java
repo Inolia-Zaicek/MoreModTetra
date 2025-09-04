@@ -19,7 +19,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -48,7 +48,7 @@ public class ThreadRepairing {
             ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
             ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
             ItemStack feet = player.getItemBySlot(EquipmentSlot.FEET);
-            if (mainStack.getItem() instanceof ModularItem item) {
+            if (mainStack.getItem() instanceof IModularItem item) {
                 float mainLevel = item.getEffectLevel(mainStack, ThreadRepairingEffect);
                 float offLevel = item.getEffectLevel(offStack, ThreadRepairingEffect);
                 float headLevel = item.getEffectLevel(head, ThreadRepairingEffect);

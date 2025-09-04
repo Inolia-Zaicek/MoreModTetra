@@ -2,6 +2,9 @@
     "replace": true,
     "slots": [
         "sword/blade",
+        "slashblade/blade",
+        "greatsword/blade",
+        "polearm/head",
         "single/head",
         "double/head_left",
         "bow/stave",

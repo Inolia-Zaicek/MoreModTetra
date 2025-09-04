@@ -10,7 +10,7 @@
     },
     "translation": {
         "primaryAttributes": {
-            "generic.attack_damage": 2
+            "generic.attack_damage": 1.75
         },
         "primaryEffects": {
             "skewering": 1

@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " BB",
+    " CB",
     "BAB",
-    "BB "
+    "BC "
   ],
   "key": {
     "A": {
@@ -11,6 +11,9 @@
     },
     "B": {
       "item": "minecraft:iron_sword"
+    },
+    "C": {
+      "item": "minecraft:nether_star"
     }
   },
   "result": {

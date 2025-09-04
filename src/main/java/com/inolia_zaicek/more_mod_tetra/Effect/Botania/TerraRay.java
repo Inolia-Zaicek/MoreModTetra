@@ -16,7 +16,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -41,10 +41,10 @@ public class TerraRay {
             var playerEntity = event.getEntity();
             ItemStack mainHandItem = playerEntity.getMainHandItem();
             int nEffectLevel = 0;
-            if (mainHandItem.getItem() instanceof ModularItem item) {
+            if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, terraRayEffect);
                 if (mainEffectLevel > 0) {
-                    nEffectLevel += (int) mainEffectLevel;
+                    nEffectLevel +=  mainEffectLevel;
                 }
             }
             //基础等级50

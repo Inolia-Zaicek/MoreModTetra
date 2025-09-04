@@ -1,0 +1,34 @@
+{
+    "replace": true,
+    "slots": [
+        "sword/blade",
+        "slashblade/blade",
+        "greatsword/blade",
+        "polearm/head",
+        "single/head",
+        "double/head_left",
+        "bow/stave",
+        "crossbow/stave"
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 0,
+        "textureY": 128
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "invulnerable_time_down_up",
+        "level":2
+    },
+    "outcomes": [
+        {
+            "experienceFactor": 2,
+            "improvements": {
+                "invulnerable_time_down_up": 3
+            }
+        }
+    ]
+}

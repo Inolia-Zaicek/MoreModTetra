@@ -1,0 +1,27 @@
+{
+    "replace": true,
+    "slots": [
+        "crossbow/stave",
+        "crossbow/stock"
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureX": 144,
+        "textureY": 32
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "crossbow_power_up",
+        "level":3
+    },
+    "outcomes": [
+        {
+            "experienceFactor": 2,
+            "improvements": {
+                "crossbow_power_up": 4
+            }
+        }
+    ]
+}

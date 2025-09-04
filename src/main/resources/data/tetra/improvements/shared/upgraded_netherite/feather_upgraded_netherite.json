@@ -1,0 +1,17 @@
+[
+  {
+    "key": "feather_upgraded_netherite",
+    "level": 0,
+    "integrity": 0,
+    "aspects": {
+      "upgraded_netherite": 2
+    },
+    "attributes": {
+      "generic.attack_damage": 1,
+      "tetra:draw_strength": 1
+    },
+    "effects": {
+      "janking": [6, 0]
+    }
+  }
+]

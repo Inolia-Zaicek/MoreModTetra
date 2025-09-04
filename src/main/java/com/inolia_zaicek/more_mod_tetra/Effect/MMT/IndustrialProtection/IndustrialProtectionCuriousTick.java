@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.emergencyRescueEffect;
@@ -21,12 +21,12 @@ public class IndustrialProtectionCuriousTick {
     public static void tick(TickEvent.PlayerTickEvent event) {
             Player player = event.player;
         CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                (itemStack -> itemStack.getItem() instanceof ModularItem).forEach(
+                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                 slotResult -> {
                     slotResult.stack();
                     ItemStack itemStack = slotResult.stack();
-                    ModularItem item = (ModularItem) itemStack.getItem();
-                    int level = item.getEffectLevel(itemStack, emergencyRescueEffect);
+                    IModularItem item = (IModularItem) itemStack.getItem();
+                    int level = item.getEffectLevel(itemStack, industrialProtectionEffect);
 
                     if (level > 0&&player.level().getGameTime() % 10L == 0&&!player.hasEffect(MMTEffectsRegister.UnIndustrialProtection.get())){
                         player.addEffect(new MobEffectInstance(MMTEffectsRegister.IndustrialProtection.get(),100,level-1));

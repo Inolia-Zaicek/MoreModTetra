@@ -22,14 +22,15 @@
       ],
       "attributes": {
         "generic.attack_speed": -1,
-        "generic.attack_damage": -0.5
+        "generic.attack_damage": -0.8
       },
       "aspects": {
         "edged_weapon": 2,
         "breakable": 2
       },
       "effects": {
-        "more_mod_tetra:food_acquisition": 3
+        "more_mod_tetra:food_acquisition": 3,
+        "more_mod_tetra:beheading": 10
       },
       "durability": -20,
       "extract": {

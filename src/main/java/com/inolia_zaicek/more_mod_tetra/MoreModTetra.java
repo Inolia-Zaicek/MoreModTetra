@@ -1,8 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra;
 
-// import com.inolia_zaicek.daily_delight.Curios.BentoBox.WoodenBentoBoxCurios; // This class might be removed or adapted if you fully replace it
-
-
 
 import com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.Core.MagneticField;
@@ -31,13 +28,15 @@ import com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany.ManaForce;
 import com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany.ShadowiumPower;
 import com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany.ShiningPower;
 import com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany.SpeedForce;
+import com.inolia_zaicek.more_mod_tetra.Effect.FakeTconstruct.FakeInsatiable;
+import com.inolia_zaicek.more_mod_tetra.Effect.FakeTconstruct.FakeMomentum;
+import com.inolia_zaicek.more_mod_tetra.Effect.FakeTconstruct.FakeTasty;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect.ColdWave;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect.Freeze;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect.FreezeRing;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.GunKnightPatriotIngotEffect.ExhortationOfGunKnightPatriot;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.GunKnightPatriotIngotEffect.RitualOfExhortation;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.GunKnightPatriotIngotEffect.RitualOfHolyGuard;
-import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.IngotDrop.MMTIngotDrop;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect.MarchingTimeAndRuinationTime;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect.MarchingTimeHurt;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect.SacrificeAndThrowingTheHalberd;
@@ -75,11 +74,20 @@ import com.inolia_zaicek.more_mod_tetra.Effect.MMT.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curious.HideBladeCurious;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curious.ReverseMirrorHurtCurious;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curious.SmallShulkerHurtCurious;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.DeepDarkFantasy;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Edge.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.IndustrialProtection.IndustrialProtection;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.NitenIchiryu.NitenIchiryuKatana;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.NitenIchiryu.NitenIchiryuWakizashi;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Shield.ShieldSkillAutomaticDefense;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Shield.ShieldSkillAutomaticProtection;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Shield.ShieldSkillCooldownDown;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Slash.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.Malum.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.Malum.TotemicRunes.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft.SMCFrost;
+import com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft.SMCFrostBurst;
 import com.inolia_zaicek.more_mod_tetra.Network.GhostSwordChannel;
 import com.inolia_zaicek.more_mod_tetra.Network.TerraRayChannel;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
@@ -236,6 +244,7 @@ public class MoreModTetra {
             //幻灵
             MinecraftForge.EVENT_BUS.register(UndeadHydra.class);MinecraftForge.EVENT_BUS.register(GhostSword.class);
         }
+        /*
         //明日方舟
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
             MinecraftForge.EVENT_BUS.register(MMTIngotDrop.class);
@@ -258,6 +267,7 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(Dominion.class);
         }
 
+         */
         if(ModList.get().isLoaded("enigmaticlegacy")) {
             MinecraftForge.EVENT_BUS.register(EvilIngotMaterial.class);
             MinecraftForge.EVENT_BUS.register(EtheriumIngotMaterial.class);
@@ -287,7 +297,6 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(RadioactiveMaterial.class);
             MinecraftForge.EVENT_BUS.register(MagnetizingMetal.class);
             MinecraftForge.EVENT_BUS.register(LavaMob.class);
-            MinecraftForge.EVENT_BUS.register(DeepDarkFantasy.class);
             MinecraftForge.EVENT_BUS.register(IntoBubbled.class);
             MinecraftForge.EVENT_BUS.register(AbyssalOceanEcho.class);
             MinecraftForge.EVENT_BUS.register(Underocean.class);
@@ -346,6 +355,77 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(Growing.class);
         MinecraftForge.EVENT_BUS.register(RipeningHalo.class);
         MinecraftForge.EVENT_BUS.register(BlessingsOfWater.class);
+        MinecraftForge.EVENT_BUS.register(DeepDarkFantasy.class);
+        MinecraftForge.EVENT_BUS.register(FakeInsatiable.class);
+        MinecraftForge.EVENT_BUS.register(FakeMomentum.class);
+        MinecraftForge.EVENT_BUS.register(Fragile.class);
+        MinecraftForge.EVENT_BUS.register(ReverselSmite.class);
+        MinecraftForge.EVENT_BUS.register(Necrotic.class);
+        MinecraftForge.EVENT_BUS.register(LetThePeopleRejoice.class);
+        MinecraftForge.EVENT_BUS.register(MagicEdge.class);
+        MinecraftForge.EVENT_BUS.register(MagicProficiency.class);
+        MinecraftForge.EVENT_BUS.register(LightningEdge.class);
+        MinecraftForge.EVENT_BUS.register(LightningProficiency.class);
+        MinecraftForge.EVENT_BUS.register(FireEdge.class);
+        MinecraftForge.EVENT_BUS.register(FireProficiency.class);
+        MinecraftForge.EVENT_BUS.register(FreezeEdge.class);
+        MinecraftForge.EVENT_BUS.register(FreezeProficiency.class);
+        MinecraftForge.EVENT_BUS.register(ShieldSkillAutomaticDefense.class);
+        MinecraftForge.EVENT_BUS.register(ShieldSkillAutomaticProtection.class);
+        MinecraftForge.EVENT_BUS.register(ShieldSkillCooldownDown.class);
+        MinecraftForge.EVENT_BUS.register(Puncture.class);
+        MinecraftForge.EVENT_BUS.register(HeavyChop.class);
+        MinecraftForge.EVENT_BUS.register(StarBurstStream.class);
+        MinecraftForge.EVENT_BUS.register(Eclipse.class);
+        MinecraftForge.EVENT_BUS.register(EclipseStarBurstStream.class);
+        MinecraftForge.EVENT_BUS.register(InvulnerableTimeDown.class);
+        MinecraftForge.EVENT_BUS.register(HeavyHit.class);
+        MinecraftForge.EVENT_BUS.register(OriginSlash.class);
+        MinecraftForge.EVENT_BUS.register(ToolBlocking.class);
+        MinecraftForge.EVENT_BUS.register(TwinSlash.class);;
+        MinecraftForge.EVENT_BUS.register(Beheading.class);
+        MinecraftForge.EVENT_BUS.register(Glowing.class);
+        MinecraftForge.EVENT_BUS.register(ShootingSun.class);
+        MinecraftForge.EVENT_BUS.register(TheCenturyGate.class);
+        MinecraftForge.EVENT_BUS.register(SirenicSerenade.class);
+        MinecraftForge.EVENT_BUS.register(FirstLightHealsTheWorld.class);
+        MinecraftForge.EVENT_BUS.register(JackpotForTheTaking.class);
+        MinecraftForge.EVENT_BUS.register(EverythingIsInEverything.class);
+        MinecraftForge.EVENT_BUS.register(TorchTheLawsOfOld.class);
+        MinecraftForge.EVENT_BUS.register(SanctuaryOfMooncocoon.class);
+        MinecraftForge.EVENT_BUS.register(ToEvernightsStars.class);
+        MinecraftForge.EVENT_BUS.register(ThoughWorldsApart.class);
+        MinecraftForge.EVENT_BUS.register(PyricCorpus.class);
+        MinecraftForge.EVENT_BUS.register(Levitation.class);
+        MinecraftForge.EVENT_BUS.register(Slowness.class);
+        MinecraftForge.EVENT_BUS.register(Ignite.class);
+        MinecraftForge.EVENT_BUS.register(FlameKiller.class);
+        MinecraftForge.EVENT_BUS.register(FlamelessKiller.class);
+        MinecraftForge.EVENT_BUS.register(FireCombo.class);
+        MinecraftForge.EVENT_BUS.register(FreezeCombo.class);
+        MinecraftForge.EVENT_BUS.register(LightningCombo.class);
+        MinecraftForge.EVENT_BUS.register(MagicCombo.class);
+        MinecraftForge.EVENT_BUS.register(WitherCombo.class);
+        MinecraftForge.EVENT_BUS.register(WitherEdge.class);
+        MinecraftForge.EVENT_BUS.register(WitherProficiency.class);
+        MinecraftForge.EVENT_BUS.register(DragonBreathCombo.class);
+        MinecraftForge.EVENT_BUS.register(DragonBreathEdge.class);
+        MinecraftForge.EVENT_BUS.register(DragonBreathProficiency.class);
+        MinecraftForge.EVENT_BUS.register(Enderference.class);
+        MinecraftForge.EVENT_BUS.register(EnderferenceEvent.class);
+        MinecraftForge.EVENT_BUS.register(PiglinKiller.class);
+        MinecraftForge.EVENT_BUS.register(PhantomKiller.class);
+        MinecraftForge.EVENT_BUS.register(EndermanKiller.class);
+        MinecraftForge.EVENT_BUS.register(EmeraldPillage.class);
+        MinecraftForge.EVENT_BUS.register(SMCFrostBurst.class);
+        MinecraftForge.EVENT_BUS.register(SMCFrost.class);
+        MinecraftForge.EVENT_BUS.register(ExtraAquaticProducts.class);
+        MinecraftForge.EVENT_BUS.register(HealthPower.class);
+        MinecraftForge.EVENT_BUS.register(Vampiric.class);
+        MinecraftForge.EVENT_BUS.register(Capturing.class);
+        MinecraftForge.EVENT_BUS.register(MagicOscillation.class);
+        MinecraftForge.EVENT_BUS.register(AwakeningSlash.class);
+        MinecraftForge.EVENT_BUS.register(TrueSlash.class);
     }
 
     @SubscribeEvent
@@ -362,6 +442,77 @@ public class MoreModTetra {
     // 客户端设置事件，用于注册渲染器和GUI屏幕
     private void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            TrueSlash.init();
+            AwakeningSlash.init();
+            MagicOscillation.init();
+            Capturing.init();
+            Vampiric.init();
+            HealthPower.init();
+            ExtraAquaticProducts.init();
+            SMCFrostBurst.init();
+            SMCFrost.init();
+            EmeraldPillage.init();
+            EmeraldPillage.init();
+            PhantomKiller.init();
+            EndermanKiller.init();
+            PiglinKiller.init();
+            Enderference.init();
+            DragonBreathCombo.init();
+            DragonBreathEdge.init();
+            DragonBreathProficiency.init();
+            WitherCombo.init();
+            WitherEdge.init();
+            WitherProficiency.init();
+            FireCombo.init();
+            FreezeCombo.init();
+            LightningCombo.init();
+            MagicCombo.init();
+            FlamelessKiller.init();
+            FlameKiller.init();
+            Ignite.init();
+            Slowness.init();
+            Levitation.init();
+            PyricCorpus.init();
+            ThoughWorldsApart.init();
+            ToEvernightsStars.init();
+            SanctuaryOfMooncocoon.init();
+            TorchTheLawsOfOld.init();
+            EverythingIsInEverything.init();
+            JackpotForTheTaking.init();
+            FirstLightHealsTheWorld.init();
+            SirenicSerenade.init();
+            TheCenturyGate.init();
+            ShootingSun.init();
+            Glowing.init();
+            Beheading.init();
+            TwinSlash.init();
+            ToolBlocking.init();
+            HeavyHit.init();
+            OriginSlash.init();
+            InvulnerableTimeDown.init();
+            EclipseStarBurstStream.init();
+            Eclipse.init();
+            StarBurstStream.init();
+            HeavyChop.init();
+            Puncture.init();
+            ShieldSkillCooldownDown.init();
+            ShieldSkillAutomaticProtection.init();
+            ShieldSkillAutomaticDefense.init();
+            FreezeProficiency.init();
+            FreezeEdge.init();
+            FireProficiency.init();
+            FireEdge.init();
+            LightningProficiency.init();
+            LightningEdge.init();
+            MagicProficiency.init();
+            MagicEdge.init();
+            LetThePeopleRejoice.init();
+            Necrotic.init();
+            ReverselSmite.init();
+            Fragile.init();
+            FakeInsatiable.init();
+            FakeMomentum.init();
+            FakeTasty.init();
             Growing.init();
             RipeningHalo.init();
             DevouringStone.init();
@@ -662,6 +813,13 @@ public class MoreModTetra {
                     2,
                     //rgb十进制代码
                     65280, 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/mmt_upgraded_netherite", "more_mod_tetra",
+                    new String[]{"shared/mmt_upgraded_netherite"},
+                    false,
+                    //材料数量影响卷轴本体颜色
+                    1,
+                    //rgb十进制代码
+                    6914367, 9, 3, 6, 2));
             event.accept(this.setupSchematic("shared/mmt_more_improvements", "more_mod_tetra",
                     new String[]{"shared/mmt_more_improvements"},
                     false,
@@ -676,6 +834,62 @@ public class MoreModTetra {
             event.accept(this.setupSchematic("shared/mmt_skill_improvements", "more_mod_tetra",
                     new String[]{"shared/mmt_skill_improvements"}, false, 2,//材料数量影响卷轴本体颜色
                     10066329//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shield/mmt_shield_skill", "more_mod_tetra",
+                    new String[]{"shield/mmt_shield_skill"},
+                    false,
+                    //材料数量影响卷轴本体颜色
+                    2,
+                    //rgb十进制代码
+                    16777215, 9, 3, 6, 2));
+            //十二泰坦
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_sky_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_sky_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    65280//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_earth_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_earth_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    16776960//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_ocean_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_ocean_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    3302399//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_romance_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_romance_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    6431426//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_worldbearing_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_worldbearing_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    7286334//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_reason_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_reason_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    65453//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_trickery_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_trickery_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    4419965//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_strife_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_strife_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    16766976//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_death_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_death_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    10040127//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_time_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_time_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    16738751//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_law_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_law_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    3670015//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_passage_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_passage_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    16711680//rgb十进制代码
                     , 9, 3, 6, 2));
             //附属
             if(ModList.get().isLoaded("iceandfire")) {

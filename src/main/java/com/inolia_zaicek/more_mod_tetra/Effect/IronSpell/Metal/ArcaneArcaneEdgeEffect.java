@@ -17,7 +17,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -51,7 +51,7 @@ public class ArcaneArcaneEdgeEffect {
         if (attackingEntity instanceof LivingEntity attacker) {
             // 检查 attacker 是否是一个 LivingEntity。如果不是（例如箭矢射出的是一个 Entity，而不是 LivingEntity），则不处理。
             ItemStack heldStack = attacker.getMainHandItem();
-            if (heldStack.getItem() instanceof ModularItem item) {
+            if (heldStack.getItem() instanceof IModularItem item) {
                 float level = item.getEffectLevel(heldStack, arcaneArcaneEdgeEffect);
                 if (level > 0) {
                     //基础攻击伤害量

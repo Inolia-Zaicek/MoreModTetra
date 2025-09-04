@@ -11,8 +11,8 @@
     "toolLevel": 0,
     "toolEfficiency": 0,
     "tints": {
-        "glyph": "stone_glyph",
-        "texture": "stone"
+        "glyph": "707070",
+        "texture": "707070"
     },
     "textures": [
         "crude",
@@ -22,7 +22,7 @@
         "items": [ "more_mod_tetra:devouring_stone_vine" ]
     },
     "effects" : {
-        "more_mod_tetra:devouring_stone": 2
+        "more_mod_tetra:devouring_stone": 5
     },
     "requiredTools": {
         "cut": "minecraft:wood"

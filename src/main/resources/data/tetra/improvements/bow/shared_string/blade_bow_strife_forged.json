@@ -1,0 +1,19 @@
+[
+  {
+    "key": "blade_bow_strife_forged",
+    "level": 0,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "attributes": {
+      "**generic.attack_speed": 0.15,
+      "**generic.attack_damage": 0.15,
+      "**tetra:draw_speed": -0.15,
+      "**tetra:draw_strength": 0.15
+    },
+    "effects": {
+      "suspend": 15
+    }
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "materials": ["tetra:socket/"],
+    "key": "bow_blade_socket/",
+    "group": "bow_blade_socket",
+    "level": 0,
+    "integrity": -1,
+    "attributes": {
+      "**tetra:draw_strength": 0.2
+    },
+    "extract": {
+      "availableTextures": [ "" ],
+      "models": [
+        {
+          "location": "more_mod_tetra:item/module/bow/more_mod_tetra/bow_blade_socket",
+          "renderLayer": "high"
+        },
+        {
+          "type": "draw_0",
+          "location": "more_mod_tetra:item/module/bow/more_mod_tetra/bow_blade_socket",
+          "renderLayer": "high"
+        },
+        {
+          "type": "draw_1",
+          "location": "more_mod_tetra:item/module/bow/more_mod_tetra/bow_blade_socket",
+          "renderLayer": "high"
+        },
+        {
+          "type": "draw_2",
+          "location": "more_mod_tetra:item/module/bow/more_mod_tetra/bow_blade_socket",
+          "renderLayer": "high"
+        }
+      ]
+    }
+  }
+]

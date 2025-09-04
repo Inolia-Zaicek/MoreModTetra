@@ -17,7 +17,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -44,7 +44,7 @@ public class FireArcaneGuardEffect {
         float baseAmount = event.getAmount();
             ItemStack mainHandItem = target.getMainHandItem();
             ItemStack offhandItem = target.getOffhandItem();
-            if (mainHandItem.getItem() instanceof ModularItem item) {
+            if (mainHandItem.getItem() instanceof IModularItem item) {
                 float level = item.getEffectLevel(mainHandItem, fireArcaneGuardEffect);
                 if (level > 0) {
                     //获取法强属性
@@ -54,7 +54,7 @@ public class FireArcaneGuardEffect {
                     float finish = 1-Math.min(0.5f,magic+resist-2);
                     event.setAmount(baseAmount*finish);
                 }
-            }else if (offhandItem.getItem() instanceof ModularItem item) {
+            }else if (offhandItem.getItem() instanceof IModularItem item) {
                 float level = item.getEffectLevel(offhandItem, fireArcaneGuardEffect);
                 if (level > 0) {
                     //获取法强属性

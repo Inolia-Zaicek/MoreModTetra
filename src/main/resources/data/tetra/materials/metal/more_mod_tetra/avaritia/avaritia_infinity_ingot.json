@@ -21,6 +21,9 @@
     "material": {
         "items": [ "avaritia:infinity_ingot" ]
     },
+    "effects" : {
+        "more_mod_tetra:invulnerable_time_down": 100
+    },
     "requiredTools": {
         "hammer_dig": "minecraft:iron"
     },
@@ -31,10 +34,9 @@
         "**generic.attack_damage": 10,
         "**generic.armor": 10,
         "**generic.armor_toughness": 10,
-        "**tetra:draw_speed": -10,
+        "**tetra:draw_speed": -100,
         "**tetra:draw_strength": 10,
         "**generic.max_health": 10,
-        "tetra:draw_speed": -50,
         "generic.attack_speed": 50
     },
     "conditions": [

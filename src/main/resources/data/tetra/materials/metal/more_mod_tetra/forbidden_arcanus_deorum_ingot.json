@@ -1,0 +1,38 @@
+{
+    "key": "forbidden_arcanus_deorum_ingot",
+    "category": "metal",
+    "primary": 5.5,
+    "secondary": 4.1,
+    "tertiary": 1,
+    "durability": 332,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 132,
+    "toolLevel": "minecraft:gold",
+    "toolEfficiency": 11,
+    "tints": {
+        "glyph": "e8ae2e",
+        "texture": "e8ae2e"
+    },
+    "textures": [
+        "shiny",
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "forbidden_arcanus:deorum_ingot" ]
+    },
+    ,
+    "effects" : {
+        "more_mod_tetra:defeat_demons": 20
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "forbidden_arcanus"
+        }
+    ]
+}

@@ -21,7 +21,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import java.util.*;
@@ -48,13 +48,13 @@ public class StabilizingEffect {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof ModularItem item) {
+            if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, StabilizingEffect);
                 if (mainEffectLevel > 0) {
                     effectLevel += (int) mainEffectLevel;
                 }
             }
-            if (offhandItem.getItem() instanceof ModularItem item) {
+            if (offhandItem.getItem() instanceof IModularItem item) {
                 float offEffectLevel = item.getEffectLevel(offhandItem, StabilizingEffect);
                 if (offEffectLevel > 0) {
                     effectLevel += (int) offEffectLevel;
@@ -83,13 +83,13 @@ public class StabilizingEffect {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             int effectLevel=0;
-            if (mainHandItem.getItem() instanceof ModularItem item) {
+            if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, StabilizingEffect);
                 if (mainEffectLevel > 0) {
                     effectLevel += (int) mainEffectLevel;
                 }
             }
-                if (offhandItem.getItem() instanceof ModularItem item) {
+                if (offhandItem.getItem() instanceof IModularItem item) {
                     float offEffectLevel = item.getEffectLevel(offhandItem, StabilizingEffect);
                     if (offEffectLevel > 0) {
                         effectLevel += (int) offEffectLevel;

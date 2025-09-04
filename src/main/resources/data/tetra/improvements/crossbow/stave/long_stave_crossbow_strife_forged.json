@@ -1,0 +1,17 @@
+[
+  {
+    "key": "long_stave_crossbow_strife_forged",
+    "level": 0,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "attributes": {
+      "**tetra:draw_speed": -0.1,
+      "**tetra:draw_strength": 0.2
+    },
+    "effects": {
+      "suspend": 20
+    }
+  }
+]

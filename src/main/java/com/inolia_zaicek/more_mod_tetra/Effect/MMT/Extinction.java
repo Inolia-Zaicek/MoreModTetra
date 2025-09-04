@@ -13,7 +13,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -33,18 +33,18 @@ public class Extinction {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getDirectEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof Player player) {
                 var mob = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
                 int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof ModularItem item) {
+                if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, extinctionEffect);
                     if (mainEffectLevel > 0) {
                         effectLevel += (int) mainEffectLevel;
                     }
                 }
-                if (offhandItem.getItem() instanceof ModularItem item) {
+                if (offhandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(offhandItem, extinctionEffect);
                     if (mainEffectLevel > 0) {
                         effectLevel += (int) mainEffectLevel;

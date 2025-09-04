@@ -11,7 +11,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.coldWaveEffect;
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.freezeEffect;
@@ -25,13 +25,13 @@ public class ColdWaveTick {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof ModularItem item) {
+            if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, coldWaveEffect);
                 if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
+                    effectLevel +=  mainEffectLevel;
                 }
             }
-            if (offhandItem.getItem() instanceof ModularItem item) {
+            if (offhandItem.getItem() instanceof IModularItem item) {
                 float offEffectLevel = item.getEffectLevel(offhandItem, coldWaveEffect);
                 if (offEffectLevel > 0) {
                     effectLevel += (int) offEffectLevel;

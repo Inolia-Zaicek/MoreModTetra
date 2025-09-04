@@ -1,0 +1,27 @@
+{
+    "key": "jade",
+    "category": "gem",
+    "primary": 5.4,
+    "secondary": 2.8,
+    "tertiary": 0,
+    "durability": 1011,
+    "integrityCost": 2,
+    "integrityGain": 3,
+    "magicCapacity": 60,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "58E196",
+        "texture": "58E196"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "tag": "forge:gems/jade"
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    }
+}

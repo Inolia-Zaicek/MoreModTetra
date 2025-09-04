@@ -7,14 +7,14 @@
     ],
     "key": {
         "B": {
-            "item": "minecraft:stick"
+            "item": "minecraft:gold_ingot"
         },
         "A": {
-            "item": "minecraft:gold_ingot"
+            "item": "minecraft:string"
         }
     },
     "result": {
         "item": "more_mod_tetra:golden_silk",
-        "count": 1
+        "count": 2
     }
 }

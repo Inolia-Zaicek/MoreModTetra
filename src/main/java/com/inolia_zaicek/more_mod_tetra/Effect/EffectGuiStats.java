@@ -12,6 +12,238 @@ import java.util.Objects;
 
 
 public class EffectGuiStats {
+    //双刀
+    public static final ItemEffect eclipseStarBurstStreamEffect = ItemEffect.get(MoreModTetra.MODID + ":eclipse_star_burst_stream");
+    public static final String eclipseStarBurstStreamName = MoreModTetra.MODID + ".effect.eclipse_star_burst_stream.name";
+    public static final String eclipseStarBurstStreamTooltip = MoreModTetra.MODID + ".effect.eclipse_star_burst_stream.tooltip";
+
+    public static final ItemEffect starBurstStreamEffect = ItemEffect.get(MoreModTetra.MODID + ":star_burst_stream");
+    public static final String starBurstStreamName = MoreModTetra.MODID + ".effect.star_burst_stream.name";
+    public static final String starBurstStreamTooltip = MoreModTetra.MODID + ".effect.star_burst_stream.tooltip";
+
+    public static final ItemEffect eclipseEffect = ItemEffect.get(MoreModTetra.MODID + ":eclipse");
+    public static final String eclipseName = MoreModTetra.MODID + ".effect.eclipse.name";
+    public static final String eclipseTooltip = MoreModTetra.MODID + ".effect.eclipse.tooltip";
+
+    public static final ItemEffect twinSlashEffect = ItemEffect.get(MoreModTetra.MODID + ":twin_slash");
+    public static final String twinSlashName = MoreModTetra.MODID + ".effect.twin_slash.name";
+    public static final String twinSlashTooltip = MoreModTetra.MODID + ".effect.twin_slash.tooltip";
+
+    public static final ItemEffect invulnerableTimeDownEffect = ItemEffect.get(MoreModTetra.MODID + ":invulnerable_time_down");
+    public static final String invulnerableTimeDownName = MoreModTetra.MODID + ".effect.invulnerable_time_down.name";
+    public static final String invulnerableTimeDownTooltip = MoreModTetra.MODID + ".effect.invulnerable_time_down.tooltip";
+    //十二泰坦
+    public static final ItemEffect thoughWorldsApartEffect = ItemEffect.get(MoreModTetra.MODID + ":though_worlds_apart");
+    public static final String thoughWorldsApartName = MoreModTetra.MODID + ".effect.though_worlds_apart.name";
+    public static final String thoughWorldsApartTooltip = MoreModTetra.MODID + ".effect.though_worlds_apart.tooltip";
+
+    public static final ItemEffect toEvernightsStarsEffect = ItemEffect.get(MoreModTetra.MODID + ":to_evernights_stars");
+    public static final String toEvernightsStarsName = MoreModTetra.MODID + ".effect.to_evernights_stars.name";
+    public static final String toEvernightsStarsTooltip = MoreModTetra.MODID + ".effect.to_evernights_stars.tooltip";
+
+    public static final ItemEffect firstLightHealsTheWorldEffect = ItemEffect.get(MoreModTetra.MODID + ":first_light_heals_the_world");
+    public static final String firstLightHealsTheWorldName = MoreModTetra.MODID + ".effect.first_light_heals_the_world.name";
+    public static final String firstLightHealsTheWorldTooltip = MoreModTetra.MODID + ".effect.first_light_heals_the_world.tooltip";
+
+    public static final ItemEffect pyricCorpusEffect = ItemEffect.get(MoreModTetra.MODID + ":pyric_corpus");
+    public static final String pyricCorpusName = MoreModTetra.MODID + ".effect.pyric_corpus.name";
+    public static final String pyricCorpusTooltip = MoreModTetra.MODID + ".effect.pyric_corpus.tooltip";
+
+    public static final ItemEffect everythingIsInEverythingEffect = ItemEffect.get(MoreModTetra.MODID + ":everything_is_in_everything");
+    public static final String everythingIsInEverythingName = MoreModTetra.MODID + ".effect.everything_is_in_everything.name";
+    public static final String everythingIsInEverythingTooltip = MoreModTetra.MODID + ".effect.everything_is_in_everything.tooltip";
+
+    public static final ItemEffect jackpotForTheTakingEffect = ItemEffect.get(MoreModTetra.MODID + ":jackpot_for_the_taking");
+    public static final String jackpotForTheTakingName = MoreModTetra.MODID + ".effect.jackpot_for_the_taking.name";
+    public static final String jackpotForTheTakingTooltip = MoreModTetra.MODID + ".effect.jackpot_for_the_taking.tooltip";
+
+    public static final ItemEffect sanctuaryOfMooncocoonEffect = ItemEffect.get(MoreModTetra.MODID + ":sanctuary_of_mooncocoon");
+    public static final String sanctuaryOfMooncocoonName = MoreModTetra.MODID + ".effect.sanctuary_of_mooncocoon.name";
+    public static final String sanctuaryOfMooncocoonTooltip = MoreModTetra.MODID + ".effect.sanctuary_of_mooncocoon.tooltip";
+
+    public static final ItemEffect torchTheLawsOfOldEffect = ItemEffect.get(MoreModTetra.MODID + ":torch_the_laws_of_old");
+    public static final String torchTheLawsOfOldName = MoreModTetra.MODID + ".effect.torch_the_laws_of_old.name";
+    public static final String torchTheLawsOfOldTooltip = MoreModTetra.MODID + ".effect.torch_the_laws_of_old.tooltip";
+
+    public static final ItemEffect sirenicSerenadeEffect = ItemEffect.get(MoreModTetra.MODID + ":sirenic_serenade");
+    public static final String sirenicSerenadeName = MoreModTetra.MODID + ".effect.sirenic_serenade.name";
+    public static final String sirenicSerenadeTooltip = MoreModTetra.MODID + ".effect.sirenic_serenade.tooltip";
+
+    public static final ItemEffect theCenturyGateEffect = ItemEffect.get(MoreModTetra.MODID + ":the_century_gate");
+    public static final String theCenturyGateName = MoreModTetra.MODID + ".effect.the_century_gate.name";
+    public static final String theCenturyGateTooltip = MoreModTetra.MODID + ".effect.the_century_gate.tooltip";
+    //其他
+    public static final ItemEffect glowingEffect = ItemEffect.get(MoreModTetra.MODID + ":glowing");
+    public static final String glowingName = MoreModTetra.MODID + ".effect.glowing.name";
+    public static final String glowingTooltip = MoreModTetra.MODID + ".effect.glowing.tooltip";
+
+    public static final ItemEffect beheadingEffect = ItemEffect.get(MoreModTetra.MODID + ":beheading");
+    public static final String beheadingName = MoreModTetra.MODID + ".effect.beheading.name";
+    public static final String beheadingTooltip = MoreModTetra.MODID + ".effect.beheading.tooltip";
+
+    public static final ItemEffect vampiricEffect = ItemEffect.get(MoreModTetra.MODID + ":vampiric");
+    public static final String vampiricName = MoreModTetra.MODID + ".effect.vampiric.name";
+    public static final String vampiricTooltip = MoreModTetra.MODID + ".effect.vampiric.tooltip";
+
+    public static final ItemEffect capturingEffect = ItemEffect.get(MoreModTetra.MODID + ":capturing");
+    public static final String capturingName = MoreModTetra.MODID + ".effect.capturing.name";
+    public static final String capturingTooltip = MoreModTetra.MODID + ".effect.capturing.tooltip";
+
+    public static final ItemEffect necroticEffect = ItemEffect.get(MoreModTetra.MODID + ":necrotic");
+    public static final String necroticName = MoreModTetra.MODID + ".effect.necrotic.name";
+    public static final String necroticTooltip = MoreModTetra.MODID + ".effect.necrotic.tooltip";
+
+    public static final ItemEffect smcFrostBurstEffect = ItemEffect.get(MoreModTetra.MODID + ":smc_frost_burst");
+    public static final String smcFrostBurstName = MoreModTetra.MODID + ".effect.smc_frost_burst.name";
+    public static final String smcFrostBurstTooltip = MoreModTetra.MODID + ".effect.smc_frost_burst.tooltip";
+
+    public static final ItemEffect healthPowerEffect = ItemEffect.get(MoreModTetra.MODID + ":health_power");
+    public static final String healthPowerName = MoreModTetra.MODID + ".effect.health_power.name";
+    public static final String healthPowerTooltip = MoreModTetra.MODID + ".effect.health_power.tooltip";
+
+    public static final ItemEffect extraAquaticProductsEffect = ItemEffect.get(MoreModTetra.MODID + ":extra_aquatic_products");
+    public static final String extraAquaticProductsName = MoreModTetra.MODID + ".effect.extra_aquatic_products.name";
+    public static final String extraAquaticProductsTooltip = MoreModTetra.MODID + ".effect.extra_aquatic_products.tooltip";
+
+    public static final ItemEffect smcFrostEffect = ItemEffect.get(MoreModTetra.MODID + ":smc_frost");
+    public static final String smcFrostName = MoreModTetra.MODID + ".effect.smc_frost.name";
+    public static final String smcFrostTooltip = MoreModTetra.MODID + ".effect.smc_frost.tooltip";
+
+    public static final ItemEffect toolBlockingEffect = ItemEffect.get(MoreModTetra.MODID + ":tool_blocking");
+    public static final String toolBlockingName = MoreModTetra.MODID + ".effect.tool_blocking.name";
+    public static final String toolBlockingTooltip = MoreModTetra.MODID + ".effect.tool_blocking.tooltip";
+
+    public static final ItemEffect shootingSunEffect = ItemEffect.get(MoreModTetra.MODID + ":shooting_sun");
+    public static final String shootingSunName = MoreModTetra.MODID + ".effect.shooting_sun.name";
+    public static final String shootingSunTooltip = MoreModTetra.MODID + ".effect.shooting_sun.tooltip";
+
+    public static final ItemEffect magicOscillationEffect = ItemEffect.get(MoreModTetra.MODID + ":magic_oscillation");
+    public static final String magicOscillationName = MoreModTetra.MODID + ".effect.magic_oscillation.name";
+    public static final String magicOscillationTooltip = MoreModTetra.MODID + ".effect.magic_oscillation.tooltip";
+
+    public static final ItemEffect heavyChopEffect = ItemEffect.get(MoreModTetra.MODID + ":heavy_chop");
+    public static final String heavyChopName = MoreModTetra.MODID + ".effect.heavy_chop.name";
+    public static final String heavyChopTooltip = MoreModTetra.MODID + ".effect.heavy_chop.tooltip";
+
+    public static final ItemEffect originSlashEffect = ItemEffect.get(MoreModTetra.MODID + ":origin_slash");
+    public static final String originSlashName = MoreModTetra.MODID + ".effect.origin_slash.name";
+    public static final String originSlashTooltip = MoreModTetra.MODID + ".effect.origin_slash.tooltip";
+
+    public static final ItemEffect heavyHitEffect = ItemEffect.get(MoreModTetra.MODID + ":heavy_hit");
+    public static final String heavyHitName = MoreModTetra.MODID + ".effect.heavy_hit.name";
+    public static final String heavyHitTooltip = MoreModTetra.MODID + ".effect.heavy_hit.tooltip";
+
+    public static final ItemEffect punctureEffect = ItemEffect.get(MoreModTetra.MODID + ":puncture");
+    public static final String punctureName = MoreModTetra.MODID + ".effect.puncture.name";
+    public static final String punctureTooltip = MoreModTetra.MODID + ".effect.puncture.tooltip";
+
+    public static final ItemEffect fragileEffect = ItemEffect.get(MoreModTetra.MODID + ":fragile");
+    public static final String fragileName = MoreModTetra.MODID + ".effect.fragile.name";
+    public static final String fragileTooltip = MoreModTetra.MODID + ".effect.fragile.tooltip";
+
+    public static final ItemEffect shieldSkillAutomaticDefenseEffect = ItemEffect.get(MoreModTetra.MODID + ":shield_skill_automatic_defense");
+    public static final String shieldSkillAutomaticDefenseName = MoreModTetra.MODID + ".effect.shield_skill_automatic_defense.name";
+    public static final String shieldSkillAutomaticDefenseTooltip = MoreModTetra.MODID + ".effect.shield_skill_automatic_defense.tooltip";
+
+    public static final ItemEffect shieldSkillAutomaticProtectionEffect = ItemEffect.get(MoreModTetra.MODID + ":shield_skill_automatic_protection");
+    public static final String shieldSkillAutomaticProtectionName = MoreModTetra.MODID + ".effect.shield_skill_automatic_protection.name";
+    public static final String shieldSkillAutomaticProtectionTooltip = MoreModTetra.MODID + ".effect.shield_skill_automatic_protection.tooltip";
+
+    public static final ItemEffect shieldSkillCooldownDownEffect = ItemEffect.get(MoreModTetra.MODID + ":shield_skill_cooldown_down");
+    public static final String shieldSkillCooldownDownName = MoreModTetra.MODID + ".effect.shield_skill_cooldown_down.name";
+    public static final String shieldSkillCooldownDownTooltip = MoreModTetra.MODID + ".effect.shield_skill_cooldown_down.tooltip";
+
+    public static final ItemEffect reverselSmiteEffect = ItemEffect.get(MoreModTetra.MODID + ":reversel_smite");
+    public static final String reverselSmiteName = MoreModTetra.MODID + ".effect.reversel_smite.name";
+    public static final String reverselSmiteTooltip = MoreModTetra.MODID + ".effect.reversel_smite.tooltip";
+
+    public static final ItemEffect magicEdgeEffect = ItemEffect.get(MoreModTetra.MODID + ":magic_edge");
+    public static final String magicEdgeName = MoreModTetra.MODID + ".effect.magic_edge.name";
+    public static final String magicEdgeTooltip = MoreModTetra.MODID + ".effect.magic_edge.tooltip";
+
+    public static final ItemEffect magicProficiencyEffect = ItemEffect.get(MoreModTetra.MODID + ":magic_proficiency");
+    public static final String magicProficiencyName = MoreModTetra.MODID + ".effect.magic_proficiency.name";
+    public static final String magicProficiencyTooltip = MoreModTetra.MODID + ".effect.magic_proficiency.tooltip";
+
+    public static final ItemEffect magicComboEffect = ItemEffect.get(MoreModTetra.MODID + ":magic_combo");
+    public static final String magicComboName = MoreModTetra.MODID + ".effect.magic_combo.name";
+    public static final String magicComboTooltip = MoreModTetra.MODID + ".effect.magic_combo.tooltip";
+
+    public static final ItemEffect freezeEdgeEffect = ItemEffect.get(MoreModTetra.MODID + ":freeze_edge");
+    public static final String freezeEdgeName = MoreModTetra.MODID + ".effect.freeze_edge.name";
+    public static final String freezeEdgeTooltip = MoreModTetra.MODID + ".effect.freeze_edge.tooltip";
+
+    public static final ItemEffect freezeProficiencyEffect = ItemEffect.get(MoreModTetra.MODID + ":freeze_proficiency");
+    public static final String freezeProficiencyName = MoreModTetra.MODID + ".effect.freeze_proficiency.name";
+    public static final String freezeProficiencyTooltip = MoreModTetra.MODID + ".effect.freeze_proficiency.tooltip";
+
+    public static final ItemEffect freezeComboEffect = ItemEffect.get(MoreModTetra.MODID + ":freeze_combo");
+    public static final String freezeComboName = MoreModTetra.MODID + ".effect.freeze_combo.name";
+    public static final String freezeComboTooltip = MoreModTetra.MODID + ".effect.freeze_combo.tooltip";
+
+    public static final ItemEffect lightningEdgeEffect = ItemEffect.get(MoreModTetra.MODID + ":lightning_edge");
+    public static final String lightningEdgeName = MoreModTetra.MODID + ".effect.lightning_edge.name";
+    public static final String lightningEdgeTooltip = MoreModTetra.MODID + ".effect.lightning_edge.tooltip";
+
+    public static final ItemEffect lightningProficiencyEffect = ItemEffect.get(MoreModTetra.MODID + ":lightning_proficiency");
+    public static final String lightningProficiencyName = MoreModTetra.MODID + ".effect.lightning_proficiency.name";
+    public static final String lightningProficiencyTooltip = MoreModTetra.MODID + ".effect.lightning_proficiency.tooltip";
+
+    public static final ItemEffect lightningComboEffect = ItemEffect.get(MoreModTetra.MODID + ":lightning_combo");
+    public static final String lightningComboName = MoreModTetra.MODID + ".effect.lightning_combo.name";
+    public static final String lightningComboTooltip = MoreModTetra.MODID + ".effect.lightning_combo.tooltip";
+
+    public static final ItemEffect fireEdgeEffect = ItemEffect.get(MoreModTetra.MODID + ":fire_edge");
+    public static final String fireEdgeName = MoreModTetra.MODID + ".effect.fire_edge.name";
+    public static final String fireEdgeTooltip = MoreModTetra.MODID + ".effect.fire_edge.tooltip";
+
+    public static final ItemEffect fireProficiencyEffect = ItemEffect.get(MoreModTetra.MODID + ":fire_proficiency");
+    public static final String fireProficiencyName = MoreModTetra.MODID + ".effect.fire_proficiency.name";
+    public static final String fireProficiencyTooltip = MoreModTetra.MODID + ".effect.fire_proficiency.tooltip";
+
+    public static final ItemEffect fireComboEffect = ItemEffect.get(MoreModTetra.MODID + ":fire_combo");
+    public static final String fireComboName = MoreModTetra.MODID + ".effect.fire_combo.name";
+    public static final String fireComboTooltip = MoreModTetra.MODID + ".effect.fire_combo.tooltip";
+
+    public static final ItemEffect witherEdgeEffect = ItemEffect.get(MoreModTetra.MODID + ":wither_edge");
+    public static final String witherEdgeName = MoreModTetra.MODID + ".effect.wither_edge.name";
+    public static final String witherEdgeTooltip = MoreModTetra.MODID + ".effect.wither_edge.tooltip";
+
+    public static final ItemEffect witherProficiencyEffect = ItemEffect.get(MoreModTetra.MODID + ":wither_proficiency");
+    public static final String witherProficiencyName = MoreModTetra.MODID + ".effect.wither_proficiency.name";
+    public static final String witherProficiencyTooltip = MoreModTetra.MODID + ".effect.wither_proficiency.tooltip";
+
+    public static final ItemEffect witherComboEffect = ItemEffect.get(MoreModTetra.MODID + ":wither_combo");
+    public static final String witherComboName = MoreModTetra.MODID + ".effect.wither_combo.name";
+    public static final String witherComboTooltip = MoreModTetra.MODID + ".effect.wither_combo.tooltip";
+
+    public static final ItemEffect dragonBreathEdgeEffect = ItemEffect.get(MoreModTetra.MODID + ":dragon_breath_edge");
+    public static final String dragonBreathEdgeName = MoreModTetra.MODID + ".effect.dragon_breath_edge.name";
+    public static final String dragonBreathEdgeTooltip = MoreModTetra.MODID + ".effect.dragon_breath_edge.tooltip";
+
+    public static final ItemEffect dragonBreathProficiencyEffect = ItemEffect.get(MoreModTetra.MODID + ":dragon_breath_proficiency");
+    public static final String dragonBreathProficiencyName = MoreModTetra.MODID + ".effect.dragon_breath_proficiency.name";
+    public static final String dragonBreathProficiencyTooltip = MoreModTetra.MODID + ".effect.dragon_breath_proficiency.tooltip";
+
+    public static final ItemEffect dragonBreathComboEffect = ItemEffect.get(MoreModTetra.MODID + ":dragon_breath_combo");
+    public static final String dragonBreathComboName = MoreModTetra.MODID + ".effect.dragon_breath_combo.name";
+    public static final String dragonBreathComboTooltip = MoreModTetra.MODID + ".effect.dragon_breath_combo.tooltip";
+
+    public static final ItemEffect letThePeopleRejoiceEffect = ItemEffect.get(MoreModTetra.MODID + ":let_the_people_rejoice");
+    public static final String letThePeopleRejoiceName = MoreModTetra.MODID + ".effect.let_the_people_rejoice.name";
+    public static final String letThePeopleRejoiceTooltip = MoreModTetra.MODID + ".effect.let_the_people_rejoice.tooltip";
+    //伪造匠魂
+    public static final ItemEffect fakeInsatiableEffect = ItemEffect.get(MoreModTetra.MODID + ":fake_insatiable");
+    public static final String fakeInsatiableName = MoreModTetra.MODID + ".effect.fake_insatiable.name";
+    public static final String fakeInsatiableTooltip = MoreModTetra.MODID + ".effect.fake_insatiable.tooltip";
+
+    public static final ItemEffect fakeMomentumEffect = ItemEffect.get(MoreModTetra.MODID + ":fake_momentum");
+    public static final String fakeMomentumName = MoreModTetra.MODID + ".effect.fake_momentum.name";
+    public static final String fakeMomentumTooltip = MoreModTetra.MODID + ".effect.fake_momentum.tooltip";
+
+    public static final ItemEffect fakeTastyEffect = ItemEffect.get(MoreModTetra.MODID + ":fake_tasty");
+    public static final String fakeTastyName = MoreModTetra.MODID + ".effect.fake_tasty.name";
+    public static final String fakeTastyTooltip = MoreModTetra.MODID + ".effect.fake_tasty.tooltip";
     //额外植物学
     public static final ItemEffect shiningPowerEffect = ItemEffect.get(MoreModTetra.MODID + ":shining_power");
     public static final String shiningPowerName = MoreModTetra.MODID + ".effect.shining_power.name";
@@ -676,9 +908,45 @@ public class EffectGuiStats {
     public static final String poisonName = MoreModTetra.MODID + ".effect.poison.name";
     public static final String poisonTooltip = MoreModTetra.MODID + ".effect.poison.tooltip";
 
+    public static final ItemEffect levitationEffect = ItemEffect.get(MoreModTetra.MODID + ":levitation");
+    public static final String levitationName = MoreModTetra.MODID + ".effect.levitation.name";
+    public static final String levitationTooltip = MoreModTetra.MODID + ".effect.levitation.tooltip";
+
+    public static final ItemEffect igniteEffect = ItemEffect.get(MoreModTetra.MODID + ":ignite");
+    public static final String igniteName = MoreModTetra.MODID + ".effect.ignite.name";
+    public static final String igniteTooltip = MoreModTetra.MODID + ".effect.ignite.tooltip";
+
+    public static final ItemEffect slownessEffect = ItemEffect.get(MoreModTetra.MODID + ":slowness");
+    public static final String slownessName = MoreModTetra.MODID + ".effect.slowness.name";
+    public static final String slownessTooltip = MoreModTetra.MODID + ".effect.slowness.tooltip";
+
     public static final ItemEffect witherEffect = ItemEffect.get(MoreModTetra.MODID + ":wither");
     public static final String witherName = MoreModTetra.MODID + ".effect.wither.name";
     public static final String witherTooltip = MoreModTetra.MODID + ".effect.wither.tooltip";
+
+    public static final ItemEffect endermanKillerEffect = ItemEffect.get(MoreModTetra.MODID + ":enderman_killer");
+    public static final String endermanKillerName = MoreModTetra.MODID + ".effect.enderman_killer.name";
+    public static final String endermanKillerTooltip = MoreModTetra.MODID + ".effect.enderman_killer.tooltip";
+
+    public static final ItemEffect emeraldPillageEffect = ItemEffect.get(MoreModTetra.MODID + ":emerald_pillage");
+    public static final String emeraldPillageName = MoreModTetra.MODID + ".effect.emerald_pillage.name";
+    public static final String emeraldPillageTooltip = MoreModTetra.MODID + ".effect.emerald_pillage.tooltip";
+
+    public static final ItemEffect phantomKillerEffect = ItemEffect.get(MoreModTetra.MODID + ":phantom_killer");
+    public static final String phantomKillerName = MoreModTetra.MODID + ".effect.phantom_killer.name";
+    public static final String phantomKillerTooltip = MoreModTetra.MODID + ".effect.phantom_killer.tooltip";
+
+    public static final ItemEffect piglinKillerEffect = ItemEffect.get(MoreModTetra.MODID + ":piglin_killer");
+    public static final String piglinKillerName = MoreModTetra.MODID + ".effect.piglin_killer.name";
+    public static final String piglinKillerTooltip = MoreModTetra.MODID + ".effect.piglin_killer.tooltip";
+
+    public static final ItemEffect flameKillerEffect = ItemEffect.get(MoreModTetra.MODID + ":flame_killer");
+    public static final String flameKillerName = MoreModTetra.MODID + ".effect.flame_killer.name";
+    public static final String flameKillerTooltip = MoreModTetra.MODID + ".effect.flame_killer.tooltip";
+
+    public static final ItemEffect flamelessKillerEffect = ItemEffect.get(MoreModTetra.MODID + ":flameless_killer");
+    public static final String flamelessKillerName = MoreModTetra.MODID + ".effect.flameless_killer.name";
+    public static final String flamelessKillerTooltip = MoreModTetra.MODID + ".effect.flameless_killer.tooltip";
 
     public static final ItemEffect minerLanternEffect = ItemEffect.get(MoreModTetra.MODID + ":miner_lantern");
     public static final String minerLanternName = MoreModTetra.MODID + ".effect.miner_lantern.name";
@@ -696,6 +964,14 @@ public class EffectGuiStats {
     public static final String finalSlashName = MoreModTetra.MODID + ".effect.final_slash.name";
     public static final String finalSlashTooltip = MoreModTetra.MODID + ".effect.final_slash.tooltip";
 
+    public static final ItemEffect awakeningSlashEffect = ItemEffect.get(MoreModTetra.MODID + ":awakening_slash");
+    public static final String awakeningSlashName = MoreModTetra.MODID + ".effect.awakening_slash.name";
+    public static final String awakeningSlashTooltip = MoreModTetra.MODID + ".effect.awakening_slash.tooltip";
+
+    public static final ItemEffect trueSlashEffect = ItemEffect.get(MoreModTetra.MODID + ":true_slash");
+    public static final String trueSlashName = MoreModTetra.MODID + ".effect.true_slash.name";
+    public static final String trueSlashTooltip = MoreModTetra.MODID + ".effect.true_slash.tooltip";
+
     public static final ItemEffect exceedSlashEffect = ItemEffect.get(MoreModTetra.MODID + ":exceed_slash");
     public static final String exceedSlashName = MoreModTetra.MODID + ".effect.exceed_slash.name";
     public static final String exceedSlashTooltip = MoreModTetra.MODID + ".effect.exceed_slash.tooltip";
@@ -711,6 +987,10 @@ public class EffectGuiStats {
     public static final ItemEffect defeatDemonsEffect = ItemEffect.get(MoreModTetra.MODID + ":defeat_demons");
     public static final String defeatDemonsName = MoreModTetra.MODID + ".effect.defeat_demons.name";
     public static final String defeatDemonsTooltip = MoreModTetra.MODID + ".effect.defeat_demons.tooltip";
+
+    public static final ItemEffect enderferenceEffect = ItemEffect.get(MoreModTetra.MODID + ":enderference");
+    public static final String enderferenceName = MoreModTetra.MODID + ".effect.enderference.name";
+    public static final String enderferenceTooltip = MoreModTetra.MODID + ".effect.enderference.tooltip";
 
     public static final ItemEffect assassinateEffect = ItemEffect.get(MoreModTetra.MODID + ":assassinate");
     public static final String assassinateName = MoreModTetra.MODID + ".effect.assassinate.name";

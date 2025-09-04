@@ -1,0 +1,63 @@
+{
+    "replace": true,
+    "slots": [ "greatsword/blade" ],
+    "type": "tetra:basic_major_module",
+    "improvements": [
+        "tetra:sword/basic_blade/",
+        "tetra:sword/shared_blade/",
+        "tetra:sword/shared/",
+        "tetra:shared/"
+    ],
+    "variants": [
+        {
+            "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+            "key": "mmt_odachi/",
+            "attributes": {
+                "generic.attack_speed": -1.8,
+                "generic.attack_damage": 0.4
+            },
+            "effects": {
+                "sweeping": 1,
+                "severing": [8, 8]
+            },
+            "tools": {
+                "cut": [ 1, 2 ]
+            },
+            "aspects": {
+                "edged_weapon": 2.5,
+                "breakable": 2.5
+            },
+            "primaryEffects": {
+                "skewering": 0.3,
+                "sweeping": 1,
+                "severing": [4, 1.5]
+            },
+            "secondaryEffects": {
+                "sweeping": 0.1,
+                "severing": [2.5, 1.5]
+            },
+            "tertiaryEffects": {
+                "severing": [1, 2.5],
+                "sweeping": 0.3,
+                "abilityMomentum": 0.1
+            },
+            "durability": 50,
+            "tags": [ "forge:sword" ],
+            "extract": {
+                "primaryAttributes": {
+                    "generic.attack_damage": 1.5
+                },
+                "durability": 0.9,
+                "integrity": -1,
+                "magicCapacity": 1,
+                "glyph": {
+                    "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+                    "textureX": 64,
+                    "textureY": 80
+                },
+                "availableTextures": [ "" ],
+                "models": [{ "location":  "more_mod_tetra:item/module/greatsword/mmt_odachi" }]
+            }
+        }
+    ]
+}

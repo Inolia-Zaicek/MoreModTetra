@@ -35,5 +35,12 @@ public class MMTEffectsRegister {
     public static final RegistryObject<MobEffect> ThrowingTheHalberd = INOEFFECT.register("throwing_the_halberd", HideBlade::new);
     public static final RegistryObject<MobEffect> ThrowingTheHalberdMax = INOEFFECT.register("throwing_the_halberd_max", HideBladeMax::new);
     public static final RegistryObject<MobEffect> Dominion = INOEFFECT.register("dominion", Dominion::new);
-
+    public static final RegistryObject<MobEffect> FakeInsatiable = INOEFFECT.register("fake_insatiable", FakeInsatiable::new);
+    public static final RegistryObject<MobEffect> LetThePeopleRejoice = INOEFFECT.register("let_the_people_rejoice", LetThePeopleRejoice::new);
+    public static final RegistryObject<MobEffect> StarBurstStream = INOEFFECT.register("star_burst_stream", StarBurstStream::new);
+    public static final RegistryObject<MobEffect> Eclipse = INOEFFECT.register("eclipse", Eclipse::new);
+    public static final RegistryObject<MobEffect> EclipseStarBurstStream = INOEFFECT.register("eclipse_star_burst_stream", EclipseStarBurstStream::new);
+    public static final RegistryObject<MobEffect> SanctuaryOfMooncocoon = INOEFFECT.register("sanctuary_of_mooncocoon", SanctuaryOfMooncocoon::new);
+    public static final RegistryObject<MobEffect> SanctuaryOfMooncocoonCooldown = INOEFFECT.register("sanctuary_of_mooncocoon_cooldown", SanctuaryOfMooncocoonCooldown::new);
+    public static final RegistryObject<MobEffect> Enderference = INOEFFECT.register("enderference", Enderference::new);
 }

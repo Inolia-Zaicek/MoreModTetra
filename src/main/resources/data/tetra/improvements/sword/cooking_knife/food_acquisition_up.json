@@ -13,7 +13,7 @@
     {
         "key": "food_acquisition_up",
         "level": 2,
-        "integrity": -2,
+        "integrity": -1,
         "aspects": {
             "honed": 2
         },
@@ -24,7 +24,7 @@
     {
         "key": "food_acquisition_up",
         "level": 3,
-        "integrity": -3,
+        "integrity": -2,
         "aspects": {
             "honed": 3
         },
@@ -35,7 +35,7 @@
     {
         "key": "food_acquisition_up",
         "level": 4,
-        "integrity": -4,
+        "integrity": -2,
         "aspects": {
             "honed": 4
         },
@@ -46,7 +46,7 @@
     {
         "key": "food_acquisition_up",
         "level": 5,
-        "integrity": -5,
+        "integrity": -3,
         "aspects": {
             "honed": 5
         },

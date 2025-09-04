@@ -1,0 +1,56 @@
+{
+  "replace": true,
+  "slots": [
+    "single/head"
+  ],
+  "type": "tetra:basic_major_module",
+  "improvements": [
+    "tetra:single/shared_head/",
+    "tetra:single/shared/",
+    "tetra:shared/"
+  ],
+  "variants": [
+    {
+      "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+      "key": "mmt_flanged_mace/",
+      "attributes": {
+        "generic.attack_speed": -2.2,
+        "generic.attack_damage": 3.2
+      },
+      "effects": {
+        "more_mod_tetra:heavy_hit": 10
+      },
+      "extract": {
+        "primaryAttributes": {
+          "generic.attack_damage": 0.62
+        },
+        "secondaryAttributes": {
+          "generic.attack_damage": 0.21
+        },
+        "primaryEffects": {
+          "more_mod_tetra:heavy_hit": 2
+        },
+        "secondaryEffects": {
+          "more_mod_tetra:heavy_hit": 3
+        },
+        "tertiaryEffects": {
+          "more_mod_tetra:heavy_hit": -1
+        },
+        "durability": 1,
+        "integrity": -1,
+        "magicCapacity": 1,
+        "glyph": {
+          "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+          "textureX": 96,
+          "textureY": 144
+        },
+        "availableTextures": [""],
+        "models": [
+          {
+            "location": "more_mod_tetra:item/module/single/more_mod_tetra/mmt_flanged_mace"
+          }
+        ]
+      }
+    }
+  ]
+}

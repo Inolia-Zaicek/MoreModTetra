@@ -15,7 +15,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
 
@@ -40,11 +40,11 @@ public class HideBladeCurious {
         if (ModList.get().isLoaded("curios")) {
             if (event.getEntity() instanceof Player player && !(event.getSource().getEntity() instanceof Player)) {
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                                (itemStack -> itemStack.getItem() instanceof ModularItem).forEach(
+                                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
                                     slotResult.stack();
                                     ItemStack itemStack = slotResult.stack();
-                                    ModularItem item = (ModularItem) itemStack.getItem();
+                                    IModularItem item = (IModularItem) itemStack.getItem();
                                     int effectLevel = item.getEffectLevel(itemStack, hideBladeEffect);
                                     if (effectLevel > 0) {
                                         //是近战
@@ -52,6 +52,8 @@ public class HideBladeCurious {
                                             //藏锋已满
                                             if (player.hasEffect(MMTEffectsRegister.HideBladeMax.get())) {
                                                 event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                                                player.removeEffect(MMTEffectsRegister.HideBlade.get());
+                                                player.removeEffect(MMTEffectsRegister.HideBladeMax.get());
                                             } else {
                                                 player.removeEffect(MMTEffectsRegister.HideBlade.get());
                                                 player.removeEffect(MMTEffectsRegister.HideBladeMax.get());

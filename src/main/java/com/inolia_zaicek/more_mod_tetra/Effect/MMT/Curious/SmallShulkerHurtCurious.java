@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.reverseMirrorEffect;
@@ -16,13 +16,13 @@ public class SmallShulkerHurtCurious {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getSource().getDirectEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof Player player) {
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                                (itemStack -> itemStack.getItem() instanceof ModularItem).forEach(
+                                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
                                     slotResult.stack();
                                     ItemStack itemStack = slotResult.stack();
-                                    ModularItem item = (ModularItem) itemStack.getItem();
+                                    IModularItem item = (IModularItem) itemStack.getItem();
                                     int level = item.getEffectLevel(itemStack, reverseMirrorEffect);
                                     if (level > 0&&player.isShiftKeyDown()) {
                                         event.getEntity().addEffect(new MobEffectInstance(MobEffects.LEVITATION,100,level-1));

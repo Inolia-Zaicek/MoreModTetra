@@ -5,7 +5,7 @@
     "tertiary": 0,
     "durability": 452,
     "integrityCost": 2,
-    "integrityGain": 3,
+    "integrityGain": 5,
     "magicCapacity": 100,
     "toolLevel": 0,
     "toolEfficiency": 0,
@@ -14,8 +14,8 @@
         "texture": "af49f0"
     },
     "attributes": {
-        "forge:attack_range": 2,
-        "forge:reach_distance": 2
+        "forge:attack_range": 1,
+        "forge:reach_distance": 1
     },
     "textures": [
         "shiny",

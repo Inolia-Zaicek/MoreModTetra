@@ -1,0 +1,44 @@
+{
+    "replace": true,
+    "slots": [
+        "shield/plate"
+    ],
+    "materialSlotCount": 0,
+    "hone": true,
+    "rarity": "hone",
+    "displayType": "major",
+    "glyph": {
+        "textureX": 48,
+        "textureY": 48
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "shield_skill_automatic_defense_up"
+                }
+            },
+            {
+                "type": "tetra:locked",
+                "key": "tetra:shield/mmt_shield_skill"
+            },
+            {
+                "type": "tetra:module",
+                "module": "shield/buckler"
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "requiredTools": {
+                "hammer_dig": "minecraft:gold"
+            },
+            "improvements": {
+                "shield_skill_automatic_defense_up": 1
+            }
+        }
+    ]
+}

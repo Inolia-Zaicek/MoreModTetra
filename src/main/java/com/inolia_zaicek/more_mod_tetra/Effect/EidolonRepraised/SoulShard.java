@@ -28,7 +28,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import java.util.Set;
@@ -64,14 +64,14 @@ public class SoulShard {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             int effectLevel=0;
-            if (mainHandItem.getItem() instanceof ModularItem item) {
+            if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, soulShardEffect);
                 if (mainEffectLevel > 0) {
                     int lootingLevel = mainHandItem.getEnchantmentLevel(Enchantments.MOB_LOOTING);
                     effectLevel += (int) mainEffectLevel+lootingLevel;
                 }
             }
-                if (offhandItem.getItem() instanceof ModularItem item) {
+                if (offhandItem.getItem() instanceof IModularItem item) {
                     float offEffectLevel = item.getEffectLevel(offhandItem, soulShardEffect);
                     if (offEffectLevel > 0) {
                         int lootingLevel = offhandItem.getEnchantmentLevel(Enchantments.MOB_LOOTING);

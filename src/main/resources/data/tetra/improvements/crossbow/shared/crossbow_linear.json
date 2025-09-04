@@ -1,0 +1,14 @@
+[
+  {
+    "key": "crossbow_linear",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "velocity": 20,
+      "suspend": 1
+    }
+  }
+]

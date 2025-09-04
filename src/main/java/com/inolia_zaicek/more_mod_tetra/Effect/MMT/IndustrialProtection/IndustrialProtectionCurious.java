@@ -15,7 +15,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
 
@@ -39,12 +39,12 @@ public class IndustrialProtectionCurious {
             if (event.getEntity() instanceof Player player&&event.getSource().getEntity()==null
                     &&!event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                        (itemStack -> itemStack.getItem() instanceof ModularItem).forEach(
+                        (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                         slotResult -> {
                             slotResult.stack();
                             ItemStack itemStack = slotResult.stack();
-                            ModularItem item = (ModularItem) itemStack.getItem();
-                            int level = item.getEffectLevel(itemStack, emergencyRescueEffect);
+                            IModularItem item = (IModularItem) itemStack.getItem();
+                            int level = item.getEffectLevel(itemStack, industrialProtectionEffect);
 
                             if (level > 0 &&player.hasEffect(MMTEffectsRegister.IndustrialProtection.get())) {
                                 int buffLevel = player.getEffect(MMTEffectsRegister.IndustrialProtection.get()).getAmplifier();

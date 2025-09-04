@@ -1,8 +1,7 @@
 {
     "replace": true,
     "slots": [
-        "bow/stave",
-        "crossbow/stave"
+        "bow/stave"
     ],
     "rarity": "hone",
     "displayType": "improvement",
@@ -23,7 +22,7 @@
             },
             {
                 "type": "tetra:locked",
-                "key": "tetra:shared/mmt_bow_improvements"
+                "key": "tetra:bow/mmt_bow_improvements"
             }
         ]
     },

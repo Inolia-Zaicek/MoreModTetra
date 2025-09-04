@@ -1,8 +1,7 @@
 {
     "replace": true,
     "slots": [
-        "bow/stave",
-        "crossbow/stave"
+        "bow/stave"
     ],
     "rarity": "hone",
     "displayType": "improvement",

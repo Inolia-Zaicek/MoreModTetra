@@ -13,7 +13,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -38,7 +38,7 @@ public class EterniumDurability {
             if (event.getEntity() instanceof Player player) {
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
-                if (mainHandItem.getItem() instanceof ModularItem item) {
+                if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, eterniumDurabilityEffect);
                     if (mainEffectLevel > 0) {
                         //当前耐久
@@ -49,7 +49,7 @@ public class EterniumDurability {
                         }
                     }
                 }
-                if (offhandItem.getItem() instanceof ModularItem item) {
+                if (offhandItem.getItem() instanceof IModularItem item) {
                     float offEffectLevel = item.getEffectLevel(offhandItem, eterniumDurabilityEffect);
                     if (offEffectLevel > 0) {
                         int currentDurability = offhandItem.getDamageValue();
@@ -61,10 +61,10 @@ public class EterniumDurability {
                 }
             }
             //打人
-            if (event.getSource().getDirectEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof Player player) {
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
-                if (mainHandItem.getItem() instanceof ModularItem item) {
+                if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, eterniumDurabilityEffect);
                     if (mainEffectLevel > 0) {
                         //当前耐久
@@ -75,7 +75,7 @@ public class EterniumDurability {
                         }
                     }
                 }
-                if (offhandItem.getItem() instanceof ModularItem item) {
+                if (offhandItem.getItem() instanceof IModularItem item) {
                     float offEffectLevel = item.getEffectLevel(offhandItem, eterniumDurabilityEffect);
                     if (offEffectLevel > 0) {
                         int currentDurability = offhandItem.getDamageValue();

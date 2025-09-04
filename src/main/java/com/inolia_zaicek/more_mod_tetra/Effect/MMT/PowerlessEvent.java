@@ -3,10 +3,11 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class PowerlessEvent {
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void hurt(LivingHurtEvent event) {
         LivingEntity entity = event.getEntity();
         if (entity.hasEffect(MMTEffectsRegister.Powerless.get())) {

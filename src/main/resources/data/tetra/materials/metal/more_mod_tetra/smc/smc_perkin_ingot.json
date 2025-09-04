@@ -1,0 +1,37 @@
+{
+    "key": "smc_perkin_ingot",
+    "category": "metal",
+    "primary": 7.3,
+    "secondary": 2.5,
+    "tertiary": 3.5,
+    "durability": 350,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 154,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "f9e7a5",
+        "texture": "f9e7a5"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "smc:perkin_ingot" ]
+    },
+    "attributes": {
+        "forge:attack_range": 1,
+        "forge:reach_distance": 1
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "smc"
+        }
+    ]
+}

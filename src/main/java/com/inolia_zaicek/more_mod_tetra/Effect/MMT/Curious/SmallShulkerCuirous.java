@@ -9,7 +9,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.minerLanternEffect;
@@ -22,12 +22,12 @@ public class SmallShulkerCuirous {
         if (ModList.get().isLoaded("curios")) {
             Player player = event.player;
             CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                    (itemStack -> itemStack.getItem() instanceof ModularItem).forEach(
+                    (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                     slotResult -> {
                         slotResult.stack();
 
                             ItemStack itemStack = slotResult.stack();
-                            ModularItem item = (ModularItem) itemStack.getItem();
+                            IModularItem item = (IModularItem) itemStack.getItem();
                             int level = item.getEffectLevel(itemStack, smallShulkerEffect);
 
                             if (level > 0&&player.isShiftKeyDown()) {

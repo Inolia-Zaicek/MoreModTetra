@@ -1,0 +1,17 @@
+[
+  {
+    "key": "poison_upgraded_netherite",
+    "level": 0,
+    "integrity": 0,
+    "aspects": {
+      "upgraded_netherite": 2
+    },
+    "attributes": {
+      "generic.attack_damage": 2,
+      "tetra:draw_strength": 2
+    },
+    "effects": {
+      "more_mod_tetra:poison": 1
+    }
+  }
+]

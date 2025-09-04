@@ -6,7 +6,7 @@
     "tertiary": 7.5,
     "durability": 750,
     "integrityCost": 1,
-    "integrityGain": 8,
+    "integrityGain": 6,
     "magicCapacity": 300,
     "toolLevel": 0,
     "toolEfficiency": 0,

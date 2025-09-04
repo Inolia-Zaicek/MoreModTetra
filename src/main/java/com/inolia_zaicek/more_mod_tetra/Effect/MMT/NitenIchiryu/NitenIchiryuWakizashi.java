@@ -14,7 +14,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -34,13 +34,13 @@ public class NitenIchiryuWakizashi {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getDirectEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+            if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
                 ItemStack mainHandItem = player.getMainHandItem();
                 int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof ModularItem item) {
+                if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, NitenIchiryuWakizashiEffect);
                     if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
+                        effectLevel +=  mainEffectLevel;
                     }
                 }
                 if (effectLevel > 0) {

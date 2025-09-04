@@ -16,7 +16,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
 
@@ -40,24 +40,24 @@ public class SoulBurnerEffectTrait {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("l2complements")) {
             //攻击者是玩家
-            if (event.getSource().getDirectEntity() instanceof Player player &&event.getEntity()!=null) {
+            if (event.getSource().getEntity() instanceof Player player &&event.getEntity()!=null) {
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                                (itemStack -> itemStack.getItem() instanceof ModularItem).forEach(
+                                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
                                     slotResult.stack();
                                     ItemStack itemStack = slotResult.stack();
-                                    ModularItem curiousItem = (ModularItem) itemStack.getItem();
+                                    IModularItem curiousItem = (IModularItem) itemStack.getItem();
                                     int effectLevel = curiousItem.getEffectLevel(itemStack, soulBurnerEffectTraitEffect);
                                     //获取一下玩家主副手
                                     ItemStack mainHandItem = player.getMainHandItem();
                                     ItemStack offhandItem = player.getOffhandItem();
-                                    if (mainHandItem.getItem() instanceof ModularItem item) {
+                                    if (mainHandItem.getItem() instanceof IModularItem item) {
                                         float mainEffectLevel = item.getEffectLevel(mainHandItem, soulBurnerEffectTraitEffect);
                                         if (mainEffectLevel > 0) {
-                                            effectLevel += (int) mainEffectLevel;
+                                            effectLevel +=  mainEffectLevel;
                                         }
                                     }
-                                    if (offhandItem.getItem() instanceof ModularItem item) {
+                                    if (offhandItem.getItem() instanceof IModularItem item) {
                                         float offEffectLevel = item.getEffectLevel(offhandItem, soulBurnerEffectTraitEffect);
                                         if (offEffectLevel > 0) {
                                             effectLevel += (int) offEffectLevel;

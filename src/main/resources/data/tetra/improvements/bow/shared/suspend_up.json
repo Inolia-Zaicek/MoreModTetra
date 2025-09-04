@@ -1,0 +1,57 @@
+[
+  {
+    "key": "suspend_up",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "velocity": 5
+    }
+  },
+  {
+    "key": "suspend_up",
+    "level": 2,
+    "integrity": -1,
+    "aspects": {
+      "honed": 2
+    },
+    "effects": {
+      "velocity": 10
+    }
+  },
+  {
+    "key": "suspend_up",
+    "level": 3,
+    "integrity": -2,
+    "aspects": {
+      "honed": 3
+    },
+    "effects": {
+      "velocity": 15
+    }
+  },
+  {
+    "key": "suspend_up",
+    "level": 4,
+    "integrity": -2,
+    "aspects": {
+      "honed": 4
+    },
+    "effects": {
+      "velocity": 20
+    }
+  },
+  {
+    "key": "suspend_up",
+    "level": 5,
+    "integrity": -3,
+    "aspects": {
+      "honed": 5
+    },
+    "effects": {
+      "velocity":25
+    }
+  }
+]

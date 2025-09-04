@@ -17,7 +17,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -52,9 +52,9 @@ public class BloodArcaneEdgeEffect {
             // 检查 attacker 是否是一个 LivingEntity。如果不是（例如箭矢射出的是一个 Entity，而不是 LivingEntity），则不处理。
             ItemStack heldStack = attacker.getMainHandItem();
             // 获取攻击者主手持有的物品。
-            if (heldStack.getItem() instanceof ModularItem item) {
-                // 检查主手物品是否是 ModularItem 的实例。
-                // 如果是，则将其转换为 ModularItem 类型，并赋值给变量 item。
+            if (heldStack.getItem() instanceof IModularItem item) {
+                // 检查主手物品是否是 IModularItem 的实例。
+                // 如果是，则将其转换为 IModularItem 类型，并赋值给变量 item。
                 //获取词条数值
                 float level = item.getEffectLevel(heldStack, bloodArcaneEdgeEffect);
                 // 只有当 "Esoteric Edge" 效果等级大于 0 时才执行以下操作。

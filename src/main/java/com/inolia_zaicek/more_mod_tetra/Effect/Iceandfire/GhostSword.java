@@ -37,7 +37,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import javax.annotation.Nullable; // JSR 305 注解，表示参数或返回值可以为 null
@@ -66,13 +66,13 @@ public class GhostSword {
             ItemStack mainHandItem = playerEntity.getMainHandItem();
             int nEffectLevel = 0;
             int ubwEffectLevel = 1;
-            if (mainHandItem.getItem() instanceof ModularItem item) {
+            if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, ghostSwordEffect);
                 if (mainEffectLevel > 0) {
                     nEffectLevel += (int) mainEffectLevel;
                 }
             }
-            if (mainHandItem.getItem() instanceof ModularItem item) {
+            if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, unlimitedPhantasmalBladeWorksEffect);
                 if (mainEffectLevel > 0) {
                     ubwEffectLevel += (int) mainEffectLevel;

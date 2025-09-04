@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.IModularItem;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
@@ -20,19 +20,19 @@ public class HideBladeTick {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             int effectLevel=0;
-            if (mainHandItem.getItem() instanceof ModularItem item) {
+            if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, hideBladeEffect);
                 if (mainEffectLevel > 0) {
                     effectLevel += (int) mainEffectLevel;
                 }
             }
-            if (offhandItem.getItem() instanceof ModularItem item) {
+            if (offhandItem.getItem() instanceof IModularItem item) {
                 float offEffectLevel = item.getEffectLevel(offhandItem, hideBladeEffect);
                 if (offEffectLevel > 0) {
                     effectLevel += (int) offEffectLevel;
                 }
             }
-            if (effectLevel > 0&&player.level().getGameTime() % 10L == 0) {
+            if (effectLevel > 0&&player.level().getGameTime() % 20L == 0) {
                 //有藏锋
                 if (player.hasEffect(MMTEffectsRegister.HideBlade.get())) {
                     int buffLevel = player.getEffect(MMTEffectsRegister.HideBlade.get()).getAmplifier();

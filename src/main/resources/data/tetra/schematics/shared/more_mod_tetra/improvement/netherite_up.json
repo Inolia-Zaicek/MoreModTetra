@@ -2,14 +2,18 @@
     "replace": true,
     "slots": [
         "sword/blade",
+        "slashblade/blade",
+        "greatsword/blade",
+        "polearm/head",
         "single/head",
         "double/head_left",
         "bow/stave",
         "crossbow/stave",
-        "toolbelt/belt"
+        "toolbelt/belt",
+        "shield/plate"
     ],
     "materialSlotCount": 1,
-    "rarity": "hone",
+    "rarity": "temporary",
     "displayType": "improvement",
         "glyph": {
         "textureLocation": "tetra:textures/gui/wizard_glyphs.png",

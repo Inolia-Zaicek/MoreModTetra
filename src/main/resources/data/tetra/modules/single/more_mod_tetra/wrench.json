@@ -1,0 +1,67 @@
+{
+  "replace": true,
+  "slots": [
+    "single/head"
+  ],
+  "type": "tetra:basic_major_module",
+  "improvements": [
+    "tetra:single/shared_head/",
+    "tetra:single/shared/",
+    "tetra:shared/"
+  ],
+  "variants": [
+    {
+      "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+      "key": "wrench/",
+      "tags": [
+        "forge:wrenches",
+        "forge:tools",
+        "forge:tools/wrench"
+      ],
+      "attributes": {
+        "generic.attack_speed": -1.1,
+        "generic.attack_damage": 2
+      },
+      "aspects": {
+        "block_breaker": 1,
+        "breakable": 2
+      },
+      "effects": {
+        "denailing": 1,
+        "more_mod_tetra:industrial_protection": 1
+      },
+      "integrity": -1,
+      "extract": {
+        "primaryAttributes": {
+          "generic.attack_damage": 0.5
+        },
+        "secondaryAttributes": {
+          "generic.attack_damage": 0.2
+        },
+        "primaryEffects": {
+          "more_mod_tetra:industrial_protection": 0.5
+        },
+        "secondaryEffects": {
+          "more_mod_tetra:industrial_protection": 0.5
+        },
+        "tools": {
+          "pry": [ 1, 0.8333 ]
+        },
+        "durability": 1,
+        "integrity": -1,
+        "magicCapacity": 1,
+        "glyph": {
+          "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+          "textureX": 80,
+          "textureY": 144
+        },
+        "availableTextures": [""],
+        "models": [
+          {
+            "location": "more_mod_tetra:item/module/single/more_mod_tetra/wrench"
+          }
+        ]
+      }
+    }
+  ]
+}
