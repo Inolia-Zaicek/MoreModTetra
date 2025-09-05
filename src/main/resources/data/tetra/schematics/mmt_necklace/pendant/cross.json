@@ -1,0 +1,26 @@
+{
+    "replace": true,
+    "slots": [ "mmt_necklace/pendant" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "primaryEffects": {
+            "more_mod_tetra:curios_kamui": 1
+        },
+        "durability": 4,
+        "integrity": -1,
+        "magicCapacity": 3
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:metal/" ],
+            "countFactor": 1,
+            "moduleKey": "mmt_necklace/pendant/cross",
+            "moduleVariant": "cross/"
+        }
+    ]
+}

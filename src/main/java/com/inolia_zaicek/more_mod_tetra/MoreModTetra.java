@@ -71,9 +71,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.TO.TOIronSpellTetraActu
 import com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.*;
-import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curious.HideBladeCurious;
-import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curious.ReverseMirrorHurtCurious;
-import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curious.SmallShulkerHurtCurious;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curious.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.DeepDarkFantasy;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Edge.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.IndustrialProtection.IndustrialProtection;
@@ -426,6 +424,8 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(MagicOscillation.class);
         MinecraftForge.EVENT_BUS.register(AwakeningSlash.class);
         MinecraftForge.EVENT_BUS.register(TrueSlash.class);
+        MinecraftForge.EVENT_BUS.register(CuriosArmorPenetration.class);
+        MinecraftForge.EVENT_BUS.register(CuriosKamui.class);
     }
 
     @SubscribeEvent
@@ -442,6 +442,8 @@ public class MoreModTetra {
     // 客户端设置事件，用于注册渲染器和GUI屏幕
     private void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            CuriosKamui.init();
+            CuriosArmorPenetration.init();
             TrueSlash.init();
             AwakeningSlash.init();
             MagicOscillation.init();
@@ -861,7 +863,7 @@ public class MoreModTetra {
                     , 9, 3, 6, 2));
             event.accept(this.setupSchematic("shared/the_legend_scroll_of_worldbearing_titan", "more_mod_tetra",
                     new String[]{"shared/the_legend_scroll_of_worldbearing_titan"}, false, 2,//材料数量影响卷轴本体颜色
-                    7286334//rgb十进制代码
+                    4079231//rgb十进制代码
                     , 9, 3, 6, 2));
             event.accept(this.setupSchematic("shared/the_legend_scroll_of_reason_titan", "more_mod_tetra",
                     new String[]{"shared/the_legend_scroll_of_reason_titan"}, false, 2,//材料数量影响卷轴本体颜色

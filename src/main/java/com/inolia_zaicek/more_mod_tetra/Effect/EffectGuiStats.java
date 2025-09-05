@@ -77,6 +77,14 @@ public class EffectGuiStats {
     public static final String glowingName = MoreModTetra.MODID + ".effect.glowing.name";
     public static final String glowingTooltip = MoreModTetra.MODID + ".effect.glowing.tooltip";
 
+    public static final ItemEffect curiosArmorPenetrationEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_armor_penetration");
+    public static final String curiosArmorPenetrationName = MoreModTetra.MODID + ".effect.curios_armor_penetration.name";
+    public static final String curiosArmorPenetrationTooltip = MoreModTetra.MODID + ".effect.curios_armor_penetration.tooltip";
+
+    public static final ItemEffect curiosKamuiEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_kamui");
+    public static final String curiosKamuiName = MoreModTetra.MODID + ".effect.curios_kamui.name";
+    public static final String curiosKamuiTooltip = MoreModTetra.MODID + ".effect.curios_kamui.tooltip";
+
     public static final ItemEffect beheadingEffect = ItemEffect.get(MoreModTetra.MODID + ":beheading");
     public static final String beheadingName = MoreModTetra.MODID + ".effect.beheading.name";
     public static final String beheadingTooltip = MoreModTetra.MODID + ".effect.beheading.tooltip";

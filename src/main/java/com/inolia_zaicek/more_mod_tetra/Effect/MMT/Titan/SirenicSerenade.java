@@ -59,30 +59,44 @@ public class SirenicSerenade {
                     int debuffNumber =0;
                     if(random.nextInt(70)<10){
                         mob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
-                        map.put(MobEffects.WEAKNESS, new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
+                        if(!mob.hasEffect(MobEffects.WEAKNESS)) {
+                            map.put(MobEffects.WEAKNESS, new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
+                        }
                     }
                     else if(random.nextInt(70)<20&&random.nextInt(70)>=10){
                         mob.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
-                        map.put(MobEffects.POISON, new MobEffectInstance(MobEffects.POISON, 200, 0));
+                        if(!mob.hasEffect(MobEffects.POISON)) {
+                            map.put(MobEffects.POISON, new MobEffectInstance(MobEffects.POISON, 200, 0));
+                        }
                     }
-                    else if(random.nextInt(70)<30&&random.nextInt(70)>=20){
-                        mob.setRemainingFireTicks(mob.getRemainingFireTicks()+200);
+                    else if(random.nextInt(70)<30&&random.nextInt(70)>=20 ){
+                        if(!(mob.getRemainingFireTicks()>0)) {
+                            mob.setRemainingFireTicks(mob.getRemainingFireTicks() + 200);
+                        }
                     }
                     else if(random.nextInt(70)<40&&random.nextInt(70)>=30){
                         mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
-                        map.put(MobEffects.MOVEMENT_SLOWDOWN, new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
+                        if(!mob.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
+                            map.put(MobEffects.MOVEMENT_SLOWDOWN, new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
+                        }
                     }
-                    else if(random.nextInt(70)<50&&random.nextInt(70)>=40){
+                    else if(random.nextInt(70)<50&&random.nextInt(70)>=40) {
                         mob.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
-                        map.put(MobEffects.WITHER, new MobEffectInstance(MobEffects.WITHER, 200, 0));
+                        if (!mob.hasEffect(MobEffects.WITHER)) {
+                            map.put(MobEffects.WITHER, new MobEffectInstance(MobEffects.WITHER, 200, 0));
+                        }
                     }
-                    else if(random.nextInt(70)<60&&random.nextInt(70)>=50){
+                    else if(random.nextInt(70)<60&&random.nextInt(70)>=50) {
                         mob.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
-                        map.put(MobEffects.DARKNESS, new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
+                        if (!mob.hasEffect(MobEffects.DARKNESS)) {
+                            map.put(MobEffects.DARKNESS, new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
+                        }
                     }
-                    else if(random.nextInt(70)>=60){
+                    else if(random.nextInt(70)>=60) {
                         mob.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 0));
-                        map.put(MobEffects.BLINDNESS, new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
+                        if (!mob.hasEffect(MobEffects.BLINDNESS)) {
+                            map.put(MobEffects.BLINDNESS, new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
+                        }
                     }
                     if(mob.hasEffect(MobEffects.WEAKNESS)){debuffNumber +=1;}
                     if(mob.hasEffect(MobEffects.POISON)){debuffNumber +=1;}

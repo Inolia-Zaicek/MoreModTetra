@@ -16,13 +16,13 @@
       "glyphs": [ 3, 8, 1, 4 ]
     },
     "B": {
-      "item": "minecraft:grass"
+      "item": "minecraft:netherite_sword"
     },
     "C": {
       "item": "tetra:dragon_sinew"
     },
     "D": {
-      "item": "minecraft:grass"
+      "item": "minecraft:netherite_axe"
     }
   },
   "result": {
@@ -32,11 +32,11 @@
       "BlockEntityTag": {
         "data": [
           {
-            "key": "shared/the_legend_scroll_of_earth_titan",
-            "schematics": [ "tetra:shared/the_legend_scroll_of_earth_titan"],
+            "key": "shared/the_legend_scroll_of_strife_titan",
+            "schematics": [ "tetra:shared/the_legend_scroll_of_strife_titan"],
             "intricate": false,
             "material": 2,
-            "ribbon": "FFFF00",
+            "ribbon": "FFD800",
             "glyphs": [ 3, 8, 1, 4 ]
           }
         ]

@@ -1,0 +1,29 @@
+{
+    "replace": true,
+    "slots": [ "mmt_necklace/pendant" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "primaryEffects": {
+            "more_mod_tetra:curios_armor_penetration": 1
+        },
+        "secondaryEffects": {
+            "more_mod_tetra:curios_armor_penetration": 1
+        },
+        "durability": 4,
+        "integrity": -1,
+        "magicCapacity": 3
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:bone/"],
+            "countFactor": 1,
+            "moduleKey": "mmt_necklace/pendant/fang",
+            "moduleVariant": "fang/"
+        }
+    ]
+}

@@ -38,7 +38,7 @@ public class SanctuaryOfMooncocoon {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void hurt(LivingHurtEvent event) {
         //挨打
-        if (event.getEntity().hasEffect(MMTEffectsRegister.SanctuaryOfMooncocoon.get()) && !event.getEntity().hasEffect(MMTEffectsRegister.SanctuaryOfMooncocoon.get())) {
+        if (event.getEntity().hasEffect(MMTEffectsRegister.SanctuaryOfMooncocoon.get()) && !event.getEntity().hasEffect(MMTEffectsRegister.SanctuaryOfMooncocoonCooldown.get())) {
             event.setAmount(0);
         }
         //攻击

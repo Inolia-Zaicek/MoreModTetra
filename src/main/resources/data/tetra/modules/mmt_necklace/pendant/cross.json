@@ -1,0 +1,28 @@
+{
+    "replace": true,
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_necklace/pendant" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": [ "tetra:metal/" ],
+            "key": "cross/",
+            "integrity": 1,
+            "extract": {
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "tertiaryEffects": {
+                    "more_mod_tetra:curios_kamui": 0.05
+                },
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_necklace/pendant/cross"
+                    }
+                ]
+            }
+        }
+    ]
+}

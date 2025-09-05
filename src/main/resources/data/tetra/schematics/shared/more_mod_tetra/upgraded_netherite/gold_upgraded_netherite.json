@@ -44,6 +44,10 @@
                 "level": {
                     "max": 2
                 }
+            },
+            {
+                "type": "tetra:locked",
+                "key": "tetra:shared/mmt_upgraded_netherite"
             }
         ]
     },

@@ -1,0 +1,31 @@
+{
+    "replace": true,
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_necklace/chain" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": [ "tetra:metal/","tetra:skin/","tetra:fibre/","tetra:fabric/" ],
+            "key": "base_chain/",
+            "integrity": 1,
+            "extract": {
+                "primaryAttributes": {
+                    "generic.armor_toughness": 0.4
+                },
+                "secondaryAttributes": {
+                    "*generic.movement_speed": -0.025
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_necklace/chain/base_chain"
+                    }
+                ]
+            }
+        }
+    ]
+}

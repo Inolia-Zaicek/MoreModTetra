@@ -16,13 +16,13 @@
       "glyphs": [ 3, 8, 1, 4 ]
     },
     "B": {
-      "item": "minecraft:feather"
+      "item": "minecraft:glass"
     },
     "C": {
       "item": "tetra:dragon_sinew"
     },
     "D": {
-      "item": "minecraft:feather"
+      "item": "minecraft:glass"
     }
   },
   "result": {

@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Register;
 
+import com.inolia_zaicek.more_mod_tetra.ModularCurios.ModularNecklace;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -39,6 +40,9 @@ public class MoreModTetraItemRegister {
     public static final TagKey<Item> iron_spell_casting = TagKey.create(Registries.ITEM,new ResourceLocation("more_mod_tetra","iron_spell_casting"));
     public static final TagKey<Item> stoneTag = TagKey.create(Registries.ITEM,new ResourceLocation("minecraft","stone_tool_materials"));
     public static final TagKey<Item> stoneTag2 = TagKey.create(Registries.ITEM,new ResourceLocation("forge","stone"));
+    //饰品
+    public static final RegistryObject<Item> MODULAR_Necklace = ZeroingITEM.register(ModularNecklace.identifier, ModularNecklace::new);
+    public static final RegistryObject<Item> CuriosNecklace = registerCommonMaterials(ZeroingITEM,"curios_necklace", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
     //原版
     public static final RegistryObject<Item> CopperLantern = registerCommonMaterials(ZeroingITEM,"copper_lantern", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> ReverseMirror = registerCommonMaterials(ZeroingITEM,"reverse_mirror", () -> new Item(new Item.Properties().stacksTo(64)));
