@@ -1,0 +1,30 @@
+{
+  "key": "honey_block",
+  "category": "block_sole",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 0,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "ff9116"
+  },
+  "textures": [
+    "honey_block"
+  ],
+  "material": {
+    "items": [
+      "minecraft:honey_block"
+    ]
+  },
+  "attributes": {
+    "**generic.movement_speed": -0.15
+  },
+  "effects" : {
+    "more_mod_tetra:curios_feather_falling": 100
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "key": "curios_darkness_clear",
+    "level": 0,
+    "integrity": -1,
+    "effects": {
+      "more_mod_tetra:curios_darkness_clear": 1
+    }
+  }
+]

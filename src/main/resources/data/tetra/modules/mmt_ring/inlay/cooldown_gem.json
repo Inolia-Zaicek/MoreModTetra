@@ -1,0 +1,42 @@
+{
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_ring/inlay" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": [ "tetra:gem/" ],
+            "key": "cooldown_gem/",
+            "integrity": 0,
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1,
+                "more_mod_tetra:curios_critical_strike": [ 0 , 5 ]
+            },
+            "extract": {
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "primaryAttributes": {
+                    "**irons_spellbooks:cooldown_reduction": 0.03
+                },
+                "primaryEffects": {
+                    "more_mod_tetra:curios_critical_strike": [ 1 , 0 ]
+                },
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_ring/inlay/cooldown_gem",
+                        "renderLayer": "high"
+                    }
+                ]
+            },
+            "availableTextures": [ "" ],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/mmt_ring/inlay/cooldown_gem_highlight",
+                    "renderLayer": "high"
+                }
+            ]
+        }
+    ]
+}

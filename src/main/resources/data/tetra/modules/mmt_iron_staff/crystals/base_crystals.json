@@ -1,0 +1,32 @@
+{
+    "slots": [ "mmt_iron_staff/crystals" ],
+    "type": "tetra:basic_module",
+    "variants": [
+        {
+            "materials": [ "tetra:gem/" ],
+            "key": "base_crystals/",
+            "attributes": {
+                "**irons_spellbooks:cooldown_reduction": 0.02,
+                "**irons_spellbooks:cast_time_reduction": 0.02
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "**irons_spellbooks:cooldown_reduction": 0.03,
+                    "**irons_spellbooks:cast_time_reduction": 0.03
+                },
+                "durability": 1,
+                "integrity": -0.5,
+                "glyph": {
+                    "textureX": 182,
+                    "textureY": 52
+                }
+            },
+            "availableTextures": [ ""],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/mmt_iron_staff/none"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "slots": [ "mmt_iron_staff/core" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 0,
+        "textureY": 0
+    },
+    "attributes": {
+        "generic.attack_damage": 4
+    },
+    "translation": {
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:spell_core_materials/" ],
+            "countFactor": 4,
+            "moduleKey": "mmt_iron_staff/core/spell_core",
+            "moduleVariant": "spell_core/"
+        }
+    ]
+}

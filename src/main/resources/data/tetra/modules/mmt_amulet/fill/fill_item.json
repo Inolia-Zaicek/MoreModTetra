@@ -1,0 +1,30 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_amulet/fill" ],
+    "improvements": [
+        "tetra:mmt_amulet/"
+    ],
+    "variants": [
+        {
+            "materials": [ "tetra:fabric/" ],
+            "key": "fill_item/",
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
+            "extract": {
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "integrity": 0.5,
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_amulet/fill/fill_item"
+                    }
+                ]
+            }
+        }
+    ]
+}

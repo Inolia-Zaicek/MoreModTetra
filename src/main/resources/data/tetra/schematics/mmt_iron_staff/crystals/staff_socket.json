@@ -1,0 +1,22 @@
+{
+    "slots": [ "mmt_iron_staff/crystals" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "durability": 1,
+        "integrity": 4,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:socket/" ],
+            "countFactor": 1,
+            "moduleKey": "mmt_iron_staff/crystals/staff_socket",
+            "moduleVariant": "staff_socket/"
+        }
+    ]
+}

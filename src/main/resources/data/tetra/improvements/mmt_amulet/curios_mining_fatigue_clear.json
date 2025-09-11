@@ -1,0 +1,10 @@
+[
+  {
+    "key": "curios_mining_fatigue_clear",
+    "level": 0,
+    "integrity": -1,
+    "effects": {
+      "more_mod_tetra:curios_mining_fatigue_clear": 1
+    }
+  }
+]

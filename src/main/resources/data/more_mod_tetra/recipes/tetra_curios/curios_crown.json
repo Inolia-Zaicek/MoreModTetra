@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "AAA",
+        "A B"
+    ],
+    "key": {
+        "A": {
+            "item": "minecraft:iron_ingot"
+        },
+        "B": {
+            "item": "minecraft:amethyst_shard"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:curios_crown",
+        "count": 1
+    }
+}

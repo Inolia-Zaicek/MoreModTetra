@@ -1,0 +1,25 @@
+{
+    "slots": [ "mmt_iron_staff/inscription" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "primaryAttributes": {
+            "irons_spellbooks:spell_resist": 1
+        },
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "countFactor": 1,
+            "moduleKey": "mmt_iron_staff/inscription/materials_inscription",
+            "moduleVariant": "materials_inscription/"
+        }
+    ]
+}

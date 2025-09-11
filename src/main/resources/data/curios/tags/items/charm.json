@@ -1,0 +1,11 @@
+{
+    "replace": false,
+    "values": [
+        "more_mod_tetra:modular_mmt_amulet",
+        "more_mod_tetra:curios_amulet",
+        "more_mod_tetra:modular_mmt_emblem",
+        "more_mod_tetra:curios_emblem",
+        "more_mod_tetra:modular_mmt_totem_of_undying",
+        "more_mod_tetra:curios_totem_of_undying"
+    ]
+}

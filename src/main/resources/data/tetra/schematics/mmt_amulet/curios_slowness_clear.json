@@ -1,0 +1,38 @@
+{
+    
+    "slots": [ "mmt_amulet/fill" ],
+    "materialSlotCount": 1,
+    "rarity": "temporary",
+    "displayType": "improvement",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:module",
+                "module": "mmt_amulet/fill/fill_item"
+            },
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "curios_slowness_clear"
+                }
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "minecraft:bone" ],
+                "count": 16
+            },
+            "improvements": {
+                "curios_slowness_clear": 0
+            }
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "slots": [ "mmt_iron_staff/crystals" ],
+    "type": "tetra:basic_module",
+    "variants": [
+        {
+            "materials": [ "tetra:socket/" ],
+            "key": "staff_socket/",
+            "attributes": {
+                "**irons_spellbooks:cooldown_reduction": 0.05,
+                "**irons_spellbooks:cast_time_reduction": 0.05
+            },
+            "extract": {
+                "durability": 1,
+                "integrity": -1,
+                "glyph": {
+                    "textureX": 182,
+                    "textureY": 52
+                }
+            },
+            "availableTextures": [ ""],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/mmt_iron_staff/none"
+                }
+            ]
+        }
+    ]
+}

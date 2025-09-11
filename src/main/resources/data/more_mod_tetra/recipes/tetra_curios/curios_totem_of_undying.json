@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "BAB",
+        "ACA",
+        "DAD"
+    ],
+    "key": {
+        "A": {
+            "item": "minecraft:gold_ingot"
+        },
+        "B": {
+            "item": "minecraft:emerald"
+        },
+        "C": {
+            "item": "minecraft:nether_star"
+        },
+        "D": {
+            "item": "tetra:metal_scrap"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:curios_totem_of_undying",
+        "count": 1
+    }
+}
