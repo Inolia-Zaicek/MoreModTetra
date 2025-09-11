@@ -72,6 +72,22 @@ public class EffectGuiStats {
     public static final ItemEffect theCenturyGateEffect = ItemEffect.get(MoreModTetra.MODID + ":the_century_gate");
     public static final String theCenturyGateName = MoreModTetra.MODID + ".effect.the_century_gate.name";
     public static final String theCenturyGateTooltip = MoreModTetra.MODID + ".effect.the_century_gate.tooltip";
+    //CURIOS
+    public static final ItemEffect curiosAllDamageUpEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_all_damage_up");
+    public static final String curiosAllDamageUpName = MoreModTetra.MODID + ".effect.curios_all_damage_up.name";
+    public static final String curiosAllDamageUpTooltip = MoreModTetra.MODID + ".effect.curios_all_damage_up.tooltip";
+
+    public static final ItemEffect curiosMeleeDamageUpEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_melee_damage_up");
+    public static final String curiosMeleeDamageUpName = MoreModTetra.MODID + ".effect.curios_melee_damage_up.name";
+    public static final String curiosMeleeDamageUpTooltip = MoreModTetra.MODID + ".effect.curios_melee_damage_up.tooltip";
+
+    public static final ItemEffect curiosProjectileDamageUpEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_projectile_damage_up");
+    public static final String curiosProjectileDamageUpName = MoreModTetra.MODID + ".effect.curios_projectile_damage_up.name";
+    public static final String curiosProjectileDamageUpTooltip = MoreModTetra.MODID + ".effect.curios_projectile_damage_up.tooltip";
+
+    public static final ItemEffect curiosMagicDamageUpEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_magic_damage_up");
+    public static final String curiosMagicDamageUpName = MoreModTetra.MODID + ".effect.curios_magic_damage_up.name";
+    public static final String curiosMagicDamageUpTooltip = MoreModTetra.MODID + ".effect.curios_magic_damage_up.tooltip";
     //其他
     public static final ItemEffect glowingEffect = ItemEffect.get(MoreModTetra.MODID + ":glowing");
     public static final String glowingName = MoreModTetra.MODID + ".effect.glowing.name";
@@ -80,6 +96,42 @@ public class EffectGuiStats {
     public static final ItemEffect curiosArmorPenetrationEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_armor_penetration");
     public static final String curiosArmorPenetrationName = MoreModTetra.MODID + ".effect.curios_armor_penetration.name";
     public static final String curiosArmorPenetrationTooltip = MoreModTetra.MODID + ".effect.curios_armor_penetration.tooltip";
+
+    public static final ItemEffect curiosFeatherFallingEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_feather_falling");
+    public static final String curiosFeatherFallingName = MoreModTetra.MODID + ".effect.curios_feather_falling.name";
+    public static final String curiosFeatherFallingTooltip = MoreModTetra.MODID + ".effect.curios_feather_falling.tooltip";
+
+    public static final ItemEffect curiosCriticalStrikeEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_critical_strike");
+    public static final String curiosCriticalStrikeName = MoreModTetra.MODID + ".effect.curios_critical_strike.name";
+    public static final String curiosCriticalStrikeTooltip = MoreModTetra.MODID + ".effect.curios_critical_strike.tooltip";
+
+    public static final ItemEffect curiosJankEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_jank");
+    public static final String curiosJankName = MoreModTetra.MODID + ".effect.curios_jank.name";
+    public static final String curiosJankTooltip = MoreModTetra.MODID + ".effect.curios_jank.tooltip";
+
+    public static final ItemEffect curiosFlyEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_fly");
+    public static final String curiosFlyName = MoreModTetra.MODID + ".effect.curios_fly.name";
+    public static final String curiosFlyTooltip = MoreModTetra.MODID + ".effect.curios_fly.tooltip";
+
+    public static final ItemEffect curiosJumpEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_jump");
+    public static final String curiosJumpName = MoreModTetra.MODID + ".effect.curios_jump.name";
+    public static final String curiosJumpTooltip = MoreModTetra.MODID + ".effect.curios_jump.tooltip";
+
+    public static final ItemEffect curiosWaterWalkerEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_water_walker");
+    public static final String curiosWaterWalkerName = MoreModTetra.MODID + ".effect.curios_water_walker.name";
+    public static final String curiosWaterWalkerTooltip = MoreModTetra.MODID + ".effect.curios_water_walker.tooltip";
+
+    public static final ItemEffect curiosProjectileTrackingEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_projectile_tracking");
+    public static final String curiosProjectileTrackingName = MoreModTetra.MODID + ".effect.curios_projectile_tracking.name";
+    public static final String curiosProjectileTrackingTooltip = MoreModTetra.MODID + ".effect.curios_projectile_tracking.tooltip";
+
+    public static final ItemEffect curiosMagmaWalkerEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_magma_walker");
+    public static final String curiosMagmaWalkerName = MoreModTetra.MODID + ".effect.curios_magma_walker.name";
+    public static final String curiosMagmaWalkerTooltip = MoreModTetra.MODID + ".effect.curios_magma_walker.tooltip";
+
+    public static final ItemEffect curiosProtectEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_protect");
+    public static final String curiosProtectName = MoreModTetra.MODID + ".effect.curios_protect.name";
+    public static final String curiosProtectTooltip = MoreModTetra.MODID + ".effect.curios_protect.tooltip";
 
     public static final ItemEffect curiosKamuiEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_kamui");
     public static final String curiosKamuiName = MoreModTetra.MODID + ".effect.curios_kamui.name";
@@ -721,6 +773,18 @@ public class EffectGuiStats {
     public static final String overPostmortalName = MoreModTetra.MODID + ".effect.over_postmortal.name";
     public static final String overPostmortalTooltip = MoreModTetra.MODID + ".effect.over_postmortal.tooltip";
 
+    public static final ItemEffect curiosTotemEffectEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_totem_effect");
+    public static final String curiosTotemEffectName = MoreModTetra.MODID + ".effect.curios_totem_effect.name";
+    public static final String curiosTotemEffectTooltip = MoreModTetra.MODID + ".effect.curios_totem_effect.tooltip";
+
+    public static final ItemEffect curiosTotemCooldownEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_totem_cooldown");
+    public static final String curiosTotemCooldownName = MoreModTetra.MODID + ".effect.curios_totem_cooldown.name";
+    public static final String curiosTotemCooldownTooltip = MoreModTetra.MODID + ".effect.curios_totem_cooldown.tooltip";
+
+    public static final ItemEffect curiosTotemHealthEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_totem_health");
+    public static final String curiosTotemHealthName = MoreModTetra.MODID + ".effect.curios_totem_health.name";
+    public static final String curiosTotemHealthTooltip = MoreModTetra.MODID + ".effect.curios_totem_health.tooltip";
+
     public static final ItemEffect lavaDriverEffect = ItemEffect.get(MoreModTetra.MODID + ":lava_driver");
     public static final String lavaDriverName = MoreModTetra.MODID + ".effect.lava_driver.name";
     public static final String lavaDriverTooltip = MoreModTetra.MODID + ".effect.lava_driver.tooltip";
@@ -1027,6 +1091,50 @@ public class EffectGuiStats {
     public static final ItemEffect workWorkWorkEffect = ItemEffect.get(MoreModTetra.MODID + ":work_work_work");
     public static final String workWorkWorkName = MoreModTetra.MODID + ".effect.work_work_work.name";
     public static final String workWorkWorkTooltip = MoreModTetra.MODID + ".effect.work_work_work.tooltip";
+
+    public static final ItemEffect curiosMaterialsEffectInvalidationEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_materials_effect_invalidation");
+    public static final String curiosMaterialsEffectInvalidationName = MoreModTetra.MODID + ".effect.curios_materials_effect_invalidation.name";
+    public static final String curiosMaterialsEffectInvalidationTooltip = MoreModTetra.MODID + ".effect.curios_materials_effect_invalidation.tooltip";
+
+    public static final ItemEffect curiosSlownessClearEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_slowness_clear");
+    public static final String curiosSlownessClearName = MoreModTetra.MODID + ".effect.curios_slowness_clear.name";
+    public static final String curiosSlownessClearTooltip = MoreModTetra.MODID + ".effect.curios_slowness_clear.tooltip";
+
+    public static final ItemEffect curiosWeaknessClearEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_weakness_clear");
+    public static final String curiosWeaknessClearName = MoreModTetra.MODID + ".effect.curios_weakness_clear.name";
+    public static final String curiosWeaknessClearTooltip = MoreModTetra.MODID + ".effect.curios_weakness_clear.tooltip";
+
+    public static final ItemEffect curiosMiningFatigueClearEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_mining_fatigue_clear");
+    public static final String curiosMiningFatigueClearName = MoreModTetra.MODID + ".effect.curios_mining_fatigue_clear.name";
+    public static final String curiosMiningFatigueClearTooltip = MoreModTetra.MODID + ".effect.curios_mining_fatigue_clear.tooltip";
+
+    public static final ItemEffect curiosHungerClearEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_hunger_clear");
+    public static final String curiosHungerClearName = MoreModTetra.MODID + ".effect.curios_hunger_clear.name";
+    public static final String curiosHungerClearTooltip = MoreModTetra.MODID + ".effect.curios_hunger_clear.tooltip";
+
+    public static final ItemEffect curiosFireClearEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_fire_clear");
+    public static final String curiosFireClearName = MoreModTetra.MODID + ".effect.curios_fire_clear.name";
+    public static final String curiosFireClearTooltip = MoreModTetra.MODID + ".effect.curios_fire_clear.tooltip";
+
+    public static final ItemEffect curiosDarknessClearEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_darkness_clear");
+    public static final String curiosDarknessClearName = MoreModTetra.MODID + ".effect.curios_darkness_clear.name";
+    public static final String curiosDarknessClearTooltip = MoreModTetra.MODID + ".effect.curios_darkness_clear.tooltip";
+
+    public static final ItemEffect curiosBlindnessClearEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_blindness_clear");
+    public static final String curiosBlindnessClearName = MoreModTetra.MODID + ".effect.curios_blindness_clear.name";
+    public static final String curiosBlindnessClearTooltip = MoreModTetra.MODID + ".effect.curios_blindness_clear.tooltip";
+
+    public static final ItemEffect curiosLevitationClearEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_levitation_clear");
+    public static final String curiosLevitationClearName = MoreModTetra.MODID + ".effect.curios_levitation_clear.name";
+    public static final String curiosLevitationClearTooltip = MoreModTetra.MODID + ".effect.curios_levitation_clear.tooltip";
+
+    public static final ItemEffect curiosPoisonClearEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_poison_clear");
+    public static final String curiosPoisonClearName = MoreModTetra.MODID + ".effect.curios_poison_clear.name";
+    public static final String curiosPoisonClearTooltip = MoreModTetra.MODID + ".effect.curios_poison_clear.tooltip";
+
+    public static final ItemEffect curiosWitherClearEffect = ItemEffect.get(MoreModTetra.MODID + ":curios_wither_clear");
+    public static final String curiosWitherClearName = MoreModTetra.MODID + ".effect.curios_wither_clear.name";
+    public static final String curiosWitherClearTooltip = MoreModTetra.MODID + ".effect.curios_wither_clear.tooltip";
 
     public static final ItemEffect hideBladeEffect = ItemEffect.get(MoreModTetra.MODID + ":hide_blade");
     public static final String hideBladeName = MoreModTetra.MODID + ".effect.hide_blade.name";

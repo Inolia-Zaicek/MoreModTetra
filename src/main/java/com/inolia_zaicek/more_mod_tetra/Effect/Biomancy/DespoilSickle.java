@@ -51,7 +51,7 @@ public class DespoilSickle {
             Entity mob = event.getEntity();
             Collection<ItemEntity> drops= event.getDrops();
             Entity attacker = event.getEntity().getLastAttacker();
-            if (mob instanceof Player) {
+            if (mob instanceof Player||event.getEntity().getLastAttacker()==null) {
                 return;
             }
             if(attacker!=null) {

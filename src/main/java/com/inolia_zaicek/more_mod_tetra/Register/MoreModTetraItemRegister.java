@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Register;
 
-import com.inolia_zaicek.more_mod_tetra.ModularCurios.ModularNecklace;
+import com.inolia_zaicek.more_mod_tetra.ModularCurios.*;
+import com.inolia_zaicek.more_mod_tetra.ModularCurios.Iron.ModularIronStaff;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -41,8 +42,28 @@ public class MoreModTetraItemRegister {
     public static final TagKey<Item> stoneTag = TagKey.create(Registries.ITEM,new ResourceLocation("minecraft","stone_tool_materials"));
     public static final TagKey<Item> stoneTag2 = TagKey.create(Registries.ITEM,new ResourceLocation("forge","stone"));
     //饰品
+    public static final RegistryObject<Item> MODULAR_Emblem = ZeroingITEM.register(ModularEmblem.identifier, ModularEmblem::new);
+    public static final RegistryObject<Item> CuriosEmblem = registerCommonMaterials(ZeroingITEM,"curios_emblem", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
     public static final RegistryObject<Item> MODULAR_Necklace = ZeroingITEM.register(ModularNecklace.identifier, ModularNecklace::new);
     public static final RegistryObject<Item> CuriosNecklace = registerCommonMaterials(ZeroingITEM,"curios_necklace", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> MODULAR_Shoes = ZeroingITEM.register(ModularShoes.identifier, ModularShoes::new);
+    public static final RegistryObject<Item> CuriosShoes = registerCommonMaterials(ZeroingITEM,"curios_shoes", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> MODULAR_Ring = ZeroingITEM.register(ModularRing.identifier, ModularRing::new);
+    public static final RegistryObject<Item> CuriosRing = registerCommonMaterials(ZeroingITEM,"curios_ring", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> MODULAR_Crown = ZeroingITEM.register(ModularCrown.identifier, ModularCrown::new);
+    public static final RegistryObject<Item> CuriosCrown = registerCommonMaterials(ZeroingITEM,"curios_crown", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> MODULAR_Glove = ZeroingITEM.register(ModularGlove.identifier, ModularGlove::new);
+    public static final RegistryObject<Item> CuriosGlove = registerCommonMaterials(ZeroingITEM,"curios_glove", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> MODULAR_Amulet = ZeroingITEM.register(ModularAmulet.identifier, ModularAmulet::new);
+    public static final RegistryObject<Item> CuriosAmulet = registerCommonMaterials(ZeroingITEM,"curios_amulet", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> MODULAR_Bracelet = ZeroingITEM.register(ModularBracelet.identifier, ModularBracelet::new);
+    public static final RegistryObject<Item> CuriosBracelet = registerCommonMaterials(ZeroingITEM,"curios_bracelet", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> MODULAR_HeartProtectingMirror = ZeroingITEM.register(ModularHeartProtectingMirror.identifier, ModularHeartProtectingMirror::new);
+    public static final RegistryObject<Item> CuriosHeartProtectingMirror = registerCommonMaterials(ZeroingITEM,"curios_heart_protecting_mirror", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> MODULAR_Jetpack = ZeroingITEM.register(ModularJetpack.identifier, ModularJetpack::new);
+    public static final RegistryObject<Item> CuriosJetpack = registerCommonMaterials(ZeroingITEM,"curios_jetpack", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> MODULAR_TotemOfUndying = ZeroingITEM.register(ModularTotemOfUndying.identifier, ModularTotemOfUndying::new);
+    public static final RegistryObject<Item> CuriosTotemOfUndying = registerCommonMaterials(ZeroingITEM,"curios_totem_of_undying", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
     //原版
     public static final RegistryObject<Item> CopperLantern = registerCommonMaterials(ZeroingITEM,"copper_lantern", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> ReverseMirror = registerCommonMaterials(ZeroingITEM,"reverse_mirror", () -> new Item(new Item.Properties().stacksTo(64)));
@@ -79,6 +100,9 @@ public class MoreModTetraItemRegister {
     public static final RegistryObject<Item> GoldMoney = registerCommonMaterials(ZeroingITEM,"gold_money", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> DiamondMoney = registerCommonMaterials(ZeroingITEM,"diamond_money", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> NetheriteMoney = registerCommonMaterials(ZeroingITEM,"netherite_money", () -> new Item(new Item.Properties().stacksTo(64)));
+    //铁魔法法杖
+    public static final RegistryObject<Item> MODULAR_IronStaff = IronSpellITEM.register(ModularIronStaff.identifier, ModularIronStaff::new);
+    public static final RegistryObject<Item> TetraIronStaff = registerCommonMaterials(IronSpellITEM,"tetra_iron_staff", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
     //铁魔法-符文锭
     public static final RegistryObject<Item> EmptyArcaneIngot = registerCommonMaterials(IronSpellITEM,"empty_arcane_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> FireArcaneIngot = registerCommonMaterials(IronSpellITEM,"fire_arcane_ingot", () -> new Item(new Item.Properties().stacksTo(64)));

@@ -1,5 +1,5 @@
 {
-    "replace": true,
+    
     "slots": [ "crossbow/stave" ],
     "materialSlotCount": 1,
     "rarity": "temporary",

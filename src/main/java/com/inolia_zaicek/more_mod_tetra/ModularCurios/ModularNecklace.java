@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.ModularCurios; // 定义该类所属的
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriousHelper;
 import net.minecraft.nbt.CompoundTag; // 引入用于处理物品NBT（命名二进制标签）数据的类，这对于保存和加载物品的自定义数据非常重要。
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -29,10 +30,11 @@ import java.util.*;
 import java.util.stream.Collectors; // 引入用于收集流元素的工具类。
 import java.util.stream.Stream; // 引入Stream API，用于进行序列化数据处理。
 
+@SuppressWarnings({"all", "removal"})
 public class ModularNecklace extends ModularItem implements  ICurioItem { // 声明一个名为ModularNecklace的公共类，它继承自ModularItem并实现ICurio接口。
     //部件类型/槽位——[slot]
-    public final static String mmt_necklaceChain = "mmt_necklace/chain";
     public final static String mmt_necklacePendant = "mmt_necklace/pendant";
+    public final static String mmt_necklaceChain = "mmt_necklace/chain";
     //public final static String mmt_necklaceAttachment = "mmt_necklace/attachment";
     // --- 物品标识符 ---
     /*** 模块化项链在模组内的唯一标识符。* 这个标识符用于在NBT数据、配方和其他模组交互中引用该物品。*/
@@ -63,13 +65,13 @@ public class ModularNecklace extends ModularItem implements  ICurioItem { // 声
         //可否打磨
         canHone = false;
         //设置主要部件有什么
-        majorModuleKeys = new String[]{mmt_necklaceChain, mmt_necklacePendant};
+        majorModuleKeys = new String[]{mmt_necklacePendant, mmt_necklaceChain};
         //设置次要部件有什么
         minorModuleKeys = new String[]{
                 //mmt_necklaceAttachment
                 };
         // 定义该项链所必需的模块（Required Modules）。游戏会确保这些模块至少存在一个，否则物品可能无法正常工作或显示。
-        requiredModules = new String[]{mmt_necklaceChain, mmt_necklacePendant};
+        requiredModules = new String[]{mmt_necklacePendant, mmt_necklaceChain};
     }
     /*** 获取该模块化物品所有已安装的模块。** @param stack 当前物品的ItemStack。* @return 包含所有已安装模块的Collection。*/
     //不用动他
@@ -119,6 +121,6 @@ public class ModularNecklace extends ModularItem implements  ICurioItem { // 声
             Multimap<Attribute, AttributeModifier> Tetra = this.getAttributeModifiersCached(stack);
             result.putAll(Tetra);
         }
-        return result;
+        return MMTCuriousHelper.Curios$fixIdentifiers(slotContext,result);
     }
 }

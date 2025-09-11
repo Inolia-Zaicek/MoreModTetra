@@ -1,13 +1,17 @@
 {
-    "replace": true,
+    
     "type": "tetra:basic_major_module",
     "slots": [ "mmt_necklace/pendant" ],
+    "renderLayer": "higher",
     "improvements": [],
     "variants": [
         {
             "materials": [ "tetra:bone/"],
             "key": "fang/",
-            "integrity": 1,
+            "integrity": 0,
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
             "extract": {
                 "glyph": {
                     "textureX": 176,
@@ -22,7 +26,8 @@
                 "availableTextures": [ "" ],
                 "models": [
                     {
-                        "location": "more_mod_tetra:item/module/mmt_necklace/pendant/fang"
+                        "location": "more_mod_tetra:item/module/mmt_necklace/pendant/fang",
+                        "renderLayer": "high"
                     }
                 ]
             }

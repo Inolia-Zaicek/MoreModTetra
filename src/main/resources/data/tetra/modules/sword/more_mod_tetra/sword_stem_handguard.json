@@ -1,5 +1,5 @@
 {
-  "replace": true,
+  
   "slots": [ "sword/pommel" ],
   "type": "tetra:basic_module",
   "variants": [

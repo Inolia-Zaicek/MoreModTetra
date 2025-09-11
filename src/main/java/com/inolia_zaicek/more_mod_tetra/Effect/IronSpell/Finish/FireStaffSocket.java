@@ -41,8 +41,23 @@ public class FireStaffSocket {
 
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        Entity attackingEntity = event.getSource().getEntity();
-        if (attackingEntity instanceof LivingEntity attacker) {
+        if (event.getSource().getEntity() instanceof Player attacker) {
+            if(event.getSource().is(ISSDamageTypes.FIRE_MAGIC)) {
+                ItemStack mainStack = attacker.getMainHandItem();
+                ItemStack offStack = attacker.getMainHandItem();
+                if (mainStack.getItem() instanceof IModularItem item) {
+                    float level = item.getEffectLevel(mainStack, fireStaffSocketEffect);
+                    if (level > 0) {
+                        event.setAmount(event.getAmount() * 1.1f);
+                    }
+                } else if (offStack.getItem() instanceof IModularItem item) {
+                    float level = item.getEffectLevel(offStack, fireStaffSocketEffect);
+                    if (level > 0) {
+                        event.setAmount(event.getAmount() * 1.1f);
+                    }
+                }
+            }
+        }else if (event.getSource().getDirectEntity() instanceof Player attacker) {
             if(event.getSource().is(ISSDamageTypes.FIRE_MAGIC)) {
                 ItemStack mainStack = attacker.getMainHandItem();
                 ItemStack offStack = attacker.getMainHandItem();

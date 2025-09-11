@@ -1,5 +1,5 @@
 {
-    "replace": true,
+    
     "slots": [ "crossbow/attachment_0", "crossbow/attachment_1" ],
     "type": "tetra:basic_module",
     "variants": [

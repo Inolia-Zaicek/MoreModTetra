@@ -1,5 +1,5 @@
 {
-    "replace": true,
+    
     "slots": [ "crossbow/stock" ],
     "materialSlotCount": 1,
     "materialRevealSlot": 0,

@@ -53,7 +53,7 @@ public class SoulShard {
         if (event.getEntity() != null&& event.getEntity().getLastAttacker() instanceof Player) {
             Entity mob = event.getEntity();
             Entity attacker = event.getEntity().getLastAttacker();
-            if (mob instanceof Player) {
+            if (mob instanceof Player||event.getEntity().getLastAttacker()==null) {
                 return;
             }
             Level level = mob.level();

@@ -1,5 +1,5 @@
 {
-    "replace": true,
+    
     "slots": [ "crossbow/stave" ],
     "type": "tetra:basic_major_module",
     "improvements": [

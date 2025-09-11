@@ -37,6 +37,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.Fr
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.GunKnightPatriotIngotEffect.ExhortationOfGunKnightPatriot;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.GunKnightPatriotIngotEffect.RitualOfExhortation;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.GunKnightPatriotIngotEffect.RitualOfHolyGuard;
+import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.IngotDrop.MMTIngotDrop;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect.MarchingTimeAndRuinationTime;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect.MarchingTimeHurt;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect.SacrificeAndThrowingTheHalberd;
@@ -71,7 +72,16 @@ import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.TO.TOIronSpellTetraActu
 import com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.*;
-import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curious.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.BuffClear.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.CuriosAllDamageUp;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.CuriosMagicDamageUp;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.CuriosMeleeDamageUp;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.CuriosProjectileDamageUp;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.Iron.AFCuriosMagicDamageUp;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.Iron.IronCuriosMagicDamageUp;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.Iron.TOCuriosMagicDamageUp;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.Tacz.TaczCuriosProjectileDamageUp;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.DeepDarkFantasy;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Edge.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.IndustrialProtection.IndustrialProtection;
@@ -82,12 +92,15 @@ import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Shield.ShieldSkillAutomaticPr
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Shield.ShieldSkillCooldownDown;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Slash.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMTClientGuiRegistry;
 import com.inolia_zaicek.more_mod_tetra.Effect.Malum.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.Malum.TotemicRunes.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft.SMCFrost;
 import com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft.SMCFrostBurst;
+import com.inolia_zaicek.more_mod_tetra.Event.MMTFluidCollisionEvent;
 import com.inolia_zaicek.more_mod_tetra.Network.GhostSwordChannel;
 import com.inolia_zaicek.more_mod_tetra.Network.TerraRayChannel;
+import com.inolia_zaicek.more_mod_tetra.Network.MMTNetworkHandler;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraItemRegister;
 import com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraTab;
@@ -173,16 +186,19 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(EnderStaffSocket.class);
             MinecraftForge.EVENT_BUS.register(NatureStaffSocket.class);
             MinecraftForge.EVENT_BUS.register(EldritchStaffSocket.class);
+            MinecraftForge.EVENT_BUS.register(IronCuriosMagicDamageUp.class);
         }
         if(ModList.get().isLoaded("traveloptics")) {
             MinecraftForge.EVENT_BUS.register(AquaArcaneEdgeEffect.class);
             MinecraftForge.EVENT_BUS.register(AquaArcaneGuardEffect.class);
             MinecraftForge.EVENT_BUS.register(AquaStaffSocket.class);
+            MinecraftForge.EVENT_BUS.register(TOCuriosMagicDamageUp.class);
         }
         if(ModList.get().isLoaded("alshanex_familiars")) {
             MinecraftForge.EVENT_BUS.register(SoundArcaneEdgeEffect.class);
             MinecraftForge.EVENT_BUS.register(SoundArcaneGuardEffect.class);
             MinecraftForge.EVENT_BUS.register(SoundStaffSocket.class);
+            MinecraftForge.EVENT_BUS.register(AFCuriosMagicDamageUp.class);
         }
         if(ModList.get().isLoaded("malum")) {
             MinecraftForge.EVENT_BUS.register(StabilizingEffect.class);
@@ -243,7 +259,7 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(UndeadHydra.class);MinecraftForge.EVENT_BUS.register(GhostSword.class);
         }
         /*
-        //明日方舟
+        //明日方舟mrfz
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
             MinecraftForge.EVENT_BUS.register(MMTIngotDrop.class);
             MinecraftForge.EVENT_BUS.register(ExpandedCognition.class);
@@ -324,6 +340,9 @@ public class MoreModTetra {
         }
         if(ModList.get().isLoaded("caerula_arbor")) {
             MinecraftForge.EVENT_BUS.register(SanityHurt.class);
+        }
+        if(ModList.get().isLoaded("tacz")) {
+            MinecraftForge.EVENT_BUS.register(TaczCuriosProjectileDamageUp.class);
         }
         MinecraftForge.EVENT_BUS.register(Assassinate.class);
         MinecraftForge.EVENT_BUS.register(ConstantFlux.class);
@@ -426,10 +445,24 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(TrueSlash.class);
         MinecraftForge.EVENT_BUS.register(CuriosArmorPenetration.class);
         MinecraftForge.EVENT_BUS.register(CuriosKamui.class);
+        MinecraftForge.EVENT_BUS.register(CuriosCriticalStrike.class);
+        MinecraftForge.EVENT_BUS.register(CuriosJank.class);
+        MinecraftForge.EVENT_BUS.register(CuriosFeatherFalling.class);
+        MinecraftForge.EVENT_BUS.register(CuriosProtect.class);
+        MinecraftForge.EVENT_BUS.register(CuriosAllDamageUp.class);
+        MinecraftForge.EVENT_BUS.register(CuriosMagicDamageUp.class);
+        MinecraftForge.EVENT_BUS.register(CuriosMeleeDamageUp.class);
+        MinecraftForge.EVENT_BUS.register(CuriosProjectileDamageUp.class);
+        MinecraftForge.EVENT_BUS.register(CuriosMagmaWalker.class);
+        MinecraftForge.EVENT_BUS.register(CuriosWaterWalker.class);
+        MinecraftForge.EVENT_BUS.register(CuriosFly.class);
+        MinecraftForge.EVENT_BUS.register(MMTFluidCollisionEvent.class);
+        MinecraftForge.EVENT_BUS.register(CuriosTotemEvent.class);
     }
 
     @SubscribeEvent
     public void commonSetup(FMLCommonSetupEvent event){
+        MMTNetworkHandler.init();
         if(ModList.get().isLoaded("iceandfire")) {
             //幻灵
             GhostSwordChannel.init();
@@ -442,6 +475,31 @@ public class MoreModTetra {
     // 客户端设置事件，用于注册渲染器和GUI屏幕
     private void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            CuriosTotemEvent.init();
+            CuriosFly.init();
+            CuriosWaterWalker.init();
+            CuriosMagmaWalker.init();
+            CuriosProjectileDamageUp.init();
+            CuriosMeleeDamageUp.init();
+            CuriosMagicDamageUp.init();
+            CuriosAllDamageUp.init();
+            CuriosJump.init();
+            CuriosProtect.init();
+            CuriosFeatherFalling.init();
+            CuriosJank.init();
+            CuriosCriticalStrike.init();
+            CuriosFireClear.init();
+            CuriosBlindnessClear.init();
+            CuriosDarknessClear.init();
+            CuriosHungerClear.init();
+            CuriosLevitationClear.init();
+            CuriosMiningFatigueClear.init();
+            CuriosPoisonClear.init();
+            CuriosSlownessClear.init();
+            CuriosWeaknessClear.init();
+            CuriosWitherClear.init();
+            MMTClientGuiRegistry.registerAllBars();
+            CuriosMaterialsEffectInvalidation.init();
             CuriosKamui.init();
             CuriosArmorPenetration.init();
             TrueSlash.init();

@@ -3,6 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.Finish;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -36,8 +37,23 @@ public class IceStaffSocket {
 
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        Entity attackingEntity = event.getSource().getEntity();
-        if (attackingEntity instanceof LivingEntity attacker) {
+        if (event.getSource().getEntity() instanceof Player attacker) {
+            if(event.getSource().is(ISSDamageTypes.ICE_MAGIC)) {
+                ItemStack mainStack = attacker.getMainHandItem();
+                ItemStack offStack = attacker.getMainHandItem();
+                if (mainStack.getItem() instanceof IModularItem item) {
+                    float level = item.getEffectLevel(mainStack, iceStaffSocketEffect);
+                    if (level > 0) {
+                        event.setAmount(event.getAmount() * 1.1f);
+                    }
+                } else if (offStack.getItem() instanceof IModularItem item) {
+                    float level = item.getEffectLevel(offStack, iceStaffSocketEffect);
+                    if (level > 0) {
+                        event.setAmount(event.getAmount() * 1.1f);
+                    }
+                }
+            }
+        }else if (event.getSource().getDirectEntity() instanceof Player attacker) {
             if(event.getSource().is(ISSDamageTypes.ICE_MAGIC)) {
                 ItemStack mainStack = attacker.getMainHandItem();
                 ItemStack offStack = attacker.getMainHandItem();

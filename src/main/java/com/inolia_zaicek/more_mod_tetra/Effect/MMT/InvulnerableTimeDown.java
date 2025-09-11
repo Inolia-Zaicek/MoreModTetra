@@ -52,9 +52,13 @@ public class InvulnerableTimeDown {
                     }
                 }
                 if (effectLevel > 0) {
-                    float number = (float) effectLevel / 100;
-                    var time =Math.max(0,(mob.invulnerableTime)*(1-number/100) );
-                    mob.invulnerableTime= (int) time;
+                    if(effectLevel<100) {
+                        float number = (float) effectLevel / 100;
+                        var time = Math.max(0, (mob.invulnerableTime) * (1 - number / 100));
+                        mob.invulnerableTime = (int) time;
+                    }else{
+                        mob.invulnerableTime=0;
+                    }
                     }
                 }
             }

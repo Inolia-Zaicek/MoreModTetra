@@ -1,5 +1,5 @@
 {
-    "replace": true,
+    
     "slots": [ "mmt_necklace/pendant" ],
     "materialSlotCount": 1,
     "displayType": "major",
@@ -14,9 +14,9 @@
         "secondaryEffects": {
             "more_mod_tetra:curios_armor_penetration": 1
         },
-        "durability": 4,
-        "integrity": -1,
-        "magicCapacity": 3
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
     },
     "outcomes": [
         {
