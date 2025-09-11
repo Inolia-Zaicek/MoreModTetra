@@ -23,7 +23,6 @@ public class MMTCuriousHelper implements ICurioItem {
                                 Map.Entry::getKey,
                                 (entry) ->
                                         new AttributeModifier(
-                                                entry.getValue().getId(),
                                                 entry.getValue().getName() + slotContext.identifier() + slotContext.index(),
                                                 entry.getValue().getAmount(),
                                                 entry.getValue().getOperation()
