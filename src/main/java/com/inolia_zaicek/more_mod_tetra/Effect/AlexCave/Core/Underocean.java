@@ -35,7 +35,7 @@ public class Underocean {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
             if (event.getSource().getEntity() instanceof Player player&&event.getEntity()!=null) {
-                LivingEntity mob = event.getSource().getEntity().getControllingPassenger();
+                LivingEntity mob = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
                 float effectLevel = 0;
@@ -51,8 +51,8 @@ public class Underocean {
                         effectLevel += offEffectLevel;
                     }
                 }
-                if (effectLevel > 0&&mob.hasEffect(ACEffectRegistry.BUBBLED.get())&&mob!=null) {
-                        event.setAmount(event.getAmount()*(1+ effectLevel /100));
+                if (mob != null && effectLevel > 0 && mob.hasEffect(ACEffectRegistry.BUBBLED.get())) {
+                    event.setAmount(event.getAmount() * (1 + effectLevel / 100));
                 }
             }
             //挨打
@@ -60,7 +60,7 @@ public class Underocean {
             LivingEntity mob = event.getSource().getEntity().getControllingPassenger();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel = 0;
+            float effectLevel = 0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, underoceanEffect);
                 if (mainEffectLevel > 0) {
@@ -70,10 +70,10 @@ public class Underocean {
             if (offhandItem.getItem() instanceof IModularItem item) {
                 float offEffectLevel = item.getEffectLevel(offhandItem, underoceanEffect);
                 if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
+                    effectLevel += offEffectLevel;
                 }
             }
-            if (effectLevel > 0&&mob.hasEffect(ACEffectRegistry.BUBBLED.get())&&mob!=null) {
+            if (mob!=null&&effectLevel > 0&&mob.hasEffect(ACEffectRegistry.BUBBLED.get())) {
                 event.setAmount(event.getAmount()*(1- (float) effectLevel /100));
             }
         }

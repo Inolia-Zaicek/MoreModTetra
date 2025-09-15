@@ -6030,6 +6030,18 @@
 "tetra.improvement.mmt_iron_spell_sound_spell_power.name": "注魔·律灵法强",
 "tetra.improvement.mmt_iron_spell_sound_spell_power.description": "提升法杖所提供的律灵法强属性",
 
+"item.more_mod_tetra.tetra_white_container":"纯白容器",
+"tetra.slot.mmt_white_container/red":"血红",
+"tetra.slot.mmt_white_container/orange":"炽橙",
+"tetra.slot.mmt_white_container/yellow":"辉黄",
+"tetra.slot.mmt_white_container/green":"草绿",
+"tetra.slot.mmt_white_container/cyan":"天青",
+"tetra.slot.mmt_white_container/blue":"海蓝",
+"tetra.slot.mmt_white_container/purple":"霞紫",
+
+"tetra.material.traveloptics_hullbreaker_scales":"碎船兽鳞片",
+"tetra.material.traveloptics_hullbreaker_scales.prefix":"碎船兽鳞片",
+
 "more_mod_tetra.effect.curios_projectile_tracking.name":"饰品·弹射物追踪(未完成)(未翻译)",
 "more_mod_tetra.effect.curios_projectile_tracking.tooltip":"可以使装备者发射的§e弹射物§r自动§e追踪§r最近的目标。",
 "tetra.stats.more_mod_tetra:curios_projectile_tracking":"饰品·弹射物追踪(未完成)(未翻译)",

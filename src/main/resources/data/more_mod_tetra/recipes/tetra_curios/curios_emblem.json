@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         "BAB",
-        "A A",
+        "ACA",
         "BAB"
     ],
     "key": {
@@ -11,6 +11,9 @@
         },
         "B": {
             "item": "minecraft:iron_nugget"
+        },
+        "C": {
+            "item": "minecraft:cobblestone"
         }
     },
     "result": {

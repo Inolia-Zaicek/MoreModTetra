@@ -113,8 +113,8 @@ public class MMTFlightHandler { // 定义一个名为 MMTFlightHandler 的公共
                 boolean isPlayerFallingOrGliding = player.isFallFlying() || player.isFallFlying(); // 检查玩家是否在下落或滑翔
                 boolean shouldPlayerBeFlyingBasedOnOurAbility = false;
 
-                if (spacebarPressed) {
-                    // 如果按下空格键，并且我们的飞行能力激活，那么玩家应该飞行
+                if (spacebarPressed&&!player.onGround()) {
+                    // 如果按下空格键，并且滞空 我们的飞行能力激活，那么玩家应该飞行
                     shouldPlayerBeFlyingBasedOnOurAbility = true;
                 } else {
                     // 如果没有按下空格键：

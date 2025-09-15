@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -38,28 +39,19 @@ public class CuriosFeatherFalling {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
             if (event.getEntity() instanceof Player player) {
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                                slotResult -> {
-                                    slotResult.stack();
-                                    ItemStack itemStack = slotResult.stack();
-                                    IModularItem item = (IModularItem) itemStack.getItem();
-                                    float effectLevel = item.getEffectLevel(itemStack, curiosFeatherFallingEffect);
-                                    if (effectLevel > 0) {
-                                        if(event.getSource()==player.damageSources().fall()
-                                        ||event.getSource()==player.damageSources().fallingBlock(player)
-                                        ||event.getSource()==player.damageSources().fallingStalactite(player)
-                                        ) {
-                                            if(effectLevel<100) {
-                                                event.setAmount(event.getAmount() * (1 - effectLevel / 100));
-                                            }else{
-                                                event.setAmount(0);
-                                            }
-                                        }
-                                    }
-                                }
-                        )
-                );
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectMaxLevel(player, curiosFeatherFallingEffect);
+                if (effectLevel > 0) {
+                    if (event.getSource() == player.damageSources().fall()
+                            || event.getSource() == player.damageSources().fallingBlock(player)
+                            || event.getSource() == player.damageSources().fallingStalactite(player)
+                    ) {
+                        if (effectLevel < 100) {
+                            event.setAmount(event.getAmount() * (1 - effectLevel / 100));
+                        } else {
+                            event.setAmount(0);
+                        }
+                    }
+                }
             }
         }
     }

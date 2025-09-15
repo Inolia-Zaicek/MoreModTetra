@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -42,25 +43,14 @@ public class CuriosCriticalStrike {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
             if (event.getSource().getEntity() instanceof Player player) {
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                                slotResult -> {
-                                    slotResult.stack();
-                                    ItemStack itemStack = slotResult.stack();
-                                    IModularItem item = (IModularItem) itemStack.getItem();
-                                    //获取第一个数据
-                                    float chance = item.getEffectLevel(itemStack, curiosCriticalStrikeEffect);
-                                    //获取第二个数据
-                                    float damage = item.getEffectEfficiency(itemStack, curiosCriticalStrikeEffect);
-                                    Random random = new Random();
-                                    if (chance > 0&&random.nextInt(100) <= chance) {
-                                            //最终伤害：与原版不同，是200————200%爆伤
-                                            float finish = event.getAmount() * (1 + damage / 100);
-                                            event.setAmount(finish);
-                                    }
-                                }
-                        )
-                );
+                float chance = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player,curiosCriticalStrikeEffect);
+                float damage = MMTCuriosHelper.getInstance().getCuriosEffectEfficiency(player,curiosCriticalStrikeEffect);
+                Random random = new Random();
+                if (chance > 0&&random.nextInt(100) <= chance) {
+                    //最终伤害：与原版不同，是200————200%爆伤
+                    float finish = event.getAmount() * (1 + damage / 100);
+                    event.setAmount(finish);
+                }
             }
         }
     }

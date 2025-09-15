@@ -1,6 +1,12 @@
 [
     {
-        "predicate": {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "irons_spellbooks"
+            }
+        ],
+            "predicate": {
             "items": [ "more_mod_tetra:tetra_iron_staff" ]
         },
         "item": "more_mod_tetra:modular_mmt_iron_staff",

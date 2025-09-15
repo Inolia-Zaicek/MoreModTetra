@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -25,7 +26,7 @@ public class CuriosKamui {
     public static void init() {
         var statGetter = new StatGetterEffectLevel(curiosKamuiEffect, 1);
         GuiStatBar statBar = new GuiStatBar(0, 0, StatsHelper.barLength,
-                curiosKamuiName, 0, 1, false, false, false,
+                curiosKamuiName, 0, 10, false, false, false,
                 statGetter, LabelGetterBasic.integerLabel,
                 new TooltipGetterInteger(curiosKamuiTooltip, statGetter)
         );
@@ -38,20 +39,11 @@ public class CuriosKamui {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
             if (event.getEntity() instanceof Player player) {
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                                slotResult -> {
-                                    slotResult.stack();
-                                    ItemStack itemStack = slotResult.stack();
-                                    IModularItem item = (IModularItem) itemStack.getItem();
-                                    float effectLevel = item.getEffectLevel(itemStack, curiosKamuiEffect);
-                                    if (effectLevel > 0) {
-                                        int time = (int) ((player.invulnerableTime)+(effectLevel*0.01*20));
-                                        player.invulnerableTime=time;
-                                    }
-                                }
-                        )
-                );
+                int effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectMaxLevel(player, curiosKamuiEffect);
+                if (effectLevel > 0) {
+                    int time = (int) ((player.invulnerableTime) + (effectLevel * 0.01 * 20));
+                    player.invulnerableTime = time;
+                }
             }
         }
     }

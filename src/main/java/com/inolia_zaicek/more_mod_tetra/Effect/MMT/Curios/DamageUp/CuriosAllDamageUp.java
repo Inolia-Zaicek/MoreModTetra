@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp;
 
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -39,35 +40,17 @@ public class CuriosAllDamageUp {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
             if (event.getSource().getEntity() instanceof Player player) {
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                                slotResult -> {
-                                    slotResult.stack();
-                                    ItemStack itemStack = slotResult.stack();
-                                    IModularItem item = (IModularItem) itemStack.getItem();
-                                    float effectLevel = item.getEffectLevel(itemStack, curiosAllDamageUpEffect);
-                                    if (effectLevel > 0) {
-                                        float finish =event.getAmount()*(1+effectLevel/100);
-                                        event.setAmount(finish);
-                                    }
-                                }
-                        )
-                );
-            }else if (event.getSource().getDirectEntity() instanceof Player player) {
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                                slotResult -> {
-                                    slotResult.stack();
-                                    ItemStack itemStack = slotResult.stack();
-                                    IModularItem item = (IModularItem) itemStack.getItem();
-                                    float effectLevel = item.getEffectLevel(itemStack, curiosAllDamageUpEffect);
-                                    if (effectLevel > 0) {
-                                        float finish =event.getAmount()*(1+effectLevel/100);
-                                        event.setAmount(finish);
-                                    }
-                                }
-                        )
-                );
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosAllDamageUpEffect);
+                if (effectLevel > 0) {
+                    float finish = event.getAmount() * (1 + effectLevel / 100);
+                    event.setAmount(finish);
+                }
+            } else if (event.getSource().getDirectEntity() instanceof Player player) {
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosAllDamageUpEffect);
+                if (effectLevel > 0) {
+                    float finish = event.getAmount() * (1 + effectLevel / 100);
+                    event.setAmount(finish);
+                }
             }
         }
     }

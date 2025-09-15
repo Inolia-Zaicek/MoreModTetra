@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -50,31 +51,22 @@ public class CuriosJank {
     public static void tick(TickEvent.PlayerTickEvent event) {
         if (ModList.get().isLoaded("curios")) {
             Player player = event.player;
-            CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                    (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                    slotResult -> {
-                        slotResult.stack();
-                        ItemStack itemStack = slotResult.stack();
-                        IModularItem iModularItem = (IModularItem) itemStack.getItem();
-                        int effectLevel = iModularItem.getEffectLevel(itemStack, curiosJankEffect);
-                        if (effectLevel > 0&&event.player.level() instanceof ServerLevel level) {
-                            BlockPos target = player.getOnPos();
-                            Entity entity =player;
-                            // 1. 搜索附近的物品实体：
-                            List<ItemEntity> items = level.getEntities(EntityType.ITEM, new AABB(target).inflate(effectLevel * 0.5), Entity::isAlive);
-                            // 3. 处理搜寻到的物品实体：
-                            //    - `items.forEach(item -> { ... })`: 遍历列表中的每一个 `item`（物品实体）。
-                            items.forEach(item -> {
-                                level.sendParticles(ParticleTypes.REVERSE_PORTAL, item.getX() + item.getBbWidth() / 2, item.getY() + item.getBbHeight() / 2,
-                                        item.getZ() + item.getBbWidth() / 2, 1, 0, 0, 0, 0);
-                                item.moveTo(entity.getPosition(0));
-                                item.setPickUpDelay(0);
-                            });
-                            level.getEntities(EntityType.EXPERIENCE_ORB, new AABB(target).inflate(effectLevel * 0.5), Entity::isAlive).forEach(orb -> orb.moveTo(entity.getPosition(0)));
-
-                        }
-                    }
-            ));
-    }
+            int effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectMaxLevel(player, curiosJankEffect);
+            if (effectLevel > 0 && event.player.level() instanceof ServerLevel level) {
+                BlockPos target = player.getOnPos();
+                Entity entity = player;
+                // 1. 搜索附近的物品实体：
+                List<ItemEntity> items = level.getEntities(EntityType.ITEM, new AABB(target).inflate(effectLevel * 0.5), Entity::isAlive);
+                // 3. 处理搜寻到的物品实体：
+                //    - `items.forEach(item -> { ... })`: 遍历列表中的每一个 `item`（物品实体）。
+                items.forEach(item -> {
+                    level.sendParticles(ParticleTypes.REVERSE_PORTAL, item.getX() + item.getBbWidth() / 2, item.getY() + item.getBbHeight() / 2,
+                            item.getZ() + item.getBbWidth() / 2, 1, 0, 0, 0, 0);
+                    item.moveTo(entity.getPosition(0));
+                    item.setPickUpDelay(0);
+                });
+                level.getEntities(EntityType.EXPERIENCE_ORB, new AABB(target).inflate(effectLevel * 0.5), Entity::isAlive).forEach(orb -> orb.moveTo(entity.getPosition(0)));
+            }
+        }
 }
 }

@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -45,49 +46,33 @@ public class CuriosArmorPenetration {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
             if (event.getEntity() instanceof Player player) {
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                                slotResult -> {
-                                    slotResult.stack();
-                                    ItemStack itemStack = slotResult.stack();
-                                    IModularItem item = (IModularItem) itemStack.getItem();
-                                    int effectLevel = item.getEffectLevel(itemStack, curiosArmorPenetrationEffect);
-                                    if (effectLevel > 0) {
-                                        Optional.of(event.getEntity())
-                                                .map(LivingEntity::getAttributes)
-                                                .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
-                                                .map(manager -> manager.getInstance(Attributes.ARMOR))
-                                                .filter(instance -> instance.getModifier(uuid) == null)
-                                                .ifPresent(instance -> instance.addTransientModifier(
-                                                        new AttributeModifier(uuid, "mmt_curios_armor_penetration", effectLevel * -1, AttributeModifier.Operation.ADDITION)));
-                                    }
-                                }
-                        )
-                );
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosArmorPenetrationEffect);
+                if (effectLevel > 0) {
+                    Optional.of(event.getEntity())
+                            .map(LivingEntity::getAttributes)
+                            .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
+                            .map(manager -> manager.getInstance(Attributes.ARMOR))
+                            .filter(instance -> instance.getModifier(uuid) == null)
+                            .ifPresent(instance -> instance.addTransientModifier(
+                                    new AttributeModifier(uuid, "mmt_curios_armor_penetration", effectLevel * -1, AttributeModifier.Operation.ADDITION)));
+                }
+
             }
         }
     }
     public static void onLivingDamage(LivingDamageEvent event) {
         if (ModList.get().isLoaded("curios")) {
             if (event.getEntity() instanceof Player player) {
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                        (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                        slotResult -> {
-                            slotResult.stack();
-                            ItemStack itemStack = slotResult.stack();
-                            IModularItem item = (IModularItem) itemStack.getItem();
-                            int effectLevel = item.getEffectLevel(itemStack, curiosArmorPenetrationEffect);
-                            if (effectLevel > 0) {
-                                Optional.of(event.getEntity())
-                                        .map(LivingEntity::getAttributes)
-                                        .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
-                                        .map(manager -> manager.getInstance(Attributes.ARMOR))
-                                        .ifPresent(instance -> instance.removeModifier(uuid));
-                            }
-                        }
-                        )
-                );
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosArmorPenetrationEffect);
+                if (effectLevel > 0) {
+                    Optional.of(event.getEntity())
+                            .map(LivingEntity::getAttributes)
+                            .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
+                            .map(manager -> manager.getInstance(Attributes.ARMOR))
+                            .ifPresent(instance -> instance.removeModifier(uuid));
+                }
             }
+
         }
     }
 }

@@ -258,7 +258,6 @@ public class MoreModTetra {
             //幻灵
             MinecraftForge.EVENT_BUS.register(UndeadHydra.class);MinecraftForge.EVENT_BUS.register(GhostSword.class);
         }
-        /*
         //明日方舟mrfz
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
             MinecraftForge.EVENT_BUS.register(MMTIngotDrop.class);
@@ -281,7 +280,6 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(Dominion.class);
         }
 
-         */
         if(ModList.get().isLoaded("enigmaticlegacy")) {
             MinecraftForge.EVENT_BUS.register(EvilIngotMaterial.class);
             MinecraftForge.EVENT_BUS.register(EtheriumIngotMaterial.class);
