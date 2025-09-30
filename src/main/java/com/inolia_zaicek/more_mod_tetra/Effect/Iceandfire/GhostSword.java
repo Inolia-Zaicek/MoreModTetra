@@ -81,8 +81,9 @@ public class GhostSword {
             //基础等级50
             if (nEffectLevel > 0) {
                 // 如果在冷却中，则退出方法，不执行任何操作。
-                if (playerEntity.getCooldowns().isOnCooldown(mainHandItem.getItem()))
+                if (playerEntity.getCooldowns().isOnCooldown(mainHandItem.getItem())) {
                     return;
+                }
                 //发包
                     GhostSwordChannel.CHANNEL.sendToServer(new GhostSwordPacket(nEffectLevel, ubwEffectLevel));
 

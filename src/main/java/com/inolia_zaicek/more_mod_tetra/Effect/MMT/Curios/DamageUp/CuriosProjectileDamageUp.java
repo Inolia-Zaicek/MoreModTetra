@@ -42,7 +42,7 @@ public class CuriosProjectileDamageUp {
             if (event.getSource().getEntity() instanceof Player player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.getSource().is(DamageTypes.MOB_PROJECTILE)) {
+                    if (event.getSource().is(DamageTypes.ARROW)) {
                         float finish = event.getAmount() * (1 + effectLevel / 100);
                         event.setAmount(finish);
                     }
@@ -50,7 +50,7 @@ public class CuriosProjectileDamageUp {
             } else if (event.getSource().getDirectEntity() instanceof Player player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.getSource().is(DamageTypes.MOB_PROJECTILE)) {
+                    if (event.getSource().is(DamageTypes.ARROW)) {
                         float finish = event.getAmount() * (1 + effectLevel / 100);
                         event.setAmount(finish);
                     }

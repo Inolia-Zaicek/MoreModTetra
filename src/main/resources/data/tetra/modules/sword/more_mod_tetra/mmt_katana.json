@@ -18,7 +18,7 @@
       },
       "effects": {
         "sweeping": 1,
-        "severing": [10, 4]
+        "severing": [10, 1]
       },
       "tools": {
         "cut": [ 1, 2 ]
@@ -36,11 +36,11 @@
         "primaryEffects": {
           "skewering": 0.3,
           "sweeping": 0.1,
-          "severing": [4.5, 0.25]
+          "severing": [4.5, 0.2]
         },
         "secondaryEffects": {
           "sweeping": 0.15,
-          "severing": [3, 0.2]
+          "severing": [3, 0.15]
         },
         "tertiaryEffects": {
           "severing": [3, 0.1],

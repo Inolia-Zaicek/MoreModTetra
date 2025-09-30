@@ -18,10 +18,9 @@
     "textures": [
         "default_glow"
     ],
-    "material": {
-        "items": [
-            "avaritia:singularity_copper"
-        ]
+    "material":{
+        "items":["avaritia:singularity"],
+        "nbt":"{Id:\"avaritia:copper\"}"
     },
     "attributes": {
         "**generic.attack_speed": 0.5,

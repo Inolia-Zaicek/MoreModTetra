@@ -18,10 +18,9 @@
     "textures": [
         "default_glow"
     ],
-    "material": {
-        "items": [
-            "avaritia:singularity_redstone"
-        ]
+    "material":{
+        "items":["avaritia:singularity"],
+        "nbt":"{Id:\"avaritia:redstone\"}"
     },
     "attributes": {
         "**generic.attack_speed": 0.7,

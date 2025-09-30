@@ -18,10 +18,9 @@
     "textures": [
         "default_glow"
     ],
-    "material": {
-        "items": [
-            "avaritia:singularity_gold"
-        ]
+    "material":{
+        "items":["avaritia:singularity"],
+        "nbt":"{Id:\"avaritia:gold\"}"
     },
     "attributes": {
         "**generic.attack_speed": 0.3,

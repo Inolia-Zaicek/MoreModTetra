@@ -8,7 +8,7 @@
     ],
     "variants": [
         {
-            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/",  "tetra:rod/" ],
             "key": "mana_handle/",
             "durability": 10,
             "integrity": 1,

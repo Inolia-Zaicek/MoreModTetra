@@ -174,6 +174,10 @@ public class IronSpellCastingEvent {
             // 尝试施法
             // activeItem 就是玩家手持的，满足条件的物品
             if (spellData.getSpell().attemptInitiateCast(activeItem, spellData.getLevel(), player.level(), player, selectionOption.getCastSource(), true, castingSlot)) {
+                //如果是tetra物品，提升完整度
+                if (activeItem.getItem() instanceof IModularItem ModularItem) {
+                    ModularItem.tickProgression(player, activeItem, 10);
+                }
                 event.setCanceled(true); // 取消默认的物品使用过程
             } else {
                 // 施法失败 (例如服务器端也做了检查，但失败了)

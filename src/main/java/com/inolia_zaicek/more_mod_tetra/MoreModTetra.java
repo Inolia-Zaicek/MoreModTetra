@@ -74,6 +74,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.BuffClear.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.BuffGive.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.CuriosAllDamageUp;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.CuriosMagicDamageUp;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.CuriosMeleeDamageUp;
@@ -256,7 +257,8 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(IceDragonPower.class);
             MinecraftForge.EVENT_BUS.register(LightningDragonPower.class);
             //幻灵
-            MinecraftForge.EVENT_BUS.register(UndeadHydra.class);MinecraftForge.EVENT_BUS.register(GhostSword.class);
+            MinecraftForge.EVENT_BUS.register(UndeadHydra.class);
+            MinecraftForge.EVENT_BUS.register(GhostSword.class);
         }
         //明日方舟mrfz
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
@@ -473,6 +475,19 @@ public class MoreModTetra {
     // 客户端设置事件，用于注册渲染器和GUI屏幕
     private void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            CuriosWaterBreathing.init();
+            CuriosStrength.init();
+            CuriosSpeed.init();
+            CuriosSaturation.init();
+            CuriosResistance.init();
+            CuriosRegeneration.init();
+            CuriosNightVision.init();
+            CuriosLuck.init();
+            CuriosJumpBoost.init();
+            CuriosHeroOfTheVillage.init();
+            CuriosHealthBoost.init();
+            CuriosHaste.init();
+            CuriosFireResistance.init();
             CuriosTotemEvent.init();
             CuriosFly.init();
             CuriosWaterWalker.init();

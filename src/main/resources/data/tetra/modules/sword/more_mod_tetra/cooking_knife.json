@@ -14,7 +14,7 @@
       "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
       "key": "cooking_knife/",
       "tags": [
-        "forge:tools/knives","c:knives","bakery:knives","farmersdelight:tools/knives","forge:knives",
+        "farmersdelight:tools/knives","forge:tools/knives","c:knives","bakery:knives","forge:knives",
         "butcher:butcher_enchantable","kaleidoscope_cookery:kitchen_knife","minecraft:breaks_decorated_pots",
         "farmersdelight:straw_harvesters","minecraft:tools",
         "forge:tools/scavenging",

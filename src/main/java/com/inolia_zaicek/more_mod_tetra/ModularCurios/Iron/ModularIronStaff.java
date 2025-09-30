@@ -25,7 +25,6 @@ import java.util.stream.Stream;
 @SuppressWarnings({"all", "removal"})
 public class ModularIronStaff extends ItemModularHandheld { // 声明一个名为ModularNecklace的公共类，它继承自ModularItem并实现ICurio接口。
     //部件类型/槽位——[slot]
-    //法杖核心————决定法杖类型≈配重部位
     public final static String mmt_iron_staff_core = "mmt_iron_staff/core";
     //法杖顶部
     public final static String mmt_iron_staff_head = "mmt_iron_staff/head";

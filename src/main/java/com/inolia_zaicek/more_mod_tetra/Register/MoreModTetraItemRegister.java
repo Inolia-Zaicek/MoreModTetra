@@ -64,6 +64,8 @@ public class MoreModTetraItemRegister {
     public static final RegistryObject<Item> CuriosJetpack = registerCommonMaterials(ZeroingITEM,"curios_jetpack", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
     public static final RegistryObject<Item> MODULAR_TotemOfUndying = ZeroingITEM.register(ModularTotemOfUndying.identifier, ModularTotemOfUndying::new);
     public static final RegistryObject<Item> CuriosTotemOfUndying = registerCommonMaterials(ZeroingITEM,"curios_totem_of_undying", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> MODULAR_WhiteContainer = ZeroingITEM.register(ModularWhiteContainer.identifier, ModularWhiteContainer::new);
+    public static final RegistryObject<Item> CuriosWhiteContainer = registerCommonMaterials(ZeroingITEM,"tetra_white_container", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
     //原版
     public static final RegistryObject<Item> CopperLantern = registerCommonMaterials(ZeroingITEM,"copper_lantern", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> ReverseMirror = registerCommonMaterials(ZeroingITEM,"reverse_mirror", () -> new Item(new Item.Properties().stacksTo(64)));
