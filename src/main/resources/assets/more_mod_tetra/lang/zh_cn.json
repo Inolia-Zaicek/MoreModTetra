@@ -6316,6 +6316,13 @@
 "tetra.material.water_breathing":"水肺",
 "tetra.material.water_breathing.prefix":"水肺",
 
+"item.more_mod_tetra.blaze_ingot":"烈焰锭",
+"tetra.material.blaze_ingot":"烈焰锭",
+"tetra.material.blaze_ingot.prefix":"烈焰锭",
+"item.more_mod_tetra.blue_ice_ingot":"蓝冰锭",
+"tetra.material.blue_ice_ingot":"蓝冰锭",
+"tetra.material.blue_ice_ingot.prefix":"蓝冰锭",
+
 "more_mod_tetra.effect.curios_projectile_tracking.name":"饰品·弹射物追踪(未完成)(未翻译)",
 "more_mod_tetra.effect.curios_projectile_tracking.tooltip":"可以使装备者发射的§e弹射物§r自动§e追踪§r最近的目标。",
 "tetra.stats.more_mod_tetra:curios_projectile_tracking":"饰品·弹射物追踪(未完成)(未翻译)",

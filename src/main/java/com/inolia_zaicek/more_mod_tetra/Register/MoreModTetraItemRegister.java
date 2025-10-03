@@ -88,6 +88,8 @@ public class MoreModTetraItemRegister {
     public static final RegistryObject<Item> RottenFleshIngot = registerCommonMaterials(ZeroingITEM,"rotten_flesh_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> WitherBoneIngot = registerCommonMaterials(ZeroingITEM,"wither_bone_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> TidalIngot = registerCommonMaterials(ZeroingITEM,"tidal_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> BlazeIngot = registerCommonMaterials(ZeroingITEM,"blaze_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> BlueIceIngot = registerCommonMaterials(ZeroingITEM,"blue_ice_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     //伪·匠魂
     public static final RegistryObject<Item> FakeManyullynIngot = registerCommonMaterials(ZeroingITEM,"fake_manyullyn_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> FakeHepatizonIngot = registerCommonMaterials(ZeroingITEM,"fake_hepatizon_ingot", () -> new Item(new Item.Properties().stacksTo(64)));

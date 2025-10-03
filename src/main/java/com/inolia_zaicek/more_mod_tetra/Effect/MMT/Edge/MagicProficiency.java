@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Edge;
 
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -17,6 +18,7 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static net.minecraft.tags.DamageTypeTags.WITHER_IMMUNE_TO;
 
 public class MagicProficiency {
     @OnlyIn(Dist.CLIENT)
@@ -51,10 +53,12 @@ public class MagicProficiency {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                if (effectLevel > 0&&event.getSource()==mob.damageSources().magic()) {
-                    float number = (float) effectLevel / 100;
-                    float damage =event.getAmount();
-                    event.setAmount(damage*(1+number));
+                if (effectLevel > 0) {
+                    if (event.getSource().is(WITHER_IMMUNE_TO)) {
+                        float number = (float) effectLevel / 100;
+                        float damage = event.getAmount();
+                        event.setAmount(damage * (1 + number));
+                    }
             }
         }else if (event.getSource().getEntity() instanceof Player player) {
             var mob = event.getEntity();
@@ -73,10 +77,12 @@ public class MagicProficiency {
                     effectLevel += (int) offEffectLevel;
                 }
             }
-            if (effectLevel > 0&&event.getSource()==mob.damageSources().magic()) {
-                float number = (float) effectLevel / 100;
-                float damage =event.getAmount();
-                event.setAmount(damage*(1+number));
+            if (effectLevel > 0) {
+                if (event.getSource().is(WITHER_IMMUNE_TO)) {
+                    float number = (float) effectLevel / 100;
+                    float damage = event.getAmount();
+                    event.setAmount(damage * (1 + number));
+                }
             }
         }
     }

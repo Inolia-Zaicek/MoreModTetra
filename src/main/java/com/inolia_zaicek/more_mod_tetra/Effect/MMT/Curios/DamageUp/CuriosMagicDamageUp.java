@@ -20,6 +20,7 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static net.minecraft.tags.DamageTypeTags.WITHER_IMMUNE_TO;
 
 public class CuriosMagicDamageUp {
     @OnlyIn(Dist.CLIENT)
@@ -41,7 +42,7 @@ public class CuriosMagicDamageUp {
             if (event.getSource().getEntity() instanceof Player player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagicDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.getSource().is(DamageTypes.MAGIC) || event.getSource() == player.damageSources().magic()) {
+                    if (event.getSource().is(WITHER_IMMUNE_TO)) {
                         float finish = event.getAmount() * (1 + effectLevel / 100);
                         event.setAmount(finish);
                     }
@@ -49,7 +50,7 @@ public class CuriosMagicDamageUp {
             } else if (event.getSource().getDirectEntity() instanceof Player player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagicDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.getSource().is(DamageTypes.MAGIC) || event.getSource() == player.damageSources().magic()) {
+                    if (event.getSource().is(WITHER_IMMUNE_TO)) {
                         float finish = event.getAmount() * (1 + effectLevel / 100);
                         event.setAmount(finish);
                     }

@@ -6249,6 +6249,13 @@
 "tetra.material.water_breathing": "Water Breathing",
 "tetra.material.water_breathing.prefix": "Water Breathing",
 
+"item.more_mod_tetra.blaze_ingot": "Blaze Ingot",
+"tetra.material.blaze_ingot": "Blaze Ingot",
+"tetra.material.blaze_ingot.prefix": "Blaze Ingot",
+"item.more_mod_tetra.blue_ice_ingot": "Blue Ice Ingot",
+"tetra.material.blue_ice_ingot": "Blue Ice Ingot",
+"tetra.material.blue_ice_ingot.prefix": "Blue Ice Ingot",
+
 "tetra.material.blank_thread":"Blank Thread",
 "tetra.material.blank_thread.prefix":"Blank Thread"
 }
