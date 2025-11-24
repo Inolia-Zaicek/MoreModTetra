@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,7 +35,28 @@ public class Slowness {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
+                var mob = event.getEntity();
+                var map = mob.getActiveEffectsMap();
+                ItemStack mainHandItem = player.getMainHandItem();
+                ItemStack offhandItem = player.getOffhandItem();
+                int effectLevel = 0;
+                if (mainHandItem.getItem() instanceof IModularItem item) {
+                    float mainEffectLevel = item.getEffectLevel(mainHandItem, slownessEffect);
+                    if (mainEffectLevel > 0) {
+                        effectLevel += (int) mainEffectLevel;
+                    }
+                }
+                if (offhandItem.getItem() instanceof IModularItem item) {
+                    float offEffectLevel = item.getEffectLevel(offhandItem, slownessEffect);
+                    if (offEffectLevel > 0) {
+                        effectLevel += (int) offEffectLevel;
+                    }
+                }
+                if (effectLevel > 0) {
+                    mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,200,effectLevel-1));
+                }
+            }else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 var map = mob.getActiveEffectsMap();
                 ItemStack mainHandItem = player.getMainHandItem();

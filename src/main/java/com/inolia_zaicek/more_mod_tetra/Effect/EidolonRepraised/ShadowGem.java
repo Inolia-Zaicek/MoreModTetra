@@ -38,10 +38,10 @@ public class ShadowGem {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("eidolon")) {
-            if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
 
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, shadowGemEffect);

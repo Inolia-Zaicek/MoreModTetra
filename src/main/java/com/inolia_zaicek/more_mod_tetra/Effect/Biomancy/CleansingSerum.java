@@ -40,9 +40,9 @@ public class CleansingSerum {
     @SubscribeEvent
     public static void hurt(MobEffectEvent.Added event) {
         Entity entity = event.getEntity();
-            if (entity instanceof LivingEntity player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            if (entity instanceof LivingEntity livingEntity) {
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, cleansingSerumEffect);
@@ -60,7 +60,7 @@ public class CleansingSerum {
                     MobEffectInstance effect = event.getEffectInstance();
                     MobEffect type = effect.getEffect();
                     if (type.getCategory().equals(MobEffectCategory.HARMFUL)) {
-                        EntityHelper.shortenEffect(effect, player, effect.getDuration() / 5);
+                        EntityHelper.shortenEffect(effect, livingEntity, effect.getDuration() / 5);
                     }
                 }
                 }

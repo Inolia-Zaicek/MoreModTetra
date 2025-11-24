@@ -50,12 +50,11 @@ public class DevouringStone {
 
     @SubscribeEvent
     public static void use(PlayerInteractEvent.RightClickItem event) {
-        LivingEntity entity = event.getEntity();
+        LivingEntity player = event.getEntity();
         // 检查实体是否是玩家
-        if (!(entity instanceof Player)) {
+        if (!(player instanceof Player)) {
             return;
         }
-        Player player = (Player) entity;
         //判断tetra工具
         ItemStack mainHandItem = player.getMainHandItem();
         ItemStack offhandItem = player.getOffhandItem();

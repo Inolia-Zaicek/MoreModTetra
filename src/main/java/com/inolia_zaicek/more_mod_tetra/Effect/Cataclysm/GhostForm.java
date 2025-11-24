@@ -4,6 +4,7 @@ import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -44,10 +45,11 @@ public class GhostForm {
         //有灾变
         if (ModList.get().isLoaded("cataclysm")) {
             //检测到玩家寄了&&玩家没有鬼魅缠身buff
-            if (event.getEntity() instanceof Player player && !player.hasEffect(ModEffect.EFFECTGHOST_SICKNESS.get())) {
+            if (!event.getEntity().hasEffect(ModEffect.EFFECTGHOST_SICKNESS.get())) {
+                LivingEntity livingEntity = event.getEntity();
                 //获取一下玩家盔甲
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, ghostFormEffect);
@@ -63,17 +65,17 @@ public class GhostForm {
                 }
                 if (effectLevel > 0) {
                         //设置玩家血量（不要滥用改写
-                        player.setHealth(player.getMaxHealth() / 2);
+                    livingEntity.setHealth(livingEntity.getMaxHealth() / 2);
                         //给予玩家鬼魅缠身buff（封印一下效果
-                        player.addEffect(new MobEffectInstance(ModEffect.EFFECTGHOST_SICKNESS.get(), 3 * 60 * 20, 0, true, true));
+                    livingEntity.addEffect(new MobEffectInstance(ModEffect.EFFECTGHOST_SICKNESS.get(), 3 * 60 * 20, 0, true, true));
                         //给予玩家鬼魂缠身buff（咒魂
-                        player.addEffect(new MobEffectInstance(ModEffect.EFFECTGHOST_FORM.get(), effectLevel * 20, 0, true, true));
+                    livingEntity.addEffect(new MobEffectInstance(ModEffect.EFFECTGHOST_FORM.get(), effectLevel * 20, 0, true, true));
                         //设置玩家死了多久（>0死透了
-                        player.deathTime = -2;
+                    livingEntity.deathTime = -2;
                         //设置玩家是活着的（isAlive是个布尔值
-                        player.isAlive();
+                    livingEntity.isAlive();
                         //设置无敌时间
-                        player.invulnerableTime = 10;
+                    livingEntity.invulnerableTime = 10;
                         //事件可以被取消
                         event.setCanceled(true);
                     }

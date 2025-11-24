@@ -6,6 +6,7 @@ import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -39,10 +40,10 @@ public class Freeze {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getEntity().getLastAttacker() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, freezeEffect);
@@ -61,10 +62,10 @@ public class Freeze {
                     event.setAmount(damage*(1+ (float) effectLevel /100));
                 }
             }
-            else if (event.getSource().getEntity() instanceof Player player) {
+            else if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
             int effectLevel = 0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, freezeEffect);
@@ -85,9 +86,9 @@ public class Freeze {
         }
             //圣爹
         //挨打
-        if (event.getEntity() instanceof Player player) {
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+        if (event.getEntity() instanceof Player livingEntity) {
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
             int effectLevel = 0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, ritualOfHolyGuardEffect);
@@ -101,29 +102,29 @@ public class Freeze {
                     effectLevel += (int) offEffectLevel;
                 }
             }
-            if (effectLevel > 0&&player.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
-                int buffLevel = player.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
-                int buffTime = player.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getDuration();
+            if (effectLevel > 0&&livingEntity.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
+                int buffLevel = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
+                int buffTime = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getDuration();
                 float damage = event.getAmount();
                 //大于1
                 if (buffLevel != 0) {
                     //减伤==buff等级*减伤比例
                     float finish = damage * (1 - (buffLevel + 1) * ((float) effectLevel / 100));
                     event.setAmount(finish);
-                    player.removeEffect(MMTEffectsRegister.RitualOfHolyGuard.get());
-                    player.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), buffTime, buffLevel - 1));
+                    livingEntity.removeEffect(MMTEffectsRegister.RitualOfHolyGuard.get());
+                    livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), buffTime, buffLevel - 1));
                 }else{
                     //减伤==buff等级*减伤比例
                     float finish = damage * (1 - (buffLevel + 1) * ((float) effectLevel / 100));
                     event.setAmount(finish);
-                    player.removeEffect(MMTEffectsRegister.RitualOfHolyGuard.get());
+                    livingEntity.removeEffect(MMTEffectsRegister.RitualOfHolyGuard.get());
                 }
             }
         }
         //打人
-        if (event.getSource().getEntity() instanceof Player player) {
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+        if (event.getSource().getEntity() instanceof Player livingEntity) {
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
             int effectLevel = 0;
             int effectLevel2 = 0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -154,15 +155,15 @@ public class Freeze {
                         event.getEntity().addEffect(new MobEffectInstance(MMTEffectsRegister.BanHeal.get(), 400, 3 ));
                     }
                     //有buff
-                    if (player.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
-                        int buffLevel = player.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
-                        player.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400,  Math.min(8,buffLevel + 2)  ));
+                    if (livingEntity.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
+                        int buffLevel = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
+                        livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400,  Math.min(8,buffLevel + 2)  ));
                         float damage = event.getAmount();
                         //增伤==1+buff等级*减伤比例
                         float finish = damage * (1 + (buffLevel + 1) * ((float) effectLevel / 100));
                         event.setAmount(finish);
                     }else{
-                        player.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, 1));
+                        livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, 1));
                         float damage = event.getAmount();
                         //增伤伤==1+buff等级*减伤比例
                         float finish = damage * (1 +((float) effectLevel / 100));
@@ -171,15 +172,15 @@ public class Freeze {
                 }else{
                     //无核心
                     //有buff
-                    if (player.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
-                        int buffLevel = player.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
-                        player.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, Math.min(8,buffLevel + 1)  ));
+                    if (livingEntity.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
+                        int buffLevel = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
+                        livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, Math.min(8,buffLevel + 1)  ));
                         float damage = event.getAmount();
                         //增伤==1+buff等级*减伤比例
                         float finish = damage * (1 + (buffLevel + 1) * ((float) effectLevel / 200));
                         event.setAmount(finish);
                     }else{
-                        player.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, 0));
+                        livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, 0));
                         float damage = event.getAmount();
                         //增伤伤==1+buff等级*减伤比例
                         float finish = damage * (1 +((float) effectLevel / 200));
@@ -189,10 +190,10 @@ public class Freeze {
             }
         }
         //减伤
-        if (event.getEntity() instanceof Player player) {
+        if (event.getEntity() instanceof Player livingEntity) {
             var mob = event.getSource().getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
             int effectLevel = 0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, ritualOfExhortationEffect);
@@ -209,7 +210,7 @@ public class Freeze {
             if (effectLevel > 0) {
                 float damage = event.getAmount();
                 float finish = damage*(1- (float) effectLevel /100);
-                var mobList = MMTUtil.mobList(8,player);
+                var mobList = MMTUtil.mobList(8,livingEntity);
                 for (Mob mobs:mobList){
                     if(mobs!=null) {
                         //如果这些范围里没有人和伤害源一样

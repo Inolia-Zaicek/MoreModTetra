@@ -2,7 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Biomancy;
 
 import com.github.elenterius.biomancy.init.ModMobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -36,10 +36,10 @@ public class FrenzySerum {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("biomancy")) {
-            if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
 
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, frenzySerumEffect);

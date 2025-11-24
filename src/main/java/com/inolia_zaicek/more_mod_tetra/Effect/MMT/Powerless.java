@@ -35,7 +35,7 @@ public class Powerless {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 LivingEntity entity =event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
@@ -55,7 +55,7 @@ public class Powerless {
                 if (effectLevel > 0) {
                     entity.addEffect(new MobEffectInstance(MMTEffectsRegister.Powerless.get(),200,effectLevel-1));
                 }
-            }else            if (event.getSource().getDirectEntity() instanceof Player player) {
+            }else            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 LivingEntity entity =event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();

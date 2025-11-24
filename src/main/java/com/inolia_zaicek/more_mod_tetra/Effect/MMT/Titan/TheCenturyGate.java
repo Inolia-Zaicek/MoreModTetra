@@ -104,8 +104,6 @@ public class TheCenturyGate {
 
                     // 检查被点击的方块是否拥有物品处理能力 (IItemHandler)
                     if (blockEntity != null && blockEntity.getCapability(ITEM_HANDLER_CAPABILITY).isPresent()) {
-                        // 获取工具的持久化 NBT 数据——————————————————————————————————————————【名字】
-                        String persistentNBT = mainHandItem.getOrCreateTag().getString(String.valueOf(theCenturyGateNbt));
                         //NBT
                         CompoundTag persistentData = mainHandItem.getOrCreateTag();
                         if (mainHandItem.getOrCreateTag().getInt(String.valueOf(X)) == pos.getX() &&
@@ -134,7 +132,7 @@ public class TheCenturyGate {
 
     @SubscribeEvent
     public static void drop(LivingDropsEvent event) {
-        if (event.getEntity() != null && event.getEntity().getLastAttacker() != null) {
+        if (event.getEntity() != null && event.getSource().getEntity() instanceof LivingEntity attacker ) {
             Entity mob = event.getEntity();
             Collection<ItemEntity> itemEntities = event.getDrops();
             List<ItemStack> generatedLoot = new ArrayList<>();
@@ -142,10 +140,8 @@ public class TheCenturyGate {
                 // ItemEntity.getItem() 方法返回 ItemStack
                 generatedLoot.add(itemEntity.getItem());
             }
-            Entity attacker = event.getEntity().getLastAttacker();
-            if (attacker instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = attacker.getMainHandItem();
+                ItemStack offhandItem = attacker.getOffhandItem();
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     if (!mainHandItem.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation("tetra", "holo")))
                             && !offhandItem.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation("tetra", "holo")))) {
@@ -200,7 +196,6 @@ public class TheCenturyGate {
                             }
                         }
                     }
-                }
             }
         }
     }

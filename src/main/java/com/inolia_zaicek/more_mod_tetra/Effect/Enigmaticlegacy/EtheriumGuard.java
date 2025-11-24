@@ -1,5 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Enigmaticlegacy;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
@@ -34,69 +36,39 @@ public class EtheriumGuard {
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
+
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if(ModList.get().isLoaded("enigmaticlegacy")) {
             //挨打是玩家
-            if (event.getEntity() instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, etheriumGuardEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, etheriumGuardEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
-                float hp =player.getHealth();
-                float mhp =player.getMaxHealth();
-                float finish =hp/mhp;
-                if (effectLevel > 0&&finish<=0.5f) {
-                    float number = Math.min(0.75f, (float) effectLevel / 100 );
-                    event.setAmount(event.getAmount()*(1-number));
-                }
-            }
-            }
+            LivingEntity livingEntity = event.getEntity();
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,etheriumGuardEffect);
+            float hp = livingEntity.getHealth();
+            float mhp = livingEntity.getMaxHealth();
+            float finish = hp / mhp;
+            if (effectLevel > 0 && finish <= 0.5f) {
+                float number = Math.min(0.75f, (float) effectLevel / 100);
+                event.setAmount(event.getAmount() * (1 - number));
         }
+    }
+
     @SubscribeEvent
     public static void heal(LivingHealEvent event) {
-        if(event.getEntity() instanceof Player player){
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, etheriumGuardEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel +=  mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, etheriumGuardEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
-            float heal =event.getAmount();
-            float hp =player.getHealth();
-            float mhp2 =player.getMaxHealth() / 2 ;
-            //治疗血量+总血量大于最大hp
-            if (effectLevel > 0&& (heal+hp>mhp2) ) {
-                //超出多少
-                float over = heal+hp-mhp2;
-                //超出量小于0
-                if(over<=0){
-                    event.setAmount(0);
-                }else {
-                    //治疗量-超出量
-                    event.setAmount(heal - over);
-                }
+        LivingEntity livingEntity = event.getEntity();
+        int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,etheriumGuardEffect);
+        float heal = event.getAmount();
+        float hp = livingEntity.getHealth();
+        float mhp2 = livingEntity.getMaxHealth() / 2;
+        //治疗血量+总血量大于最大hp
+        if (effectLevel > 0 && (heal + hp > mhp2)) {
+            //超出多少
+            float over = heal + hp - mhp2;
+            //超出量小于0
+            if (over <= 0) {
+                event.setAmount(0);
+            } else {
+                //治疗量-超出量
+                event.setAmount(heal - over);
             }
         }
     }
-    }
+}

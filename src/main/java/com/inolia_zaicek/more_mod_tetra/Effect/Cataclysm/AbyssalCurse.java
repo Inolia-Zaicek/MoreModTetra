@@ -3,6 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm;
 import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.sammy.malum.registry.common.MobEffectRegistry;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -37,11 +38,11 @@ public class AbyssalCurse {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("cataclysm")) {
-            if (event.getSource().getDirectEntity() instanceof Player player) {
+            if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
                 var map = mob.getActiveEffectsMap();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, abyssalCurseEffect);
@@ -68,11 +69,11 @@ public class AbyssalCurse {
                 }
             }
 
-            else if (event.getSource().getEntity() instanceof Player player ) {
+            else if (event.getSource().getEntity() instanceof LivingEntity livingEntity ) {
                 var mob = event.getEntity();
                 var map = mob.getActiveEffectsMap();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, abyssalCurseEffect);

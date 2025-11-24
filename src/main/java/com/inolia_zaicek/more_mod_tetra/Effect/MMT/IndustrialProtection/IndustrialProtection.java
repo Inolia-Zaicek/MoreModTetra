@@ -2,8 +2,10 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT.IndustrialProtection;
 
 import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,23 +38,10 @@ public class IndustrialProtection {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getEntity() instanceof Player player&&event.getSource().getEntity()==null
+            if (event.getEntity()!=null&&event.getSource().getEntity()==null
                     &&!event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, industrialProtectionEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, industrialProtectionEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                LivingEntity player = event.getEntity();
+                float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, industrialProtectionEffect);
                 if (effectLevel > 0&&player.hasEffect(MMTEffectsRegister.IndustrialProtection.get())) {
                     int buffLevel = player.getEffect(MMTEffectsRegister.IndustrialProtection.get()).getAmplifier();
                     event.setAmount(  Math.max(0,event.getAmount()-buffLevel)  );

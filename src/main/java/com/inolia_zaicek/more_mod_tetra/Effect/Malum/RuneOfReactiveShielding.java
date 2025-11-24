@@ -42,9 +42,8 @@ public class RuneOfReactiveShielding {
 
     @SubscribeEvent
     public void takeDamageEvent(LivingHurtEvent event, LivingEntity attacker, LivingEntity attacked, ItemStack stack) {
-        if(attacked instanceof Player player) {
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+            ItemStack mainHandItem = attacked.getMainHandItem();
+            ItemStack offhandItem = attacked.getOffhandItem();
             int effectLevel = 0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, runeOfReactiveShieldingEffect);
@@ -70,7 +69,6 @@ public class RuneOfReactiveShielding {
                         EntityHelper.amplifyEffect(effect, attacked, 1, 3);
                     }
                     EntityHelper.extendEffect(effect, attacked, 40, 100);
-                }
             }
         }
     }

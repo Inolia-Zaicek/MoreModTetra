@@ -36,9 +36,10 @@ public class MarchingTimeHurt {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if(event.getEntity() instanceof Player player){
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+        if(event.getEntity()!=null){
+            LivingEntity livingEntity=event.getEntity();
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
             int effectLevel = 0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, marchingTimeEffect);
@@ -52,8 +53,8 @@ public class MarchingTimeHurt {
                     effectLevel += (int) offEffectLevel;
                 }
             }
-            if (effectLevel > 0&&player.hasEffect(MMTEffectsRegister.MarchingTime.get())) {
-                int buffLevel =1 + player.getEffect(MMTEffectsRegister.MarchingTime.get()).getAmplifier();
+            if (effectLevel > 0&&livingEntity.hasEffect(MMTEffectsRegister.MarchingTime.get())) {
+                int buffLevel =1 + livingEntity.getEffect(MMTEffectsRegister.MarchingTime.get()).getAmplifier();
                 event.setAmount(event.getAmount()*( 1-(buffLevel*0.15f) ));
             }
         }

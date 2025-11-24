@@ -2,7 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.Core;
 
 import com.github.alexmodguy.alexscaves.server.potion.ACEffectRegistry;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -34,10 +34,10 @@ public class Underocean {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof Player player&&event.getEntity()!=null) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity&&event.getEntity()!=null) {
                 LivingEntity mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 float effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, underoceanEffect);
@@ -56,10 +56,11 @@ public class Underocean {
                 }
             }
             //挨打
-        if (event.getEntity() instanceof Player player&&event.getSource().getEntity() != null) {
+        if (event.getSource().getEntity() != null) {
+            var livingEntity = event.getEntity();
             LivingEntity mob = event.getSource().getEntity().getControllingPassenger();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
             float effectLevel = 0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, underoceanEffect);

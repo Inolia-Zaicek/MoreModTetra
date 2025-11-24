@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Botania;
 
 import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Mob;
@@ -44,21 +45,7 @@ public class ManaRegeneration {
     public static void tick(TickEvent.PlayerTickEvent event) {
         if(ModList.get().isLoaded("botania")) {
             Player player = event.player;
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel=0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, manaRegenerationEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel +=  mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, manaRegenerationEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            int effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, manaRegenerationEffect);
             if (effectLevel > 0&&player.level().getGameTime() % 20L == 0){
                 ItemStack itemStack = player.getInventory().getSelected();
                 ManaItemHandler.instance().dispatchManaExact(itemStack, player, effectLevel, true);

@@ -6,6 +6,7 @@ import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -14,6 +15,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -45,11 +47,11 @@ public class MarchingTimeAndRuinationTime {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void tick(TickEvent.PlayerTickEvent event) {
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity livingEntity = event.getEntity();
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
-            Player player = event.player;
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
             int effectLevel1 = 0;
             int effectLevel2 = 0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -73,22 +75,24 @@ public class MarchingTimeAndRuinationTime {
                 }
             }
             //行军给状态
-            if(effectLevel2>0&&event.player.tickCount % 10 == 0&&!player.hasEffect(MMTEffectsRegister.RuinationTime.get())){
-                player.addEffect(new MobEffectInstance(MMTEffectsRegister.MarchingTime.get(),40,effectLevel2-1));
+            if(effectLevel2>0&& livingEntity.tickCount % 10 == 0&&!livingEntity.hasEffect(MMTEffectsRegister.RuinationTime.get())){
+                livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.MarchingTime.get(),40,effectLevel2-1));
             }
             //毁灭--毁灭词条，时间，毁灭状态，防止有行军状态
-            if(effectLevel1>0&&event.player.tickCount % 10 == 0&&player.hasEffect(MMTEffectsRegister.RuinationTime.get()) &&player.hasEffect(MMTEffectsRegister.MarchingTime.get())){
-                player.removeEffect(MMTEffectsRegister.MarchingTime.get());
+            if(effectLevel1>0&& livingEntity.tickCount % 10 == 0&&livingEntity.hasEffect(MMTEffectsRegister.RuinationTime.get()) &&livingEntity.hasEffect(MMTEffectsRegister.MarchingTime.get())){
+                livingEntity.removeEffect(MMTEffectsRegister.MarchingTime.get());
                 //杀戮光环
                 float number =(float) effectLevel1 /100;
-                var mobList = MMTUtil.mobList(4,player);
+                var mobList = MMTUtil.mobList(4,livingEntity);
                 for (Mob mobs:mobList){
                     if(mobs!=null) {
                             //获取伤害类型
                             mobs.invulnerableTime = 0;
+                        if(livingEntity instanceof Player player) {
                             mobs.setLastHurtByPlayer(player);
-                            float atk = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
-                            mobs.hurt(mobs.damageSources().mobAttack(event.player), atk * number);
+                        }
+                            float atk = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE);
+                            mobs.hurt(mobs.damageSources().mobAttack( livingEntity), atk * number);
                     }
                 }
             }
@@ -100,12 +104,11 @@ public class MarchingTimeAndRuinationTime {
     public static void LivingDeathVampire(LivingDeathEvent event) {
         //有灾变
         if (ModList.get().isLoaded("torchesbecomesunlight")) {
-            //检测到玩家寄了&&玩家没有鬼魅缠身buff
-            if (event.getEntity() instanceof Player player && !player.hasEffect(MMTEffectsRegister.PatriotRenascenceCoolingTime.get())
-            &&player.hasEffect(MMTEffectsRegister.MarchingTime.get())) {
+            if (event.getEntity() instanceof Player livingEntity && !livingEntity.hasEffect(MMTEffectsRegister.PatriotRenascenceCoolingTime.get())
+            &&livingEntity.hasEffect(MMTEffectsRegister.MarchingTime.get())) {
                 //获取一下玩家盔甲
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, ruinationTimeEffect);
@@ -121,15 +124,15 @@ public class MarchingTimeAndRuinationTime {
                 }
                 if (effectLevel > 0) {
                     //设置玩家血量（不要滥用改写
-                    player.setHealth(player.getMaxHealth() / 2);
-                    player.addEffect(new MobEffectInstance(MMTEffectsRegister.PatriotRenascenceCoolingTime.get(), 60 * 20, 0, true, true));
-                    player.addEffect(new MobEffectInstance(MMTEffectsRegister.RuinationTime.get(),30*20,effectLevel-1));
+                    livingEntity.setHealth(livingEntity.getMaxHealth() / 2);
+                    livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.PatriotRenascenceCoolingTime.get(), 60 * 20, 0, true, true));
+                    livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RuinationTime.get(),30*20,effectLevel-1));
                     //设置玩家死了多久（>0死透了
-                    player.deathTime = -2;
+                    livingEntity.deathTime = -2;
                     //设置玩家是活着的（isAlive是个布尔值
-                    player.isAlive();
+                    livingEntity.isAlive();
                     //设置无敌时间
-                    player.invulnerableTime = 20;
+                    livingEntity.invulnerableTime = 20;
                     //事件可以被取消
                     event.setCanceled(true);
                 }

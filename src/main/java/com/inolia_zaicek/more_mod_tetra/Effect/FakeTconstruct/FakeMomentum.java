@@ -37,9 +37,9 @@ public class FakeMomentum {
     @SubscribeEvent
     public static void event(PlayerEvent.BreakSpeed event) {
         Entity entity = event.getEntity();
-            if (entity instanceof LivingEntity player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            if (entity instanceof LivingEntity livingEntity) {
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, fakeMomentumEffect);

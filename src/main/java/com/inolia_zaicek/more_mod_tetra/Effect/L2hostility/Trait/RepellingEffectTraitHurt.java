@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait;
 
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -19,6 +20,7 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static net.minecraft.tags.DamageTypeTags.IS_PROJECTILE;
 
 public class RepellingEffectTraitHurt {
     @OnlyIn(Dist.CLIENT)
@@ -36,8 +38,9 @@ public class RepellingEffectTraitHurt {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("l2complements")) {
             //挨打的是玩家且攻击者非空
-            if (event.getEntity() instanceof Player player &&event.getSource().is(DamageTypeTags.IS_PROJECTILE)) {
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
+            if (event.getEntity()!=null&&event.getSource().is(IS_PROJECTILE)) {
+                LivingEntity livingEntity = event.getEntity();
+                CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
                                     slotResult.stack();
@@ -45,8 +48,8 @@ public class RepellingEffectTraitHurt {
                                     IModularItem curiousItem = (IModularItem) itemStack.getItem();
                                     int effectLevel = curiousItem.getEffectLevel(itemStack, repellingEffectTraitEffect);
                                     //获取一下玩家主副手
-                                    ItemStack mainHandItem = player.getMainHandItem();
-                                    ItemStack offhandItem = player.getOffhandItem();
+                                    ItemStack mainHandItem = livingEntity.getMainHandItem();
+                                    ItemStack offhandItem = livingEntity.getOffhandItem();
                                     if (mainHandItem.getItem() instanceof IModularItem item) {
                                         float mainEffectLevel = item.getEffectLevel(mainHandItem, repellingEffectTraitEffect);
                                         if (mainEffectLevel > 0) {

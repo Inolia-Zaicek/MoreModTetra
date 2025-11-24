@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,7 +35,7 @@ public class HideBlade {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();

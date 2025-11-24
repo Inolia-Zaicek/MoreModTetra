@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Slash;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -35,7 +36,7 @@ public class RisingSlash {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
@@ -55,8 +56,6 @@ public class RisingSlash {
                 Random random = new Random();
                 float mhp =mob.getMaxHealth();
                 if (effectLevel > 0&&random.nextInt(100) <= (effectLevel)) {
-                    if (player.getCooldowns().isOnCooldown(mainHandItem.getItem()))
-                        return;
                     event.setAmount(event.getAmount()+mhp*0.05f);
                     }
                 }

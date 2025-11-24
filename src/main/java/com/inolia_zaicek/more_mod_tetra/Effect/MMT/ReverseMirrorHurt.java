@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -22,7 +23,8 @@ import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 public class ReverseMirrorHurt {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if (event.getEntity() instanceof Player player && !(event.getSource().getEntity() instanceof Player)) {
+        if (event.getEntity()!=null) {
+            LivingEntity player = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
                 int effectLevel = 0;

@@ -3,11 +3,13 @@ package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -38,18 +40,18 @@ public class RegeneratingEffectTrait {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void tick(TickEvent.PlayerTickEvent event) {
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity livingEntity = event.getEntity();
         if (ModList.get().isLoaded("l2complements")) {
-            Player player = event.player;
-            CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
+            CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                     (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                     slotResult -> {
                         slotResult.stack();
                         ItemStack itemStack = slotResult.stack();
                         IModularItem curiousItem = (IModularItem) itemStack.getItem();
                         //获取一下玩家主副手
-                        ItemStack mainHandItem = player.getMainHandItem();
-                        ItemStack offhandItem = player.getOffhandItem();
+                        ItemStack mainHandItem = livingEntity.getMainHandItem();
+                        ItemStack offhandItem = livingEntity.getOffhandItem();
                         int effectLevel = 0;
                         effectLevel += curiousItem.getEffectLevel(itemStack, regeneratingEffectTraitEffect);
                         if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -64,10 +66,10 @@ public class RegeneratingEffectTrait {
                                 effectLevel += (int) offEffectLevel;
                             }
                         }
-                        if (effectLevel > 0&&player.level().getGameTime() % 20L == 0) {
-                            float mhp =player.getMaxHealth();
+                        if (effectLevel > 0&&livingEntity.level().getGameTime() % 20L == 0) {
+                            float mhp =livingEntity.getMaxHealth();
                             //5$*词条等级
-                            player.heal(effectLevel*mhp/20);
+                            livingEntity.heal(effectLevel*mhp/20);
                         }
                         }
             ));

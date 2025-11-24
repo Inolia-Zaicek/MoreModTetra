@@ -1,5 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -33,26 +35,11 @@ public class HidingInShulkerShell {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if(ModList.get().isLoaded("l2complements")) {
-            if (event.getEntity() instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, hidingInShulkerShellEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, hidingInShulkerShellEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
-                if (effectLevel > 0&&player.isShiftKeyDown()) {
+            if (event.getEntity()!=null) {
+                LivingEntity livingEntity = event.getEntity();
+                float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, hidingInShulkerShellEffect);
+                if (effectLevel > 0&&livingEntity.isShiftKeyDown()) {
                     event.setAmount(event.getAmount()*(1- (float) effectLevel /100));
-                }
             }
         }
     }

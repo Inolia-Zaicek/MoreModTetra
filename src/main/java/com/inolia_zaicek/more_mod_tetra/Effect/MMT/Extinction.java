@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -33,7 +34,7 @@ public class Extinction {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
@@ -59,6 +60,32 @@ public class Extinction {
                 if (effectLevel > 0&&dhp>mobDhp) {
                         event.setAmount(event.getAmount()*(1+ (float) effectLevel /100));
             }
-        }
+        }else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
+                var mob = event.getEntity();
+                ItemStack mainHandItem = player.getMainHandItem();
+                ItemStack offhandItem = player.getOffhandItem();
+                int effectLevel = 0;
+                if (mainHandItem.getItem() instanceof IModularItem item) {
+                    float mainEffectLevel = item.getEffectLevel(mainHandItem, extinctionEffect);
+                    if (mainEffectLevel > 0) {
+                        effectLevel += (int) mainEffectLevel;
+                    }
+                }
+                if (offhandItem.getItem() instanceof IModularItem item) {
+                    float mainEffectLevel = item.getEffectLevel(offhandItem, extinctionEffect);
+                    if (mainEffectLevel > 0) {
+                        effectLevel += (int) mainEffectLevel;
+                    }
+                }
+                float mhp = player.getMaxHealth();
+                float hp = player.getHealth();
+                float dhp = hp / mhp;
+                float mobMhp = mob.getMaxHealth();
+                float mobHp = mob.getHealth();
+                float mobDhp = mobHp / mobMhp;
+                if (effectLevel > 0&&dhp>mobDhp) {
+                    event.setAmount(event.getAmount()*(1+ (float) effectLevel /100));
+                }
+            }
     }
 }

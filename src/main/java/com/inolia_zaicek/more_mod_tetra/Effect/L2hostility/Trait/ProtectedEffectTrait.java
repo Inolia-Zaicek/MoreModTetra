@@ -3,11 +3,13 @@ package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -38,18 +40,18 @@ public class ProtectedEffectTrait {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void tick(TickEvent.PlayerTickEvent event) {
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity livingEntity = event.getEntity();
         if (ModList.get().isLoaded("l2complements")) {
-            Player player = event.player;
-            CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
+            CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                     (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                     slotResult -> {
                         slotResult.stack();
                         ItemStack itemStack = slotResult.stack();
                         IModularItem curiousItem = (IModularItem) itemStack.getItem();
                         //获取一下玩家主副手
-                        ItemStack mainHandItem = player.getMainHandItem();
-                        ItemStack offhandItem = player.getOffhandItem();
+                        ItemStack mainHandItem = livingEntity.getMainHandItem();
+                        ItemStack offhandItem = livingEntity.getOffhandItem();
                         int effectLevel = 0;
                         effectLevel += curiousItem.getEffectLevel(itemStack, protectedEffectTraitEffect);
                         if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -64,8 +66,8 @@ public class ProtectedEffectTrait {
                                 effectLevel += (int) offEffectLevel;
                             }
                         }
-                        if (effectLevel > 0&&event.player.tickCount % 10 == 0) {
-                                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400, effectLevel-1, true, true, true));
+                        if (effectLevel > 0&&livingEntity.tickCount % 10 == 0) {
+                            livingEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400, effectLevel-1, true, true, true));
                             }
                         }
             ));

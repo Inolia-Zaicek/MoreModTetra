@@ -1,11 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.Finish;
 
-import com.inolia_zaicek.more_mod_tetra.Damage.TickZero;
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -41,7 +36,7 @@ public class FireStaffSocket {
 
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if (event.getSource().getEntity() instanceof Player attacker) {
+        if (event.getSource().getEntity() instanceof LivingEntity attacker) {
             if(event.getSource().is(ISSDamageTypes.FIRE_MAGIC)) {
                 ItemStack mainStack = attacker.getMainHandItem();
                 ItemStack offStack = attacker.getMainHandItem();
@@ -57,7 +52,7 @@ public class FireStaffSocket {
                     }
                 }
             }
-        }else if (event.getSource().getDirectEntity() instanceof Player attacker) {
+        }else if (event.getSource().getDirectEntity() instanceof LivingEntity attacker) {
             if(event.getSource().is(ISSDamageTypes.FIRE_MAGIC)) {
                 ItemStack mainStack = attacker.getMainHandItem();
                 ItemStack offStack = attacker.getMainHandItem();

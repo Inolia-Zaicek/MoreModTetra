@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Edge;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -16,6 +17,8 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static net.minecraft.tags.DamageTypeTags.ALWAYS_HURTS_ENDER_DRAGONS;
+import static net.minecraft.tags.DamageTypeTags.IS_FIRE;
 
 public class FireProficiency {
     @OnlyIn(Dist.CLIENT)
@@ -33,7 +36,7 @@ public class FireProficiency {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
@@ -51,12 +54,36 @@ public class FireProficiency {
                     }
                 }
                 if (effectLevel > 0) {
-                    if(event.getSource()==mob.damageSources().onFire()||event.getSource()==mob.damageSources().inFire()
-                    ||event.getSource()==mob.damageSources().lava()) {
+                    if (event.getSource().is(IS_FIRE)) {
                         float number = (float) effectLevel / 100;
                         float damage = event.getAmount();
                         event.setAmount(damage * (1 + number));
                     }
+            }
+        }
+            else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
+            var mob = event.getEntity();
+            ItemStack mainHandItem = player.getMainHandItem();
+            ItemStack offhandItem = player.getOffhandItem();
+            int effectLevel = 0;
+            if (mainHandItem.getItem() instanceof IModularItem item) {
+                float mainEffectLevel = item.getEffectLevel(mainHandItem, fireProficiencyEffect);
+                if (mainEffectLevel > 0) {
+                    effectLevel += (int) mainEffectLevel;
+                }
+            }
+            if (offhandItem.getItem() instanceof IModularItem item) {
+                float offEffectLevel = item.getEffectLevel(offhandItem, fireProficiencyEffect);
+                if (offEffectLevel > 0) {
+                    effectLevel += (int) offEffectLevel;
+                }
+            }
+            if (effectLevel > 0) {
+                if (event.getSource().is(IS_FIRE)) {
+                    float number = (float) effectLevel / 100;
+                    float damage = event.getAmount();
+                    event.setAmount(damage * (1 + number));
+                }
             }
         }
     }

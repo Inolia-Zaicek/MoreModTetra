@@ -3,6 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.Iron;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -26,7 +27,7 @@ public class IronCuriosMagicDamageUp {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("irons_spellbooks")) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagicDamageUpEffect);
                                     if (effectLevel > 0) {
                                         if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC)||event.getSource().is(ISSDamageTypes.ICE_MAGIC)
@@ -38,7 +39,7 @@ public class IronCuriosMagicDamageUp {
                                             event.setAmount(finish);
                                         }
                                     }
-            }else if (event.getSource().getDirectEntity() instanceof Player player) {
+            }else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagicDamageUpEffect);
                 if (effectLevel > 0) {
                     if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC)||event.getSource().is(ISSDamageTypes.ICE_MAGIC)

@@ -1,8 +1,11 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import com.github.elenterius.biomancy.init.ModItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -41,22 +44,18 @@ public class FoodAcquisition {
     }
     @SubscribeEvent
     public static void drop(LivingDropsEvent event) {
-        if (event.getEntity() != null&&event.getEntity().getLastAttacker()!=null) {
+        if (event.getEntity() != null && event.getSource().getEntity() instanceof LivingEntity attacker ) {
             Entity mob = event.getEntity();
             Collection<ItemEntity> drops= event.getDrops();
-            Entity attacker = event.getEntity().getLastAttacker();
-            if (mob instanceof Player||event.getEntity().getLastAttacker()==null) {
+            if (mob instanceof Player) {
                 return;
             }
             if(attacker!=null) {
                 Level level = attacker.level();
                 //获取实体tag
                 EntityType<?> entityType = mob.getType();
-                if (!(attacker instanceof Player player)) {
-                    return;
-                }
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = attacker.getMainHandItem();
+                ItemStack offhandItem = attacker.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, foodAcquisitionEffect);
@@ -71,7 +70,6 @@ public class FoodAcquisition {
                     }
                 }
                 if (effectLevel > 0) {
-                    //player.sendSystemMessage(Component.literal("传送至记录点！").withStyle(ChatFormatting.GREEN));
                     // 循环生成effectLevel次
                     for (int i = 0; i < effectLevel; i++) {
                         if (COW_MOB.contains(entityType)||MOOSHROOM_MOB.contains(entityType)) {

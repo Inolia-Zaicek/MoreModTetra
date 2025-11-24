@@ -35,7 +35,8 @@ public class FirstLightHealsTheWorld {
 
     @SubscribeEvent
     public static void heal(LivingHealEvent event) {
-        if (event.getEntity() instanceof Player player) {
+        if (event.getEntity()!=null) {
+            LivingEntity player = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             float effectLevel = 0;

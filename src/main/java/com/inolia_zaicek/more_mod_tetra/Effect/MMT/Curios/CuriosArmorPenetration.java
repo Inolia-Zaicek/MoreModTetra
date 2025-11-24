@@ -45,7 +45,8 @@ public class CuriosArmorPenetration {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getEntity() instanceof Player player) {
+            if (event.getEntity()!=null) {
+                LivingEntity player = event.getEntity();
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosArmorPenetrationEffect);
                 if (effectLevel > 0) {
                     Optional.of(event.getEntity())
@@ -60,10 +61,11 @@ public class CuriosArmorPenetration {
             }
         }
     }
+    @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getEntity() instanceof Player player) {
-                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosArmorPenetrationEffect);
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(livingEntity, curiosArmorPenetrationEffect);
                 if (effectLevel > 0) {
                     Optional.of(event.getEntity())
                             .map(LivingEntity::getAttributes)

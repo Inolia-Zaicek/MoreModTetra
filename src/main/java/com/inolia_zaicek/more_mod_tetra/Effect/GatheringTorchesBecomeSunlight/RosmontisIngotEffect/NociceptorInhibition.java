@@ -27,8 +27,5 @@ public class NociceptorInhibition {
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
-    @SubscribeEvent
-    public void hurt(LivingHurtEvent event) {
-    }
 }
 

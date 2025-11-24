@@ -3,6 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.FireDragonSteel;
 import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
 import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 import com.github.alexthe666.iceandfire.entity.EntityLightningDragon;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -38,10 +39,10 @@ public class FireDragonsteelMaterial {
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("iceandfire")) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, fireDragonsteelMaterialEffect);
@@ -64,29 +65,42 @@ public class FireDragonsteelMaterial {
                     //非火龙
                     if(mob instanceof EntityLightningDragon||mob instanceof EntityIceDragon) {
                         mob.invulnerableTime=0;
-                        mob.setLastHurtByPlayer(player);
+                        if(livingEntity instanceof Player player) {
+                            mob.setLastHurtByPlayer(player);
+                        }
                         mob.hurt(mob.damageSources().onFire(),damage*number*(1+number));
-                        mob.setLastHurtByPlayer(player);
+                        if(livingEntity instanceof Player player) {
+                            mob.setLastHurtByPlayer(player);
+                        }
                     }
                     if(mob instanceof EntityFireDragon) {
                         mob.invulnerableTime=0;
-                        mob.setLastHurtByPlayer(player);
+                        if(livingEntity instanceof Player player) {
+                            mob.setLastHurtByPlayer(player);
+                        }
                         mob.hurt(mob.damageSources().onFire(),damage*number*(1+numberA));
-                        mob.setLastHurtByPlayer(player);
+                        if(livingEntity instanceof Player player) {
+                            mob.setLastHurtByPlayer(player);
+                        }
                     }
                     //不是龙
                     if(!(mob instanceof EntityFireDragon)&&!(mob instanceof EntityIceDragon)&&!(mob instanceof EntityLightningDragon)){
                         mob.invulnerableTime=0;
-                        mob.setLastHurtByPlayer(player);
+                        if(livingEntity instanceof Player player) {
+                            mob.setLastHurtByPlayer(player);
+                        }
                         mob.hurt(mob.damageSources().onFire(),damage*number);
-                        mob.setLastHurtByPlayer(player);
+                        if(livingEntity instanceof Player player) {
+                            mob.setLastHurtByPlayer(player);
+                        }
                     }
                     }
                 }
             //挨打
-            if (event.getEntity() instanceof Player player && !(event.getSource().getEntity() instanceof Player)) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            if (event.getEntity()!=null&& !(event.getSource().getEntity() instanceof Player)) {
+                LivingEntity livingEntity = event.getEntity();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, fireDragonsteelMaterialEffect);
@@ -100,14 +114,14 @@ public class FireDragonsteelMaterial {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                if (effectLevel > 0&&player.getLastAttacker()!=null) {
+                if (effectLevel > 0&&livingEntity.getLastAttacker()!=null) {
                     float number = (float) effectLevel / 100;
                     float numberA = (float) effectLevel / 200;
                     //冰龙
-                    if(player.getLastAttacker() instanceof EntityIceDragon||player.getLastAttacker() instanceof EntityLightningDragon) {
+                    if(livingEntity.getLastAttacker() instanceof EntityIceDragon||livingEntity.getLastAttacker() instanceof EntityLightningDragon) {
                         event.setAmount(event.getAmount()*(1-number));
                     }
-                    if(player.getLastAttacker() instanceof EntityFireDragon) {
+                    if(livingEntity.getLastAttacker() instanceof EntityFireDragon) {
                         event.setAmount(event.getAmount()*(1-numberA));
                     }
                 }

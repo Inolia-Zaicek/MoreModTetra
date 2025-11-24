@@ -3,7 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.FakeTconstruct;
 import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -36,11 +36,11 @@ public class FakeInsatiable {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
                 var map = mob.getActiveEffectsMap();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, fakeInsatiableEffect);
@@ -55,13 +55,13 @@ public class FakeInsatiable {
                     }
                 }
                 if (effectLevel > 0) {
-                    if (player.hasEffect(MMTEffectsRegister.FakeInsatiable.get())) {
-                        int buffLevel = player.getEffect(MMTEffectsRegister.FakeInsatiable.get()).getAmplifier();
-                        int buffTime = player.getEffect(MMTEffectsRegister.FakeInsatiable.get()).getDuration();
-                        player.addEffect(new MobEffectInstance(MMTEffectsRegister.FakeInsatiable.get(),100, Math.min(effectLevel-1,buffLevel+1) ));
+                    if (livingEntity.hasEffect(MMTEffectsRegister.FakeInsatiable.get())) {
+                        int buffLevel = livingEntity.getEffect(MMTEffectsRegister.FakeInsatiable.get()).getAmplifier();
+                        int buffTime = livingEntity.getEffect(MMTEffectsRegister.FakeInsatiable.get()).getDuration();
+                        livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.FakeInsatiable.get(),100, Math.min(effectLevel-1,buffLevel+1) ));
                         event.setAmount(event.getAmount()+ ( (buffLevel-1)*2 ) );
                     }else{
-                        player.addEffect(new MobEffectInstance(MMTEffectsRegister.FakeInsatiable.get(),100,0));
+                        livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.FakeInsatiable.get(),100,0));
                         event.setAmount(event.getAmount()+2);
                 }
             }

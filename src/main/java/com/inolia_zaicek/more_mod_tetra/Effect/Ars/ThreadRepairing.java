@@ -5,11 +5,13 @@ import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -39,15 +41,15 @@ public class ThreadRepairing {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void tick(TickEvent.PlayerTickEvent event) {
+    public static void tick(LivingEvent.LivingTickEvent event) {
         if(ModList.get().isLoaded("ars_nouveau")) {
-            Player player = event.player;
-            ItemStack mainStack = player.getMainHandItem();
-            ItemStack offStack = player.getOffhandItem();
-            ItemStack head = player.getItemBySlot(EquipmentSlot.HEAD);
-            ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
-            ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
-            ItemStack feet = player.getItemBySlot(EquipmentSlot.FEET);
+            LivingEntity livingEntity = event.getEntity();
+            ItemStack mainStack = livingEntity.getMainHandItem();
+            ItemStack offStack = livingEntity.getOffhandItem();
+            ItemStack head = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
+            ItemStack chest = livingEntity.getItemBySlot(EquipmentSlot.CHEST);
+            ItemStack legs = livingEntity.getItemBySlot(EquipmentSlot.LEGS);
+            ItemStack feet = livingEntity.getItemBySlot(EquipmentSlot.FEET);
             if (mainStack.getItem() instanceof IModularItem item) {
                 float mainLevel = item.getEffectLevel(mainStack, ThreadRepairingEffect);
                 float offLevel = item.getEffectLevel(offStack, ThreadRepairingEffect);
@@ -88,7 +90,7 @@ public class ThreadRepairing {
                         Durability += maxDurability-currentDurability;
                     }
                     int finalDurability = Durability;
-                    CapabilityRegistry.getMana(player).ifPresent(mana -> {
+                    CapabilityRegistry.getMana(livingEntity).ifPresent(mana -> {
                         if (mana.getCurrentMana() > 10 && finalDurability >0) {
                             mana.removeMana(20);
                             //如果物品的损坏值小于 4（例如损坏值为 0 或 1），那么它会返回物品的损坏值本身（即 0 或 1）。

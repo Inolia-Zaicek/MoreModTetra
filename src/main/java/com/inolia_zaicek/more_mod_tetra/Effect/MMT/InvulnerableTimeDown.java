@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -31,36 +32,37 @@ public class InvulnerableTimeDown {
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
+
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void hurt(LivingHurtEvent event) {
-            //攻击
-            if (event.getSource().getEntity() instanceof Player player) {
-                var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, invulnerableTimeDownEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
+        //攻击
+        if (event.getSource().getEntity() instanceof LivingEntity player) {
+            var mob = event.getEntity();
+            ItemStack mainHandItem = player.getMainHandItem();
+            ItemStack offhandItem = player.getOffhandItem();
+            int effectLevel = 0;
+            if (mainHandItem.getItem() instanceof IModularItem item) {
+                float mainEffectLevel = item.getEffectLevel(mainHandItem, invulnerableTimeDownEffect);
+                if (mainEffectLevel > 0) {
+                    effectLevel += (int) mainEffectLevel;
                 }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, invulnerableTimeDownEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
+            }
+            if (offhandItem.getItem() instanceof IModularItem item) {
+                float offEffectLevel = item.getEffectLevel(offhandItem, invulnerableTimeDownEffect);
+                if (offEffectLevel > 0) {
+                    effectLevel += (int) offEffectLevel;
                 }
-                if (effectLevel > 0) {
-                    if(effectLevel<100) {
-                        float number = (float) effectLevel / 100;
-                        var time = Math.max(0, (mob.invulnerableTime) * (1 - number / 100));
-                        mob.invulnerableTime = (int) time;
-                    }else{
-                        mob.invulnerableTime=0;
-                    }
-                    }
+            }
+            if (effectLevel > 0) {
+                if (effectLevel < 100) {
+                    float number = (float) effectLevel / 100;
+                    var time = Math.max(0, (mob.invulnerableTime) * (1 - number / 100));
+                    mob.invulnerableTime = (int) time;
+                } else {
+                    mob.invulnerableTime = 0;
                 }
             }
         }
+    }
+}
 

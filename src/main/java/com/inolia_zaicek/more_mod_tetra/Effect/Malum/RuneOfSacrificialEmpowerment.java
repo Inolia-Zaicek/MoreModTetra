@@ -40,7 +40,7 @@ public class RuneOfSacrificialEmpowerment {
 
     @SubscribeEvent
     public static void killEvent(LivingDeathEvent event) {
-        Entity entity = event.getEntity().getLastAttacker();
+        Entity entity = event.getSource().getEntity();
             if (entity instanceof LivingEntity player) {
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();

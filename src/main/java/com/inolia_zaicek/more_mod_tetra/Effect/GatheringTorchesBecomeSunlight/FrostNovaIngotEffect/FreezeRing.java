@@ -35,9 +35,10 @@ public class FreezeRing {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getEntity() instanceof Player player&&event.getSource().getEntity() instanceof LivingEntity mob) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            if (event.getSource().getEntity() instanceof LivingEntity mob) {
+                LivingEntity livingEntity = event.getEntity();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, freezeRingEffect);

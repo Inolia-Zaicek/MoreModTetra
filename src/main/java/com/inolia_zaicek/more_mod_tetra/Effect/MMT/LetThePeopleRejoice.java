@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -37,7 +38,7 @@ public class LetThePeopleRejoice {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof Player player) {
+        if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
@@ -60,7 +61,8 @@ public class LetThePeopleRejoice {
             }
         }
         //挨打
-        if (event.getEntity() instanceof Player player) {
+        if (event.getEntity()!=null) {
+            LivingEntity player = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             int effectLevel = 0;
@@ -87,7 +89,8 @@ public class LetThePeopleRejoice {
     }
     @SubscribeEvent
     public static void heal(LivingHealEvent event) {
-        if (event.getEntity() instanceof Player player) {
+        if (event.getEntity()!=null) {
+            LivingEntity player = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             int effectLevel = 0;

@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Botania.AncientWill;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,10 +35,10 @@ public class AncientWillGuthan {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("botania")) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 int gaia = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -51,8 +52,8 @@ public class AncientWillGuthan {
                     }
                 }
                 if (effectLevel > 0) {
-                    if(!player.onGround()||gaia>0){
-                        player.heal(event.getAmount()*0.15f);
+                    if(!livingEntity.onGround()||gaia>0){
+                        livingEntity.heal(event.getAmount()*0.15f);
                     }
                 }
             }

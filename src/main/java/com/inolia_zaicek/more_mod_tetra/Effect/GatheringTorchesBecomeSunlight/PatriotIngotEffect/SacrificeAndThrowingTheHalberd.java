@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.P
 
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,10 +35,10 @@ public class SacrificeAndThrowingTheHalberd {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, SacrificeAndThrowingTheHalberdEffect);
@@ -54,19 +55,18 @@ public class SacrificeAndThrowingTheHalberd {
                 if (effectLevel > 0) {
                     //是近战
                     if(MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
-                        //藏锋已满
-                        if(player.hasEffect(MMTEffectsRegister.ThrowingTheHalberdMax.get())){
+                        if(livingEntity.hasEffect(MMTEffectsRegister.ThrowingTheHalberdMax.get())){
                             event.setAmount(event.getAmount()*(1+ (float) effectLevel /100));
                         }
                         else{
-                            player.removeEffect(MMTEffectsRegister.ThrowingTheHalberd.get());
-                            player.removeEffect(MMTEffectsRegister.ThrowingTheHalberdMax.get());
+                            livingEntity.removeEffect(MMTEffectsRegister.ThrowingTheHalberd.get());
+                            livingEntity.removeEffect(MMTEffectsRegister.ThrowingTheHalberdMax.get());
                         }
                     }
                     //不是近战
                     else{
-                        player.removeEffect(MMTEffectsRegister.ThrowingTheHalberd.get());
-                        player.removeEffect(MMTEffectsRegister.ThrowingTheHalberdMax.get());
+                        livingEntity.removeEffect(MMTEffectsRegister.ThrowingTheHalberd.get());
+                        livingEntity.removeEffect(MMTEffectsRegister.ThrowingTheHalberdMax.get());
                     }
                 }
             }

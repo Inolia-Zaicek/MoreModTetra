@@ -5,6 +5,7 @@ import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -42,7 +43,8 @@ public class CuriosMagmaWalker {
     @SubscribeEvent
     public static void onLivingAttack(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getEntity() instanceof Player player) {
+            if (event.getEntity()!=null) {
+                LivingEntity player = event.getEntity();
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
                         (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                         slotResult -> {
@@ -67,7 +69,8 @@ public class CuriosMagmaWalker {
     @SubscribeEvent
     public static void onFluidCollide(MMTFluidCollisionEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getEntity() instanceof Player player) {
+            if (event.getEntity()!=null) {
+                LivingEntity player = event.getEntity();
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
                         (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                         slotResult -> {

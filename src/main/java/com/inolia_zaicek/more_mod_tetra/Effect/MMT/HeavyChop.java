@@ -42,7 +42,7 @@ public class HeavyChop {
     public static void hurt(LivingHurtEvent event) {
         // 监听玩家对生物造成的伤害事件
         // 检查伤害来源是否是玩家
-        if (event.getSource().getEntity() instanceof Player player) {
+        if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity(); // 被攻击的目标生物
             ItemStack mainHandItem = player.getMainHandItem(); // 玩家主手物品
             float armorPenetrationLevel = 0; // 护甲穿透效果等级

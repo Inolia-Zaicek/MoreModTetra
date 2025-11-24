@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,7 +35,7 @@ public class Necrotic {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof Player player) {
+        if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
@@ -57,15 +58,23 @@ public class Necrotic {
                 player.heal(1+event.getAmount()*number);
                 if (hp > 1) {
                     player.invulnerableTime = 0;
-                    player.setLastHurtByPlayer(player);
+                    if(player instanceof Player player1) {
+                        mob.setLastHurtByPlayer(player1);
+                    }
                     player.hurt(player.damageSources().magic(), Math.max(1, hp * number));
-                    player.setLastHurtByPlayer(player);
+                    if(player instanceof Player player1) {
+                        mob.setLastHurtByPlayer(player1);
+                    }
                 }else{
                     player.heal(1);
                     player.invulnerableTime = 0;
-                    player.setLastHurtByPlayer(player);
+                    if(player instanceof Player player1) {
+                        mob.setLastHurtByPlayer(player1);
+                    }
                     player.hurt(player.damageSources().magic(), Math.max(1, hp * number));
-                    player.setLastHurtByPlayer(player);
+                    if(player instanceof Player player1) {
+                        mob.setLastHurtByPlayer(player1);
+                    }
                 }
             }
         }

@@ -5,6 +5,7 @@ import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 import com.github.alexthe666.iceandfire.entity.EntityLightningDragon;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -40,10 +41,10 @@ public class UndeadHydra {
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("iceandfire")) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, undeadHydraEffect);
@@ -58,20 +59,20 @@ public class UndeadHydra {
                     }
                 }
                 if (effectLevel > 0) {
-                    float hp =player.getHealth();
-                    float mhp =player.getMaxHealth();
+                    float hp =livingEntity.getHealth();
+                    float mhp =livingEntity.getMaxHealth();
                     float finish =hp/mhp;
                     if(finish>75){
-                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION,45*20,0));
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION,45*20,0));
                     }
                     else if(finish<=75&&finish>50){
-                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION,45*20,1));
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION,45*20,1));
                     }
                     else if(finish<=50&&finish>25){
-                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION,45*20,2));
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION,45*20,2));
                     }
                     else if(finish<=25){
-                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION,45*20,3));
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION,45*20,3));
                     }
                 }
                 }

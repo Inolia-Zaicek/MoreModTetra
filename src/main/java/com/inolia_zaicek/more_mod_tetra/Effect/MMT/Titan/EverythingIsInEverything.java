@@ -1,11 +1,13 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -33,8 +35,9 @@ public class EverythingIsInEverything {
     }
 
     @SubscribeEvent
-    public static void event(LivingExperienceDropEvent event){
-        if (event.getEntity() instanceof Player player) {
+    public static void event(PlayerXpEvent.XpChange event){
+        if (event.getEntity()!=null) {
+            LivingEntity player = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             float effectLevel = 0;
@@ -51,7 +54,7 @@ public class EverythingIsInEverything {
                 }
             }
             if (effectLevel > 0) {
-                event.setDroppedExperience((int) (event.getDroppedExperience()*(1+effectLevel/100)+1));
+                event.setAmount((int) (event.getAmount()*(1+effectLevel/100)+1));
             }
         }
     }

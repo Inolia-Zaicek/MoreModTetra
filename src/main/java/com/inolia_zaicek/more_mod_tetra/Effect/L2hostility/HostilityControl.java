@@ -1,5 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -33,32 +35,16 @@ public class HostilityControl {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if(ModList.get().isLoaded("l2complements")) {
             //挨打的是玩家
-            if (event.getEntity() instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, hostilityControlEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, hostilityControlEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+            if (event.getEntity()!=null) {
+                LivingEntity livingEntity = event.getEntity();
+                float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, hostilityControlEffect);
                 if (effectLevel > 0) {
-                    float mhp =player.getMaxHealth();
+                    float mhp =livingEntity.getMaxHealth();
                     float damage =event.getAmount();
-                    //最大扣血：最大生命值*（100%-比例)
                     float maxAmount=( mhp*(1- (float) effectLevel /100) );
                     if(damage>maxAmount){
                         event.setAmount(maxAmount);
-                    }
                 }
             }
         }

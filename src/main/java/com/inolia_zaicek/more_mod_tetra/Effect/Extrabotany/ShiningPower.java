@@ -37,10 +37,10 @@ public class ShiningPower {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 LivingEntity mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, shiningPowerEffect);
@@ -54,8 +54,8 @@ public class ShiningPower {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                Level level = player.level();
-                BlockPos pos = player.blockPosition();
+                Level level = livingEntity.level();
+                BlockPos pos = livingEntity.blockPosition();
                 int brightness = level.getMaxLocalRawBrightness(pos);
                 if (effectLevel > 0&&brightness>=8) {
                     float number = (float) effectLevel / 100;

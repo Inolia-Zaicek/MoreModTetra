@@ -4,11 +4,13 @@ import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -40,21 +42,19 @@ public class CuriosJump {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void tick(TickEvent.PlayerTickEvent event) {
-        if (ModList.get().isLoaded("curios")) {
-            Player player = event.player;
-            CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                    (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                    slotResult -> {
-                        slotResult.stack();
-                        ItemStack itemStack = slotResult.stack();
-                        IModularItem item = (IModularItem) itemStack.getItem();
-                        int effectLevel = item.getEffectLevel(itemStack, curiosJumpEffect);
-                        if (effectLevel > 0 && player.level().getGameTime() % 10L == 0) {
-                            player.addEffect(new MobEffectInstance(MobEffects.JUMP,200,effectLevel-1));
-                        }
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity player = event.getEntity();
+        CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
+                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
+                slotResult -> {
+                    slotResult.stack();
+                    ItemStack itemStack = slotResult.stack();
+                    IModularItem item = (IModularItem) itemStack.getItem();
+                    int effectLevel = item.getEffectLevel(itemStack, curiosJumpEffect);
+                    if (effectLevel > 0 && player.level().getGameTime() % 10L == 0) {
+                        player.addEffect(new MobEffectInstance(MobEffects.JUMP, 200, effectLevel - 1));
                     }
-            ));
+                }
+        ));
     }
-}
 }

@@ -3,6 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 import com.github.L_Ender.cataclysm.init.ModEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,7 +37,7 @@ public class Glowing {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getDirectEntity() instanceof Player player) {
+            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 var map = mob.getActiveEffectsMap();
                 ItemStack mainHandItem = player.getMainHandItem();
@@ -62,7 +63,7 @@ public class Glowing {
                     }
                 }
         }
-        else if (event.getSource().getEntity() instanceof Player player) {
+        else if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             var map = mob.getActiveEffectsMap();
             ItemStack mainHandItem = player.getMainHandItem();

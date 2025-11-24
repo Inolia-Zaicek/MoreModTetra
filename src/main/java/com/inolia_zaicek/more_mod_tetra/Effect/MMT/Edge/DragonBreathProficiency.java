@@ -1,5 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Edge;
 
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -16,6 +18,8 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static net.minecraft.tags.DamageTypeTags.ALWAYS_HURTS_ENDER_DRAGONS;
+import static net.minecraft.tags.DamageTypeTags.WITCH_RESISTANT_TO;
 
 public class DragonBreathProficiency {
     @OnlyIn(Dist.CLIENT)
@@ -33,7 +37,7 @@ public class DragonBreathProficiency {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
@@ -51,13 +55,13 @@ public class DragonBreathProficiency {
                     }
                 }
                 if (effectLevel > 0) {
-                    if(event.getSource()==mob.damageSources().dragonBreath()) {
+                    if (event.getSource().is(DamageTypes.DRAGON_BREATH)) {
                         float number = (float) effectLevel / 100;
                         float damage = event.getAmount();
                         event.setAmount(damage * (1 + number));
                     }
             }
-        }            if (event.getSource().getDirectEntity() instanceof Player player) {
+        }            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
@@ -75,7 +79,7 @@ public class DragonBreathProficiency {
                 }
             }
             if (effectLevel > 0) {
-                if(event.getSource()==mob.damageSources().dragonBreath()) {
+                if (event.getSource().is(DamageTypes.DRAGON_BREATH)) {
                     float number = (float) effectLevel / 100;
                     float damage = event.getAmount();
                     event.setAmount(damage * (1 + number));

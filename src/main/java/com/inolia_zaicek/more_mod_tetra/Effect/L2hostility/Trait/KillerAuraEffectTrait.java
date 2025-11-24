@@ -4,6 +4,7 @@ import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -11,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -40,18 +42,18 @@ public class    KillerAuraEffectTrait {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void tick(TickEvent.PlayerTickEvent event) {
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity livingEntity = event.getEntity();
         if (ModList.get().isLoaded("l2complements")) {
-            Player player = event.player;
-            CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
+            CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                     (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                     slotResult -> {
                         slotResult.stack();
                         ItemStack itemStack = slotResult.stack();
                         IModularItem curiousItem = (IModularItem) itemStack.getItem();
                         //获取一下玩家主副手
-                        ItemStack mainHandItem = player.getMainHandItem();
-                        ItemStack offhandItem = player.getOffhandItem();
+                        ItemStack mainHandItem = livingEntity.getMainHandItem();
+                        ItemStack offhandItem = livingEntity.getOffhandItem();
                         int effectLevel = 0;
                         effectLevel += curiousItem.getEffectLevel(itemStack, killerAuraEffectTraitEffect);
                         if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -66,16 +68,20 @@ public class    KillerAuraEffectTrait {
                                 effectLevel += (int) offEffectLevel;
                             }
                         }
-                        if (effectLevel > 0&&event.player.tickCount % 20 == 0) {
-                            var mobList = MMTUtil.mobList(7,player);
+                        if (effectLevel > 0&&livingEntity.tickCount % 20 == 0) {
+                            var mobList = MMTUtil.mobList(7,livingEntity);
                             for (Mob mobs:mobList){
                                 if(mobs!=null) {
                                     //获取伤害类型
                                     mobs.invulnerableTime=0;
-                                    mobs.setLastHurtByPlayer(player);
-                                    float atk = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
-                                    mobs.hurt(mobs.damageSources().mobAttack(event.player),atk*effectLevel*0.15f);
-                                    mobs.setLastHurtByPlayer(player);
+                                    if(livingEntity instanceof Player player) {
+                                        mobs.setLastHurtByPlayer(player);
+                                    }
+                                    float atk = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE);
+                                    mobs.hurt(mobs.damageSources().mobAttack(livingEntity),atk*effectLevel*0.15f);
+                                    if(livingEntity instanceof Player player) {
+                                        mobs.setLastHurtByPlayer(player);
+                                    }
                                 }
                             }
                         }

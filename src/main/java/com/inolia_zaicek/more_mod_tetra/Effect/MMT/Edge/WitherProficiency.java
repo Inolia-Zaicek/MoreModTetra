@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Edge;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -17,6 +18,8 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static net.minecraft.tags.DamageTypeTags.IS_LIGHTNING;
+import static net.minecraft.tags.DamageTypeTags.WITHER_IMMUNE_TO;
 
 public class WitherProficiency {
     @OnlyIn(Dist.CLIENT)
@@ -34,7 +37,7 @@ public class WitherProficiency {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void hurt(LivingHurtEvent event) {
             //攻击
-        if (event.getSource().getDirectEntity() instanceof Player player) {
+        if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
@@ -51,12 +54,12 @@ public class WitherProficiency {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                if (effectLevel > 0&&event.getSource()==mob.damageSources().wither()) {
+            if (effectLevel > 0&&event.getSource().is(WITHER_IMMUNE_TO)) {
                     float number = (float) effectLevel / 100;
                     float damage =event.getAmount();
                     event.setAmount(damage*(1+number));
             }
-        }else         if (event.getSource().getEntity() instanceof Player player) {
+        }else         if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
@@ -73,7 +76,7 @@ public class WitherProficiency {
                     effectLevel += (int) offEffectLevel;
                 }
             }
-            if (effectLevel > 0&&event.getSource()==mob.damageSources().wither()) {
+            if (effectLevel > 0&&event.getSource().is(WITHER_IMMUNE_TO)) {
                 float number = (float) effectLevel / 100;
                 float damage =event.getAmount();
                 event.setAmount(damage*(1+number));

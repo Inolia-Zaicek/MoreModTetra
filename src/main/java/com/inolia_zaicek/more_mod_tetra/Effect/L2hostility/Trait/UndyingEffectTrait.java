@@ -7,6 +7,7 @@ import dev.xkmc.l2hostility.init.registrate.LHTraits;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -50,22 +51,23 @@ public class UndyingEffectTrait {
         //有灾变
         if (ModList.get().isLoaded("l2complements")) {
             //检测到玩家寄了&&玩家没有鬼魅缠身buff
-            if (event.getEntity() instanceof Player player
+            if (event.getEntity()!=null
                     //非虚空伤害
                     &&!event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)&&
                     //无诅咒
-                    !player.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "curse"))))
+                    !event.getEntity().hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "curse"))))
             ) {
+                LivingEntity livingEntity = event.getEntity();
                 //饰品部分（莱特兰必定有饰品
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
+                CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                         (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                         slotResult -> {
                             slotResult.stack();
                             ItemStack itemStack = slotResult.stack();
                             IModularItem curiousItem = (IModularItem) itemStack.getItem();
                             //获取一下玩家主副手
-                            ItemStack mainHandItem = player.getMainHandItem();
-                            ItemStack offhandItem = player.getOffhandItem();
+                            ItemStack mainHandItem = livingEntity.getMainHandItem();
+                            ItemStack offhandItem = livingEntity.getOffhandItem();
                             int effectLevel = 0;
                             effectLevel += curiousItem.getEffectLevel(itemStack, undyingEffectTraitEffect);
                 if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -82,12 +84,12 @@ public class UndyingEffectTrait {
                 }
                 if (effectLevel > 0) {
                     //设置玩家血量（不要滥用改写
-                    player.setHealth(player.getMaxHealth());
-                    player.deathTime = -10;
+                    livingEntity.setHealth(livingEntity.getMaxHealth());
+                    livingEntity.deathTime = -10;
                     //设置玩家是活着的（isAlive是个布尔值
-                    player.isAlive();
+                    livingEntity.isAlive();
                     //设置无敌时间
-                    player.invulnerableTime = 0;
+                    livingEntity.invulnerableTime = 0;
                     //事件可以被取消
                     event.setCanceled(true);
                 }

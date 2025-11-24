@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.LightningDragonSteel;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -17,6 +18,7 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static net.minecraft.tags.DamageTypeTags.IS_LIGHTNING;
 
 public class LightningDragonPower {
     @OnlyIn(Dist.CLIENT)
@@ -34,11 +36,11 @@ public class LightningDragonPower {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("iceandfire")) {
-            //攻击
-            if (event.getEntity().getLastAttacker() instanceof Player player) {
+            //攻击（龙霆雷伤增幅单独判断
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, lightningDragonPowerEffect);
@@ -53,16 +55,16 @@ public class LightningDragonPower {
                     }
                 }
                 //是雷霆伤害，增伤
-                if (effectLevel > 0&&event.getSource()==mob.damageSources().lightningBolt()) {
+                if (effectLevel > 0&&event.getSource().is(IS_LIGHTNING)) {
                     float number = (float) effectLevel / 100;
                     float damage =event.getAmount();
                     event.setAmount(damage*(1+number));
                     }
                 }
-            //雷伤归零
-            if (event.getEntity() instanceof Player player && !(event.getSource().getEntity() instanceof Player)) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+                var mob = event.getEntity();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, lightningDragonPowerEffect);
@@ -76,7 +78,32 @@ public class LightningDragonPower {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                if (effectLevel > 0&&event.getSource()==player.damageSources().lightningBolt()) {
+                //是雷霆伤害，增伤
+                if (effectLevel > 0&&event.getSource().is(IS_LIGHTNING)) {
+                    float number = (float) effectLevel / 100;
+                    float damage =event.getAmount();
+                    event.setAmount(damage*(1+number));
+                }
+            }
+            //雷伤归零
+            if (event.getEntity()!=null&& !(event.getSource().getEntity() instanceof Player)) {
+                LivingEntity livingEntity = event.getEntity();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
+                float effectLevel = 0;
+                if (mainHandItem.getItem() instanceof IModularItem item) {
+                    float mainEffectLevel = item.getEffectLevel(mainHandItem, lightningDragonPowerEffect);
+                    if (mainEffectLevel > 0) {
+                        effectLevel +=  mainEffectLevel;
+                    }
+                }
+                if (offhandItem.getItem() instanceof IModularItem item) {
+                    float offEffectLevel = item.getEffectLevel(offhandItem, lightningDragonPowerEffect);
+                    if (offEffectLevel > 0) {
+                        effectLevel += offEffectLevel;
+                    }
+                }
+                if (effectLevel > 0&&event.getSource()==livingEntity.damageSources().lightningBolt()) {
                     event.setAmount(0);
                 }
             }

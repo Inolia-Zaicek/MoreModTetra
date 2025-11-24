@@ -47,22 +47,18 @@ public class DespoilSickle {
     }
     @SubscribeEvent
     public static void drop(LivingDropsEvent event) {
-        if (event.getEntity() != null&&event.getEntity().getLastAttacker()!=null) {
+        if (event.getEntity() != null && event.getSource().getEntity() instanceof LivingEntity attacker ) {
             Entity mob = event.getEntity();
             Collection<ItemEntity> drops= event.getDrops();
-            Entity attacker = event.getEntity().getLastAttacker();
-            if (mob instanceof Player||event.getEntity().getLastAttacker()==null) {
+            if (mob instanceof Player) {
                 return;
             }
             if(attacker!=null) {
                 Level level = attacker.level();
                 //获取实体tag
                 EntityType<?> entityType = mob.getType();
-                if (!(attacker instanceof Player player)) {
-                    return;
-                }
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = attacker.getMainHandItem();
+                ItemStack offhandItem = attacker.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, despoilSickleEffect);
@@ -77,7 +73,7 @@ public class DespoilSickle {
                     }
                 }
                 if (effectLevel > 0) {
-                    //player.sendSystemMessage(Component.literal("传送至记录点！").withStyle(ChatFormatting.GREEN));
+                    //livingEntity.sendSystemMessage(Component.literal("传送至记录点！").withStyle(ChatFormatting.GREEN));
                     // 循环生成effectLevel次
                     for (int i = 0; i < effectLevel * 3; i++) {
                         //神圣

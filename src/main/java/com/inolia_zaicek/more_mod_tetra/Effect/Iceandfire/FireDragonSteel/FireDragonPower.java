@@ -3,6 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.FireDragonSteel;
 import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
 import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 import com.github.alexthe666.iceandfire.entity.EntityLightningDragon;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -38,10 +39,10 @@ public class FireDragonPower {
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("iceandfire")) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, fireDragonPowerEffect);
@@ -56,7 +57,7 @@ public class FireDragonPower {
                     }
                 }
                 if (effectLevel > 0&&mob.getRemainingFireTicks()>0) {
-                    if(player.getRemainingFireTicks()>0){
+                    if(livingEntity.getRemainingFireTicks()>0){
                         event.setAmount(event.getAmount()*(1+ (float) effectLevel /50) );
                     }else{
                         event.setAmount(event.getAmount()*(1+ (float) effectLevel /100) );

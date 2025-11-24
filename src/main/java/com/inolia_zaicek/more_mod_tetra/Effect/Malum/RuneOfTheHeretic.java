@@ -41,10 +41,10 @@ public class RuneOfTheHeretic {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("malum")) {
-            if (event.getEntity() instanceof Player player&&event.getSource().getEntity() instanceof LivingEntity attacker) {
-
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            if (event.getEntity()!=null&&event.getSource().getEntity() instanceof LivingEntity attacker) {
+                LivingEntity livingEntity = event.getEntity();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, runeOfTheHereticEffect);

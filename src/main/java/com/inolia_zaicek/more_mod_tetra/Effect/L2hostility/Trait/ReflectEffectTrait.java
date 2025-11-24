@@ -36,8 +36,9 @@ public class ReflectEffectTrait {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("l2complements")) {
             //挨打的是玩家且攻击者非空
-            if (event.getEntity() instanceof Player player &&event.getSource().getEntity()!=null) {
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
+            if (event.getEntity()!=null&&event.getSource().getEntity()!=null) {
+                LivingEntity livingEntity = event.getEntity();
+                CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
                                     slotResult.stack();
@@ -45,8 +46,8 @@ public class ReflectEffectTrait {
                                     IModularItem curiousItem = (IModularItem) itemStack.getItem();
                                     int effectLevel = curiousItem.getEffectLevel(itemStack, reflectEffectTraitEffect);
                                     //获取一下玩家主副手
-                                    ItemStack mainHandItem = player.getMainHandItem();
-                                    ItemStack offhandItem = player.getOffhandItem();
+                                    ItemStack mainHandItem = livingEntity.getMainHandItem();
+                                    ItemStack offhandItem = livingEntity.getOffhandItem();
                                     if (mainHandItem.getItem() instanceof IModularItem item) {
                                         float mainEffectLevel = item.getEffectLevel(mainHandItem, reflectEffectTraitEffect);
                                         if (mainEffectLevel > 0) {
@@ -60,8 +61,10 @@ public class ReflectEffectTrait {
                                         }
                                     }
                                     if (effectLevel > 0 &&event.getSource().getEntity()!=null) {
-                                        if(event.getSource().getEntity() instanceof LivingEntity livingEntity){
-                                            livingEntity.setLastHurtByPlayer(player);
+                                        if(event.getSource().getEntity() instanceof LivingEntity mob){
+                                            if(livingEntity instanceof Player player) {
+                                                mob.setLastHurtByPlayer(player);
+                                            }
                                         }
                                         event.getSource().getEntity().hurt(event.getSource().getEntity().damageSources().magic(),event.getAmount()*0.3f*effectLevel);
                                     }

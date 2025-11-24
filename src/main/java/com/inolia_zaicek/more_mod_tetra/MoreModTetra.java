@@ -1,6 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra;
 
 
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.Cataclysm.CursiumSuit;
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.Cataclysm.IgnitiumSuit;
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT.ArmorCriticalStrike;
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT.*;
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT.Thorns.*;
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMTEffectClent;
 import com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.Core.MagneticField;
 import com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.Core.RadiationAbsorption;
@@ -9,6 +15,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.Core.Underocean;
 import com.inolia_zaicek.more_mod_tetra.Effect.Aquamirae.RuneOfTheStorm;
 import com.inolia_zaicek.more_mod_tetra.Effect.Ars.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.Biomancy.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.BornInChaos.SoulStratification;
 import com.inolia_zaicek.more_mod_tetra.Effect.Botania.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.Botania.AncientWill.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.CaerulaArbor.SanityHurt;
@@ -18,6 +25,8 @@ import com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Storm.UnceasingStorm;
 import com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Witherite.WitheriteA;
 import com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Witherite.WitheriteB;
 import com.inolia_zaicek.more_mod_tetra.Effect.Duel;
+import com.inolia_zaicek.more_mod_tetra.Effect.Eeeab.EeeabsmobsErodeEffect;
+import com.inolia_zaicek.more_mod_tetra.Effect.Eeeab.EeeabsmobsFrenzyEffect;
 import com.inolia_zaicek.more_mod_tetra.Effect.EidolonRepraised.ShadowGem;
 import com.inolia_zaicek.more_mod_tetra.Effect.EidolonRepraised.SoulShard;
 import com.inolia_zaicek.more_mod_tetra.Effect.Enigmaticlegacy.EtheriumGuard;
@@ -31,6 +40,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany.SpeedForce;
 import com.inolia_zaicek.more_mod_tetra.Effect.FakeTconstruct.FakeInsatiable;
 import com.inolia_zaicek.more_mod_tetra.Effect.FakeTconstruct.FakeMomentum;
 import com.inolia_zaicek.more_mod_tetra.Effect.FakeTconstruct.FakeTasty;
+import com.inolia_zaicek.more_mod_tetra.Effect.FantasyDevour;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect.ColdWave;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect.Freeze;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect.FreezeRing;
@@ -59,6 +69,10 @@ import com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.LightningDragonSteel.L
 import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.AF.AFIronSpellTetraActualImpl;
 import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.AF.SoundArcaneGuardEffect;
 import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.AF.SoundStaffSocket;
+import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.FE.FantasyArcaneEdgeEffect;
+import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.FE.FantasyArcaneGuardEffect;
+import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.FE.FantasyShadow;
+import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.FE.FantasyTrace;
 import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.Fabric.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.Finish.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.IronSpellCastingEvent;
@@ -71,6 +85,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.TO.AquaStaffSocket;
 import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.TO.TOIronSpellTetraActualImpl;
 import com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.LegendaryMonsters.SoulRage;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.BuffClear.*;
@@ -85,6 +100,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.Iron.TOCurios
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.Tacz.TaczCuriosProjectileDamageUp;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.DeepDarkFantasy;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Edge.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Edge.MTT.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.IndustrialProtection.IndustrialProtection;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.NitenIchiryu.NitenIchiryuKatana;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.NitenIchiryu.NitenIchiryuWakizashi;
@@ -98,7 +114,9 @@ import com.inolia_zaicek.more_mod_tetra.Effect.Malum.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.Malum.TotemicRunes.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft.SMCFrost;
 import com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft.SMCFrostBurst;
+import com.inolia_zaicek.more_mod_tetra.Event.BokushuuIngotEvent;
 import com.inolia_zaicek.more_mod_tetra.Event.MMTFluidCollisionEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.SacrificeStoneEvent;
 import com.inolia_zaicek.more_mod_tetra.Network.GhostSwordChannel;
 import com.inolia_zaicek.more_mod_tetra.Network.TerraRayChannel;
 import com.inolia_zaicek.more_mod_tetra.Network.MMTNetworkHandler;
@@ -152,9 +170,31 @@ public class MoreModTetra {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         //监听事件
-        //        MinecraftForge.EVENT_BUS.register(new Duel());
-        MinecraftForge.EVENT_BUS.register(Duel.class);
-        MinecraftForge.EVENT_BUS.register(Wither.class);
+        /*
+        //灾变
+        if(ModList.get().isLoaded("cataclysm")) {
+            MinecraftForge.EVENT_BUS.register(AbyssalCurse.class);
+            MinecraftForge.EVENT_BUS.register(BlazingBrand.class);
+            MinecraftForge.EVENT_BUS.register(BoneFracture.class);
+            MinecraftForge.EVENT_BUS.register(CataclysmStun.class);
+            MinecraftForge.EVENT_BUS.register(GhostForm.class);
+            MinecraftForge.EVENT_BUS.register(WitheriteB.class);
+
+            MinecraftForge.EVENT_BUS.register(AbyssalFinish.class);
+            MinecraftForge.EVENT_BUS.register(Analysis.class);
+            MinecraftForge.EVENT_BUS.register(BlazingAbsorb.class);
+            MinecraftForge.EVENT_BUS.register(LavaDriver.class);
+            MinecraftForge.EVENT_BUS.register(OverPostmortal.class);
+
+            MinecraftForge.EVENT_BUS.register(TearsOfThunder.class);
+            MinecraftForge.EVENT_BUS.register(IAmStorm.class);
+            MinecraftForge.EVENT_BUS.register(UnceasingStorm.class);
+            //甲
+            MinecraftForge.EVENT_BUS.register(IgnitiumSuit.class);
+            MinecraftForge.EVENT_BUS.register(CursiumSuit.class);
+
+        }
+
         //铁魔法
         if(ModList.get().isLoaded("irons_spellbooks")) {
             MinecraftForge.EVENT_BUS.register(FireArcaneEdgeEffect.class);
@@ -169,6 +209,7 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(ProtectionArcaneEdgeEffect.class);
             MinecraftForge.EVENT_BUS.register(CooldownArcaneEdgeEffect.class);
             MinecraftForge.EVENT_BUS.register(ArcaneArcaneEdgeEffect.class);
+
             MinecraftForge.EVENT_BUS.register(FireArcaneGuardEffect.class);
             MinecraftForge.EVENT_BUS.register(IceArcaneGuardEffect.class);
             MinecraftForge.EVENT_BUS.register(LightningArcaneGuardEffect.class);
@@ -178,6 +219,7 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(EnderArcaneGuardEffect.class);
             MinecraftForge.EVENT_BUS.register(NatureArcaneGuardEffect.class);
             MinecraftForge.EVENT_BUS.register(EldritchArcaneGuardEffect.class);
+
             MinecraftForge.EVENT_BUS.register(FireStaffSocket.class);
             MinecraftForge.EVENT_BUS.register(IceStaffSocket.class);
             MinecraftForge.EVENT_BUS.register(LightningStaffSocket.class);
@@ -225,25 +267,6 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(HealingAdditive.class);
             MinecraftForge.EVENT_BUS.register(UnstableCompound.class);
         }
-        if(ModList.get().isLoaded("cataclysm")) {
-            MinecraftForge.EVENT_BUS.register(AbyssalCurse.class);
-            MinecraftForge.EVENT_BUS.register(BlazingBrand.class);
-            MinecraftForge.EVENT_BUS.register(BoneFracture.class);
-            MinecraftForge.EVENT_BUS.register(CataclysmStun.class);
-            MinecraftForge.EVENT_BUS.register(GhostForm.class);
-            MinecraftForge.EVENT_BUS.register(WitheriteB.class);
-
-            MinecraftForge.EVENT_BUS.register(AbyssalFinish.class);
-            MinecraftForge.EVENT_BUS.register(Analysis.class);
-            MinecraftForge.EVENT_BUS.register(BlazingAbsorb.class);
-            MinecraftForge.EVENT_BUS.register(LavaDriver.class);
-            MinecraftForge.EVENT_BUS.register(OverPostmortal.class);
-
-            MinecraftForge.EVENT_BUS.register(TearsOfThunder.class);
-            MinecraftForge.EVENT_BUS.register(IAmStorm.class);
-            MinecraftForge.EVENT_BUS.register(UnceasingStorm.class);
-        }
-
         if(ModList.get().isLoaded("iceandfire")) {
             MinecraftForge.EVENT_BUS.register(FireDragonsteelMaterial.class);
             MinecraftForge.EVENT_BUS.register(IceDragonsteelMaterial.class);
@@ -260,12 +283,12 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(UndeadHydra.class);
             MinecraftForge.EVENT_BUS.register(GhostSword.class);
         }
+        MinecraftForge.EVENT_BUS.register(Notes.class);
         //明日方舟mrfz
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
             MinecraftForge.EVENT_BUS.register(MMTIngotDrop.class);
             MinecraftForge.EVENT_BUS.register(ExpandedCognition.class);
             MinecraftForge.EVENT_BUS.register(NociceptorInhibition.class);
-            MinecraftForge.EVENT_BUS.register(Notes.class);
 
             MinecraftForge.EVENT_BUS.register(ColdWave.class);
             MinecraftForge.EVENT_BUS.register(Freeze.class);
@@ -281,11 +304,11 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(CollapsingFear.class);
             MinecraftForge.EVENT_BUS.register(Dominion.class);
         }
+        MinecraftForge.EVENT_BUS.register(EtheriumGuard.class);
         if(ModList.get().isLoaded("enigmaticlegacy")) {
             MinecraftForge.EVENT_BUS.register(EvilIngotMaterial.class);
             MinecraftForge.EVENT_BUS.register(EtheriumIngotMaterial.class);
 
-            MinecraftForge.EVENT_BUS.register(EtheriumGuard.class);
             MinecraftForge.EVENT_BUS.register(EvilCurse.class);
         }
         if(ModList.get().isLoaded("extrabotany")) {
@@ -314,12 +337,13 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(AbyssalOceanEcho.class);
             MinecraftForge.EVENT_BUS.register(Underocean.class);
         }
+
+        MinecraftForge.EVENT_BUS.register(EterniumDurability.class);
+        MinecraftForge.EVENT_BUS.register(HidingInShulkerShell.class);
+        MinecraftForge.EVENT_BUS.register(HostilityControl.class);
         if(ModList.get().isLoaded("l2complements")) {
             MinecraftForge.EVENT_BUS.register(Recovery.class);
             MinecraftForge.EVENT_BUS.register(ObsessionOfWarden.class);
-            MinecraftForge.EVENT_BUS.register(HidingInShulkerShell.class);
-            MinecraftForge.EVENT_BUS.register(EterniumDurability.class);
-            MinecraftForge.EVENT_BUS.register(HostilityControl.class);
             //词条
             MinecraftForge.EVENT_BUS.register(UndyingEffectTrait.class);
             MinecraftForge.EVENT_BUS.register(FieryEffectTraitHurt.class);
@@ -342,6 +366,19 @@ public class MoreModTetra {
         }
         if(ModList.get().isLoaded("tacz")) {
             MinecraftForge.EVENT_BUS.register(TaczCuriosProjectileDamageUp.class);
+        }
+        if(ModList.get().isLoaded("fantasy_ending")) {
+            MinecraftForge.EVENT_BUS.register(FantasyArcaneEdgeEffect.class);
+            MinecraftForge.EVENT_BUS.register(FantasyTrace.class);
+            MinecraftForge.EVENT_BUS.register(FantasyShadow.class);
+            MinecraftForge.EVENT_BUS.register(FantasyArcaneGuardEffect.class);
+        }
+        //mtt
+        if(ModList.get().isLoaded("more_tetra_tools")) {
+            MinecraftForge.EVENT_BUS.register(TickFireProficiency.class);
+            MinecraftForge.EVENT_BUS.register(TickFreezeProficiency.class);
+            MinecraftForge.EVENT_BUS.register(TickLightningProficiency.class);
+            MinecraftForge.EVENT_BUS.register(TickWitherProficiency.class);
         }
         MinecraftForge.EVENT_BUS.register(Assassinate.class);
         MinecraftForge.EVENT_BUS.register(ConstantFlux.class);
@@ -394,7 +431,6 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(StarBurstStream.class);
         MinecraftForge.EVENT_BUS.register(Eclipse.class);
         MinecraftForge.EVENT_BUS.register(EclipseStarBurstStream.class);
-        MinecraftForge.EVENT_BUS.register(InvulnerableTimeDown.class);
         MinecraftForge.EVENT_BUS.register(HeavyHit.class);
         MinecraftForge.EVENT_BUS.register(OriginSlash.class);
         MinecraftForge.EVENT_BUS.register(ToolBlocking.class);
@@ -412,6 +448,7 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(ToEvernightsStars.class);
         MinecraftForge.EVENT_BUS.register(ThoughWorldsApart.class);
         MinecraftForge.EVENT_BUS.register(PyricCorpus.class);
+        MinecraftForge.EVENT_BUS.register(FantasyDevour.class);
         MinecraftForge.EVENT_BUS.register(Levitation.class);
         MinecraftForge.EVENT_BUS.register(Slowness.class);
         MinecraftForge.EVENT_BUS.register(Ignite.class);
@@ -428,6 +465,8 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(DragonBreathEdge.class);
         MinecraftForge.EVENT_BUS.register(DragonBreathProficiency.class);
         MinecraftForge.EVENT_BUS.register(Enderference.class);
+        MinecraftForge.EVENT_BUS.register(Duel.class);
+        MinecraftForge.EVENT_BUS.register(Wither.class);
         MinecraftForge.EVENT_BUS.register(EnderferenceEvent.class);
         MinecraftForge.EVENT_BUS.register(PiglinKiller.class);
         MinecraftForge.EVENT_BUS.register(PhantomKiller.class);
@@ -435,6 +474,8 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(EmeraldPillage.class);
         MinecraftForge.EVENT_BUS.register(SMCFrostBurst.class);
         MinecraftForge.EVENT_BUS.register(SMCFrost.class);
+        MinecraftForge.EVENT_BUS.register(EeeabsmobsErodeEffect.class);
+        MinecraftForge.EVENT_BUS.register(EeeabsmobsFrenzyEffect.class);
         MinecraftForge.EVENT_BUS.register(ExtraAquaticProducts.class);
         MinecraftForge.EVENT_BUS.register(HealthPower.class);
         MinecraftForge.EVENT_BUS.register(Vampiric.class);
@@ -455,8 +496,44 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(CuriosMagmaWalker.class);
         MinecraftForge.EVENT_BUS.register(CuriosWaterWalker.class);
         MinecraftForge.EVENT_BUS.register(CuriosFly.class);
+
         MinecraftForge.EVENT_BUS.register(MMTFluidCollisionEvent.class);
         MinecraftForge.EVENT_BUS.register(CuriosTotemEvent.class);
+        MinecraftForge.EVENT_BUS.register(SacrificeStoneEvent.class);
+        MinecraftForge.EVENT_BUS.register(BokushuuSDesire.class);
+        MinecraftForge.EVENT_BUS.register(StandTall.class);
+        MinecraftForge.EVENT_BUS.register(BokushuuIngotEvent.class);
+        MinecraftForge.EVENT_BUS.register(OdeToPassage.class);
+        MinecraftForge.EVENT_BUS.register(OdeToCyrene.class);
+        MinecraftForge.EVENT_BUS.register(OdeToTrailblaze.class);
+        MinecraftForge.EVENT_BUS.register(FieryPalpitation.class);
+        MinecraftForge.EVENT_BUS.register(DiamondGuard.class);
+
+        MinecraftForge.EVENT_BUS.register(InvulnerableTimeDown.class);
+
+        MinecraftForge.EVENT_BUS.register(ArmorCriticalStrike.class);
+        MinecraftForge.EVENT_BUS.register(ArmorSturdyAndTenacity.class);
+        MinecraftForge.EVENT_BUS.register(ArmorHealAndRevival.class);
+        MinecraftForge.EVENT_BUS.register(UndeadAndArthropodsProtection.class);
+        MinecraftForge.EVENT_BUS.register(ArmorLastAndFinalStand.class);
+        MinecraftForge.EVENT_BUS.register(ArmorCompleteForm.class);
+        MinecraftForge.EVENT_BUS.register(EtheriumProtection.class);
+        MinecraftForge.EVENT_BUS.register(FlawlessEffect.class);
+
+        MinecraftForge.EVENT_BUS.register(ArmorThorns.class);
+        MinecraftForge.EVENT_BUS.register(DragonBreathThorns.class);
+        MinecraftForge.EVENT_BUS.register(FireThorns.class);
+        MinecraftForge.EVENT_BUS.register(FreezeThorns.class);
+        MinecraftForge.EVENT_BUS.register(LightningThorns.class);
+        MinecraftForge.EVENT_BUS.register(MagicThorns.class);
+        MinecraftForge.EVENT_BUS.register(WitherThorns.class);
+
+        MinecraftForge.EVENT_BUS.register(MeleeAttackCombo.class);
+        MinecraftForge.EVENT_BUS.register(UniversePower.class);
+        MinecraftForge.EVENT_BUS.register(SoulStratification.class);
+        MinecraftForge.EVENT_BUS.register(RideSkill.class);
+        MinecraftForge.EVENT_BUS.register(SoulRage.class);
+         */
     }
 
     @SubscribeEvent
@@ -474,6 +551,16 @@ public class MoreModTetra {
     // 客户端设置事件，用于注册渲染器和GUI屏幕
     private void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            SoulRage.init();
+            SoulStratification.init();
+            UniversePower.init();
+            DiamondGuard.init();
+            FieryPalpitation.init();
+            OdeToPassage.init();
+            OdeToCyrene.init();
+            OdeToTrailblaze.init();
+            StandTall.init();
+            BokushuuSDesire.init();
             CuriosWaterBreathing.init();
             CuriosStrength.init();
             CuriosSpeed.init();
@@ -487,6 +574,15 @@ public class MoreModTetra {
             CuriosHealthBoost.init();
             CuriosHaste.init();
             CuriosFireResistance.init();
+            if(ModList.get().isLoaded("fantasy_ending")) {
+                /*
+                FantasyArcaneEdgeEffect.init();
+                FantasyArcaneGuardEffect.init();
+                FantasyTrace.init();
+
+                 */
+                FantasyShadow.init();
+            }
             CuriosTotemEvent.init();
             CuriosFly.init();
             CuriosWaterWalker.init();
@@ -500,6 +596,7 @@ public class MoreModTetra {
             CuriosFeatherFalling.init();
             CuriosJank.init();
             CuriosCriticalStrike.init();
+            MMTEffectClent.init();
             CuriosFireClear.init();
             CuriosBlindnessClear.init();
             CuriosDarknessClear.init();
@@ -523,6 +620,9 @@ public class MoreModTetra {
             ExtraAquaticProducts.init();
             SMCFrostBurst.init();
             SMCFrost.init();
+            EeeabsmobsErodeEffect.init();
+            EeeabsmobsFrenzyEffect.init();
+            MeleeAttackCombo.init();
             EmeraldPillage.init();
             EmeraldPillage.init();
             PhantomKiller.init();
@@ -545,6 +645,7 @@ public class MoreModTetra {
             Slowness.init();
             Levitation.init();
             PyricCorpus.init();
+            FantasyDevour.init();
             ThoughWorldsApart.init();
             ToEvernightsStars.init();
             SanctuaryOfMooncocoon.init();
@@ -619,10 +720,10 @@ public class MoreModTetra {
             if(ModList.get().isLoaded("caerula_arbor")) {
                 SanityHurt.init();
             }
+            Notes.init();
             if(ModList.get().isLoaded("torchesbecomesunlight")) {
                 ExpandedCognition.init();
                 NociceptorInhibition.init();
-                Notes.init();
 
                 ColdWave.init();
                 Freeze.init();
@@ -642,6 +743,9 @@ public class MoreModTetra {
             if(ModList.get().isLoaded("aquamirae")) {
                 RuneOfTheStorm.init();
             }
+            EterniumDurability.init();
+            HostilityControl.init();
+            HidingInShulkerShell.init();
             if(ModList.get().isLoaded("l2complements")) {
                 RepellingEffectTraitHurt.init();
                 WeaknessEffectTrait.init();
@@ -649,10 +753,7 @@ public class MoreModTetra {
                 FreezingEffectTrait.init();
                 Recovery.init();
                 ObsessionOfWarden.init();
-                HidingInShulkerShell.init();
-                EterniumDurability.init();
                 MiracleAndMagic.init();
-                HostilityControl.init();
                 //词条
                 SoulBurnerEffectTrait.init();
                 DispellEffectTrait.init();
@@ -685,6 +786,7 @@ public class MoreModTetra {
             }
             if(ModList.get().isLoaded("botania")) {
                 ManaAbsorption.init();
+                ManaRepair.init();
                 ManaRegeneration.init();
                 PixieSummon.init();
                 TerraRay.init();
@@ -697,11 +799,11 @@ public class MoreModTetra {
                 AncientWillTorag.init();
                 AncientWillVerac.init();
             }
+            EtheriumGuard.init();
             if(ModList.get().isLoaded("enigmaticlegacy")) {
                 EvilIngotMaterial.init();
                 EtheriumIngotMaterial.init();
 
-                EtheriumGuard.init();
                 EvilCurse.init();
             }
             if(ModList.get().isLoaded("irons_spellbooks")) {
@@ -753,7 +855,6 @@ public class MoreModTetra {
                 AFIronSpellTetraActualImpl.initClient();
             }
                     if(ModList.get().isLoaded("ars_nouveau")) {
-                        //ArsTetraActualImpl.initClient();
                         ThreadDepths.init();
                         ThreadFeather.init();
                         ThreadHeights.init();
@@ -821,6 +922,9 @@ public class MoreModTetra {
                 ShiningPower.init();
                 SpeedForce.init();
             }
+            WaterPower.init();
+            WeaknessRealm.init();
+            WitherRealm.init();
             if(ModList.get().isLoaded("iceandfire")) {
                 FireDragonsteelMaterial.init();
                 IceDragonsteelMaterial.init();
@@ -833,10 +937,7 @@ public class MoreModTetra {
                 IceDragonPower.init();
                 LightningDragonPower.init();
 
-                WeaknessRealm.init();
-                WitherRealm.init();
                 UndeadHydra.init();
-                WaterPower.init();
                 //幻灵
                 GhostSword.init();UnlimitedPhantasmalBladeWorks.init();
             }
@@ -962,6 +1063,11 @@ public class MoreModTetra {
             event.accept(this.setupSchematic("shared/the_legend_scroll_of_passage_titan", "more_mod_tetra",
                     new String[]{"shared/the_legend_scroll_of_passage_titan"}, false, 2,//材料数量影响卷轴本体颜色
                     16711680//rgb十进制代码
+                    , 9, 3, 6, 2));
+
+            event.accept(this.setupSchematic("shared/the_legend_scroll_of_cyrene_titan", "more_mod_tetra",
+                    new String[]{"shared/the_legend_scroll_of_cyrene_titan"}, false, 2,//材料数量影响卷轴本体颜色
+                    16738751//rgb十进制代码
                     , 9, 3, 6, 2));
             //附属
             if(ModList.get().isLoaded("iceandfire")) {

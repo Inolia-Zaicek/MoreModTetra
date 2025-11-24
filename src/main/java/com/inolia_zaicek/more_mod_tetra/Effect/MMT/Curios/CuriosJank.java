@@ -7,6 +7,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Endermite;
 import net.minecraft.world.entity.player.Player;
@@ -16,6 +17,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -48,11 +50,10 @@ public class CuriosJank {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void tick(TickEvent.PlayerTickEvent event) {
-        if (ModList.get().isLoaded("curios")) {
-            Player player = event.player;
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity player = event.getEntity();
             int effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectMaxLevel(player, curiosJankEffect);
-            if (effectLevel > 0 && event.player.level() instanceof ServerLevel level) {
+            if (effectLevel > 0 && player.level() instanceof ServerLevel level) {
                 BlockPos target = player.getOnPos();
                 Entity entity = player;
                 // 1. 搜索附近的物品实体：
@@ -68,5 +69,4 @@ public class CuriosJank {
                 level.getEntities(EntityType.EXPERIENCE_ORB, new AABB(target).inflate(effectLevel * 0.5), Entity::isAlive).forEach(orb -> orb.moveTo(entity.getPosition(0)));
             }
         }
-}
 }

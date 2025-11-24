@@ -1,5 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -33,49 +35,29 @@ public class BlessingsOfWater {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            //挨打
-            if (event.getEntity() instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, blessingsOfWaterEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, blessingsOfWaterEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
-                if (effectLevel > 0) {
-                    if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
-                        event.setAmount(event.getAmount() * (1 - (float) effectLevel / 100));
-                    }
+        //挨打
+        if (event.getEntity() != null) {
+            LivingEntity player = event.getEntity();
+            float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, blessingsOfWaterEffect);
+            if (effectLevel > 0) {
+                if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
+                    event.setAmount(event.getAmount() * (1 - (float) effectLevel / 100));
                 }
             }
-            //打人
-            if (event.getSource().getEntity() instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, blessingsOfWaterEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
+        }
+        //打人
+        if (event.getSource().getEntity() instanceof LivingEntity player) {
+            float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, blessingsOfWaterEffect);
+            if (effectLevel > 0) {
+                if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
+                    event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
                 }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, blessingsOfWaterEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
-                if (effectLevel > 0) {
-                    if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
-                        event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+            }
+        } else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
+            float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, blessingsOfWaterEffect);
+            if (effectLevel > 0) {
+                if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
+                    event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
                 }
             }
         }

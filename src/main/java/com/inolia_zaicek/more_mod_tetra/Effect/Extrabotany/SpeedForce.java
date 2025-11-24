@@ -38,9 +38,9 @@ public class SpeedForce {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof Player player) {
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+        if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
             int effectLevel = 0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, speedForceEffect);
@@ -55,7 +55,7 @@ public class SpeedForce {
                 }
             }
             if (effectLevel > 0) {
-                float speed = 1 - (float) player.getAttributeValue(Attributes.MOVEMENT_SPEED);
+                float speed = 1 - (float) livingEntity.getAttributeValue(Attributes.MOVEMENT_SPEED);
                 //百分比大于0
                 if (speed > 0) {
                     //上限值

@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Core;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -35,27 +36,25 @@ public class IAmStorm {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-                    if (event.getEntity() instanceof Player player && !(event.getSource().getEntity() instanceof Player)) {
-                        ItemStack mainHandItem = player.getMainHandItem();
-                        ItemStack offhandItem = player.getOffhandItem();
-                        int effectLevel = 0;
-                        if (mainHandItem.getItem() instanceof IModularItem item) {
-                            float mainEffectLevel = item.getEffectLevel(mainHandItem, iAmStormEffect);
-                            if (mainEffectLevel > 0) {
-                                effectLevel +=  mainEffectLevel;
-                            }
-                        }
-                        if (offhandItem.getItem() instanceof IModularItem item) {
-                            float offEffectLevel = item.getEffectLevel(offhandItem, iAmStormEffect);
-                            if (offEffectLevel > 0) {
-                                effectLevel += (int) offEffectLevel;
-                            }
-                        }
-                        if (effectLevel > 0 && event.getSource() == player.damageSources().lightningBolt()) {
-                            event.setAmount(event.getAmount()*0.25f);
-
-
-                }
+        LivingEntity livingEntity = event.getEntity();
+        ItemStack mainHandItem = livingEntity.getMainHandItem();
+        ItemStack offhandItem = livingEntity.getOffhandItem();
+        int effectLevel = 0;
+        if (mainHandItem.getItem() instanceof IModularItem item) {
+            float mainEffectLevel = item.getEffectLevel(mainHandItem, iAmStormEffect);
+            if (mainEffectLevel > 0) {
+                effectLevel += mainEffectLevel;
             }
+        }
+        if (offhandItem.getItem() instanceof IModularItem item) {
+            float offEffectLevel = item.getEffectLevel(offhandItem, iAmStormEffect);
+            if (offEffectLevel > 0) {
+                effectLevel += (int) offEffectLevel;
+            }
+        }
+        if (effectLevel > 0 && event.getSource() == livingEntity.damageSources().lightningBolt()) {
+            event.setAmount(event.getAmount() * 0.25f);
+
+        }
     }
 }

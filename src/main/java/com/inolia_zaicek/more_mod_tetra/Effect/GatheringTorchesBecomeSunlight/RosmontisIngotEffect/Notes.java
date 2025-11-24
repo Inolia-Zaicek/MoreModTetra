@@ -25,25 +25,6 @@ import java.lang.reflect.Field;
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
 public class Notes {
-    public static boolean isBoss(LivingEntity living) {
-        try {
-            Class<?> clazz = living.getClass();
-            Field[] fields = clazz.getDeclaredFields();
-            for (Field field : fields) {
-                if (field.getType() == ServerBossEvent.class) {
-                    field.setAccessible(true);
-                    ServerBossEvent bossEvent = (ServerBossEvent) field.get(living);
-                    if (bossEvent != null) {
-                        return true;
-                    }
-                }
-            }
-        } catch (IllegalAccessException e) {
-            System.err.println("反射坠机，无法获取ServerBossEvent字段");
-        }
-        return false;
-    }
-
     @OnlyIn(Dist.CLIENT)
     public static void init() {
         var statGetter = new StatGetterEffectLevel(notesEffect, 1);
@@ -60,12 +41,12 @@ public class Notes {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         //血条判断
-        if (isBoss(event.getEntity())) {
+        if (isBossEntity(event.getEntity().getType()) ) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, notesEffect);

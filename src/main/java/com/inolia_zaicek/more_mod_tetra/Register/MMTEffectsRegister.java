@@ -43,4 +43,5 @@ public class MMTEffectsRegister {
     public static final RegistryObject<MobEffect> SanctuaryOfMooncocoon = INOEFFECT.register("sanctuary_of_mooncocoon", SanctuaryOfMooncocoon::new);
     public static final RegistryObject<MobEffect> SanctuaryOfMooncocoonCooldown = INOEFFECT.register("sanctuary_of_mooncocoon_cooldown", SanctuaryOfMooncocoonCooldown::new);
     public static final RegistryObject<MobEffect> Enderference = INOEFFECT.register("enderference", Enderference::new);
+    public static final RegistryObject<MobEffect> BokushuuSDesire = INOEFFECT.register("bokushuu_s_desire", BokushuuSDesireBuff::new);
 }

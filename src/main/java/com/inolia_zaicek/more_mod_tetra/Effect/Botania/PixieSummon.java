@@ -1,8 +1,8 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Botania;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -41,61 +41,34 @@ public class PixieSummon {
         if(ModList.get().isLoaded("botania")) {
             Random random = new Random();
             var attacked=event.getEntity();
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, pixieSummonEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, pixieSummonEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                int effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, pixieSummonEffect);
                 if (effectLevel > 0&& random.nextInt(100) <= (effectLevel) ) {
-                    float atk = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
+                    float atk = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE);
                     float number=atk*(50+ (float) (10 * effectLevel) /2)/100;
-                    PixieEntity entity =new PixieEntity(player.level());
+                    PixieEntity entity =new PixieEntity(livingEntity.level());
                     //仇恨目标————主人————？————(伤害？)
-                    entity.setProps(mob,player,0,number);
-                    entity.setPos(player.getRandomX(4),player.getRandomY()+0.5*player.getBbHeight(),player.getRandomZ(4));
-                    player.level().addFreshEntity(entity);
+                    entity.setProps(mob,livingEntity,0,number);
+                    entity.setPos(livingEntity.getRandomX(4),livingEntity.getRandomY()+0.5*livingEntity.getBbHeight(),livingEntity.getRandomZ(4));
+                    livingEntity.level().addFreshEntity(entity);
                 }
             }
             //挨打
-            if (attacked instanceof Player player&&event.getSource().getEntity() instanceof LivingEntity) {
+            if (event.getSource().getEntity() instanceof LivingEntity) {
+                var livingEntity = attacked;
                 LivingEntity mob = event.getSource().getEntity().getControllingPassenger();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, pixieSummonEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, pixieSummonEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                int effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, pixieSummonEffect);
                 //我手持武器
                 //判断等级与近战
                 if (effectLevel > 0&&mob!=null&& random.nextInt(100) <= (effectLevel) ) {
-                    float atk = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
+                    float atk = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE);
                     float number=atk*(50+ (float) (10 * effectLevel) /2)/100;
-                    PixieEntity entity =new PixieEntity(player.level());
+                    PixieEntity entity =new PixieEntity(livingEntity.level());
                     //仇恨目标————主人————？————(伤害？)
-                    entity.setProps(mob,player,0,number);
-                    entity.setPos(player.getRandomX(4),player.getRandomY()+0.5*player.getBbHeight(),player.getRandomZ(4));
-                    player.level().addFreshEntity(entity);
+                    entity.setProps(mob,livingEntity,0,number);
+                    entity.setPos(livingEntity.getRandomX(4),livingEntity.getRandomY()+0.5*livingEntity.getBbHeight(),livingEntity.getRandomZ(4));
+                    livingEntity.level().addFreshEntity(entity);
                 }
             }
         }

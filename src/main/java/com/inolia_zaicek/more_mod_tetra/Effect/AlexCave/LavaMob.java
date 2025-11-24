@@ -1,12 +1,9 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.AlexCave;
 
-import com.github.alexmodguy.alexscaves.server.potion.ACEffectRegistry;
-import com.inolia_zaicek.more_mod_tetra.Damage.TickZero;
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
+import com.inolia_zaicek.more_mod_tetra.Damage.MMTTickZero;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -63,7 +60,7 @@ public class LavaMob {
                     int time = target.invulnerableTime;
                     target.invulnerableTime=0;
                     //获取伤害类型
-                    var FIRE_MAGIC_DAMAGE = TickZero.source(attacker.level(), DamageTypes.ON_FIRE);
+                    var FIRE_MAGIC_DAMAGE = MMTTickZero.source(attacker.level(), DamageTypes.ON_FIRE);
                     target.hurt(FIRE_MAGIC_DAMAGE, finish);
                     if(attacker instanceof Player player) {
                         target.setLastHurtByPlayer(player);

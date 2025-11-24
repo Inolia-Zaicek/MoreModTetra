@@ -3,11 +3,12 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Ars;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -36,20 +37,20 @@ public class ThreadFeather {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void tick(TickEvent.PlayerTickEvent event) {
-        Player player = event.player;
-        ItemStack mainStack = player.getMainHandItem();
-        ItemStack offStack = player.getOffhandItem();
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity livingEntity = event.getEntity();
+        ItemStack mainStack = livingEntity.getMainHandItem();
+        ItemStack offStack = livingEntity.getOffhandItem();
         if (mainStack.getItem() instanceof IModularItem item) {
             float level = item.getEffectLevel(mainStack, ThreadFeatherEffect);
             if (level > 0) {
-                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,20,0));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,20,0));
             }
         }
         if (offStack.getItem() instanceof IModularItem item) {
             float level = item.getEffectLevel(mainStack, ThreadFeatherEffect);
             if (level > 0) {
-                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,20,0));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,20,0));
             }
         }
     }

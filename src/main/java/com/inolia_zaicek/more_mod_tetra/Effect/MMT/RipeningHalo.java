@@ -4,6 +4,7 @@ import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -45,16 +47,9 @@ public class RipeningHalo {
     }
 
     @SubscribeEvent
-    public static void tick(TickEvent.PlayerTickEvent event) {
-        Player player = event.player;
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity player = event.getEntity();
         Level world = player.level(); // 获取当前世界，可能是 ClientLevel 或 ServerLevel
-
-        // 确保只在服务器端处理游戏逻辑，避免在客户端执行服务端特有的操作
-        // 并且只在玩家没有在客户端世界时（即在服务器端）才执行后续逻辑
-        // 注意：PlayerTickEvent.Phase.START 是默认的。你可能需要考虑在 END 阶段做某些事情
-        // if (world.isClientSide && event.phase == TickEvent.Phase.START) return; // 如果是客户端，且不是END阶段，就直接返回
-        // 更好的做法是，将客户端和服务器端的逻辑分开处理。
-
         ItemStack mainHandItem = player.getMainHandItem();
         ItemStack offhandItem = player.getOffhandItem();
         int effectLevel = 0;

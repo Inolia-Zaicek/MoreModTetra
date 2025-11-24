@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -36,9 +37,10 @@ public class ObsessionOfWarden {
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("l2complements")) {
             //挨打
-            if (event.getEntity() instanceof Player player&&event.getSource().getEntity() instanceof Warden) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            if (!( event.getSource().getEntity() instanceof Warden )) {
+                LivingEntity livingEntity = event.getEntity();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, obsessionOfWardenEffect);
@@ -53,15 +55,33 @@ public class ObsessionOfWarden {
                     }
                 }
                 if (effectLevel > 0) {
-                    if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
                         event.setAmount(event.getAmount() * (1 - (float) effectLevel / 100));
+                }
+            }else if (!( event.getSource().getDirectEntity() instanceof Warden )) {
+                LivingEntity livingEntity = event.getEntity();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
+                int effectLevel = 0;
+                if (mainHandItem.getItem() instanceof IModularItem item) {
+                    float mainEffectLevel = item.getEffectLevel(mainHandItem, obsessionOfWardenEffect);
+                    if (mainEffectLevel > 0) {
+                        effectLevel +=  mainEffectLevel;
                     }
+                }
+                if (offhandItem.getItem() instanceof IModularItem item) {
+                    float offEffectLevel = item.getEffectLevel(offhandItem, obsessionOfWardenEffect);
+                    if (offEffectLevel > 0) {
+                        effectLevel += (int) offEffectLevel;
+                    }
+                }
+                if (effectLevel > 0) {
+                        event.setAmount(event.getAmount() * (1 - (float) effectLevel / 100));
                 }
             }
             //打人
-            if (event.getSource().getEntity() instanceof Player player&&event.getEntity() instanceof Warden) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity &&!( event.getEntity() instanceof Warden )) {
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, obsessionOfWardenEffect);
@@ -76,9 +96,7 @@ public class ObsessionOfWarden {
                     }
                 }
                 if (effectLevel > 0) {
-                    if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
                         event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
-                    }
                 }
             }
         }

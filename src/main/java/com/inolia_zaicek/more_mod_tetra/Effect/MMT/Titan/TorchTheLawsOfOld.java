@@ -35,7 +35,7 @@ public class TorchTheLawsOfOld {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof Player player) {
+        if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
@@ -73,7 +73,7 @@ public class TorchTheLawsOfOld {
                 }
             }
         }
-        else         if (event.getSource().getDirectEntity() instanceof Player player) {
+        else         if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
@@ -111,7 +111,8 @@ public class TorchTheLawsOfOld {
                 }
             }
         }
-        else if (event.getEntity() instanceof Player player&&event.getSource().getDirectEntity() instanceof LivingEntity mob) {
+        else if (event.getSource().getDirectEntity() instanceof LivingEntity mob) {
+            LivingEntity player = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             float effectLevel = 0;
@@ -148,7 +149,8 @@ public class TorchTheLawsOfOld {
                 }
             }
         }
-        else if (event.getEntity() instanceof Player player&&event.getSource().getEntity() instanceof LivingEntity mob) {
+        else if (event.getSource().getEntity() instanceof LivingEntity mob) {
+            LivingEntity player = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             float effectLevel = 0;

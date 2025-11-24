@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,7 +35,7 @@ public class Poison {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 var map = mob.getActiveEffectsMap();
                 ItemStack mainHandItem = player.getMainHandItem();
@@ -55,7 +56,7 @@ public class Poison {
                 if (effectLevel > 0) {
                     mob.addEffect(new MobEffectInstance(MobEffects.POISON,200,effectLevel-1));
                 }
-            }else            if (event.getSource().getDirectEntity() instanceof Player player) {
+            }else            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 var map = mob.getActiveEffectsMap();
                 ItemStack mainHandItem = player.getMainHandItem();

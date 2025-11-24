@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -38,7 +39,8 @@ public class CuriosProtect {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getEntity() instanceof Player player) {
+            if (event.getEntity()!=null) {
+                LivingEntity player = event.getEntity();
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProtectEffect);
                 if (effectLevel > 0) {
                     if (effectLevel < 100) {

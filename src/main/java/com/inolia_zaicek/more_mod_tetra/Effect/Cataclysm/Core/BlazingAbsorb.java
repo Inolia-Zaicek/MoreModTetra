@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Core;
 
 import com.github.L_Ender.cataclysm.init.ModEffect;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -36,10 +37,10 @@ public class BlazingAbsorb {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("cataclysm")) {
-            if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, blazingAbsorbEffect);
@@ -55,9 +56,9 @@ public class BlazingAbsorb {
                 }
                 if (effectLevel > 0&&mob.hasEffect(ModEffect.EFFECTBLAZING_BRAND.get())) {
                     int buffLevel = mob.getEffect(ModEffect.EFFECTBLAZING_BRAND.get()).getAmplifier();
-                    float mhp= (float) player.getAttributeValue(Attributes.MAX_HEALTH);
+                    float mhp= (float) livingEntity.getAttributeValue(Attributes.MAX_HEALTH);
                     float heal =mhp/100+1;
-                    player.heal(heal*buffLevel);
+                    livingEntity.heal(heal*buffLevel);
                     event.setAmount(event.getAmount() * (1+ (float) effectLevel /100) );
                     }
                 }

@@ -47,7 +47,7 @@ public class StarBurstStream {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof Player player) {
+        if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offHandItem = player.getOffhandItem();

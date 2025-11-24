@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -36,7 +37,7 @@ public class MagicOscillation {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
@@ -60,9 +61,13 @@ public class MagicOscillation {
                         if(mobs!=null) {
                             //获取伤害类型
                             mobs.invulnerableTime=0;
-                            mobs.setLastHurtByPlayer(player);
+                            if(player instanceof Player player1) {
+                                mob.setLastHurtByPlayer(player1);
+                            }
                             mobs.hurt(mobs.damageSources().magic(),event.getAmount()*number);
-                            mobs.setLastHurtByPlayer(player);
+                            if(player instanceof Player player1) {
+                                mob.setLastHurtByPlayer(player1);
+                            }
                         }
                     }
                 }

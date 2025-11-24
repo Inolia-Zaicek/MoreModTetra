@@ -65,7 +65,6 @@ public class CuriosTotemEvent {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     //全局事件死亡
     public static void LivingDeathVampire(LivingDeathEvent event) {
-        //检测到玩家寄了&&玩家没有鬼魅缠身buff
         if (event.getEntity() instanceof Player player) {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
@@ -90,15 +89,15 @@ public class CuriosTotemEvent {
                     float finalCooldown = Math.max(0, cooldown * 20);
                     //生命恢复词条
                     float health = item.getEffectLevel(mainHandItem, curiosTotemHealthEffect);
-                    float hp = Math.min(1, player.getHealth() * health / 100);
+                    float hp = Math.max(1, player.getHealth() * health / 100);
                     //获取第一个数据————时长
                     int time = (int) item.getEffectLevel(mainHandItem, curiosTotemEffectEffect) * 20;
                     //获取第二个数据————等级
                     int level = (int) item.getEffectEfficiency(mainHandItem, curiosTotemEffectEffect);
-                    if (!(player.getCooldowns().isOnCooldown((Item) item)) && health >= 1) {
-                        player.deathTime = -2;
+                    if (!(player.getCooldowns().isOnCooldown((Item) item)) && health >= 0) {
+                        player.setHealth(Math.min(player.getMaxHealth(),hp));
+                        player.deathTime = -10;
                         player.isAlive();
-                        player.setHealth(hp);
                         player.invulnerableTime = 10;
                         event.setCanceled(true);
                         player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20 * 40 + time, level));
@@ -113,15 +112,15 @@ public class CuriosTotemEvent {
                     float finalCooldown = Math.max(0, cooldown * 20);
                     //生命恢复词条
                     float health = item.getEffectLevel(offhandItem, curiosTotemHealthEffect);
-                    float hp = Math.min(1, player.getHealth() * health / 100);
+                    float hp = Math.max(1, player.getHealth() * health / 100);
                     //获取第一个数据————时长
                     int time = (int) item.getEffectLevel(offhandItem, curiosTotemEffectEffect) * 20;
                     //获取第二个数据————等级
                     int level = (int) item.getEffectEfficiency(offhandItem, curiosTotemEffectEffect);
                     if (!(player.getCooldowns().isOnCooldown((Item) item)) && health >= 1) {
-                        player.deathTime = -2;
+                        player.setHealth(Math.min(player.getMaxHealth(),hp));
+                        player.deathTime = -10;
                         player.isAlive();
-                        player.setHealth(hp);
                         player.invulnerableTime = 10;
                         event.setCanceled(true);
                         player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20 * 40 + time, level));
@@ -144,15 +143,15 @@ public class CuriosTotemEvent {
                                     float finalCooldown = Math.max(0, cooldown * 20);
                                     //生命恢复词条
                                     float health = item.getEffectLevel(itemStack, curiosTotemHealthEffect);
-                                    float hp = Math.min(1, player.getHealth() * health / 100);
+                                    float hp = Math.max(1, player.getHealth() * health / 100);
                                     //获取第一个数据————时长
                                     int time = (int) item.getEffectLevel(itemStack, curiosTotemEffectEffect) * 20;
                                     //获取第二个数据————等级
                                     int level = (int) item.getEffectEfficiency(itemStack, curiosTotemEffectEffect);
                                     if (!(player.getCooldowns().isOnCooldown((Item) item)) && health >= 1) {
-                                        player.deathTime = -2;
+                                        player.setHealth(Math.min(player.getMaxHealth(),hp));
+                                        player.deathTime = -10;
                                         player.isAlive();
-                                        player.setHealth(hp);
                                         player.invulnerableTime = 10;
                                         event.setCanceled(true);
                                         player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20 * 40 + time, level));

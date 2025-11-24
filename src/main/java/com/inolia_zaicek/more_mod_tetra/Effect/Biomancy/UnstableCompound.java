@@ -38,9 +38,9 @@ public class UnstableCompound {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         Entity attacker = event.getSource().getEntity();
-            if (attacker instanceof LivingEntity player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            if (attacker instanceof LivingEntity livingEntity) {
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, unstableCompoundEffect);
@@ -55,7 +55,7 @@ public class UnstableCompound {
                     }
                 }
                 if (effectLevel > 0) {
-                    final RandomSource random = player.getRandom();
+                    final RandomSource random = livingEntity.getRandom();
                     float multiplier = Mth.nextFloat(random, 0.85f, 1.15f);
                     event.setAmount(event.getAmount() * multiplier);
                 }

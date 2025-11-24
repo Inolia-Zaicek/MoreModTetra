@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -42,7 +43,16 @@ public class CuriosCriticalStrike {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
+                float chance = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player,curiosCriticalStrikeEffect);
+                float damage = MMTCuriosHelper.getInstance().getCuriosEffectEfficiency(player,curiosCriticalStrikeEffect);
+                Random random = new Random();
+                if (chance > 0&&random.nextInt(100) <= chance) {
+                    //最终伤害：与原版不同，是200————200%爆伤
+                    float finish = event.getAmount() * (1 + damage / 100);
+                    event.setAmount(finish);
+                }
+            }else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 float chance = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player,curiosCriticalStrikeEffect);
                 float damage = MMTCuriosHelper.getInstance().getCuriosEffectEfficiency(player,curiosCriticalStrikeEffect);
                 Random random = new Random();

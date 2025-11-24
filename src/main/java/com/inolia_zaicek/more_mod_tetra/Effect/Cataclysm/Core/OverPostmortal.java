@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Core;
 
 import com.github.L_Ender.cataclysm.init.ModEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -34,18 +35,19 @@ public class OverPostmortal {
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
+
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if(ModList.get().isLoaded("cataclysm")) {
-            if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+        if (ModList.get().isLoaded("cataclysm")) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, overPostmortalEffect);
                     if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
+                        effectLevel += mainEffectLevel;
                     }
                 }
                 if (offhandItem.getItem() instanceof IModularItem item) {
@@ -54,17 +56,17 @@ public class OverPostmortal {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                if (effectLevel > 0&&player.hasEffect(ModEffect.EFFECTGHOST_SICKNESS.get())) {
-                    int buffLevel = mob.getEffect(ModEffect.EFFECTGHOST_SICKNESS.get()).getAmplifier();
-                    int buffTime = mob.getEffect(ModEffect.EFFECTGHOST_SICKNESS.get()).getDuration();
-                    if(buffTime>20) {
-                        player.removeEffect(ModEffect.EFFECTGHOST_SICKNESS.get());
-                        player.addEffect(new MobEffectInstance(ModEffect.EFFECTGHOST_SICKNESS.get(), buffLevel, buffTime / 2));
-                    }else{
-                        player.removeEffect(ModEffect.EFFECTGHOST_SICKNESS.get());
-                    }
+                if (effectLevel > 0 && livingEntity.hasEffect(ModEffect.EFFECTGHOST_SICKNESS.get())) {
+                    int buffLevel = livingEntity.getEffect(ModEffect.EFFECTGHOST_SICKNESS.get()).getAmplifier();
+                    int buffTime = livingEntity.getEffect(ModEffect.EFFECTGHOST_SICKNESS.get()).getDuration();
+                    if (buffTime > 20) {
+                        livingEntity.removeEffect(ModEffect.EFFECTGHOST_SICKNESS.get());
+                        livingEntity.addEffect(new MobEffectInstance(ModEffect.EFFECTGHOST_SICKNESS.get(), buffLevel, buffTime / 2));
+                    } else {
+                        livingEntity.removeEffect(ModEffect.EFFECTGHOST_SICKNESS.get());
                     }
                 }
             }
         }
     }
+}

@@ -24,6 +24,7 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static net.minecraft.tags.DamageTypeTags.WITCH_RESISTANT_TO;
 
 public class DementorEffectTrait {
     @OnlyIn(Dist.CLIENT)
@@ -41,8 +42,9 @@ public class DementorEffectTrait {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("l2complements")) {
             //挨打是玩家
-            if (event.getEntity() instanceof Player player) {
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
+            if (event.getEntity()!=null) {
+                LivingEntity livingEntity = event.getEntity();
+                CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
                                     slotResult.stack();
@@ -50,8 +52,8 @@ public class DementorEffectTrait {
                                     IModularItem curiousItem = (IModularItem) itemStack.getItem();
                                     int effectLevel = curiousItem.getEffectLevel(itemStack, dementorEffectTraitEffect);
                                     //获取一下玩家主副手
-                                    ItemStack mainHandItem = player.getMainHandItem();
-                                    ItemStack offhandItem = player.getOffhandItem();
+                                    ItemStack mainHandItem = livingEntity.getMainHandItem();
+                                    ItemStack offhandItem = livingEntity.getOffhandItem();
                                     if (mainHandItem.getItem() instanceof IModularItem item) {
                                         float mainEffectLevel = item.getEffectLevel(mainHandItem, dementorEffectTraitEffect);
                                         if (mainEffectLevel > 0) {
@@ -67,7 +69,7 @@ public class DementorEffectTrait {
                                     if (effectLevel > 0&&
                                             !event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY) &&
                                             !event.getSource().is(DamageTypeTags.BYPASSES_EFFECTS) &&
-                                            !event.getSource().is(DamageTypeTags.WITCH_RESISTANT_TO)
+                                            !event.getSource().is(WITCH_RESISTANT_TO)
                                     ) {
                                         event.setAmount(0);
                                     }

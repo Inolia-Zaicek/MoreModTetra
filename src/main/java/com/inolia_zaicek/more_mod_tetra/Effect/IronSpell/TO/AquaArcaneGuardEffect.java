@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.TO;
 
 import com.gametechbc.traveloptics.api.init.TravelopticsAttributes;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -34,33 +35,16 @@ public class AquaArcaneGuardEffect {
     }
 
 
-    @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    @SubscribeEvent    public static void hurt(LivingHurtEvent event) {
         LivingEntity target = event.getEntity();
         //基础攻击伤害量
         float baseAmount = event.getAmount();
-        ItemStack mainHandItem = target.getMainHandItem();
-        ItemStack offhandItem = target.getOffhandItem();
-        if (mainHandItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectLevel(mainHandItem, aquaArcaneGuardEffect);
-            if (level > 0) {
-                //获取法强属性
-                float magic = (float) target.getAttributeValue(TravelopticsAttributes.AQUA_MAGIC_RESIST.get());
-                float resist = (float) target.getAttributeValue(AttributeRegistry.SPELL_RESIST.get());
-                //结算
-                float finish = 1-Math.min(0.5f,magic+resist-2);
-                event.setAmount(baseAmount*finish);
-            }
-        }else if (offhandItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectLevel(offhandItem, aquaArcaneGuardEffect);
-            if (level > 0) {
-                //获取法强属性
-                float magic = (float) target.getAttributeValue(TravelopticsAttributes.AQUA_MAGIC_RESIST.get());
-                float resist = (float) target.getAttributeValue(AttributeRegistry.SPELL_RESIST.get());
-                //结算
-                float finish = 1-Math.min(0.5f,magic+resist-2);
-                event.setAmount(baseAmount*finish);
-            }
+        float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(target, bloodArcaneGuardEffect);
+        if (effectLevel > 0) {
+            //获取法抗属性
+            float magic = (float) target.getAttributeValue(TravelopticsAttributes.AQUA_MAGIC_RESIST.get());
+            float resist = (float) target.getAttributeValue(AttributeRegistry.SPELL_RESIST.get());
+            event.setAmount(baseAmount * (1 - (magic+resist-2) * (effectLevel / 100)  ));
         }
     }
 }

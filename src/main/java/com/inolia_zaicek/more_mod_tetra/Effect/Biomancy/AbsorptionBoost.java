@@ -41,9 +41,9 @@ public class AbsorptionBoost {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         Entity attacker = event.getSource().getEntity();
-            if (attacker instanceof LivingEntity player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            if (attacker instanceof LivingEntity livingEntity) {
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, absorptionBoostEffect);
@@ -58,10 +58,10 @@ public class AbsorptionBoost {
                     }
                 }
                 if (effectLevel > 0) {
-                    float mhp= (float) player.getAttributeValue(Attributes.MAX_HEALTH);
+                    float mhp= (float) livingEntity.getAttributeValue(Attributes.MAX_HEALTH);
                     int level = (int) (mhp/4f);
                     int damage10 = (int) (event.getAmount() /10);
-                    player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,100,Math.min(level,damage10)));
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,100,Math.min(level,damage10)));
                 }
                 }
     }

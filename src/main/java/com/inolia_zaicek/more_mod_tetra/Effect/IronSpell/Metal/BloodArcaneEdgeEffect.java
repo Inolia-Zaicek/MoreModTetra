@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.Metal;
 
-import com.inolia_zaicek.more_mod_tetra.Damage.TickZero;
+import com.inolia_zaicek.more_mod_tetra.Damage.MMTTickZero;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.world.entity.Entity;
@@ -58,7 +59,7 @@ public class BloodArcaneEdgeEffect {
                 //获取词条数值
                 float level = item.getEffectLevel(heldStack, bloodArcaneEdgeEffect);
                 // 只有当 "Esoteric Edge" 效果等级大于 0 时才执行以下操作。
-                if (level > 0) {
+                if (level > 0&& MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
                     //基础攻击伤害量
                     float baseAmount = event.getAmount();
                     //额外法伤+基础伤害
@@ -72,7 +73,7 @@ public class BloodArcaneEdgeEffect {
                     int time = target.invulnerableTime;
                     target.invulnerableTime=0;
                     //获取伤害类型
-                    var FIRE_MAGIC_DAMAGE = TickZero.source(attacker.level(), ISSDamageTypes.BLOOD_MAGIC);
+                    var FIRE_MAGIC_DAMAGE = MMTTickZero.hasSource(attacker.level(), ISSDamageTypes.BLOOD_MAGIC,attacker);
                     target.hurt(FIRE_MAGIC_DAMAGE, finish);
                     if(attacker instanceof Player player) {
                         target.setLastHurtByPlayer(player);

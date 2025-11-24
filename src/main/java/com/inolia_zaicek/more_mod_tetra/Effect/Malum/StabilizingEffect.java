@@ -68,20 +68,16 @@ public class StabilizingEffect {
     }
     @SubscribeEvent
     public static void drop(LivingDropsEvent event) {
-        if (event.getEntity() != null&& event.getEntity().getLastAttacker() instanceof Player) {
+        if (event.getEntity() != null && event.getSource().getEntity() instanceof LivingEntity attacker ) {
             Entity mob = event.getEntity();
-            Entity attacker = event.getEntity().getLastAttacker();
-            if (mob instanceof Player||event.getEntity().getLastAttacker()==null) {
+            if (mob instanceof Player) {
                 return;
             }
             Level level = attacker.level();
             //获取实体tag
             EntityType<?> entityType = mob.getType();
-            if (!(attacker instanceof Player player)) {
-                return;
-            }
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+            ItemStack mainHandItem = attacker.getMainHandItem();
+            ItemStack offhandItem = attacker.getOffhandItem();
             int effectLevel=0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, StabilizingEffect);
@@ -98,7 +94,7 @@ public class StabilizingEffect {
                 if (effectLevel > 0) {
                     //player.sendSystemMessage(Component.literal("传送至记录点！").withStyle(ChatFormatting.GREEN));
                     // 循环生成effectLevel次
-                    int spirit_spoils= (int) player.getAttributeValue(AttributeRegistry.SPIRIT_SPOILS.get());
+                    int spirit_spoils= (int) attacker.getAttributeValue(AttributeRegistry.SPIRIT_SPOILS.get());
                     int spiritNumber =effectLevel+spirit_spoils;
                     for (int i = 0; i < spiritNumber; i++) {
                         //神圣

@@ -1,7 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Biomancy;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -35,10 +35,10 @@ public class HealingAdditive {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("biomancy")) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
 
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, healingAdditiveEffect);
@@ -53,8 +53,8 @@ public class HealingAdditive {
                     }
                 }
                 if (effectLevel > 0) {
-                    float mhp= (float) player.getAttributeValue(Attributes.MAX_HEALTH);
-                    player.heal(mhp*0.05f);
+                    float mhp= (float) livingEntity.getAttributeValue(Attributes.MAX_HEALTH);
+                    livingEntity.heal(mhp*0.05f);
                 }
             }
         }

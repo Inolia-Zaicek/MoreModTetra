@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -40,8 +41,8 @@ public class SMCFrost {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("smc")) {
             //攻击者是玩家
-            if (event.getSource().getEntity() instanceof Player player &&event.getEntity()!=null) {
-                                    int effectLevel = 0;
+            if (event.getSource().getEntity() instanceof LivingEntity player  &&event.getEntity()!=null) {
+                int effectLevel = 0;
                                     //获取一下玩家主副手
                                     ItemStack mainHandItem = player.getMainHandItem();
                                     ItemStack offhandItem = player.getOffhandItem();
@@ -65,7 +66,7 @@ public class SMCFrost {
                                         map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("smc", "frost")))
                                                 , new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("smc", "frost"))), 20 * effectLevel, 0));
                                     }
-            }else            if (event.getSource().getDirectEntity() instanceof Player player &&event.getEntity()!=null) {
+            }else if (event.getSource().getDirectEntity() instanceof LivingEntity player &&event.getEntity()!=null) {
                 int effectLevel = 0;
                 //获取一下玩家主副手
                 ItemStack mainHandItem = player.getMainHandItem();
@@ -82,7 +83,7 @@ public class SMCFrost {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                if (effectLevel > 0&&event.getEntity()!=null) {
+                if (effectLevel > 0 && event.getEntity() != null) {
                     var mob = event.getEntity();
                     var map = mob.getActiveEffectsMap();
                     //通过id直接给buff

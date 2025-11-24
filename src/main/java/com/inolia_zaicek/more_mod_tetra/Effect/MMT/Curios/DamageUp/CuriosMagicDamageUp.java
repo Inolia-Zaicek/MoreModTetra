@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp;
 
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,6 +21,7 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static net.minecraft.tags.DamageTypeTags.WITCH_RESISTANT_TO;
 import static net.minecraft.tags.DamageTypeTags.WITHER_IMMUNE_TO;
 
 public class CuriosMagicDamageUp {
@@ -39,18 +41,18 @@ public class CuriosMagicDamageUp {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagicDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.getSource().is(WITHER_IMMUNE_TO)) {
+                    if (event.getSource().is(WITCH_RESISTANT_TO)) {
                         float finish = event.getAmount() * (1 + effectLevel / 100);
                         event.setAmount(finish);
                     }
                 }
-            } else if (event.getSource().getDirectEntity() instanceof Player player) {
+            } else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagicDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.getSource().is(WITHER_IMMUNE_TO)) {
+                    if (event.getSource().is(WITCH_RESISTANT_TO)) {
                         float finish = event.getAmount() * (1 + effectLevel / 100);
                         event.setAmount(finish);
                     }

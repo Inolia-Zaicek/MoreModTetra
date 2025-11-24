@@ -4,6 +4,7 @@ import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -19,6 +20,8 @@ import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
+
+import java.util.Random;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
@@ -39,12 +42,10 @@ public class CataclysmStun {
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("cataclysm")) {
             var attacked = event.getEntity();
-            var attacker =event.getEntity().getLastAttacker();
             var map = attacked.getActiveEffectsMap();
-            if (attacker instanceof Player player) {
-                if(!(attacked instanceof Player)) {
-                    ItemStack mainHandItem = player.getMainHandItem();
-                    ItemStack offhandItem = player.getOffhandItem();
+                if(event.getSource().getEntity() instanceof LivingEntity attacker) {
+                    ItemStack mainHandItem = attacker.getMainHandItem();
+                    ItemStack offhandItem = attacker.getOffhandItem();
                     int effectLevel = 0;
                     if (mainHandItem.getItem() instanceof IModularItem item) {
                         float mainEffectLevel = item.getEffectLevel(mainHandItem, cataclysmStunEffect);
@@ -59,14 +60,16 @@ public class CataclysmStun {
                         }
                     }
                     if (effectLevel > 0) {
+                        Random random = new Random();
                         if (effectLevel > 99) {
+                            attacked.addEffect(new MobEffectInstance(ModEffect.EFFECTSTUN.get(), 200, 0));
                             map.put(ModEffect.EFFECTSTUN.get(),
                                     new MobEffectInstance(ModEffect.EFFECTSTUN.get(), 200, 0));
                             map.put(MMTEffectsRegister.Unstun.get(),
                                     new MobEffectInstance(MMTEffectsRegister.Unstun.get(), 200, 0));
                         } else {
-                            final RandomSource random = player.getRandom();
                             if (random.nextInt(100) <= effectLevel) {
+                                attacked.addEffect(new MobEffectInstance(ModEffect.EFFECTSTUN.get(), 200, 0));
                                 map.put(ModEffect.EFFECTSTUN.get(),
                                         new MobEffectInstance(ModEffect.EFFECTSTUN.get(), 200, 0));
                                 map.put(MMTEffectsRegister.Unstun.get(),
@@ -77,7 +80,56 @@ public class CataclysmStun {
                         if (attacked.hasEffect(MMTEffectsRegister.Unstun.get()) && attacked.hasEffect(ModEffect.EFFECTSTUN.get())) {
                             //小于100
                             if (effectLevel <= 99) {
-                                final RandomSource random = player.getRandom();
+                                if (random.nextInt(100) <= 100 - effectLevel) {
+                                    attacked.removeEffect(ModEffect.EFFECTSTUN.get());
+                                    attacked.removeEffect(MMTEffectsRegister.Unstun.get());
+                                }
+                            }
+                        }
+                        //攻击者是玩家但是词条=0
+                    }else{
+                        if(attacked.hasEffect(MMTEffectsRegister.Unstun.get()) && attacked.hasEffect(ModEffect.EFFECTSTUN.get()) ) {
+                            attacked.removeEffect(ModEffect.EFFECTSTUN.get());
+                            attacked.removeEffect(MMTEffectsRegister.Unstun.get());
+                    }
+                }
+            }else if(event.getSource().getDirectEntity() instanceof LivingEntity attacker) {
+                    ItemStack mainHandItem = attacker.getMainHandItem();
+                    ItemStack offhandItem = attacker.getOffhandItem();
+                    int effectLevel = 0;
+                    if (mainHandItem.getItem() instanceof IModularItem item) {
+                        float mainEffectLevel = item.getEffectLevel(mainHandItem, cataclysmStunEffect);
+                        if (mainEffectLevel > 0) {
+                            effectLevel +=  mainEffectLevel;
+                        }
+                    }
+                    if (offhandItem.getItem() instanceof IModularItem item) {
+                        float offEffectLevel = item.getEffectLevel(offhandItem, cataclysmStunEffect);
+                        if (offEffectLevel > 0) {
+                            effectLevel += (int) offEffectLevel;
+                        }
+                    }
+                    if (effectLevel > 0) {
+                        Random random = new Random();
+                        if (effectLevel > 99) {
+                            attacked.addEffect(new MobEffectInstance(ModEffect.EFFECTSTUN.get(), 200, 0));
+                            map.put(ModEffect.EFFECTSTUN.get(),
+                                    new MobEffectInstance(ModEffect.EFFECTSTUN.get(), 200, 0));
+                            map.put(MMTEffectsRegister.Unstun.get(),
+                                    new MobEffectInstance(MMTEffectsRegister.Unstun.get(), 200, 0));
+                        } else {
+                            if (random.nextInt(100) <= effectLevel) {
+                                attacked.addEffect(new MobEffectInstance(ModEffect.EFFECTSTUN.get(), 200, 0));
+                                map.put(ModEffect.EFFECTSTUN.get(),
+                                        new MobEffectInstance(ModEffect.EFFECTSTUN.get(), 200, 0));
+                                map.put(MMTEffectsRegister.Unstun.get(),
+                                        new MobEffectInstance(MMTEffectsRegister.Unstun.get(), 200, 0));
+                            }
+                        }
+                        //主手有工具的情况下，解除状态
+                        if (attacked.hasEffect(MMTEffectsRegister.Unstun.get()) && attacked.hasEffect(ModEffect.EFFECTSTUN.get())) {
+                            //小于100
+                            if (effectLevel <= 99) {
                                 if (random.nextInt(100) <= 100 - effectLevel) {
                                     attacked.removeEffect(ModEffect.EFFECTSTUN.get());
                                     attacked.removeEffect(MMTEffectsRegister.Unstun.get());
@@ -92,13 +144,6 @@ public class CataclysmStun {
                         }
                     }
                 }
-            }else{
-                //攻击者不是玩家
-                if(attacked.hasEffect(MMTEffectsRegister.Unstun.get()) && attacked.hasEffect(ModEffect.EFFECTSTUN.get()) ) {
-                    attacked.removeEffect(ModEffect.EFFECTSTUN.get());
-                    attacked.removeEffect(MMTEffectsRegister.Unstun.get());
-                }
-            }
         }
     }
 }

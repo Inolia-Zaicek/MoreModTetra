@@ -3,6 +3,8 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Enigmaticlegacy;
 import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
 import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 import com.github.alexthe666.iceandfire.entity.EntityLightningDragon;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -38,45 +40,17 @@ public class EvilIngotMaterial {
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("enigmaticlegacy")) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player) {
-                var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, evilIngotMaterialEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, evilIngotMaterialEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, evilIngotMaterialEffect);
                 if (effectLevel > 0) {
                     float number = (float) effectLevel / 100;
                     event.setAmount(event.getAmount()*(1+number));
                     }
                 }
             //挨打
-            if (event.getEntity() instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, evilIngotMaterialEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, evilIngotMaterialEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+            if (event.getEntity()!=null) {
+                LivingEntity livingEntity = event.getEntity();
+                float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, evilIngotMaterialEffect);
                 if (effectLevel > 0) {
                     float number = (float) effectLevel / 100;
                     event.setAmount(event.getAmount()*(1+number));

@@ -78,7 +78,9 @@ public class MoreModTetraItemRegister {
     public static final RegistryObject<Item> RedstoneGenerator = registerCommonMaterials(ZeroingITEM,"redstone_generator", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> EnderRod = registerCommonMaterials(ZeroingITEM,"ender_rod", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> AmethystRod = registerCommonMaterials(ZeroingITEM,"amethyst_rod", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> NetherStarRod = registerCommonMaterials(ZeroingITEM,"nether_star_rod", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> GoldBambooStick = registerCommonMaterials(ZeroingITEM,"gold_bamboo_stick", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> SlimyVine = registerCommonMaterials(ZeroingITEM,"slimy_vine", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> FloatingThreads = registerCommonMaterials(ZeroingITEM,"floating_threads", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> SpreadingRoots = registerCommonMaterials(ZeroingITEM,"spreading_roots", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> GoldenSilk = registerCommonMaterials(ZeroingITEM,"golden_silk", () -> new Item(new Item.Properties().stacksTo(64)));
@@ -88,8 +90,15 @@ public class MoreModTetraItemRegister {
     public static final RegistryObject<Item> RottenFleshIngot = registerCommonMaterials(ZeroingITEM,"rotten_flesh_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> WitherBoneIngot = registerCommonMaterials(ZeroingITEM,"wither_bone_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> TidalIngot = registerCommonMaterials(ZeroingITEM,"tidal_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> SacrificeStone = registerCommonMaterials(ZeroingITEM,"sacrifice_stone", () -> new TooltipItem(new TooltipItem.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> BokushuuIngot = registerCommonMaterials(ZeroingITEM,"bokushuu_ingot", () -> new TooltipItem(new TooltipItem.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> RennshiIngot = registerCommonMaterials(ZeroingITEM,"rennshi_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> BlazeIngot = registerCommonMaterials(ZeroingITEM,"blaze_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> BlueIceIngot = registerCommonMaterials(ZeroingITEM,"blue_ice_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
+    //毒锭 public static final RegistryObject<Item> PoisonIngot = registerCommonMaterials(ZeroingITEM,"poison_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> ElectroChargedIngot = registerCommonMaterials(ZeroingITEM,"electro_charged_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> WitherIngot = registerCommonMaterials(ZeroingITEM,"wither_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> DragonBreathIngot = registerCommonMaterials(ZeroingITEM,"dragon_breath_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     //伪·匠魂
     public static final RegistryObject<Item> FakeManyullynIngot = registerCommonMaterials(ZeroingITEM,"fake_manyullyn_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> FakeHepatizonIngot = registerCommonMaterials(ZeroingITEM,"fake_hepatizon_ingot", () -> new Item(new Item.Properties().stacksTo(64)));

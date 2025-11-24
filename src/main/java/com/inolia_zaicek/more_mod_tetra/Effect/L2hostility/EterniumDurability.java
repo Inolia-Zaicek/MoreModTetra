@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,62 +31,7 @@ public class EterniumDurability {
 
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
+
     }
-    @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-        if(ModList.get().isLoaded("l2complements")) {
-            //挨打
-            if (event.getEntity() instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, eterniumDurabilityEffect);
-                    if (mainEffectLevel > 0) {
-                        //当前耐久
-                        int currentDurability = mainHandItem.getDamageValue();
-                        int maxDurability = mainHandItem.getMaxDamage();
-                        if(maxDurability==currentDurability){
-                            event.setAmount(event.getAmount() * (1 - mainEffectLevel / 100));
-                        }
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, eterniumDurabilityEffect);
-                    if (offEffectLevel > 0) {
-                        int currentDurability = offhandItem.getDamageValue();
-                        int maxDurability = offhandItem.getMaxDamage();
-                        if(maxDurability==currentDurability){
-                            event.setAmount(event.getAmount() * (1 - offEffectLevel / 100));
-                        }
-                    }
-                }
-            }
-            //打人
-            if (event.getSource().getEntity() instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, eterniumDurabilityEffect);
-                    if (mainEffectLevel > 0) {
-                        //当前耐久
-                        int currentDurability = mainHandItem.getDamageValue();
-                        int maxDurability = mainHandItem.getMaxDamage();
-                        if(maxDurability==currentDurability){
-                            event.setAmount(event.getAmount() * (1 + mainEffectLevel / 100));
-                        }
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, eterniumDurabilityEffect);
-                    if (offEffectLevel > 0) {
-                        int currentDurability = offhandItem.getDamageValue();
-                        int maxDurability = offhandItem.getMaxDamage();
-                        if(maxDurability==currentDurability){
-                            event.setAmount(event.getAmount() * (1 + offEffectLevel / 100));
-                        }
-                    }
-                }
-            }
-        }
-    }
+
 }

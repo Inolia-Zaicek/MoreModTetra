@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.entity.player.Player;
@@ -43,7 +44,7 @@ public class PhantomKiller {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof Player player) {
+        if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
@@ -65,7 +66,7 @@ public class PhantomKiller {
                     event.setAmount(event.getAmount() + effectLevel);
                 }
             }
-        }else if (event.getSource().getDirectEntity() instanceof Player player) {
+        }else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
@@ -91,21 +92,17 @@ public class PhantomKiller {
     }
     @SubscribeEvent
     public static void drop(LivingDropsEvent event) {
-        if (event.getEntity() != null) {
+        if (event.getEntity() != null && event.getSource().getEntity() instanceof LivingEntity attacker ) {
             Entity mob = event.getEntity();
             Collection<ItemEntity> drops = event.getDrops();
-            Entity attacker = event.getEntity().getLastAttacker();
-            if (mob instanceof Player||event.getEntity().getLastAttacker()==null) {
+            if (mob instanceof Player) {
                 return;
             }
-                Level level = attacker.level();
-                //获取实体tag
-                EntityType<?> entityType = mob.getType();
-                if (!(attacker instanceof Player player)) {
-                    return;
-                }
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            Level level = attacker.level();
+            //获取实体tag
+            EntityType<?> entityType = mob.getType();
+            ItemStack mainHandItem = attacker.getMainHandItem();
+            ItemStack offhandItem = attacker.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, phantomKillerEffect);

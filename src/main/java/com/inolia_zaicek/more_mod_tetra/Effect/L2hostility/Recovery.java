@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,9 +35,9 @@ public class Recovery {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("l2complements")) {
-            if (event.getSource().getEntity() instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, recoveryEffect);
@@ -50,9 +51,29 @@ public class Recovery {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                float mhp =player.getMaxHealth();
+                float mhp =livingEntity.getMaxHealth();
                 if (effectLevel > 0) {
-                        player.heal( (1+(mhp/100))*effectLevel );
+                    livingEntity.heal( (1+(mhp/100))*effectLevel );
+                }
+            }else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
+                int effectLevel = 0;
+                if (mainHandItem.getItem() instanceof IModularItem item) {
+                    float mainEffectLevel = item.getEffectLevel(mainHandItem, recoveryEffect);
+                    if (mainEffectLevel > 0) {
+                        effectLevel +=  mainEffectLevel;
+                    }
+                }
+                if (offhandItem.getItem() instanceof IModularItem item) {
+                    float offEffectLevel = item.getEffectLevel(offhandItem, recoveryEffect);
+                    if (offEffectLevel > 0) {
+                        effectLevel += (int) offEffectLevel;
+                    }
+                }
+                float mhp =livingEntity.getMaxHealth();
+                if (effectLevel > 0) {
+                    livingEntity.heal( (1+(mhp/100))*effectLevel );
                 }
             }
         }

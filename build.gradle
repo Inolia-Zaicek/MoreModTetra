@@ -164,6 +164,13 @@ dependencies {
     implementation fg.deobf("blank:tacz-1.20.1:1")
     implementation fg.deobf("blank:relics-1.20.1:1")
     implementation fg.deobf("blank:octolib-1.20.1:1")
+    implementation fg.deobf("blank:more_tetra_tools-1.20.1:1")
+    implementation fg.deobf("blank:packetfixer-1.20.1:1")
+    //implementation fg.deobf("blank:fantasy_ending-1.20.1:1")
+    implementation fg.deobf("blank:primogemcraft-1.20.1:1")
+    implementation fg.deobf("blank:slashblade-1.20.1:1")
+
+
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
@@ -221,8 +228,27 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
 mixin {
-    add sourceSets.main, "${mod_id}.refmap.json"
+    //手动塞入refmap后需要去掉这行
+    //add sourceSets.main, "${mod_id}.refmap.json"
+
     config "${mod_id}.mixins.json"
     debug.verbose = true
     debug.export = true
 }
+/*
+tasks.named('jar', Jar).configure {
+    manifest {
+        attributes(["Specification-Title"     : mod_id,
+                    "Specification-Vendor"    : mod_authors,
+                    "Specification-Version"   : "1",
+                    "Implementation-Title"    : project.name,
+                    "Implementation-Version"  : project.jar.archiveVersion,
+                    "Implementation-Vendor"   : mod_authors,
+                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                    "MixinConfigs"            : "${mod_id}.mixins.json"
+        ])
+    }
+
+    finalizedBy 'reobfJar'
+}
+ */

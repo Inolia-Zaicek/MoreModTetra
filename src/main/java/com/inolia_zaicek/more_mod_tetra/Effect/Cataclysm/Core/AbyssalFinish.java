@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Core;
 
 import com.github.L_Ender.cataclysm.init.ModEffect;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -35,11 +36,11 @@ public class AbyssalFinish {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("cataclysm")) {
-            if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
                 var map = mob.getActiveEffectsMap();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, abyssalFinishEffect);
@@ -58,9 +59,13 @@ public class AbyssalFinish {
                         if(buffLevel>=4) {
                             float buffTime = (float) (mob.getEffect(ModEffect.EFFECTABYSSAL_CURSE.get()).getDuration()) /20;
                             mob.invulnerableTime=0;
-                            mob.setLastHurtByPlayer(player);
+                            if(livingEntity instanceof Player player) {
+                                mob.setLastHurtByPlayer(player);
+                            }
                             mob.hurt(mob.damageSources().magic(),buffTime*1.6f);
-                            mob.setLastHurtByPlayer(player);
+                            if(livingEntity instanceof Player player) {
+                                mob.setLastHurtByPlayer(player);
+                            }
                             map.remove(ModEffect.EFFECTABYSSAL_CURSE.get());
                         }
                     }

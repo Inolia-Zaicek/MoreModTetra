@@ -64,7 +64,7 @@ public class PyricCorpus {
 
     @SubscribeEvent
     public static void entityKilled(LivingDeathEvent event) {
-            if (event.getSource().getDirectEntity() instanceof Player player) {
+            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
                 if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -112,7 +112,7 @@ public class PyricCorpus {
                     }
                 }
             }
-            else if (event.getSource().getEntity() instanceof Player player) {
+            else if (event.getSource().getEntity() instanceof LivingEntity player) {
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
                 if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -182,7 +182,7 @@ public class PyricCorpus {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if (event.getSource().getEntity() instanceof Player player && !(event.getEntity() instanceof Player)) {
+        if (event.getSource().getEntity() instanceof LivingEntity player) {
             LivingEntity entity =event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();

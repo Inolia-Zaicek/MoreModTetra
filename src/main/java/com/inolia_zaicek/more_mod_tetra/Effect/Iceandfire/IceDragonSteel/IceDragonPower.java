@@ -4,6 +4,7 @@ import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -41,10 +42,10 @@ public class IceDragonPower {
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("iceandfire")) {
             //攻击
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, iceDragonPowerEffect);
@@ -74,13 +75,20 @@ public class IceDragonPower {
                             var mobList = MMTUtil.mobList(3,mob);
                             for (Mob mobs:mobList){
                                 if(mobs!=null) {
+                                    var maps = mob.getActiveEffectsMap();
                                     mobs.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,200,2));
+                                    maps.put(MobEffects.MOVEMENT_SLOWDOWN,
+                                            new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,200,2));
                                     //获取伤害类型
                                     mobs.invulnerableTime=0;
-                                    mobs.setLastHurtByPlayer(player);
-                                    float atk = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
+                                    if(livingEntity instanceof Player player) {
+                                        mobs.setLastHurtByPlayer(player);
+                                    }
+                                    float atk = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE);
                                     mobs.hurt(mobs.damageSources().freeze(),atk*1.5f);
-                                    mobs.setLastHurtByPlayer(player);
+                                    if(livingEntity instanceof Player player) {
+                                        mobs.setLastHurtByPlayer(player);
+                                    }
                                 }
                             }
                             mob.removeEffect(MMTEffectsRegister.DragonIce.get());

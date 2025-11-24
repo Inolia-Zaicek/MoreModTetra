@@ -35,10 +35,11 @@ public class BanHeal {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 LivingEntity entity =event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
+                var map = entity.getActiveEffectsMap();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, banHealEffect);
@@ -54,11 +55,14 @@ public class BanHeal {
                 }
                 if (effectLevel > 0) {
                     entity.addEffect(new MobEffectInstance(MMTEffectsRegister.BanHeal.get(),200,effectLevel-1));
+                    map.put(MMTEffectsRegister.BanHeal.get(),
+                            new MobEffectInstance(MMTEffectsRegister.BanHeal.get(), 200,effectLevel-1 ));
                 }
-            }else            if (event.getSource().getDirectEntity() instanceof Player player) {
+            }else            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 LivingEntity entity =event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
+                var map = entity.getActiveEffectsMap();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, banHealEffect);
@@ -74,6 +78,8 @@ public class BanHeal {
                 }
                 if (effectLevel > 0) {
                     entity.addEffect(new MobEffectInstance(MMTEffectsRegister.BanHeal.get(),200,effectLevel-1));
+                    map.put(MMTEffectsRegister.BanHeal.get(),
+                            new MobEffectInstance(MMTEffectsRegister.BanHeal.get(), 200,effectLevel-1 ));
                 }
             }
         }

@@ -42,10 +42,10 @@ public class AncientWillAhrim {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("botania")) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 int gaia = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -59,7 +59,7 @@ public class AncientWillAhrim {
                     }
                 }
                 if (effectLevel > 0) {
-                    if(!player.onGround()||gaia>0){
+                    if(! livingEntity.onGround()||gaia>0){
                         mob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,20,2));
                     }
                 }

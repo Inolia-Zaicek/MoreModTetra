@@ -3,6 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -39,13 +40,13 @@ public class CuriosAllDamageUp {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.getSource().getEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosAllDamageUpEffect);
                 if (effectLevel > 0) {
                     float finish = event.getAmount() * (1 + effectLevel / 100);
                     event.setAmount(finish);
                 }
-            } else if (event.getSource().getDirectEntity() instanceof Player player) {
+            } else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosAllDamageUpEffect);
                 if (effectLevel > 0) {
                     float finish = event.getAmount() * (1 + effectLevel / 100);

@@ -4,6 +4,7 @@ import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -42,11 +43,11 @@ public class ExpandedCognition {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
 
-        if (event.getSource().getDirectEntity() instanceof Player player) {
+        if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
             float damage=event.getAmount();
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, expandedCognitionEffect);
@@ -62,10 +63,14 @@ public class ExpandedCognition {
                 }
                 if (effectLevel > 0) {
                     mob.invulnerableTime=0;
-                    mob.setLastHurtByPlayer(player);
-                    float atk = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
+                    if(livingEntity instanceof Player player) {
+                        mob.setLastHurtByPlayer(player);
+                    }
+                    float atk = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE);
                     mob.hurt(mob.damageSources().magic(),(atk*effectLevel/100));
-                    mob.setLastHurtByPlayer(player);
+                    if(livingEntity instanceof Player player) {
+                        mob.setLastHurtByPlayer(player);
+                    }
             }
                 //二技能
             int effectLevel2 = 0;
@@ -89,10 +94,14 @@ public class ExpandedCognition {
                         if(mobs!=null) {
                             //获取伤害类型
                             mobs.invulnerableTime=0;
-                            mobs.setLastHurtByPlayer(player);
-                            float atk = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
+                            if(livingEntity instanceof Player player) {
+                                mob.setLastHurtByPlayer(player);
+                            }
+                            float atk = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE);
                             mobs.hurt(mobs.damageSources().magic(),atk*number);
-                            mobs.setLastHurtByPlayer(player);
+                            if(livingEntity instanceof Player player) {
+                                mob.setLastHurtByPlayer(player);
+                            }
                             //眩晕
                             Random random = new Random();
                             if(random.nextInt(100)<(effectLevel2) ) {
@@ -109,10 +118,14 @@ public class ExpandedCognition {
                         if(mobs!=null) {
                             //获取伤害类型
                             mobs.invulnerableTime=0;
-                            mobs.setLastHurtByPlayer(player);
-                            float atk = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
+                            if(livingEntity instanceof Player player) {
+                                mob.setLastHurtByPlayer(player);
+                            }
+                            float atk = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE);
                             mobs.hurt(mobs.damageSources().magic(),atk*number);
-                            mobs.setLastHurtByPlayer(player);
+                            if(livingEntity instanceof Player player) {
+                                mob.setLastHurtByPlayer(player);
+                            }
                             //眩晕
                             Random random = new Random();
                             if(random.nextInt(100)<(2*effectLevel2) ) {

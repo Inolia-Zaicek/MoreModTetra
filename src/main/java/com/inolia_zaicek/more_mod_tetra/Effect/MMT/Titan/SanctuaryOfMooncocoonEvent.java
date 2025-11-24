@@ -4,6 +4,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -28,9 +29,8 @@ public class SanctuaryOfMooncocoonEvent {
     @SubscribeEvent(priority = EventPriority.HIGH)
     //全局事件死亡
     public static void LivingDeathVampire(LivingDeathEvent event) {
-        //有灾变
-            //检测到玩家寄了&&玩家没有鬼魅缠身buff
-            if (event.getEntity() instanceof Player player) {
+        if (event.getEntity()!=null) {
+            LivingEntity player = event.getEntity();
                 //获取一下玩家盔甲
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();

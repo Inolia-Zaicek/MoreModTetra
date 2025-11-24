@@ -37,7 +37,7 @@ public class EldritchStaffSocket {
 
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if (event.getSource().getEntity() instanceof Player attacker) {
+        if (event.getSource().getEntity() instanceof LivingEntity attacker) {
             if(event.getSource().is(ISSDamageTypes.ELDRITCH_MAGIC)) {
                 ItemStack mainStack = attacker.getMainHandItem();
                 ItemStack offStack = attacker.getMainHandItem();
@@ -53,7 +53,7 @@ public class EldritchStaffSocket {
                     }
                 }
             }
-        }else if (event.getSource().getDirectEntity() instanceof Player attacker) {
+        }else if (event.getSource().getDirectEntity() instanceof LivingEntity attacker) {
             if(event.getSource().is(ISSDamageTypes.ELDRITCH_MAGIC)) {
                 ItemStack mainStack = attacker.getMainHandItem();
                 ItemStack offStack = attacker.getMainHandItem();

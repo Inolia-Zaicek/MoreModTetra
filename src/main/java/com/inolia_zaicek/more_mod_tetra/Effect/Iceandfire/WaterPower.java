@@ -4,12 +4,14 @@ import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -39,11 +41,10 @@ public class WaterPower {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void tick(TickEvent.PlayerTickEvent event) {
-        if(ModList.get().isLoaded("iceandfire")) {
-            Player player = event.player;
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity livingEntity = event.getEntity();
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
             int effectLevel=0;
             if (mainHandItem.getItem() instanceof IModularItem item) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, waterPowerEffect);
@@ -58,10 +59,9 @@ public class WaterPower {
                 }
             }
             if (effectLevel > 0) {
-                if(player.isUnderWater()||player.isInWaterOrRain()||player.isInWater()) {
-                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 40, effectLevel-1));
-                    player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 40, effectLevel-1));
-                }
+                if(livingEntity.isUnderWater()||livingEntity.isInWaterOrRain()||livingEntity.isInWater()) {
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 40, effectLevel-1));
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 40, effectLevel-1));
             }
         }
     }

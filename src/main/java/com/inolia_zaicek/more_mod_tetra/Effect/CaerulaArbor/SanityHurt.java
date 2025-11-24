@@ -5,6 +5,7 @@ import net.mcreator.caerulaarbor.procedures.CauseSanityProcedure;
 import net.mcreator.caerulaarbor.procedures.DeductPlayerSanityProcedure;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -43,11 +44,11 @@ public class SanityHurt {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("caerula_arbor")) {
             //攻击者是玩家
-            if (event.getSource().getEntity() instanceof Player player &&event.getEntity()!=null) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity &&event.getEntity()!=null) {
                 int effectLevel =0;
                 //获取一下玩家主副手
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
+                ItemStack mainHandItem = livingEntity.getMainHandItem();
+                ItemStack offhandItem = livingEntity.getOffhandItem();
                 if (mainHandItem.getItem() instanceof IModularItem item) {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, sanityHurtEffect);
                     if (mainEffectLevel > 0) {

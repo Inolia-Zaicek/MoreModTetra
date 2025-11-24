@@ -40,10 +40,7 @@ public class ManaAbsorption {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("botania")) {
-            Random random = new Random();
-            var attacked=event.getEntity();
             if (event.getSource().getEntity() instanceof Player player) {
-                var mob = event.getEntity();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
                 int effectLevel = 0;
