@@ -1,0 +1,33 @@
+{
+    "key": "bobsoriginiumdream_blueskin",
+    "category": "ori_worm_skin",
+    "primary": 11.24,
+    "secondary": 5.8,
+    "tertiary": 2.5,
+    "durability": 1500,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 120,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "378ecb",
+        "texture": "378ecb"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "bobsoriginiumdream:blueskin" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "bobsoriginiumdream"
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{  "replace": false,
+ "values":[
+  "more_mod_tetra:truedamage",
+  "more_mod_tetra:dotdamage",
+  "more_mod_tetra:tickdamage",
+  "more_mod_tetra:tickmdamage"
+ ]
+}

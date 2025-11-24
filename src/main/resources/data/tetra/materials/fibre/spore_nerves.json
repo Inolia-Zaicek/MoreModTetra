@@ -1,0 +1,33 @@
+{
+    "key": "spore_nerves",
+    "category": "fibre",
+    "primary": 0.1,
+    "secondary": 0.1,
+    "tertiary": 7,
+    "durability": 750,
+    "integrityCost": 1,
+    "integrityGain": 5,
+    "magicCapacity": 100,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "ad8279",
+        "texture": "ad8279"
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": ["spore:nerves"]
+    },
+    "requiredTools": {
+        "cut": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "spore"
+        }
+    ]
+}

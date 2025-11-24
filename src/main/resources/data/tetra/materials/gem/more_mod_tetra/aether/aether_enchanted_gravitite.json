@@ -1,0 +1,33 @@
+{
+    "key": "aether_enchanted_gravitite",
+    "category": "gem",
+    "primary": 6.2,
+    "secondary": 2.1,
+    "tertiary": 0,
+    "durability": 1561,
+    "integrityCost": 2,
+    "integrityGain": 4,
+    "magicCapacity": 150,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "cb53c1",
+        "texture": "cb53c1"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "aether:enchanted_gravitite" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "aether"
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+{
+ "replace": false,
+ "values":[
+  "more_mod_tetra:truedamage",
+  "more_mod_tetra:dotdamage"
+ ]
+}

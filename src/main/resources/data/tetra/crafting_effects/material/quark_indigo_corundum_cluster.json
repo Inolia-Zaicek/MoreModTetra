@@ -1,0 +1,32 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "quark"
+    }
+  ],
+  "requirement": {
+    "type": "tetra:and",
+    "requirements": [
+      {
+        "type": "tetra:craft_type",
+        "craft": "module"
+      },
+      {
+        "type": "tetra:material",
+        "material": {
+          "items": [ "quark:indigo_corundum_cluster" ]
+        }
+      }
+    ]
+  },
+  "outcomes": [
+      {
+          "type": "tetra:apply_enchantments",
+          "enchantments": {
+            "minecraft:fortune": 1,
+            "minecraft:looting": 1
+          }
+      }
+  ]
+}

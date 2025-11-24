@@ -1,0 +1,36 @@
+{
+  "key": "fantasy_rune_socket",
+  "hidden": false,
+  "category": "socket",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 300,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "70c8e4",
+    "texture": "70c8e4"
+  },
+  "textures": [
+    "perk_glow_0",
+    "perk_sided_0"
+],
+  "material": {
+    "items": [
+      "fantasy_ending:fantasy_rune"
+    ]
+  },
+  "attributes": {
+    "**fantasy_ending:fantasy_spell_power": 0.05
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fantasy_ending"
+    }
+  ]
+}

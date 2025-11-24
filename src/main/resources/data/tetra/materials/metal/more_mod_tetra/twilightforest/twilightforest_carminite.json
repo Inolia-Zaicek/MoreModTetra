@@ -1,0 +1,36 @@
+{
+    "key": "twilightforest_carminite",
+    "category": "metal",
+    "primary": 5.6,
+    "secondary": 2.2,
+    "tertiary": 4,
+    "durability": 512,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 154,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "9a0000",
+        "texture": "9a0000"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "twilightforest:carminite" ]
+    },
+    "effects" : {
+        "more_mod_tetra:poison": 3
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "twilightforest"
+        }
+    ]
+}

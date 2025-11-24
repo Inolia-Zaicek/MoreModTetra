@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " A ",
+        "ABA",
+        " A "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:wither_rose"
+        },
+        "A": {
+            "tag": "forge:ingots"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:wither_ingot",
+        "count": 4
+    }
+}

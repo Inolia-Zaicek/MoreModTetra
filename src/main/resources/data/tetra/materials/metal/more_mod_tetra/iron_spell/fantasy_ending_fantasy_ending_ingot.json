@@ -1,0 +1,43 @@
+{
+    "key": "fantasy_ending_fantasy_ending_ingot",
+  "category": "metal",
+  "primary": 24,
+  "secondary": 4.5,
+  "tertiary": 7,
+  "durability": 8000,
+    "integrityCost": 3,
+    "integrityGain": 8,
+    "magicCapacity": 8000,
+  "toolLevel": "tetra:maxed_forge_hammer",
+    "toolEfficiency": 11,
+    "tints": {
+        "glyph": "70c8e4",
+        "texture": "70c8e4"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "fantasy_ending:fantasy_ending_ingot" ]
+    },
+    "effects" : {
+      "more_mod_tetra:fantasy_shadow": 2,
+      "more_mod_tetra:fantasy_trace": 200,
+      "more_mod_tetra:fantasy_devour": 7000
+	},
+      "attributes": {
+      "**fantasy_ending:fantasy_spell_power": 0.05,
+        "fantasy_ending:fantasy_ending_damage": 8,
+        "fantasy_ending:dream_shadow_damage": 4
+  },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fantasy_ending"
+    }
+  ]
+}

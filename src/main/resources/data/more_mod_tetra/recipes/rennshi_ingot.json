@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "minecraft:ghast_tear"
+        },
+        {
+            "item": "minecraft:blaze_powder"
+        },
+        {
+            "item": "minecraft:tropical_fish"
+        },
+        {
+            "item": "minecraft:copper_ingot"
+        }
+    ],
+    "result": {
+        "item": "more_mod_tetra:rennshi_ingot",
+        "count": 1
+    }
+}

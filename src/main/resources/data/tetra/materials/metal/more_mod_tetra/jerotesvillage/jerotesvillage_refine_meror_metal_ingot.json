@@ -1,0 +1,36 @@
+{
+    "key": "jerotesvillage_refine_meror_metal_ingot",
+    "category": "metal",
+    "primary": 12.88,
+    "secondary": 2.1,
+    "tertiary": 9.1,
+    "durability": 8800,
+    "integrityCost": 2,
+    "integrityGain": 9,
+    "magicCapacity": 300,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "f2bdc5",
+        "texture": "f2bdc5"
+    },
+    "textures": [
+        "metal"
+    ],
+    "material": {
+        "items": [ "jerotesvillage:refine_meror_metal_ingot" ]
+    },
+    "attributes": {
+        "forge:attack_range": 0.25,
+        "forge:reach_distance": 0.25
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "jerotesvillage"
+        }
+    ]
+}

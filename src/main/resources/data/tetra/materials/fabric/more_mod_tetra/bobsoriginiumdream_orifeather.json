@@ -1,0 +1,33 @@
+{
+    "key": "bobsoriginiumdream_orifeather",
+    "category": "fabric",
+    "primary": 0.2,
+    "secondary": 0.7,
+    "tertiary": 6,
+    "durability": 200,
+    "integrityCost": 2,
+    "integrityGain": 4,
+    "magicCapacity": 90,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "E0E0E0",
+        "texture": "E0E0E0"
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "effects" : {
+        "more_mod_tetra:poison": 2
+    },
+    "material": {
+        "items": [ "bobsoriginiumdream:orifeather" ]
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "bobsoriginiumdream"
+        }
+    ]
+}

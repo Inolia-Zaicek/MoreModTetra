@@ -1,0 +1,36 @@
+{
+    "key": "born_in_chaos_v1_spiny_shell",
+    "category": "scale",
+    "primary": 5.1,
+    "secondary": 2.2,
+    "tertiary": 4.1,
+    "durability": 542,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 102,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "426a36",
+        "texture": "426a36"
+    },
+    "textures": [
+        "bone",
+        "default"
+    ],
+    "material": {
+        "items": [ "born_in_chaos_v1:spiny_shell" ]
+    },
+    "effects": {
+        "more_mod_tetra:diamond_guard": 7
+    },
+    "requiredTools": {
+        "cut": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "born_in_chaos_v1"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "key": "jerotesvillage_high_strength_string",
+    "category": "fibre",
+    "primary": 4,
+    "secondary": 1.5,
+    "tertiary": 6,
+    "durability": 350,
+    "integrityCost": 1,
+    "integrityGain": 4,
+    "magicCapacity": 110,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "A0A0A0",
+        "texture": "A0A0A0"
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "attributes": {
+        "tetra:draw_speed": -0.3
+    },
+    "material": {
+        "items": ["jerotesvillage:high_strength_string"]
+    },
+    "requiredTools": {
+        "cut": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "jerotesvillage"
+        }
+    ]
+}

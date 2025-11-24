@@ -1,0 +1,37 @@
+{
+    "key": "twilightforest_fiery_ingot",
+    "category": "metal",
+    "primary": 7.4,
+    "secondary": 2.1,
+    "tertiary": 2.4,
+    "durability": 1024,
+    "integrityCost": 2,
+    "integrityGain": 7,
+    "magicCapacity": 154,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "3a2424",
+        "texture": "3a2424"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "effects" : {
+        "more_mod_tetra:fire_edge": 35,
+        "more_mod_tetra:fire_fire_combo": 20
+    },
+    "material": {
+        "items": [ "twilightforest:fiery_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "twilightforest"
+        }
+    ]
+}

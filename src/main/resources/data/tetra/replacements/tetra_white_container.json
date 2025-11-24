@@ -1,0 +1,12 @@
+[
+    {
+        "predicate": {
+            "items": [ "more_mod_tetra:tetra_white_container" ]
+        },
+        "item": "more_mod_tetra:modular_mmt_white_container",
+        "modules": {
+            "relic/casing": [ "mmt_white_container/white/rainbow_of_white", "rainbow_of_white/iron"]
+        },
+        "improvements": {}
+    }
+]

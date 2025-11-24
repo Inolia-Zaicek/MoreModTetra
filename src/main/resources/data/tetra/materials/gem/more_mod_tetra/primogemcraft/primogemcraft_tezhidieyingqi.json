@@ -1,0 +1,37 @@
+{
+    "key": "primogemcraft_tezhidieyingqi",
+    "category": "gem",
+    "primary": 10.7,
+    "secondary": 1.2,
+    "tertiary": 0,
+    "durability": 1500,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 200,
+    "toolLevel": 6,
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "99c6f7",
+        "texture": "99c6f7"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "primogemcraft:tezhidieyingqi" ]
+    },
+    "effects" : {
+        "more_mod_tetra:primogemcraft_mmola": 40,
+        "more_mod_tetra:primogemcraft_yuanshi": 20
+    },
+    "requiredTools": {
+        "hammer_dig": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "primogemcraft"
+        }
+    ]
+}

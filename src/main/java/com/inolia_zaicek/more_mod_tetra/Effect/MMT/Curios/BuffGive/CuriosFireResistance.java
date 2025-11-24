@@ -1,0 +1,67 @@
+package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.BuffGive;
+
+import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.common.Mod;
+import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
+import se.mickelus.tetra.gui.stats.StatsHelper;
+import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
+import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
+import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
+import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
+import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
+
+import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
+public class CuriosFireResistance {
+    @OnlyIn(Dist.CLIENT)
+    public static void init() {
+        var statGetter = new StatGetterEffectLevel(curiosFireResistanceEffect, 1);
+        GuiStatBar statBar = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curiosFireResistanceName, 0, 1, false, false, false,
+                statGetter, LabelGetterBasic.integerLabel,
+                new TooltipGetterInteger(curiosFireResistanceTooltip, statGetter)
+        );
+
+        WorkbenchStatsGui.addBar(statBar);
+        HoloStatsGui.addBar(statBar);
+    }
+    @SubscribeEvent
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity player = event.getEntity();
+        if (ModList.get().isLoaded("curios")) {
+            float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosFireResistanceEffect);
+            if (effectLevel > 0 && player.level().getGameTime() % 10L == 0) {
+                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE,100,0));
+            }
+            int effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,fire_resistance_buff_Effect);
+            if (effectLevel2 > 0 && player.level().getGameTime() % 10L == 0) {
+                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE,100,effectLevel2-1));
+            }
+            int effectLevel3 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,invisibility_buff_Effect);
+            if (effectLevel3 > 0 && player.level().getGameTime() % 10L == 0) {
+                player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY,100,effectLevel3-1));
+            }
+            int effectLevel4 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,slow_falling_buff_Effect);
+            if (effectLevel4 > 0 && player.level().getGameTime() % 10L == 0) {
+                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,effectLevel4-1));
+            }
+            int effectLevel5 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,dolphins_grace_buff_Effect);
+            if (effectLevel5 > 0 && player.level().getGameTime() % 10L == 0) {
+                player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE,100,effectLevel5-1));
+            }
+        }
+    }
+}

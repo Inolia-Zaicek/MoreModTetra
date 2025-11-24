@@ -1,0 +1,29 @@
+{
+    "key": "tofucraft_tofudiamond",
+    "category": "tofu",
+    "primary": 8.6,
+    "secondary": 1.8,
+    "tertiary": 2,
+    "durability": 1724,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 100,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "e4f6ff",
+        "texture": "e4f6ff"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "tofucraft:tofudiamond" ]
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tofucraft"
+    }
+  ]
+}

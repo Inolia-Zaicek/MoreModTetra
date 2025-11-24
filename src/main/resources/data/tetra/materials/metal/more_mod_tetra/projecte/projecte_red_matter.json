@@ -1,0 +1,44 @@
+{
+  "key": "projecte_red_matter",
+  "category": "metal",
+  "primary": 17.5,
+  "secondary": 10,
+  "tertiary": 2,
+  "durability": 9999,
+  "integrityCost": 2,
+  "integrityGain": 10,
+  "magicCapacity": 200,
+  "toolLevel": "minecraft:netherite",
+  "toolEfficiency": 12,
+  "tints": {
+    "glyph": "9c0707",
+    "texture": "9c0707"
+  },
+  "textures": [
+    "metal",
+    "default"
+  ],
+  "material": {
+    "items": [ "projecte:red_matter" ]
+  },
+  "effects" : {
+    "more_mod_tetra:melee_attack_combo": [50,3]
+  },
+  "requiredTools": {
+    "hammer_dig": "minecraft:gold"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "projecte"
+    }
+  ],
+  "contexts": {
+    "armor": {
+      "effects": {
+        "more_mod_tetra:armor_sturdy": 10,
+        "more_mod_tetra:armor_tenacity": 75
+      }
+    }
+  }
+}

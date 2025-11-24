@@ -1,0 +1,41 @@
+{
+  "key": "endrem_wither_eye",
+  "category": "socket",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 135,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 355,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "effects": {
+    "more_mod_tetra:wither": 1,
+    "more_mod_tetra:wither_edge": 30,
+    "more_mod_tetra:wither_proficiency": 10
+  },
+  "attributes": {
+    "**generic.attack_damage": 0.15,
+    "**tetra:draw_damage": 0.15,
+    "**tetra:ability_damage": 0.15
+  },
+  "tints": {
+    "glyph": "ff0000",
+    "texture": "ff0000"
+  },
+  "textures": [
+    "default"
+  ],
+  "material": {
+    "items": [
+      "endrem:wither_eye"
+    ]
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "endrem"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+    "key": "fantasy_ending_fantasy_factor",
+  "category": "metal",
+  "primary": 15.5,
+  "secondary": 2.1,
+  "tertiary": 9.1,
+  "durability": 8000,
+    "integrityCost": 3,
+    "integrityGain": 7,
+    "magicCapacity": 8000,
+  "toolLevel": "tetra:maxed_forge_hammer",
+    "toolEfficiency": 11,
+    "tints": {
+        "glyph": "FFFFFF",
+        "texture": "FFFFFF"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "fantasy_ending:fantasy_factor" ]
+    },
+    "effects" : {
+      "more_mod_tetra:wither": 2
+	},
+      "attributes": {
+        "fantasy_ending:dream_shadow_damage": 6
+  },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fantasy_ending"
+    }
+  ]
+}

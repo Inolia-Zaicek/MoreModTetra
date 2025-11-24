@@ -1,0 +1,35 @@
+{
+    "key": "legendary_monsters_anchor_handle",
+    "category": "misc",
+    "primary": 7,
+    "secondary": 2,
+    "tertiary": 3.6,
+    "durability": 409,
+    "integrityCost": 1,
+    "integrityGain": 8,
+    "magicCapacity": 150,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "a4afb3",
+        "texture": "a4afb3"
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.1,
+        "forge:attack_range": 1,
+        "forge:reach_distance": 1
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": [ "legendary_monsters:anchor_handle" ]
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "legendary_monsters"
+        }
+    ]
+}

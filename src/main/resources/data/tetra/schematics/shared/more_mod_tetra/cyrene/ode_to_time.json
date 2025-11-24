@@ -1,0 +1,94 @@
+{
+    
+    "slots": [
+"sword/blade",
+"mmt_iron_staff/head",
+"modular_musket/barrel",
+"modular_amiya_staff/head_crystal",
+"modular_apocalypse_greatblade/blade",
+"modular_banaddur_the_magic_greatsword/blade",
+"modular_black_worldbearing_greatblade/blade",
+"modular_blazing_sun/blade",
+"modular_blemishine_sword/blade",
+"modular_coral_sorrow/blade",
+"modular_decapitator/blade",
+"modular_deicider_katana/blade",
+"modular_domain_of_incandescence/guard",
+"modular_drones_staff/body",
+"modular_final_worldbearing_greatblade/guard",
+"modular_firefly_sword/blade",
+"modular_flame_katana/blade",
+"modular_freeze_greatblade/blade",
+"modular_guardian_of_the_stars/blade",
+"modular_iron_rider/blade",
+"modular_judgment_of_shamash/blade",
+"modular_kaminari_katana/blade",
+"modular_la_pluma_scythe/blade",
+"modular_laevatain/blade",
+"modular_low_tide/blade",
+"modular_lysis_mython/blade",
+"modular_mnemonos_grapheus/nib",
+"modular_mortal_blade/blade",
+"modular_mtt_chainsword/saw",
+"modular_ocean_s_vengence/blade" ,
+"modular_paxel/handle",
+"modular_pinus_sylvestris/blade",
+"modular_red_wolf_dagger/blade",
+"modular_return_to_ash_katana/blade" ,
+"modular_ripples_of_the_past/stave",
+"modular_setsugetsu_katana/blade",
+"modular_seven_thunders_of_retribution_narukami/blade",
+"modular_tenka_ashina/blade",
+"modular_tidal_greatblade/blade",
+"modular_traveller_stick/head",
+"modular_trident/primary_blade",
+"modular_udumbara/blade",
+"modular_white_worldbearing_greatblade/blade",
+"modular_ying_xiao/blade",
+
+
+        "slashblade/blade",
+        "greatsword/blade",
+        "polearm/head",
+        "single/head",
+        "double/head_left",
+        "bow/stave",
+        "crossbow/stave",
+        "shield/plate"
+    ],
+    "rarity": "temporary",
+    "displayType": "improvement",
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/titan.png",
+        "textureX": 144,
+        "textureY": 0
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "ode_to_time"
+                }
+            },
+            {
+                "type": "tetra:improvement",
+                "improvement": "the_legend_scroll_of_time_titan_up"
+            },
+            {
+                "type": "tetra:locked",
+                "key": "tetra:shared/the_legend_scroll_of_cyrene_titan"
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "experienceFactor": 13,
+            "improvements": {
+                "ode_to_time": 0
+            }
+        }
+    ]
+}

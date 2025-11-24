@@ -1,0 +1,29 @@
+{
+    "key": "tofucraft_tofumetal",
+    "category": "tofu",
+    "primary": 5.6,
+    "secondary": 1.9,
+    "tertiary": 4,
+    "durability": 235,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 100,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "ebeff1",
+        "texture": "ebeff1"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "tofucraft:tofumetal" ]
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tofucraft"
+    }
+  ]
+}

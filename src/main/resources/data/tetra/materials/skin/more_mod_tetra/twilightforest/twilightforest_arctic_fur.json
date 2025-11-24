@@ -1,0 +1,35 @@
+{
+    "key": "twilightforest_arctic_fur",
+  "category": "skin",
+  "primary": 3,
+  "secondary": 1.5,
+  "tertiary": 5.1,
+  "durability": 200,
+  "integrityCost": 1,
+  "integrityGain": 4,
+  "magicCapacity": 100,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+    "tints": {
+        "glyph": "4972ad",
+        "texture": "4972ad"
+    },
+  "textures": [
+    "default"
+  ],
+    "material": {
+        "items": [ "twilightforest:arctic_fur" ]
+    },
+  "effects" : {
+    "more_mod_tetra:freeze_combo": 15
+  },
+    "requiredTools": {
+        "cut": "minecraft:wood"
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+    "key": "quark_green_corundum_cluster",
+    "category": "gem",
+    "primary": 5.6,
+    "secondary": 2.7,
+    "tertiary": 0,
+    "durability": 550,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 110,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "emerald_glyph",
+        "texture": "emerald"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "quark:green_corundum_cluster" ]
+    },
+    "effects" : {
+        "multishot": [4,3]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "quark"
+        }
+    ]
+}

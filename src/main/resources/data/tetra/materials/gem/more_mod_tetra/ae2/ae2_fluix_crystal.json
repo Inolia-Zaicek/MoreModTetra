@@ -1,0 +1,37 @@
+{
+    "key": "ae2_fluix_crystal",
+    "category": "gem",
+    "primary": 5.8,
+    "secondary": 1.5,
+    "tertiary": 0,
+    "durability": 750,
+    "integrityCost": 2,
+    "integrityGain": 4,
+    "magicCapacity": 150,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "935ccc",
+        "texture": "935ccc"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "ae2:fluix_crystal" ]
+    },
+    "effects" : {
+        "more_mod_tetra:industrial_protection": 2,
+        "more_mod_tetra:lightning_combo": 15
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "ae2"
+        }
+    ]
+}
