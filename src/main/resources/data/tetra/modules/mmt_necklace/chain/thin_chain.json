@@ -1,0 +1,31 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_necklace/chain" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": [ "tetra:metal/","tetra:skin/","tetra:fibre/","tetra:fabric/" ],
+            "key": "thin_chain/",
+            "integrity": 0,
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "generic.armor_toughness": 0.25
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_necklace/chain/thin_chain"
+                    }
+                ]
+            }
+        }
+    ]
+}

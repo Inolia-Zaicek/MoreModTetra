@@ -1,0 +1,29 @@
+{
+    "key": "floating_threads",
+    "category": "fibre",
+    "primary": 0.5,
+    "secondary": 1,
+    "tertiary": 3.5,
+    "durability": 550,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 84,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "FFCCFF",
+        "texture": "FFCCFF"
+    },
+    "textures": [
+        "default"
+    ],
+    "effects": {
+        "suspend": 1
+    },
+    "material": {
+        "items": [ "more_mod_tetra:floating_threads" ]
+    },
+    "requiredTools": {
+        "cut": "minecraft:stone"
+    }
+}

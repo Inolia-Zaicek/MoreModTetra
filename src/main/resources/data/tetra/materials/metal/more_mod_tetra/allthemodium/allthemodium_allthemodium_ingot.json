@@ -1,0 +1,33 @@
+{
+    "key": "allthemodium_allthemodium_ingot",
+    "category": "metal",
+    "primary": 15.24,
+    "secondary": 2.0,
+    "tertiary": 8.5,
+    "durability": 15000,
+    "integrityCost": 2,
+    "integrityGain": 9,
+    "magicCapacity": 300,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 12,
+    "tints": {
+        "glyph": "fc8904",
+        "texture": "fc8904"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "allthemodium:allthemodium_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "avaritia"
+        }
+    ]
+}

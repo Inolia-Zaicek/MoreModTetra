@@ -1,0 +1,36 @@
+{
+    "key": "born_in_chaos_v1_diamond_termite_shard",
+    "category": "gem",
+    "primary": 4.8,
+    "secondary": 2.1,
+    "tertiary": 0,
+    "durability": 173,
+    "integrityCost": 2,
+    "integrityGain": 2,
+    "magicCapacity": 60,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "diamond_glyph",
+        "texture": "diamond"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "improvements": {
+        "arrested": 0
+    },
+    "material": {
+        "items": [ "born_in_chaos_v1:diamond_termite_shard" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "born_in_chaos_v1"
+        }
+    ]
+}

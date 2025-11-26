@@ -1,0 +1,61 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "biomancy"
+    }
+  ],
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:ender_pearl"
+    },
+    "B": {
+      "item": "minecraft:beef"
+    },
+    "C": {
+      "item": "minecraft:chicken"
+    },
+    "E": {
+      "item": "minecraft:spider_eye"
+    },
+    "F": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "M": {
+      "item": "minecraft:mutton"
+    },
+    "P": {
+      "item": "minecraft:porkchop"
+    },
+    "G": {
+      "item": "minecraft:writable_book"
+    }
+  },
+  "pattern": [
+    "PFB",
+    "#G#",
+    "CEM"
+  ],
+  "result": {
+    "item": "tetra:scroll_rolled",
+    "count": 1,
+    "nbt": {
+      "BlockEntityTag": {
+        "data": [
+          {
+            "key": "sword/mmt_biomancy_despoil_sickle",
+            "schematics": [
+              "tetra:sword/mmt_biomancy_despoil_sickle"
+            ],
+            "intricate": false,
+            "material": 1,
+            "ribbon": "ff006e",
+            "glyphs": [3, 8, 1, 4]
+          }
+        ]
+      }
+    }
+  }
+}

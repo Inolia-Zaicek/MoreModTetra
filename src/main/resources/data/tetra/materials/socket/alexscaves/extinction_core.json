@@ -1,0 +1,40 @@
+{
+  "key": "extinction_core",
+  "hidden": false,
+  "category": "over_core",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 300,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 1,
+  "tints": {
+    "glyph": "bf0000",
+    "texture": "bf0000"
+  },
+  "textures": [
+    "perk_glow_0",
+    "perk_sided_0"
+],
+  "material": {
+    "items": [ "more_mod_tetra:extinction_core" ]
+  },
+  "effects" : {
+    "more_mod_tetra:extinction": 12,
+    "more_mod_tetra:lava_mob": 21
+  },
+  "attributes": {
+    "**generic.attack_damage": 0.1,
+    "**tetra:draw_damage": 0.1,
+    "**tetra:ability_damage": 0.1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "alexscaves"
+    }
+  ]
+}

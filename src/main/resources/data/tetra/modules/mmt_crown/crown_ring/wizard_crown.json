@@ -1,0 +1,52 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_crown/crown_ring" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "key": "wizard_crown/",
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
+            "attributes": {
+                "**irons_spellbooks:spell_power": 0.025,
+                "**irons_spellbooks:summon_damage": 0.05,
+
+                "irons_spellbooks:max_mana": 20,
+                "**irons_spellbooks:mana_regen": 0.05,
+                "**irons_spellbooks:spell_resist": 0.025,
+
+                "**irons_spellbooks:cooldown_reduction": 0.05,
+                "**irons_spellbooks:cast_time_reduction": 0.05
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "**irons_spellbooks:spell_power": 0.01,
+                    "**irons_spellbooks:summon_damage": 0.02
+                },
+                "secondaryAttributes": {
+                    "irons_spellbooks:max_mana": 30,
+                    "**irons_spellbooks:mana_regen": 0.02,
+                    "**irons_spellbooks:spell_resist": 0.01
+                },
+                "tertiaryAttributes": {
+                    "**irons_spellbooks:cooldown_reduction": 0.01,
+                    "**irons_spellbooks:cast_time_reduction": 0.01
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "integrity": 0,
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_crown/crown_ring/wizard_crown"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    
+    "slots": ["toolbelt/belt"],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "materialSlotCount": 1,
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "cursed_effect_trait_up",
+        "level":4
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "l2hostility:cursed" ],
+                "count":8
+            },
+            "improvements": {
+                "cursed_effect_trait_up": 5
+            }
+        }
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2hostility"
+        }
+    ]
+}

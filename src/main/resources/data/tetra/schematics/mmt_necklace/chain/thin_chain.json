@@ -1,0 +1,26 @@
+{
+    
+    "slots": [ "mmt_necklace/chain" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "primaryAttributes": {
+            "generic.armor_toughness": 1
+        },
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:metal/","tetra:skin/","tetra:fibre/","tetra:fabric/"],
+            "countFactor": 1,
+            "moduleKey": "mmt_necklace/chain/thin_chain",
+            "moduleVariant": "thin_chain/"
+        }
+    ]
+}

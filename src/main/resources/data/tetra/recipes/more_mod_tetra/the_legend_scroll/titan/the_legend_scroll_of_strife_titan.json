@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "CAC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "type": "tetra:scroll",
+      "key": "shared/mmt_more_improvements",
+      "schematics": [ "tetra:shared/mmt_more_improvements"],
+      "intricate": false,
+      "material": 2,
+      "ribbon": "000000",
+      "glyphs": [ 3, 8, 1, 4 ]
+    },
+    "B": {
+      "item": "minecraft:netherite_sword"
+    },
+    "C": {
+      "item": "tetra:dragon_sinew"
+    },
+    "D": {
+      "item": "minecraft:netherite_axe"
+    }
+  },
+  "result": {
+    "item": "tetra:scroll_rolled",
+    "count": 1,
+    "nbt": {
+      "BlockEntityTag": {
+        "data": [
+          {
+            "key": "shared/the_legend_scroll_of_strife_titan",
+            "schematics": [ "tetra:shared/the_legend_scroll_of_strife_titan"],
+            "intricate": false,
+            "material": 2,
+            "ribbon": "FFD800",
+            "glyphs": [ 3, 8, 1, 4 ]
+          }
+        ]
+      }
+    }
+  }
+}

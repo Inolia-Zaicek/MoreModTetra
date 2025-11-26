@@ -1,0 +1,30 @@
+{
+    
+    "slots": [ "sword/blade" ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "malum"
+        }
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 0,
+        "textureY": 160
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "mmt_malum_scythe_up",
+        "level":1
+    },
+    "outcomes": [
+        {
+            "improvements": {
+                "mmt_malum_scythe_up": 2
+            }
+        }
+    ]
+}

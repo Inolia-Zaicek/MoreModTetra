@@ -1,0 +1,33 @@
+{
+    "key": "aether_zanite_gemstone",
+    "category": "gem",
+    "primary": 5.1,
+    "secondary": 2.2,
+    "tertiary": 0,
+    "durability": 250,
+    "integrityCost": 2,
+    "integrityGain": 3,
+    "magicCapacity": 120,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "8637f1",
+        "texture": "8637f1"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "aether:zanite_gemston" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "aether"
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "key": "composite_material_ancient_fiber",
+    "category": "fibre",
+    "primary": 5,
+    "secondary": 4.5,
+    "tertiary": 4,
+    "durability": 4000,
+    "integrityCost": 1,
+    "integrityGain": 5,
+    "magicCapacity": 20,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "5c5659",
+        "texture": "5c5659"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "composite_material:ancient_fiber" ]
+    },
+    "requiredTools": {
+        "cut": "minecraft:iron"
+    },
+    "effects": {
+        "more_mod_tetra:health_power": 30
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "composite_material"
+        }
+    ]
+}

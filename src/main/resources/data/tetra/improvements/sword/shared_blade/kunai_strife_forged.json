@@ -1,0 +1,17 @@
+[
+  {
+    "key": "kunai_strife_forged",
+    "level": 0,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "attributes": {
+      "**generic.attack_speed": 0.1,
+      "**generic.attack_damage": 0.1
+    },
+    "effects": {
+      "throwable": [ 0, 0.4 ]
+    }
+  }
+]

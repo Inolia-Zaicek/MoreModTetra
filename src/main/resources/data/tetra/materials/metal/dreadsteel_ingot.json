@@ -1,0 +1,45 @@
+{
+  "replace": true,
+  "key": "dreadsteel_ingot",
+  "category": "metal",
+  "primary": 50,
+  "secondary": 5.5,
+  "tertiary": 1,
+  "durability": 9999,
+  "integrityCost": 4,
+  "integrityGain": 8,
+  "magicCapacity": 200,
+  "toolLevel": "tetra:maxed_forge_hammer",
+  "toolEfficiency": 11,
+  "tints": {
+    "glyph": "E357BA",
+    "texture": "E357BA"
+  },
+  "textures": [
+    "metal",
+    "default"
+  ],
+  "material": {
+    "items": [
+      "dreadsteel:dreadsteel_ingot"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:rising_slash": 12
+  },
+  "attributes": {
+    "**generic.attack_speed": 0.02,
+    "**generic.attack_damage": 0.02,
+    "**tetra:draw_speed": -0.02,
+    "**tetra:draw_strength": 0.02
+  },
+  "requiredTools": {
+    "hammer_dig": "minecraft:iron"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "dreadsteel"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+    
+    "slots": [ "mmt_shoes/upper" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "secondaryAttributes": {
+            "generic.movement_speed": -2
+        },
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:skin/","tetra:fibre/","tetra:fabric/" ],
+            "countFactor": 2,
+            "moduleKey": "mmt_shoes/upper/sports_shoes",
+            "moduleVariant": "sports_shoes/"
+        }
+    ]
+}

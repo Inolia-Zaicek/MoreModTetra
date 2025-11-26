@@ -1,0 +1,35 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_bracelet/base_bracelet" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "key": "protect_bracelet/",
+            "integrity": 0,
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1,
+                "more_mod_tetra:curios_protect": 5
+            },
+            "extract": {
+                "primaryEffects": {
+                    "more_mod_tetra:curios_protect": 0.5
+                },
+                "secondaryEffects": {
+                    "more_mod_tetra:curios_protect": 0.5
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_bracelet/base_bracelet/protect_bracelet"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "key": "alex_licoroot_vine",
+    "category": "fibre",
+    "primary": 5,
+    "secondary": 2.5,
+    "tertiary": 5,
+    "durability": 1150,
+    "integrityCost": 1,
+    "integrityGain": 6,
+    "magicCapacity": 84,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "7101bc",
+        "texture": "7101bc"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "alexscaves:licoroot_vine" ]
+    },
+    "requiredTools": {
+        "cut": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "alexscaves"
+        }
+    ]
+}

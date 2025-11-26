@@ -1,0 +1,33 @@
+{
+    "key": "draconicevolution_awakened_draconium_ingot",
+    "category": "metal",
+    "primary": 12.01,
+    "secondary": 6.5,
+    "tertiary": 1.1,
+    "durability": 5031,
+    "integrityCost": 2,
+    "integrityGain": 9,
+    "magicCapacity": 114,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 11,
+    "tints": {
+        "glyph": "FC6900",
+        "texture": "FC6900"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "draconicevolution:awakened_draconium_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "draconicevolution"
+        }
+    ]
+}
