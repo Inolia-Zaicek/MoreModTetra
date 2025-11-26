@@ -1,0 +1,47 @@
+{
+    
+    "slots": [ "sword/blade" ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "biomancy"
+        }
+    ],
+    "materialSlotCount": 1,
+    "requirement": {
+        "type": "tetra:locked",
+        "key": "tetra:sword/mmt_biomancy_despoil_sickle"
+    },
+    "rarity": "temporary",
+    "displayType": "major",
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 0,
+        "textureY": 221
+    },
+    "translation": {
+        "primaryAttributes": {
+            "generic.attack_damage": 3.5
+        },
+        "primaryEffects": {
+            "skewering": 1
+        },
+        "secondaryEffects": {
+            "sweeping": -1
+        },
+        "tertiaryEffects": {
+            "sweeping": 1
+        },
+        "durability": 2,
+        "integrity": -3,
+        "magicCapacity": 3
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+            "countFactor": 2,
+            "moduleKey": "sword/more_mod_tetra/biomancy/mmt_biomancy_despoil_sickle",
+            "moduleVariant": "mmt_biomancy_despoil_sickle/"
+        }
+    ]
+}

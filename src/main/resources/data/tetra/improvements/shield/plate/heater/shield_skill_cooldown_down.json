@@ -1,0 +1,76 @@
+[
+    {
+        "key": "shield_skill_cooldown_down_up",
+        "level": 1,
+        "aspects": {
+            "honed": 1
+        },
+        "attributes": {
+            "**tetra:ability_damage": 0.1,
+            "tetra:ability_damage": 1
+        },
+        "effects": {
+            "more_mod_tetra:shield_skill_cooldown_down": 0.2
+        }
+    },
+    {
+        "key": "shield_skill_cooldown_down_up",
+        "level": 2,
+        "integrity": 1,
+        "aspects": {
+            "honed": 2
+        },
+        "attributes": {
+            "**tetra:ability_damage": 0.2,
+            "tetra:ability_damage": 1.5
+        },
+        "effects": {
+            "more_mod_tetra:shield_skill_cooldown_down": 0.4
+        }
+    },
+    {
+        "key": "shield_skill_cooldown_down_up",
+        "level": 3,
+        "integrity": 1,
+        "aspects": {
+            "honed": 3
+        },
+        "attributes": {
+            "**tetra:ability_damage": 0.3,
+            "tetra:ability_damage": 2
+        },
+        "effects": {
+            "more_mod_tetra:shield_skill_cooldown_down": 0.6
+        }
+    },
+    {
+        "key": "shield_skill_cooldown_down_up",
+        "level": 4,
+        "integrity": 2,
+        "aspects": {
+            "honed": 4
+        },
+        "attributes": {
+            "**tetra:ability_damage": 0.4,
+            "tetra:ability_damage": 2
+        },
+        "effects": {
+            "more_mod_tetra:shield_skill_cooldown_down": 0.8
+        }
+    },
+    {
+        "key": "shield_skill_cooldown_down_up",
+        "level": 5,
+        "integrity": 2,
+        "aspects": {
+            "honed": 5
+        },
+        "attributes": {
+            "**tetra:ability_damage": 0.5,
+            "tetra:ability_damage": 2.5
+        },
+        "effects": {
+            "more_mod_tetra:shield_skill_cooldown_down": 1.0
+        }
+    }
+]

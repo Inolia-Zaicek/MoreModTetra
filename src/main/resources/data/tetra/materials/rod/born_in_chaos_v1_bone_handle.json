@@ -1,0 +1,35 @@
+{
+    "key": "born_in_chaos_v1_bone_handle",
+    "primary": 6.1,
+    "secondary": 1.2,
+    "tertiary": 1.1,
+    "durability": 842,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 152,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "effects": {
+        "more_mod_tetra:defeat_demons": 20
+    },
+    "tints": {
+        "glyph": "56565B",
+        "texture": "56565B"
+    },
+    "textures": [
+        "bone",
+        "default"
+    ],
+    "material": {
+        "items": [ "born_in_chaos_v1:bone_handle" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "born_in_chaos_v1"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "key": "born_in_chaos_v1_fangofthe_hound_leader",
+    "category": "bone",
+    "primary": 4.5,
+    "secondary": 1.9,
+    "tertiary": 1,
+    "durability": 320,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 108,
+    "toolLevel": "minecraft:stone",
+    "toolEfficiency": 5,
+    "tints": {
+        "glyph": "899DAC",
+        "texture": "899DAC"
+    },
+    "effects" : {
+        "crushing": 4
+    },
+    "textures": [
+        "bone",
+        "crude"
+    ],
+    "material": {
+        "items": [ "born_in_chaos_v1:fangofthe_hound_leader" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "born_in_chaos_v1"
+        }
+    ]
+}

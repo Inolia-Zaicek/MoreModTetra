@@ -1,0 +1,33 @@
+{
+    "key": "primogemcraft_yishijieyuanmumuban",
+    "category": "wood",
+    "primary": 4.5,
+    "secondary": 2.5,
+    "tertiary": 10.5,
+    "durability": 565,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 90,
+    "toolLevel": "minecraft:gold",
+    "toolEfficiency": 4,
+    "tints": {
+        "glyph": "f1c4fc",
+        "texture": "f1c4fc"
+    },
+    "textures": [
+        "crude",
+        "wooden"
+    ],
+    "material": {
+        "items": [ "primogemcraft:yishijieyuanmumuban" ]
+    },
+    "requiredTools": {
+        "axe_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "primogemcraft"
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "BAB",
+    " C "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:writable_book"
+    },
+    "B": {
+      "item": "minecraft:iron_sword"
+    },
+    "C": {
+      "item": "tetra:dragon_sinew"
+    }
+  },
+  "result": {
+    "item": "tetra:scroll_rolled",
+    "count": 1,
+    "nbt": {
+      "BlockEntityTag": {
+        "data": [
+          {
+            "key": "shared/mmt_over_improvements",
+            "schematics": [ "tetra:shared/mmt_over_improvements"],
+            "intricate": false,
+            "material": 2,
+            "ribbon": "ffffff",
+            "glyphs": [ 3, 8, 1, 4 ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "key": "aquamarine",
+    "category": "gem",
+    "primary": 5.7,
+    "secondary": 2.72,
+    "tertiary": 0,
+    "durability": 1345,
+    "integrityCost": 2,
+    "integrityGain": 3,
+    "magicCapacity": 60,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "B1D1ED",
+        "texture": "B1D1ED"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "tag": "forge:gems/aquamarine"
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    }
+}

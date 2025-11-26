@@ -1,0 +1,47 @@
+{
+    
+    "slots": [ "sword/blade" ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "malum"
+        }
+    ],
+    "materialSlotCount": 1,
+    "requirement": {
+        "type": "tetra:locked",
+        "key": "tetra:sword/mmt_malum_scythe"
+    },
+    "rarity": "temporary",
+    "displayType": "major",
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 0,
+        "textureY": 160
+    },
+    "translation": {
+        "primaryAttributes": {
+            "generic.attack_damage": 3.5
+        },
+        "primaryEffects": {
+            "skewering": 1
+        },
+        "secondaryEffects": {
+            "sweeping": -1
+        },
+        "tertiaryEffects": {
+            "sweeping": 1
+        },
+        "durability": 2,
+        "integrity": -3,
+        "magicCapacity": 3
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+            "countFactor": 2,
+            "moduleKey": "sword/more_mod_tetra/malum/mmt_malum_scythe",
+            "moduleVariant": "mmt_malum_scythe/"
+        }
+    ]
+}

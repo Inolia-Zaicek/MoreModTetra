@@ -1,0 +1,57 @@
+[
+  {
+    "key": "ability_momentum_up",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "abilityMomentum": [3, 0.8]
+    }
+  },
+  {
+    "key": "ability_momentum_up",
+    "level": 2,
+    "integrity": -1,
+    "aspects": {
+      "honed": 2
+    },
+    "effects": {
+      "abilityMomentum": [6, 1.1]
+    }
+  },
+  {
+    "key": "ability_momentum_up",
+    "level": 3,
+    "integrity": -2,
+    "aspects": {
+      "honed": 3
+    },
+    "effects": {
+      "abilityMomentum": [9, 1.4]
+    }
+  },
+  {
+    "key": "ability_momentum_up",
+    "level": 4,
+    "integrity": -2,
+    "aspects": {
+      "honed": 4
+    },
+    "effects": {
+      "abilityMomentum": [12, 1.7]
+    }
+  },
+  {
+    "key": "ability_momentum_up",
+    "level": 5,
+    "integrity": -3,
+    "aspects": {
+      "honed": 5
+    },
+    "effects": {
+      "abilityMomentum": [15, 2]
+    }
+  }
+]

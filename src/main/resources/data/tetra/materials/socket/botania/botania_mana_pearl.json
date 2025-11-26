@@ -1,0 +1,34 @@
+{
+    "key": "botania_mana_pearl",
+    "hidden": true,
+    "category": "socket",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 50,
+    "integrityCost": 1,
+    "integrityGain": 0,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "effects": {
+        "janking": [3, 0],
+        "more_mod_tetra:mana_regeneration": 5,
+        "more_mod_tetra:mana_repair": 1
+    },
+    "tints": {
+        "glyph": "diamond_glyph",
+        "texture": "diamond"
+    },
+    "textures": ["default"],
+    "experienceCost": 2,
+    "material": {
+        "items": ["botania:mana_pearl"]
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "botania"
+        }
+    ]
+}

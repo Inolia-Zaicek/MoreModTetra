@@ -1,0 +1,37 @@
+{
+    "key": "gun_knight_patriot_ingot",
+    "category": "metal",
+    "primary": 9.94,
+    "secondary": 5.1,
+    "tertiary": 1.1,
+    "durability": 5031,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 340,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "F8FFCA",
+        "texture": "F8FFCA"
+    },
+    "effects" : {
+        "more_mod_tetra:ritual_of_holy_guard": 10,
+        "more_mod_tetra:ritual_of_exhortation": 17
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "more_mod_tetra:gun_knight_patriot_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "torchesbecomesunlight"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "key": "composite_material_echoium_ingot",
+    "category": "metal",
+    "primary": 8.4,
+    "secondary": 4.7,
+    "tertiary": 1.8,
+    "durability": 2048,
+    "integrityCost": 2,
+    "integrityGain": 7,
+    "magicCapacity": 60,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "03404f",
+        "texture": "03404f"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "composite_material:echoium_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:true_slash": 20
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "composite_material"
+        }
+    ]
+}

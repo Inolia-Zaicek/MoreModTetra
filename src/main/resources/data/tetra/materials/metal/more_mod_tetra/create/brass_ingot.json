@@ -1,0 +1,37 @@
+{
+    "key": "brass_ingot",
+    "category": "metal",
+    "primary": 6.2,
+    "secondary": 3.3,
+    "tertiary": 3.4,
+    "durability": 750,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 84,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "F8CA67",
+        "texture": "F8CA67"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "create:brass_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:industrial_protection": 2,
+        "unbreaking": 2
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "create"
+        }
+    ]
+}

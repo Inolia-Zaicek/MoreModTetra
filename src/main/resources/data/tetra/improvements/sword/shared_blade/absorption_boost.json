@@ -1,0 +1,13 @@
+[
+  {
+    "key": "absorption_boost",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "more_mod_tetra:absorption_boost": 1
+    }
+  }
+]

@@ -1,0 +1,40 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_glove/base_glove" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "key": "hard_glove/",
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
+            "attributes": {
+                "forge:attack_range": 0.5,
+                "forge:reach_distance": 0.5,
+                "generic.attack_damage": 1
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "generic.attack_damage": 0.3
+                },
+                "secondaryAttributes": {
+                    "**generic.attack_speed": -0.01,
+                    "generic.attack_damage": 0.1
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "integrity": 0,
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_glove/base_glove/hard_glove"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+[
+    {
+        "key": "shield_skill_automatic_protection_up",
+        "level": 1,
+        "aspects": {
+            "honed": 1
+        },
+        "effects": {
+            "more_mod_tetra:shield_skill_automatic_protection": 50
+        }
+    },
+    {
+        "key": "shield_skill_automatic_protection_up",
+        "level": 2,
+        "integrity": -1,
+        "aspects": {
+            "honed": 2
+        },
+        "effects": {
+            "more_mod_tetra:shield_skill_automatic_protection": 40
+        }
+    },
+    {
+        "key": "shield_skill_automatic_protection_up",
+        "level": 3,
+        "integrity": -1,
+        "aspects": {
+            "honed": 3
+        },
+        "effects": {
+            "more_mod_tetra:shield_skill_automatic_protection": 30
+        }
+    },
+    {
+        "key": "shield_skill_automatic_protection_up",
+        "level": 4,
+        "integrity": -2,
+        "aspects": {
+            "honed": 4
+        },
+        "effects": {
+            "more_mod_tetra:shield_skill_automatic_protection": 20
+        }
+    },
+    {
+        "key": "shield_skill_automatic_protection_up",
+        "level": 5,
+        "integrity": -2,
+        "aspects": {
+            "honed": 5
+        },
+        "effects": {
+            "more_mod_tetra:shield_skill_automatic_protection": 10
+        }
+    }
+]

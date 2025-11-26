@@ -1,0 +1,37 @@
+{
+    
+    "slots": [
+        "bow/stave"
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureX": 128,
+        "textureY": 32
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "releaseLatch_up"
+                }
+            },
+            {
+                "type": "tetra:locked",
+                "key": "tetra:bow/mmt_bow_improvements"
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "experienceFactor": 2,
+            "improvements": {
+                "releaseLatch_up": 1
+            }
+        }
+    ]
+}

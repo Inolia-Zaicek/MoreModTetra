@@ -1,0 +1,36 @@
+{
+
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_totem_of_undying/totem_shell" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": [ "tetra:metal/" ],
+            "key": "base_totem_shell/",
+            "integrity": 0,
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1,
+                "more_mod_tetra:curios_totem_cooldown": 30,
+                "more_mod_tetra:curios_totem_health": 1
+            },
+            "extract": {
+                "primaryEffects": {
+                    "more_mod_tetra:curios_totem_cooldown": -1
+                },
+                "secondaryEffects": {
+                    "more_mod_tetra:curios_totem_health": 2
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_totem_of_undying/totem_shell/base_totem_shell"
+                    }
+                ]
+            }
+        }
+    ]
+}

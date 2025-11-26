@@ -1,0 +1,34 @@
+{
+  
+  "slots": [ "sword/fuller" ],
+  "type": "tetra:basic_module",
+  "variants": [
+    {
+      "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+      "key": "mmt_malum_scythe_fuller/",
+      "attributes": {
+        "generic.attack_speed": -0.1
+      },
+      "durability": 100,
+      "durabilityMultiplier": 1.1,
+      "extract": {
+        "secondaryAttributes": {
+          "generic.attack_speed": -0.05
+        },
+        "durability": 0.25,
+        "integrity": 0.5,
+        "glyph": {
+          "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+          "textureX": 5,
+          "textureY": 180
+        },
+        "availableTextures": [ "" ],
+        "models": [
+          {
+            "location": "more_mod_tetra:item/module/sword/more_mod_tetra/malum/mmt_malum_scythe_fuller"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+    "key": "mekanism_ingot_refined_obsidian",
+    "category": "metal",
+    "primary": 11.1,
+    "secondary": 4.1,
+    "tertiary": 0.6,
+    "durability": 2500,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 104,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "330066",
+        "texture": "330066"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "mekanism:ingot_refined_obsidian" ]
+    },
+    "effects" : {
+        "more_mod_tetra:industrial_protection": 3,
+        "unbreaking": 3
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "mekanism"
+        }
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:industrial_protection": 3
+            }
+        }
+    }
+}

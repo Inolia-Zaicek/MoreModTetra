@@ -1,0 +1,48 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_shoes/sole" ],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "key": "platform_shoes/",
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
+            "attributes": {
+                "**generic.movement_speed": 0.08
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "**generic.knockback_resistance": 0.015,
+                    "forge:step_height_addition": 0.05
+                },
+                "secondaryAttributes": {
+                    "**generic.knockback_resistance": 0.01,
+                    "forge:step_height_addition": 0.05,
+                    "**generic.movement_speed": -0.05
+                },
+                "tertiaryEffects": {
+                    "more_mod_tetra:curios_feather_falling": 9
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "integrity": 0,
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_shoes/sole/platform_shoes"
+                    }
+                ]
+            },
+            "availableTextures": [ "" ],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/mmt_shoes/sole/highlight"
+                }
+            ]
+        }
+    ]
+}

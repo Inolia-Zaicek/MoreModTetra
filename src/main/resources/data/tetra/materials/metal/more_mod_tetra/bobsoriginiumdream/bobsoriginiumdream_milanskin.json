@@ -1,0 +1,36 @@
+{
+    "key": "bobsoriginiumdream_milanskin",
+    "category": "ori_worm_skin",
+    "primary": 7.94,
+    "secondary": 2.9,
+    "tertiary": 3.5,
+    "durability": 1700,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 150,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "f43fc9",
+        "texture": "f43fc9"
+    },
+    "effects": {
+        "more_mod_tetra:sirenic_serenade": 5
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "bobsoriginiumdream:milanskin" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "bobsoriginiumdream"
+        }
+    ]
+}

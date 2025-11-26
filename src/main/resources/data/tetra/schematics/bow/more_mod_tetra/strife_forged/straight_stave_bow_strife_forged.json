@@ -1,0 +1,42 @@
+{
+    
+    "slots": [
+        "bow/stave"
+    ],
+    "rarity": "temporary",
+    "displayType": "improvement",
+    "materialSlotCount": 0,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/titan.png",
+        "textureX": 112,
+        "textureY": 0
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "straight_stave_bow_strife_forged"
+                }
+            },
+            {
+                "type": "tetra:module",
+                "module": "bow/straight_stave"
+            },
+            {
+                "type": "tetra:locked",
+                "key": "tetra:shared/the_legend_scroll_of_strife_titan"
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "experienceFactor": 1,
+            "improvements": {
+                "straight_stave_bow_strife_forged": 0
+            }
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "slots": [ "mmt_jetpack/battery" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:battery_materials/"],
+            "countFactor": 1,
+            "moduleKey": "mmt_jetpack/battery/base_battery",
+            "moduleVariant": "base_battery/"
+        }
+    ]
+}

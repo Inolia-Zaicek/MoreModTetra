@@ -1,0 +1,39 @@
+{
+    "key": "more_mod_tetra_ice_arcane_ingot",
+    "category": "iron_spell_arcane_ingot",
+    "primary": 9.24,
+    "secondary": 4.9,
+    "tertiary": 5.5,
+    "durability": 2500,
+    "integrityCost": 2,
+    "integrityGain": 10,
+    "magicCapacity": 1000,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "75F1EC",
+        "texture": "75F1EC"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "more_mod_tetra:ice_arcane_ingot" ]
+    },
+        "effects" : {
+      "more_mod_tetra:ice_arcane_edge": 20
+	},
+      "attributes": {
+      "**irons_spellbooks:ice_spell_power": 0.04
+  },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ]
+}

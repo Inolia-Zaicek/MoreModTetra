@@ -1,0 +1,75 @@
+{
+    
+    "slots": [
+        "sword/blade",
+"mmt_iron_staff/head",
+"modular_musket/barrel",
+"modular_amiya_staff/head_crystal",
+"modular_mtt_chainsword/saw",
+"modular_trident/primary_blade",
+        "slashblade/blade",
+        "greatsword/blade",
+        "polearm/head",
+        "single/head",
+        "double/head_left",
+        "bow/stave",
+        "crossbow/stave"
+    ],
+    "materialSlotCount": 1,
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 32,
+        "textureY": 64
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "fire_dragon_blood_coating"
+                }
+            },
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "ice_dragon_blood_coating"
+                }
+            },
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "lightning_dragon_blood_coating"
+                }
+            },
+            {
+                "type": "tetra:locked",
+                "key": "tetra:iceandfire/mmt_iceandfire_dragon_scroll"
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [
+                    "iceandfire:fire_dragon_blood"
+                ]
+            },
+            "improvements": {
+                "fire_dragon_blood_coating": 1
+            }
+        }
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "iceandfire"
+        }
+    ]
+}

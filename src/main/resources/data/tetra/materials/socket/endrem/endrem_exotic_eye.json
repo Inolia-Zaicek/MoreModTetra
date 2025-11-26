@@ -1,0 +1,40 @@
+{
+  "key": "endrem_exotic_eye",
+  "category": "socket",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 135,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 355,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "effects": {
+    "more_mod_tetra:extra_aquatic_products": 2,
+    "more_mod_tetra:flame_killer": 25
+  },
+  "attributes": {
+    "**generic.attack_damage": 0.2,
+    "**tetra:draw_damage": 0.2,
+    "**tetra:ability_damage": 0.2
+  },
+  "tints": {
+    "glyph": "ff0000",
+    "texture": "ff0000"
+  },
+  "textures": [
+    "default"
+  ],
+  "material": {
+    "items": [
+      "endrem:exotic_eye"
+    ]
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "endrem"
+    }
+  ]
+}

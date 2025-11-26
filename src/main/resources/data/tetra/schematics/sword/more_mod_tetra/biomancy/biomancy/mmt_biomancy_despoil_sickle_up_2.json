@@ -1,0 +1,30 @@
+{
+    
+    "slots": [ "sword/blade" ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "biomancy"
+        }
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 0,
+        "textureY": 240
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "mmt_biomancy_despoil_sickle_up",
+        "level":1
+    },
+    "outcomes": [
+        {
+            "improvements": {
+                "mmt_biomancy_despoil_sickle_up": 2
+            }
+        }
+    ]
+}

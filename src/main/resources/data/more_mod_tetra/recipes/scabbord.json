@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " AB",
+        "A#A",
+        "BA "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_sword"
+        },
+        "B": {
+            "item": "minecraft:leather"
+        },
+        "A": {
+            "item": "minecraft:iron_nugget"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:scabbord",
+        "count": 1
+    }
+}

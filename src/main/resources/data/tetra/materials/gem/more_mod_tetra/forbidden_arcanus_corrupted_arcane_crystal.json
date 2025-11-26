@@ -1,0 +1,37 @@
+{
+    "key": "forbidden_arcanus_corrupted_arcane_crystal",
+    "category": "gem",
+    "primary": 6.2,
+    "secondary": 2.5,
+    "tertiary": 0,
+    "durability": 985,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 312,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "c4dde6",
+        "texture": "c4dde6"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "forbidden_arcanus:arcane_crystal" ]
+    },
+    "effects" : {
+        "more_mod_tetra:magic_edge": 15,
+        "more_mod_tetra:magic_proficiency": 10
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "forbidden_arcanus"
+        }
+    ]
+}

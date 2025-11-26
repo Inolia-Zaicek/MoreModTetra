@@ -1,0 +1,43 @@
+{
+    "key": "avaritia_singularity_gold",
+    "hidden": false,
+    "category": "substance_singularity",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 2500,
+    "integrityCost": 1,
+    "integrityGain": 0,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "gold_glyph",
+        "texture": "gold"
+    },
+    "textures": [
+        "default_glow"
+    ],
+    "material":{
+        "items":["avaritia:singularity"],
+        "nbt":"{Id:\"avaritia:gold\"}"
+    },
+    "attributes": {
+        "**generic.attack_speed": 0.3,
+        "**forge:attack_range": 0.3,
+        "**forge:reach_distance": 0.3,
+        "**generic.attack_damage": 0.3,
+        "**generic.armor": 0.3,
+        "**generic.armor_toughness": 0.3,
+        "**tetra:draw_speed": -0.6,
+        "**tetra:draw_strength": 0.3,
+        "**generic.max_health": 0.3,
+        "**generic.movement_speed": 0.3
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "avaritia"
+        }
+    ]
+}

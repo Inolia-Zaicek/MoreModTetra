@@ -1,0 +1,36 @@
+{
+    "key": "composite_material_allay_steel_ingot",
+    "category": "metal",
+    "primary": 6.3,
+    "secondary": 2.2,
+    "tertiary": 1.6,
+    "durability": 768,
+    "integrityCost": 1,
+    "integrityGain": 7,
+    "magicCapacity": 140,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "63f8fc",
+        "texture": "63f8fc"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "composite_material:allay_steel_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:magic_oscillation": 20
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "composite_material"
+        }
+    ]
+}

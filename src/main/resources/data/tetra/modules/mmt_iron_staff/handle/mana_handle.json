@@ -1,0 +1,46 @@
+{
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_iron_staff/handle" ],
+    "improvements": [
+        "tetra:mmt_iron_staff/handle/",
+        "tetra:mmt_iron_staff/shared/",
+        "tetra:shared/"
+    ],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/",  "tetra:rod/" ],
+            "key": "mana_handle/",
+            "durability": 10,
+            "integrity": 1,
+            "attributes": {
+                "generic.attack_speed": -0.35
+            },
+            "aspects": {
+                "breakable": 2,
+                "mmt_only_spell": 1
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "irons_spellbooks:max_mana": 20
+                },
+                "secondaryAttributes": {
+                    "**irons_spellbooks:mana_regen": 0.025,
+                    "generic.attack_speed": -0.1
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "durability": 0.5,
+                "integrity": 0.85,
+                "magicCapacity": 2.5
+            },
+            "availableTextures": [ ""],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/mmt_iron_staff/none"
+                }
+            ]
+        }
+    ]
+}

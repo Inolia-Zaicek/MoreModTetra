@@ -1,0 +1,33 @@
+{
+    "key": "bobsoriginiumdream_oriwormskin",
+    "category": "ori_worm_skin",
+    "primary": 6.24,
+    "secondary": 3.8,
+    "tertiary": 3.5,
+    "durability": 300,
+    "integrityCost": 2,
+    "integrityGain": 4,
+    "magicCapacity": 100,
+    "toolLevel": "minecraft:wood",
+    "toolEfficiency": 3,
+    "tints": {
+        "glyph": "454545",
+        "texture": "454545"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "bobsoriginiumdream:oriwormskin" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "bobsoriginiumdream"
+        }
+    ]
+}

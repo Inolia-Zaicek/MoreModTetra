@@ -1,0 +1,39 @@
+{
+    "key": "composite_material_primitive_tenacity",
+    "category": "stone",
+    "primary": 23,
+    "secondary": 10,
+    "tertiary": 0,
+    "durability": 8000,
+    "integrityCost": 1,
+    "integrityGain": 4,
+    "magicCapacity": 30,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 4,
+    "tints": {
+        "glyph": "82815d",
+        "texture": "82815d"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "composite_material:primitive_tenacity" ]
+    },
+    "attributes": {
+        "*generic.attack_speed": -0.5
+    },
+    "effects" : {
+        "more_mod_tetra:health_power": 30
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "composite_material"
+        }
+    ]
+}

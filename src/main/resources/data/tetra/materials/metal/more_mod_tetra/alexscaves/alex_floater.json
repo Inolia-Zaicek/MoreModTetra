@@ -1,0 +1,36 @@
+{
+    "key": "alex_floater",
+    "category": "special_material",
+    "primary": 4,
+    "secondary": 4.6,
+    "tertiary": 9,
+    "durability": 32,
+    "integrityCost": 2,
+    "integrityGain": 4,
+    "magicCapacity": 132,
+    "toolLevel": "minecraft:gold",
+    "toolEfficiency": 3,
+    "tints": {
+        "glyph": "56f0ff",
+        "texture": "56f0ff"
+    },
+    "effects" : {
+        "more_mod_tetra:into_bubbled": 10
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "alexscaves:floater" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "alexscaves"
+        }
+    ]
+}

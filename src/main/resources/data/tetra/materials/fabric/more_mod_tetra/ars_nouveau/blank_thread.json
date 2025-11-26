@@ -1,0 +1,40 @@
+{
+    "key": "blank_thread",
+    "category": "ars_thread",
+    "primary": 2,
+    "secondary": 2,
+    "tertiary": 7,
+    "durability": 500,
+    "integrityCost": 1,
+    "integrityGain": 8,
+    "magicCapacity": 180,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "7d5baf",
+        "texture": "7d5baf"
+    },
+    "attributes": {
+        "ars_nouveau:ars_nouveau.perk.mana_regen": 0.2,
+        "ars_nouveau:ars_nouveau.perk.max_mana": 10,
+        "ars_nouveau:ars_nouveau.perk.spell_damage": 0.5
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": [
+            "ars_nouveau:blank_thread"
+        ]
+    },
+    "requiredTools": {
+        "cut": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "ars_nouveau"
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_bracelet/base_bracelet" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "key": "luck_bracelet/",
+            "integrity": 0,
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "generic.luck": 0.5
+                },
+                "secondaryAttributes": {
+                    "generic.luck": 0.5
+                },
+                "tertiaryAttributes": {
+                    "generic.luck": 0.4
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_bracelet/base_bracelet/luck_bracelet"
+                    }
+                ]
+            }
+        }
+    ]
+}

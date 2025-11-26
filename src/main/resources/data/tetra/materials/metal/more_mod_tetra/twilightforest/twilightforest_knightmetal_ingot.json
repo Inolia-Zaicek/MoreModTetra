@@ -1,0 +1,36 @@
+{
+    "key": "twilightforest_knightmetal_ingot",
+    "category": "metal",
+    "primary": 6.6,
+    "secondary": 3.1,
+    "tertiary": 2,
+    "durability": 512,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 124,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "c1d3af",
+        "texture": "c1d3af"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "twilightforest:knightmetal_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:heavy_hit": 10
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "twilightforest"
+        }
+    ]
+}

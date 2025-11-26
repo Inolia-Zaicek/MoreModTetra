@@ -1,0 +1,36 @@
+{
+    "key": "eeeabsmobs_immortal_bone",
+    "category": "bone",
+    "primary": 5.7,
+    "secondary": 3.9,
+    "tertiary": 4,
+    "durability": 300,
+    "integrityCost": 1,
+    "integrityGain": 6,
+    "magicCapacity": 100,
+    "toolLevel": "minecraft:stone",
+    "toolEfficiency": 4.5,
+    "tints": {
+        "glyph": "83847f",
+        "texture": "83847f"
+    },
+    "effects" : {
+        "more_mod_tetra:eeeabsmobs_erode_effect": 1
+    },
+    "textures": [
+        "bone",
+        "crude"
+    ],
+    "material": {
+        "items": [ "eeeabsmobs:immortal_bone" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "eeeabsmobs"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "key": "devouring_stone_vine",
+    "category": "fibre",
+    "primary": 1.5,
+    "secondary": 1.8,
+    "tertiary": 2.7,
+    "durability": 250,
+    "integrityCost": 1,
+    "integrityGain": 4,
+    "magicCapacity": 86,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "707070",
+        "texture": "707070"
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": [ "more_mod_tetra:devouring_stone_vine" ]
+    },
+    "effects" : {
+        "more_mod_tetra:devouring_stone": 5
+    },
+    "requiredTools": {
+        "cut": "minecraft:wood"
+    }
+}

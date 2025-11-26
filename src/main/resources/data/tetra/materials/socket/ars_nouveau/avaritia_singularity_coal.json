@@ -1,0 +1,38 @@
+{
+    "key": "wilden_tribute",
+    "hidden": false,
+    "category": "socket",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 1,
+    "integrityGain": 0,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "7d5baf",
+        "texture": "7d5baf"
+    },
+    "textures": [
+        "perk_glow_0",
+        "perk_sided_0"
+    ],
+    "material": {
+        "items": [
+            "ars_nouveau:wilden_tribute"
+        ]
+    },
+    "attributes": {
+        "ars_nouveau:ars_nouveau.perk.mana_regen": 1.5,
+        "ars_nouveau:ars_nouveau.perk.max_mana": 50,
+        "ars_nouveau:ars_nouveau.perk.spell_damage": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "ars_nouveau"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "#A#",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "iceandfire:dragonbone"
+        },
+        "A": {
+            "item": "iceandfire:fire_dragon_blood"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:fire_dragonbone",
+        "count": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "iceandfire"
+        }
+    ]
+}

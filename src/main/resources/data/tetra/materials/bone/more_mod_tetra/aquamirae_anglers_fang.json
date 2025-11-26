@@ -1,0 +1,36 @@
+{
+    "key": "aquamirae_anglers_fang",
+    "category": "bone",
+    "primary": 6,
+    "secondary": 2.3,
+    "tertiary": 0.2,
+    "durability": 320,
+    "integrityCost": 2,
+    "integrityGain": 4,
+    "magicCapacity": 108,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency":6,
+    "tints": {
+        "glyph": "efe8d5",
+        "texture": "efe8d5"
+    },
+    "effects" : {
+        "more_mod_tetra:blessings_of_water": 5
+    },
+    "textures": [
+        "bone",
+        "crude"
+    ],
+    "material": {
+        "items": [ "aquamirae:anglers_fang" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "aquamirae"
+        }
+    ]
+}

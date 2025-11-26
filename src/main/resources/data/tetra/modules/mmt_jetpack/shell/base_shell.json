@@ -1,0 +1,38 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_jetpack/shell" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": ["tetra:metal/"],
+            "key": "base_shell/",
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1,
+                "more_mod_tetra:curios_fly": [0,2.5]
+            },
+            "extract": {
+                "primaryEffects": {
+                    "more_mod_tetra:curios_fly": [0,0.5]
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "integrity": 0,
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_jetpack/shell/base_shell"
+                    }
+                ]
+            },
+            "availableTextures": [ "" ],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/mmt_jetpack/shell/base"
+                }
+            ]
+        }
+    ]
+}

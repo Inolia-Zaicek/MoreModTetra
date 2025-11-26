@@ -1,0 +1,38 @@
+{
+    
+    "slots": [
+        "sword/blade",
+"mmt_iron_staff/head",
+"modular_musket/barrel",
+"modular_amiya_staff/head_crystal",
+"modular_mtt_chainsword/saw",
+"modular_trident/primary_blade",
+        "slashblade/blade",
+        "greatsword/blade",
+        "polearm/head",
+        "single/head",
+        "double/head_left",
+        "bow/stave",
+        "crossbow/stave"
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+            "textureX": 176,
+            "textureY": 48
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "ability_defensive_up",
+        "level":3
+    },
+    "outcomes": [
+        {
+            "experienceFactor": 10,
+            "improvements": {
+                "ability_defensive_up": 4
+            }
+        }
+    ]
+}

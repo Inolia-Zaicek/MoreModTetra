@@ -1,0 +1,58 @@
+{
+    
+    "slots": [
+        "sword/blade",
+"mmt_iron_staff/head",
+"modular_musket/barrel",
+"modular_amiya_staff/head_crystal",
+"modular_mtt_chainsword/saw",
+"modular_trident/primary_blade",
+        "slashblade/blade",
+        "greatsword/blade",
+        "polearm/head",
+        "single/head",
+        "double/head_left",
+        "bow/stave",
+        "crossbow/stave"
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "botania"
+        }
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "materialSlotCount": 1,
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 48,
+        "textureY": 128
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:improvement",
+                "improvement": "mana_absorption",
+                "level":3
+            },
+            {
+                "type": "tetra:locked",
+                "key": "tetra:shared/mmt_botania_scroll"
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "botania:gaia_ingot" ],
+                "count":2
+            },
+            "improvements": {
+                "mana_absorption": 4
+            }
+        }
+    ]
+}

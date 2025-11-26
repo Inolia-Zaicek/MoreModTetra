@@ -1,0 +1,36 @@
+{
+    "key": "twilightforest_steeleaf_ingot",
+    "category": "metal",
+    "primary": 6.6,
+    "secondary": 1.1,
+    "tertiary": 6,
+    "durability": 131,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 114,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "548338",
+        "texture": "548338"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "twilightforest:steeleaf_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:eternium_durability": 1
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "twilightforest"
+        }
+    ]
+}

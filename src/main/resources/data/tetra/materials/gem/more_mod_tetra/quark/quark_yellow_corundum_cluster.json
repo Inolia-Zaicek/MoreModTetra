@@ -1,0 +1,36 @@
+{
+    "key": "quark_yellow_corundum_cluster",
+    "category": "gem",
+    "primary": 5.6,
+    "secondary": 2.7,
+    "tertiary": 0,
+    "durability": 550,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 110,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "FFD700",
+        "texture": "FFD700"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "quark:yellow_corundum_cluster" ]
+    },
+    "effects" : {
+        "more_mod_tetra:lightning_combo": 10
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "quark"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "key": "frenzy_serum",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "more_mod_tetra:frenzy_serum": 1
+    }
+  }
+]

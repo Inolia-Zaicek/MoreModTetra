@@ -1,0 +1,48 @@
+{
+    "key": "avaritia_infinity_ingot",
+    "category": "metal",
+    "primary": 99,
+    "secondary": 99,
+    "tertiary": 99,
+    "durability": 9999,
+    "integrityCost": 0,
+    "integrityGain": 99,
+    "magicCapacity": 9999,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 99,
+    "tints": {
+        "glyph": "000000",
+        "texture": "000000"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "avaritia:infinity_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:invulnerable_time_down": 100
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "attributes": {
+        "**generic.attack_speed": 10,
+        "**forge:attack_range": 10,
+        "**forge:reach_distance": 10,
+        "**generic.attack_damage": 10,
+        "**generic.armor": 10,
+        "**generic.armor_toughness": 10,
+        "**tetra:draw_speed": -100,
+        "**tetra:draw_strength": 10,
+        "**generic.max_health": 10,
+        "generic.attack_speed": 50
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "avaritia"
+        }
+    ]
+}

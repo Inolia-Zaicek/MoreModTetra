@@ -1,0 +1,37 @@
+{
+    "key": "eeeabsmobs_ghost_steel_ingot",
+    "category": "metal",
+    "primary": 13.24,
+    "secondary": 3.5,
+    "tertiary": 3.5,
+    "durability": 9999,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 170,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "3f7ca5",
+        "texture": "3f7ca5"
+    },
+    "attributes": {
+        "forge:attack_range": 0.5,
+        "forge:reach_distance": 0.5
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "eeeabsmobs:ghost_steel_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "eeeabsmobs"
+        }
+    ]
+}

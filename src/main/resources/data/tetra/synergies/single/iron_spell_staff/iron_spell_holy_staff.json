@@ -1,0 +1,24 @@
+[
+    {
+        "modules": [
+            "single/more_mod_tetra/iron_spell_holy/more_mod_tetra_iron_spell_holy_staff",
+            "single/more_mod_tetra/iron_spell_holy/more_mod_tetra_iron_spell_holy_staff_handle",
+            "single/more_mod_tetra/iron_spell_holy/more_mod_tetra_iron_spell_holy_staff_socket"
+        ],
+        "attributes": {
+            "**irons_spellbooks:spell_power": 0.02,
+            "**irons_spellbooks:holy_spell_power": 0.01,
+            "**irons_spellbooks:summon_damage": 0.02,
+            "irons_spellbooks:max_mana": 50,
+            "**irons_spellbooks:mana_regen": 0.1,
+            "**irons_spellbooks:cooldown_reduction": 0.1,
+            "**irons_spellbooks:cast_time_reduction": 0.1
+        },
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "irons_spellbooks"
+            }
+        ]
+    }
+]

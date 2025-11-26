@@ -1,0 +1,33 @@
+{
+    "slots": [
+        "mmt_iron_staff/head",
+        "mmt_iron_staff/handle"
+    ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 0,
+        "textureY": 64
+    },
+    "requirement": {
+                "type": "tetra:improvement",
+                "improvement": "mmt_iron_spell_fire_spell_power",
+                "level":2
+    },
+    "outcomes": [
+        {
+          "experienceCost": 5,
+            "improvements": {
+                "mmt_iron_spell_fire_spell_power": 3
+            }
+        }
+    ]
+}

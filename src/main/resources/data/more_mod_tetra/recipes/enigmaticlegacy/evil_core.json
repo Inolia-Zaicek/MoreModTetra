@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "#A#",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "enigmaticlegacy:evil_ingot"
+        },
+        "A": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:evil_core",
+        "count": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "enigmaticlegacy"
+        }
+    ]
+}

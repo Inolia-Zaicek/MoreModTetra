@@ -1,0 +1,43 @@
+{
+    "key": "thread_feather",
+    "category": "ars_thread",
+    "primary": 2.5,
+    "secondary": 2.5,
+    "tertiary": 7.5,
+    "durability": 750,
+    "integrityCost": 1,
+    "integrityGain": 6,
+    "magicCapacity": 300,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "7d5baf",
+        "texture": "7d5baf"
+    },
+    "effects" : {
+        "more_mod_tetra:thread_feather": 1
+    },
+    "attributes": {
+        "ars_nouveau:ars_nouveau.perk.mana_regen": 0.2,
+        "ars_nouveau:ars_nouveau.perk.max_mana": 10,
+        "ars_nouveau:ars_nouveau.perk.spell_damage": 0.5
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": [
+            "ars_nouveau:thread_feather"
+        ]
+    },
+    "requiredTools": {
+        "cut": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "ars_nouveau"
+        }
+    ]
+}

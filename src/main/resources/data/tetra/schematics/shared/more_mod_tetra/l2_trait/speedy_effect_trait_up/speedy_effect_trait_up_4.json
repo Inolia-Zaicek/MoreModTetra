@@ -1,0 +1,33 @@
+{
+    
+    "slots": ["toolbelt/belt"],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "materialSlotCount": 1,
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "speedy_effect_trait_up",
+        "level":3
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "l2hostility:speedy" ],
+                "count":8
+            },
+            "improvements": {
+                "speedy_effect_trait_up": 4
+            }
+        }
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2hostility"
+        }
+    ]
+}

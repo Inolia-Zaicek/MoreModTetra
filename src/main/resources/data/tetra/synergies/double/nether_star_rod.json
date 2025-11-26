@@ -1,0 +1,70 @@
+[
+    {
+        "modules": ["double/basic_axe"],
+        "moduleVariants": ["basic_handle/nether_star_rod"],
+        "visibilityKey": "basic_handle/nether_star_rod",
+        "tools": {
+            "axe_dig": 1
+        }
+    },
+    {
+        "modules": ["double/adze"],
+        "moduleVariants": ["basic_handle/nether_star_rod"],
+        "visibilityKey": "basic_handle/nether_star_rod",
+        "tools": {
+            "shovel_dig": 1
+        }
+    },
+    {
+        "modules": ["double/basic_pickaxe"],
+        "moduleVariants": ["basic_handle/nether_star_rod"],
+        "visibilityKey": "basic_handle/nether_star_rod",
+        "tools": {
+            "pickaxe_dig": 1
+        }
+    },
+    {
+        "modules": ["double/basic_hammer"],
+        "moduleVariants": ["basic_handle/nether_star_rod"],
+        "visibilityKey": "basic_handle/nether_star_rod",
+        "tools": {
+            "hammer_dig": 1
+        }
+    },
+    {
+        "modules": ["double/claw"],
+        "moduleVariants": ["basic_handle/nether_star_rod"],
+        "visibilityKey": "basic_handle/nether_star_rod",
+        "tools": {
+            "pry": 1
+        }
+    },
+    {
+        "modules": ["double/hoe"],
+        "moduleVariants": ["basic_handle/nether_star_rod"],
+        "visibilityKey": "basic_handle/nether_star_rod",
+        "tools": {
+            "hoe_dig": 1
+        }
+    },
+    {
+        "modules": ["double/more_mod_tetra/paxel"],
+        "moduleVariants": ["basic_handle/nether_star_rod"],
+        "visibilityKey": "basic_handle/nether_star_rod",
+        "tools": {
+            "axe_dig": 1,
+            "pickaxe_dig": 1,
+            "shovel_dig": 1
+        }
+    },
+    {
+        "modules": ["double/more_mod_tetra/paxel"],
+        "moduleVariants": ["double_socket/socket_nether_star"],
+        "visibilityKey": "double_socket/socket_nether_star",
+        "tools": {
+            "axe_dig": 1,
+            "pickaxe_dig": 1,
+            "shovel_dig": 1
+        }
+    }
+]

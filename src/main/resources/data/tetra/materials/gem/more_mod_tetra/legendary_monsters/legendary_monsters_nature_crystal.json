@@ -1,0 +1,36 @@
+{
+    "key": "legendary_monsters_nature_crystal",
+    "category": "gem",
+    "primary": 6,
+    "secondary": 2.9,
+    "tertiary": 0,
+    "durability": 1561,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 150,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "5d742e",
+        "texture": "5d742e"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "legendary_monsters:nature_crystal" ]
+    },
+    "effects" : {
+        "more_mod_tetra:poison": 2
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "legendary_monsters"
+        }
+    ]
+}

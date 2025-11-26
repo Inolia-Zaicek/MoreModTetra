@@ -1,0 +1,39 @@
+{
+    
+    "slots": [
+        "sword/blade",
+"mmt_iron_staff/head",
+"modular_musket/barrel",
+"modular_amiya_staff/head_crystal",
+"modular_mtt_chainsword/saw",
+"modular_trident/primary_blade",
+        "slashblade/blade",
+        "greatsword/blade",
+        "polearm/head",
+        "single/head",
+        "double/head_left",
+        "bow/stave",
+        "crossbow/stave"
+    ],
+    "rarity": "hone",
+    "displayType": "improvement",
+    "hone":true,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 32,
+        "textureY": 64
+    },
+    "requirement": {
+        "type": "tetra:improvement",
+        "improvement": "critical_strike_probability_up",
+        "level":2
+    },
+    "outcomes": [
+        {
+            "experienceFactor": 2,
+            "improvements": {
+                "critical_strike_probability_up": 3
+            }
+        }
+    ]
+}

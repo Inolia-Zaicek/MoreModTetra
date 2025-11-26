@@ -1,0 +1,35 @@
+{
+  "key": "iron_spell_poisonous_potato",
+  "category": "battery_materials",
+  "hidden": true,
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 0,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "9eb89f"
+  },
+  "textures": [
+    "nature"
+  ],
+  "material": {
+    "items": [
+      "minecraft:poisonous_potato"
+    ]
+  },
+  "attributes": {
+    "**irons_spellbooks:spell_power": 0.05,
+    "**irons_spellbooks:nature_spell_power": 0.15
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ]
+}

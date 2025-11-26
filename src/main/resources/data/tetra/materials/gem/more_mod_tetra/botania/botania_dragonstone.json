@@ -1,0 +1,38 @@
+{
+    "key": "botania_dragonstone",
+    "category": "gem",
+    "primary": 7,
+    "secondary": 2.2,
+    "tertiary": 0,
+    "durability": 1761,
+    "integrityCost": 2,
+    "integrityGain": 3,
+    "magicCapacity": 350,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "diamond_glyph",
+        "texture": "diamond"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "effects": {
+        "more_mod_tetra:mana_repair": 2,
+        "more_mod_tetra:pixie_summon": 25,
+        "more_mod_tetra:mana_regeneration": 6
+    },
+    "material": {
+        "items": [ "botania:dragonstone" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "botania"
+        }
+    ]
+}

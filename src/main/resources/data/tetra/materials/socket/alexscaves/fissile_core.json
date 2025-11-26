@@ -1,0 +1,34 @@
+{
+  "key": "alex_fissile_core",
+  "hidden": false,
+  "category": "socket",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 300,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 1,
+  "tints": {
+    "glyph": "56ff56",
+    "texture": "56ff56"
+  },
+  "textures": [
+    "perk_glow_0",
+    "perk_sided_0"
+],
+  "material": {
+    "items": [ "alexscaves:fissile_core" ]
+  },
+  "effects" : {
+    "more_mod_tetra:radiation_core": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "alexscaves"
+    }
+  ]
+}

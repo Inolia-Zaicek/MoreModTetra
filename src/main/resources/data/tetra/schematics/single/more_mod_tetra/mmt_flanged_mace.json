@@ -1,0 +1,42 @@
+{
+  
+  "slots": [
+    "single/head"
+  ],
+  "materialSlotCount": 1,
+  "rarity": "temporary",
+  "displayType": "major",
+  "glyph": {
+    "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+    "textureX": 96,
+    "textureY": 144
+  },
+  "translation": {
+    "primaryAttributes": {
+      "generic.attack_damage": 3
+    },
+    "secondaryAttributes": {
+      "generic.attack_damage": 1
+    },
+    "primaryEffects": {
+      "more_mod_tetra:heavy_hit": 2
+    },
+    "secondaryEffects": {
+      "more_mod_tetra:heavy_hit": 3
+    },
+    "tertiaryEffects": {
+      "more_mod_tetra:heavy_hit": -1
+    },
+    "durability": 1,
+    "integrity": -1,
+    "magicCapacity": 1
+  },
+  "outcomes": [
+    {
+      "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+      "countFactor": 2,
+      "moduleKey": "single/more_mod_tetra/mmt_flanged_mace",
+      "moduleVariant": "mmt_flanged_mace/"
+    }
+  ]
+}

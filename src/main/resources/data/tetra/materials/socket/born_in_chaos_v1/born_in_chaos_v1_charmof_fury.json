@@ -1,0 +1,37 @@
+{
+  "key": "born_in_chaos_v1_charmof_fury",
+  "category": "socket",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "851729",
+    "texture": "851729"
+  },
+  "effects" : {
+    "more_mod_tetra:vampiric": 5,
+    "more_mod_tetra:strength_buff": 1,
+    "more_mod_tetra:speed_buff": 1
+  },
+  "textures": [
+    "perk_glow_0",
+    "perk_sided_0"
+  ],
+  "material": {
+    "items": [
+      "born_in_chaos_v1:charmof_fury"
+    ]
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "born_in_chaos_v1"
+    }
+  ]
+}

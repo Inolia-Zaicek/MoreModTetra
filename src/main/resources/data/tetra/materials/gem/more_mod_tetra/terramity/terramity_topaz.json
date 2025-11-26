@@ -1,0 +1,33 @@
+{
+    "key": "terramity_topaz",
+    "category": "gem",
+    "primary": 6.5,
+    "secondary": 2.2,
+    "tertiary": 0,
+    "durability": 1561,
+    "integrityCost": 2,
+    "integrityGain": 4,
+    "magicCapacity": 95,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "fcec76",
+        "texture": "fcec76"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "terramity:topaz" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "terramity"
+        }
+    ]
+}
