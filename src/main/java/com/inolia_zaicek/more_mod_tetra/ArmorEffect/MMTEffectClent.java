@@ -371,5 +371,14 @@ public class MMTEffectClent {
         );
         WorkbenchStatsGui.addBar(statBar40);
         HoloStatsGui.addBar(statBar40);
+
+        var statGetter41 = new StatGetterEffectLevel(curiosProjectileTrackingEffect, 1);
+        GuiStatBar statBar41 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curiosProjectileTrackingName, 0, 1, false, false, false,
+                statGetter41, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curiosProjectileTrackingTooltip, statGetter41)
+        );
+        WorkbenchStatsGui.addBar(statBar41);
+        HoloStatsGui.addBar(statBar41);
     }
 }

@@ -1,11 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Util;
 
-import java.util.function.Predicate;
 import net.minecraft.world.entity.Entity;
 import org.jetbrains.annotations.Nullable;
 
-public interface MMTTargetMode {
-    @Nullable Predicate<Entity> eidolonrepraised$getMode();
+import java.util.function.Predicate;
 
-    void eidolonrepraised$setMode(Predicate<Entity> var1);
+public interface MMTTargetMode {
+    @Nullable Predicate<Entity> mmt$getMode();
+
+    void mmt$setMode(Predicate<Entity> var1);
 }

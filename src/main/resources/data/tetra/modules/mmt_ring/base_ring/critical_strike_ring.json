@@ -9,6 +9,7 @@
             "key": "critical_strike_ring/",
             "integrity": 0,
             "effects": {
+                "more_mod_tetra:curios_projectile_tracking": 1,
                 "more_mod_tetra:curios_materials_effect_invalidation": 1,
                 "more_mod_tetra:curios_critical_strike": [0,5]
             },

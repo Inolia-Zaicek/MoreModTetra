@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriousHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTTargetMode;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
@@ -139,12 +140,15 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
     }
 
     // 判断是否允许从用此物品的槽里直接装备（即是否可以在没有Shift键的情况下装备）————不能
+    @Override
     public boolean canEquipFromUse(SlotContext slotContext, ItemStack stack) {
         return !slotContext.entity().isShiftKeyDown();
     }
     // 使用此物品（右键点击），切换显示模式
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, @NotNull Player pPlayer, @NotNull InteractionHand pUsedHand) {
-        if (pPlayer.isShiftKeyDown() && !pLevel.isClientSide) {
+        if (pPlayer.isShiftKeyDown() && !pLevel.isClientSide&&
+                // 对追踪词条进行判断
+                MMTCuriosHelper.getInstance().getCuriosEffectLevel(pPlayer, curiosProjectileTrackingEffect) > 0) {
             // 按住Shift时，切换AngelSight的“模式”，将模式存储在玩家的PersistentData里
             // 以前存储在ItemStack的NBT中，现在改为存储在玩家的PersistentData
             CompoundTag playerData = pPlayer.getPersistentData(); // 获取玩家的持久化数据
@@ -168,18 +172,20 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
         // 示例：假设当前在某个上下文中能获取玩家对象，比如在事件中
         // 这里简化处理：假设有个全局或已知的玩家引用player（需要你调整调用方式）
         Player player = Minecraft.getInstance().player; // 你需要自己传入或定义这个方法获取当前玩家
-        if (player == null) return;
+        if (player!=null&&
+                // 对追踪词条进行判断
+                MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileTrackingEffect) > 0) {
+            CompoundTag playerData = player.getPersistentData();
+            int mode = playerData.getInt(Tracking_Mode); // 获取玩家当前的模式
 
-        CompoundTag playerData = player.getPersistentData();
-        int mode = playerData.getInt(Tracking_Mode); // 获取玩家当前的模式
-
-        String modeDescription;
-        switch (mode) {
-            case 1 -> modeDescription = "lore.eidolon.angels_sight.mode.1";
-            case 2 -> modeDescription = "lore.eidolon.angels_sight.mode.2";
-            default -> modeDescription = "lore.eidolon.angels_sight.mode.3";
+            String modeDescription;
+            switch (mode) {
+                case 1 -> modeDescription = "lore.eidolon.angels_sight.mode.1";
+                case 2 -> modeDescription = "lore.eidolon.angels_sight.mode.2";
+                default -> modeDescription = "lore.eidolon.angels_sight.mode.3";
+            }
+            tooltip.add(Component.translatable(modeDescription).withStyle(ChatFormatting.DARK_GRAY));
         }
-        tooltip.add(Component.translatable(modeDescription).withStyle(ChatFormatting.DARK_GRAY));
     }
     // 关键部分：当实体加入到某个层级（世界）时触发
     @SubscribeEvent
@@ -189,8 +195,9 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
             // 如果实体是投射物（如箭），尝试找到它的发射者
             Entity owner = projectile.getOwner();
             if (owner instanceof Player player &&
-                    // 对追踪词条进行判断（这里假设你已有验证逻辑）
-                    MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileTrackingEffect) > 0) {
+                    // 对追踪词条进行判断
+                    MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileTrackingEffect) > 0
+            &&player.getMainHandItem().isEmpty()&&player.getOffhandItem().isEmpty() ) {
                 // 获取玩家存储的追踪模式（已修改存储在玩家PersistentData中）
                 // 你需要传入正确的玩家对象，这里假设已获取到player
                 CompoundTag playerData = player.getPersistentData();
@@ -199,18 +206,19 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
                 // 根据玩家的模式设置目标筛选规则
                 Predicate targetPredicate;
                 switch (mode) {
+                    //锁定非玩家实体
                     case 1 -> targetPredicate = (target) -> target instanceof LivingEntity && !(target instanceof Player);
+                    //锁定敌对实体
                     case 2 -> targetPredicate = (target) -> target instanceof Enemy;
+                    //锁定所有实体
                     default -> targetPredicate = (target) -> target instanceof LivingEntity;
                 }
 
                 Predicate<Entity> targetMode = targetPredicate;
 
-//                // 如果投射物支持自身追踪目标（实现TargetMode接口）
-//                if (projectile instanceof MMTTargetMode modeObj) {
-//                    // 设置投射物的目标筛选规则，使其“追踪”符合规则的目标
-//                    modeObj.eidolonrepraised$setMode(targetMode);
-//                }
+                if (projectile instanceof MMTTargetMode modeObj) {
+                   modeObj.mmt$setMode(targetMode);
+               }
             }
         }
     }

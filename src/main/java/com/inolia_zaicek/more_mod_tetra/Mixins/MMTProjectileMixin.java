@@ -2,7 +2,6 @@ package com.inolia_zaicek.more_mod_tetra.Mixins;
 
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEntityUtil;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTTargetMode;
-import elucent.eidolon.util.EntityUtil;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -26,29 +25,29 @@ public abstract class MMTProjectileMixin extends Entity implements MMTTargetMode
 
 
     @Unique
-    private Predicate<Entity> eidolonrepraised$targetMode = null;
+    private Predicate<Entity> mmt$targetMode = null;
 
     @Override
-    public void eidolonrepraised$setMode(final Predicate<Entity> targetMode) {
-        this.eidolonrepraised$targetMode = targetMode;
+    public void mmt$setMode(final Predicate<Entity> targetMode) {
+        this.mmt$targetMode = targetMode;
     }
 
     @Override
-    public @Nullable Predicate<Entity> eidolonrepraised$getMode() {
-        return eidolonrepraised$targetMode;
+    public @Nullable Predicate<Entity> mmt$getMode() {
+        return mmt$targetMode;
     }
 
     //set target mode to null after the entity is hit
     @Inject(method = "onHit", at = @At("TAIL"))
-    private void eidolonrepraised$onHit(HitResult pResult, CallbackInfo ci) {
+    private void mmt$onHit(HitResult pResult, CallbackInfo ci) {
         if (pResult.getType() != HitResult.Type.MISS)
-            eidolonrepraised$setMode(null);
+            mmt$setMode(null);
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
-    private void eidolonrepraised$moveTowardsTarget(CallbackInfo ci) {
-        if (eidolonrepraised$targetMode != null && !onGround()) {
-            EntityUtil.moveTowardsTarget(this);
+    private void mmt$moveTowardsTarget(CallbackInfo ci) {
+        if (mmt$targetMode != null && !onGround()) {
+            MMTEntityUtil.moveTowardsTarget(this);
         }
     }
 }
