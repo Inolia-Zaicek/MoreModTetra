@@ -12,7 +12,6 @@ import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.items.modular.IModularItem;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.SacrificeAndThrowingTheHalberdEffect;
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.hideBladeEffect;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
 public class SacrificeAndThrowingTheHalberdTick {

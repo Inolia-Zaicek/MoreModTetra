@@ -1,18 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import dev.xkmc.l2complements.init.registrate.LCEffects;
-import dev.xkmc.l2hostility.content.capability.mob.MobTraitCap;
-import dev.xkmc.l2hostility.init.registrate.LHTraits;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

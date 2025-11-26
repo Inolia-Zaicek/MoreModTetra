@@ -1,6 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.AlexCave;
 
-import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.github.alexmodguy.alexscaves.server.potion.ACEffectRegistry;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;

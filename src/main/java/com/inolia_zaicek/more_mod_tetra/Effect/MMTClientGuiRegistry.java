@@ -9,7 +9,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
-import se.mickelus.tetra.gui.stats.getter.*;
+import se.mickelus.tetra.gui.stats.getter.IStatGetter;
+import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
+import se.mickelus.tetra.gui.stats.getter.StatGetterAttribute;
+import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 

@@ -2,7 +2,6 @@ package com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.Core;
 
 import com.github.alexmodguy.alexscaves.server.potion.ACEffectRegistry;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;

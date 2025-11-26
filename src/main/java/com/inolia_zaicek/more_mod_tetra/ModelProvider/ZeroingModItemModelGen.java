@@ -2,7 +2,6 @@ package com.inolia_zaicek.more_mod_tetra.ModelProvider;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraItemRegister;
-
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

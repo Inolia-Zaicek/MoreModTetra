@@ -8,7 +8,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
-
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Map;

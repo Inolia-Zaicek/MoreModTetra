@@ -1,15 +1,11 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Witherite;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import com.sammy.malum.registry.common.MobEffectRegistry;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;

@@ -6,7 +6,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.Cancelable;
 import net.minecraftforge.fml.common.Mod;
-import org.openjdk.nashorn.internal.objects.annotations.Getter;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
 @Cancelable

@@ -1,24 +1,14 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import com.inolia_zaicek.more_mod_tetra.Network.Packet.MMTPlayerFlyPacketS2C;
-import com.inolia_zaicek.more_mod_tetra.Network.MMTNetworkHandler;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.network.PacketDistributor;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.*;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
-import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 

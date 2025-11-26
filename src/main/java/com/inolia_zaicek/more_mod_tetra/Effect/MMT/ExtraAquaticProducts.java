@@ -23,7 +23,6 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import java.util.Collection;
 import java.util.Random;
-import java.util.Set;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 

@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.items.modular.IModularItem;
 import top.theillusivec4.curios.api.CuriosApi;
 
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.minerLanternEffect;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
 public class MinerLanternCuirous {

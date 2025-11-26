@@ -1,10 +1,8 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait;
 
-import com.github.L_Ender.cataclysm.init.ModEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -22,7 +20,6 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.strayEffectTraitTooltip;
 
 public class StrayEffectTrait {
     @OnlyIn(Dist.CLIENT)

@@ -1,8 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.ModularCurios.Iron; // 定义该类所属的包，表示它是“More Mod Tetra”模组中“Modular Curios”部分的一部分。
 
-import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriousHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -12,13 +10,13 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ObjectHolder;
 import se.mickelus.tetra.gui.GuiModuleOffsets;
 import se.mickelus.tetra.items.modular.ItemModularHandheld;
-import se.mickelus.tetra.items.modular.ModularItem;
 import se.mickelus.tetra.module.ItemModule;
 import se.mickelus.tetra.module.ItemUpgradeRegistry;
-import top.theillusivec4.curios.api.SlotContext;
-import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

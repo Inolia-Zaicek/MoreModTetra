@@ -1,7 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Shield;
 
-import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
-import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

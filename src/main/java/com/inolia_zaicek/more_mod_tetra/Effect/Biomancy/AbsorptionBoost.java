@@ -1,7 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Biomancy;
 
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;

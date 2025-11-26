@@ -9,7 +9,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.armor_thorns_Effect;
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.magic_thorns_Effect;
 
 public class MagicThorns {

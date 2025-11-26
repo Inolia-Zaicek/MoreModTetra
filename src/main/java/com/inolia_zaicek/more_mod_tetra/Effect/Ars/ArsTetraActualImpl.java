@@ -3,7 +3,6 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Ars;
 import com.hollingsworth.arsnouveau.api.perk.PerkAttributes;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMTITetraProxy;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.compat.tetra.StatGetterPercentAttribute;
 import io.redspace.ironsspellbooks.compat.tetra.effects.FreezeTetraEffect;
 import io.redspace.ironsspellbooks.compat.tetra.effects.ManaSiphonTetraEffect;

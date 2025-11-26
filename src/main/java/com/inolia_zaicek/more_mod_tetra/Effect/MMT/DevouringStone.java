@@ -1,11 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import io.redspace.ironsspellbooks.api.magic.SpellSelectionManager;
-import io.redspace.ironsspellbooks.api.spells.SpellData;
-import io.redspace.ironsspellbooks.player.ClientMagicData;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -14,10 +9,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -30,7 +23,8 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
-import static com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraItemRegister.*;
+import static com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraItemRegister.stoneTag;
+import static com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraItemRegister.stoneTag2;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
