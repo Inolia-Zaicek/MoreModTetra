@@ -1,7 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect;
 
-import com.freefish.torchesbecomesunlight.server.init.EffectHandle;
-import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
@@ -13,7 +11,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -30,7 +27,6 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.marchingTimeTooltip;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
 public class MarchingTimeAndRuinationTime {

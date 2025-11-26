@@ -5,7 +5,6 @@ import com.google.common.collect.Multimap;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriousHelper;
-import com.inolia_zaicek.more_mod_tetra.Util.MMTTargetMode;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
@@ -19,7 +18,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -34,7 +32,6 @@ import se.mickelus.tetra.gui.GuiModuleOffsets;
 import se.mickelus.tetra.items.modular.ModularItem;
 import se.mickelus.tetra.module.ItemModule;
 import se.mickelus.tetra.module.ItemUpgradeRegistry;
-import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
@@ -43,7 +40,6 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.curiosHasteEffect;
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.curiosProjectileTrackingEffect;
 
 @SuppressWarnings({"all", "removal"})
@@ -210,11 +206,11 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
 
                 Predicate<Entity> targetMode = targetPredicate;
 
-                // 如果投射物支持自身追踪目标（实现TargetMode接口）
-                if (projectile instanceof MMTTargetMode modeObj) {
-                    // 设置投射物的目标筛选规则，使其“追踪”符合规则的目标
-                    modeObj.eidolonrepraised$setMode(targetMode);
-                }
+//                // 如果投射物支持自身追踪目标（实现TargetMode接口）
+//                if (projectile instanceof MMTTargetMode modeObj) {
+//                    // 设置投射物的目标筛选规则，使其“追踪”符合规则的目标
+//                    modeObj.eidolonrepraised$setMode(targetMode);
+//                }
             }
         }
     }

@@ -3,7 +3,6 @@ package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMTITetraProxy;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.compat.tetra.ITetraProxy;
 import io.redspace.ironsspellbooks.compat.tetra.StatGetterPercentAttribute;
 import io.redspace.ironsspellbooks.compat.tetra.effects.FreezeTetraEffect;
 import io.redspace.ironsspellbooks.compat.tetra.effects.ManaSiphonTetraEffect;
@@ -15,7 +14,9 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
-import se.mickelus.tetra.gui.stats.getter.*;
+import se.mickelus.tetra.gui.stats.getter.IStatGetter;
+import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
+import se.mickelus.tetra.gui.stats.getter.TooltipGetterPercentage;
 import se.mickelus.tetra.items.modular.impl.ModularBladedItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 

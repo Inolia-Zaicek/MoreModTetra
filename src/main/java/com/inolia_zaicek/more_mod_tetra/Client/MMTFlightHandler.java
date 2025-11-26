@@ -1,22 +1,21 @@
 package com.inolia_zaicek.more_mod_tetra.Client; // 声明该类所属的包。这个包路径表明它是 More Mod Tetra 模组客户端的某个部分。
 
 // 导入必要的类
-import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.CuriosFly; // 导入与飞行效果相关的 Curios 类
-import com.inolia_zaicek.more_mod_tetra.MoreModTetra; // 导入主模组类，用于获取模组 ID
-import com.inolia_zaicek.more_mod_tetra.Network.Packet.MMTPlayerFlyPacketS2C; // 导入用于接收服务器发送的飞行状态数据包的客户端类
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft; // 导入 Minecraft 客户端实例类，用于访问游戏客户端
-import net.minecraft.client.player.LocalPlayer; // 导入本地玩家类，代表当前在客户端控制的玩家
-import net.minecraft.core.Direction.Axis; // 导入方向枚举类，这里用于访问 Y 轴（垂直方向）
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.player.Abilities; // 导入玩家能力类，用于修改玩家的飞行、创造模式等能力
-import net.minecraftforge.client.event.InputEvent; // 导入 Forge 客户端输入事件类，用于监听键盘和鼠标输入
-import net.minecraftforge.event.TickEvent; // 导入 Forge 的 Tick 事件类，用于在游戏 tick 时执行逻辑
-import net.minecraftforge.eventbus.api.SubscribeEvent; // 导入订阅事件注解，用于标记方法为事件监听器
-import net.minecraftforge.fml.common.Mod; // 导入 Forge 的 Mod 注解，用于标记类为一个模组
-import net.minecraftforge.network.NetworkEvent; // 导入 Forge 网络事件类，用于处理网络通信
 
-import java.util.function.Supplier; // 导入 Supplier 接口，用于延迟计算或提供值
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.CuriosFly;
+import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Network.Packet.MMTPlayerFlyPacketS2C;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.Direction.Axis;
+import net.minecraft.world.entity.player.Abilities;
+import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.network.NetworkEvent;
+
+import java.util.function.Supplier;
 
 // 使用 Forge 的 Mod 注解，将此类标记为一个模组的事件订阅者。
 // modid = MoreModTetra.MODID 指定该订阅者属于哪个模组。

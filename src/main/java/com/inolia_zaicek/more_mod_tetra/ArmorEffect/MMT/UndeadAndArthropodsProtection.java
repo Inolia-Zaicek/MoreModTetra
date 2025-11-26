@@ -7,7 +7,8 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.arthropods_protection_Effect;
+import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.undead_protection_Effect;
 
 public class UndeadAndArthropodsProtection {
     @SubscribeEvent(priority = EventPriority.HIGHEST)

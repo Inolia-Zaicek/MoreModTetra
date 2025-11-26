@@ -1,8 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
-import com.github.elenterius.biomancy.init.ModItems;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;

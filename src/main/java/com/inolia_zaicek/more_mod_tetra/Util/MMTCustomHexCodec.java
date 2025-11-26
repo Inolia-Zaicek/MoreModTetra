@@ -8,8 +8,9 @@ package com.inolia_zaicek.more_mod_tetra.Util;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.codecs.PrimitiveCodec;
-import javax.annotation.ParametersAreNonnullByDefault;
 import se.mickelus.mutil.util.HexCodec;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 public class MMTCustomHexCodec implements PrimitiveCodec<Integer> {

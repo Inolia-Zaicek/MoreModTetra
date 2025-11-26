@@ -1,8 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
@@ -11,7 +9,6 @@ import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.items.modular.IModularItem;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.eterniumDurabilityEffect;
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.recoveryEffect;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
 public class EterniumDurabilityTick {

@@ -20,9 +20,7 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.grenadeEffectTraitTooltip;
 import static net.minecraft.tags.DamageTypeTags.IS_EXPLOSION;
-import static net.minecraft.tags.DamageTypeTags.WITCH_RESISTANT_TO;
 
 public class GrenadeEffectTraitHurt {
     @OnlyIn(Dist.CLIENT)

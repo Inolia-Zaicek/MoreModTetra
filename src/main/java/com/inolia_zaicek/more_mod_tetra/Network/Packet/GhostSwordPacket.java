@@ -2,11 +2,8 @@ package com.inolia_zaicek.more_mod_tetra.Network.Packet;
 
 import com.github.alexthe666.iceandfire.entity.EntityGhostSword;
 import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;

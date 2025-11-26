@@ -8,9 +8,8 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.ignitium_suit_Effect;
 import static net.minecraft.tags.DamageTypeTags.IS_FIRE;
-import static net.minecraft.tags.DamageTypeTags.IS_LIGHTNING;
 
 public class IgnitiumSuit {
     @SubscribeEvent

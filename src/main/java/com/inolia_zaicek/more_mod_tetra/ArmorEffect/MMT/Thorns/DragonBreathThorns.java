@@ -10,7 +10,6 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.dragon_breath_thorns_Effect;
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.wither_thorns_Effect;
 
 public class DragonBreathThorns {
     @SubscribeEvent

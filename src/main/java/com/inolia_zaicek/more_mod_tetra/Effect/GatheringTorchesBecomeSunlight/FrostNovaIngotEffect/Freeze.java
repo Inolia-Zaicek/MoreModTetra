@@ -3,8 +3,6 @@ package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.F
 import com.freefish.torchesbecomesunlight.server.init.EffectHandle;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;

@@ -19,9 +19,7 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.ModularItem;
 import se.mickelus.tetra.module.ItemModule;
 import se.mickelus.tetra.module.ItemUpgradeRegistry;
-import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
-import top.theillusivec4.curios.api.SlotResult;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.*;

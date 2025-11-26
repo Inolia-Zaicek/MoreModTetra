@@ -1,24 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.storage.loot.LootParams;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -34,9 +22,6 @@ import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
-
-import java.util.List;
-import java.util.Objects;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 

@@ -1,6 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra.Register;
 
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -11,7 +10,6 @@ import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Properties;
 
 public class TooltipItem extends Item {
     public TooltipItem(Properties properties) {

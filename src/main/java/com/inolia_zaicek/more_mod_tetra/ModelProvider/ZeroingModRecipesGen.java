@@ -1,13 +1,9 @@
 package com.inolia_zaicek.more_mod_tetra.ModelProvider;
 
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeProvider;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 public class ZeroingModRecipesGen extends RecipeProvider {

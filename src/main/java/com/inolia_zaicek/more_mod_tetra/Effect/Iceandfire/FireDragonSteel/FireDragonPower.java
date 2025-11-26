@@ -1,8 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.FireDragonSteel;
 
-import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
-import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
-import com.github.alexthe666.iceandfire.entity.EntityLightningDragon;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

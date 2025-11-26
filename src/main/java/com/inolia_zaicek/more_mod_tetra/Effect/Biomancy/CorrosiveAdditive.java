@@ -1,7 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Biomancy;
 
 import com.github.elenterius.biomancy.init.ModMobEffects;
-import elucent.eidolon.registries.EidolonPotions;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;

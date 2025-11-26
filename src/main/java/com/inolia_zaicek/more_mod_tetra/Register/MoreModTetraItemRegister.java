@@ -1,7 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Register;
 
-import com.inolia_zaicek.more_mod_tetra.ModularCurios.*;
 import com.inolia_zaicek.more_mod_tetra.ModularCurios.Iron.ModularIronStaff;
+import com.inolia_zaicek.more_mod_tetra.ModularCurios.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -11,7 +11,8 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 import static com.inolia_zaicek.more_mod_tetra.MoreModTetra.MODID;

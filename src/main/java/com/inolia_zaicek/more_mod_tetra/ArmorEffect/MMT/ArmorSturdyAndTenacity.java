@@ -6,9 +6,8 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import java.util.Random;
-
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.armor_sturdy_Effect;
+import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.armor_tenacity_Effect;
 
 public class ArmorSturdyAndTenacity {
     @SubscribeEvent(priority = EventPriority.HIGHEST)

@@ -1,6 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.AF;
 
-import com.gametechbc.traveloptics.api.init.TravelopticsAttributes;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMTITetraProxy;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import io.redspace.ironsspellbooks.compat.tetra.StatGetterPercentAttribute;

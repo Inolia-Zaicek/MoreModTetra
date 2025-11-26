@@ -4,13 +4,10 @@ import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.items.modular.IModularItem;
 
-import java.util.Random;
-
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.cursium_legs_Effect;
 
 public class FlawlessEffect {
     @SubscribeEvent

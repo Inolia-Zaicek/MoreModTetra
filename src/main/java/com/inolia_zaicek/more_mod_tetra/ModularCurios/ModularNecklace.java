@@ -3,32 +3,24 @@ package com.inolia_zaicek.more_mod_tetra.ModularCurios; // 定义该类所属的
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriousHelper;
-import net.minecraft.nbt.CompoundTag; // 引入用于处理物品NBT（命名二进制标签）数据的类，这对于保存和加载物品的自定义数据非常重要。
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.flag.FeatureFlagSet;
-import net.minecraft.world.item.Item; // 引入Minecraft物品的基本类。
-import net.minecraft.world.item.ItemStack; // 引入Minecraft物品堆的类，表示一个或多个相同物品的集合。
-import net.minecraft.world.item.context.UseOnContext;
-import net.minecraftforge.api.distmarker.Dist; // 引入Forge的Dist类，用于区分客户端（Client）和服务器（Server）环境。
-import net.minecraftforge.api.distmarker.OnlyIn; // 这是一个注解，用于标记只在特定环境（例如客户端）中才会被使用的代码。
-import net.minecraftforge.registries.ObjectHolder; // 引入Forge的ObjectHolder注解，用于在运行时直接获取已注册的物品或块等对象。
-import se.mickelus.tetra.gui.GuiModuleOffsets; // 引入Tetra模组提供的用于GUI模块定位的类。
-import se.mickelus.tetra.items.modular.ModularItem; // 引入Tetra模组提供的模块化物品的基类。
-import se.mickelus.tetra.module.ItemModule; // 引入Tetra模组提供的物品模块的基类。
-import se.mickelus.tetra.module.ItemUpgradeRegistry; // 引入Tetra模组提供的物品升级（模块）注册表。
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.registries.ObjectHolder;
+import se.mickelus.tetra.gui.GuiModuleOffsets;
+import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.module.ItemModule;
+import se.mickelus.tetra.module.ItemUpgradeRegistry;
 import top.theillusivec4.curios.api.SlotContext;
-import top.theillusivec4.curios.api.type.capability.ICurio; // 引入Curios模组提供的ICurio接口，表示这是一个可以被Curios模组识别和管理的饰品。
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.*;
-import java.util.stream.Collectors; // 引入用于收集流元素的工具类。
-import java.util.stream.Stream; // 引入Stream API，用于进行序列化数据处理。
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @SuppressWarnings({"all", "removal"})
 public class ModularNecklace extends ModularItem implements  ICurioItem { // 声明一个名为ModularNecklace的公共类，它继承自ModularItem并实现ICurio接口。

@@ -2,11 +2,9 @@ package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.F
 
 import com.freefish.torchesbecomesunlight.server.init.EffectHandle;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
@@ -15,7 +13,6 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.items.modular.IModularItem;
 
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.freezeEffect;
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.freezeRingEffect;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)

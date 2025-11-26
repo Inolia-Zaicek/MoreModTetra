@@ -1,7 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Edge;
 
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -18,7 +17,6 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
-import static net.minecraft.tags.DamageTypeTags.IS_FIRE;
 import static net.minecraft.tags.DamageTypeTags.IS_FREEZING;
 
 public class FreezeProficiency {

@@ -1,9 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -30,8 +28,6 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
-import static com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraItemRegister.stoneTag;
-import static com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraItemRegister.stoneTag2;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)

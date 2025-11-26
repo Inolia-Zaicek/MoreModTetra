@@ -1,9 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -24,7 +21,6 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.curiosTotemEffectTooltip;
 
 @Mod.EventBusSubscriber(modid = MoreModTetra.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CuriosTotemEvent {

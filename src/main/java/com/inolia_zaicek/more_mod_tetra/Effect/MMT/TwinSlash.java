@@ -1,9 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
-import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -16,7 +14,6 @@ import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.ItemModularHandheld;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;

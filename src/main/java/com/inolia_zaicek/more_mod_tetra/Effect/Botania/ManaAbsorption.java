@@ -1,7 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Botania;
 
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -18,9 +16,6 @@ import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import vazkii.botania.api.mana.ManaItemHandler;
-import vazkii.botania.common.entity.PixieEntity;
-
-import java.util.Random;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
