@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "more_mod_tetra.refmap.json",
   "mixins": [
+    "MMTEntityMixin",
+    "MMTProjectileMixin"
   ],
   "client": [
   ],

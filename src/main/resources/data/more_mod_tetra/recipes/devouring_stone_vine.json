@@ -1,9 +1,0 @@
-{
-    "type": "minecraft:stonecutting",
-    "count": 1,
-    "group": "more_mod_tetra_devouring_stone_vine",
-    "ingredient": {
-        "item": "minecraft:mossy_cobblestone"
-    },
-    "result": "more_mod_tetra:devouring_stone_vine"
-}

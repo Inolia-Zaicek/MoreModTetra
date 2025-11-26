@@ -3,6 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.FE;
 import com.inolia_zaicek.more_mod_tetra.Damage.MMTTickZero;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import com.inolia_zaicek.more_tetra_tools.MoreTetraTools;
+import com.mega.uom.common.attribute.ModAttributes;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -31,8 +32,6 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
 public class FantasyTrace {
-        /*
-
     @OnlyIn(Dist.CLIENT)
     public static void init() {
         var statGetter = new StatGetterEffectLevel(fantasy_traceEffect, 1);
@@ -171,6 +170,4 @@ public class FantasyTrace {
             }
         }
     }
-
-         */
 }

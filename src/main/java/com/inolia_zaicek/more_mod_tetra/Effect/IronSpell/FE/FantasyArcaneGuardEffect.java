@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.FE;
 
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
+import com.mega.uom.common.attribute.ModAttributes;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
@@ -18,7 +19,6 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
 public class FantasyArcaneGuardEffect {
-    /*
     @OnlyIn(Dist.CLIENT)
     public static void init() {
         var statGetter = new StatGetterEffectLevel(bloodArcaneGuardEffect, 1);
@@ -43,9 +43,7 @@ public class FantasyArcaneGuardEffect {
             //获取法抗属性
             float magic = (float) target.getAttributeValue(ModAttributes.FANTASY_RESIST.get());
             float resist = (float) target.getAttributeValue(AttributeRegistry.SPELL_RESIST.get());
-            event.setAmount(baseAmount * (1 - (magic+resist-2) * (effectLevel / 100)  ));
+            event.setAmount(baseAmount * (1 - (magic + resist - 2) * (effectLevel / 100)));
         }
     }
-
-     */
 }

@@ -166,7 +166,7 @@ dependencies {
     implementation fg.deobf("blank:octolib-1.20.1:1")
     implementation fg.deobf("blank:more_tetra_tools-1.20.1:1")
     implementation fg.deobf("blank:packetfixer-1.20.1:1")
-    //implementation fg.deobf("blank:fantasy_ending-1.20.1:1")
+    implementation fg.deobf("blank:fantasy_ending-1.20.1:1")
     implementation fg.deobf("blank:primogemcraft-1.20.1:1")
     implementation fg.deobf("blank:slashblade-1.20.1:1")
 

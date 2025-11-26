@@ -2,6 +2,8 @@ package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.FE;
 
 import com.inolia_zaicek.more_mod_tetra.Damage.MMTTickZero;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import com.mega.uom.common.attribute.ModAttributes;
+import com.mega.uom.common.damagesource.ModDamageSources;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,7 +25,6 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
 public class FantasyArcaneEdgeEffect {
-    /*
     @OnlyIn(Dist.CLIENT)
     public static void init() {
         var statGetter = new StatGetterEffectLevel(fantasy_arcane_edgeEffect, 1);
@@ -85,6 +86,4 @@ public class FantasyArcaneEdgeEffect {
             }
         }
     }
-
-     */
 }

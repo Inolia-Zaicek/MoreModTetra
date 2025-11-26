@@ -115,6 +115,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.Malum.TotemicRunes.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft.SMCFrost;
 import com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft.SMCFrostBurst;
 import com.inolia_zaicek.more_mod_tetra.Event.BokushuuIngotEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.MMTEntityJoinLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Event.MMTFluidCollisionEvent;
 import com.inolia_zaicek.more_mod_tetra.Event.SacrificeStoneEvent;
 import com.inolia_zaicek.more_mod_tetra.Network.GhostSwordChannel;
@@ -170,7 +171,6 @@ public class MoreModTetra {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         //监听事件
-        /*
         //灾变
         if(ModList.get().isLoaded("cataclysm")) {
             MinecraftForge.EVENT_BUS.register(AbyssalCurse.class);
@@ -304,6 +304,7 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(CollapsingFear.class);
             MinecraftForge.EVENT_BUS.register(Dominion.class);
         }
+
         MinecraftForge.EVENT_BUS.register(EtheriumGuard.class);
         if(ModList.get().isLoaded("enigmaticlegacy")) {
             MinecraftForge.EVENT_BUS.register(EvilIngotMaterial.class);
@@ -533,7 +534,6 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(SoulStratification.class);
         MinecraftForge.EVENT_BUS.register(RideSkill.class);
         MinecraftForge.EVENT_BUS.register(SoulRage.class);
-         */
     }
 
     @SubscribeEvent
@@ -575,12 +575,10 @@ public class MoreModTetra {
             CuriosHaste.init();
             CuriosFireResistance.init();
             if(ModList.get().isLoaded("fantasy_ending")) {
-                /*
                 FantasyArcaneEdgeEffect.init();
                 FantasyArcaneGuardEffect.init();
                 FantasyTrace.init();
 
-                 */
                 FantasyShadow.init();
             }
             CuriosTotemEvent.init();
