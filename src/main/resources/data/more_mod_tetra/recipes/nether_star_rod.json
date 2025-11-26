@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " AA",
+        "A#A",
+        "AA "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:nether_star"
+        },
+        "A": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:nether_star_rod",
+        "count": 6
+    }
+}

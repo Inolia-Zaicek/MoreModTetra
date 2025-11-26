@@ -1,0 +1,14 @@
+[
+    {
+        "modules": [ "double/more_mod_tetra/paxel", "double/basic_pickaxe" ],
+        "tools": {
+            "pickaxe_dig": 1
+        }
+    },
+    {
+        "modules": [ "double/more_mod_tetra/paxel", "double/basic_axe" ],
+        "tools": {
+            "axe_dig": 1
+        }
+    }
+]

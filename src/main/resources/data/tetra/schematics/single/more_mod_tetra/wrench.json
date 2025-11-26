@@ -1,0 +1,41 @@
+{
+  
+  "slots": [
+    "single/head"
+  ],
+  "materialSlotCount": 1,
+  "displayType": "major",
+  "glyph": {
+    "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+    "textureX": 80,
+    "textureY": 144
+  },
+  "translation": {
+    "tools": {
+      "pry": [ 3, 2 ]
+    },
+    "primaryAttributes": {
+      "generic.attack_damage": 2
+    },
+    "secondaryAttributes": {
+      "generic.attack_damage": 1
+    },
+    "primaryEffects": {
+      "more_mod_tetra:industrial_protection": 1
+    },
+    "secondaryEffects": {
+      "more_mod_tetra:industrial_protection": 1
+    },
+    "durability": 3,
+    "integrity": -3,
+    "magicCapacity": 3
+  },
+  "outcomes": [
+    {
+      "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+      "countFactor": 1,
+      "moduleKey": "single/more_mod_tetra/wrench",
+      "moduleVariant": "wrench/"
+    }
+  ]
+}

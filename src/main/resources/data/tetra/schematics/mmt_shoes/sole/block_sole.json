@@ -1,0 +1,17 @@
+{
+    "slots": [ "mmt_shoes/sole" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:block_sole/"],
+            "countFactor": 1,
+            "moduleKey": "mmt_shoes/sole/block_sole",
+            "moduleVariant": "block_sole/"
+        }
+    ]
+}

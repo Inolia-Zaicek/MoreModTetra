@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " B",
+        "AA"
+    ],
+    "key": {
+        "A": {
+            "item": "minecraft:iron_ingot"
+        },
+        "B": {
+            "item": "minecraft:leather"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:curios_shoes",
+        "count": 1
+    }
+}

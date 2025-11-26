@@ -1,0 +1,13 @@
+[
+    {
+        "predicate": {
+            "items": [ "more_mod_tetra:curios_bracelet" ]
+        },
+        "item": "more_mod_tetra:modular_mmt_bracelet",
+        "modules": {
+            "relic/casing": [ "mmt_bracelet/base_bracelet/protect_bracelet", "protect_bracelet/iron"],
+            "relic/internal": [ "mmt_bracelet/inlay/gem", "gem/amethyst" ]
+        },
+        "improvements": {}
+    }
+]

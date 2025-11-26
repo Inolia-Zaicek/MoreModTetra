@@ -1,0 +1,39 @@
+{
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_heart_protecting_mirror/core" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": ["tetra:wood/", "tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:gem/" ],
+            "key": "health_core/",
+            "integrity": 0,
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
+            "attributes": {
+                "generic.max_health": 4
+            },
+            "extract": {
+                "secondaryAttributes": {
+                    "generic.max_health": 2
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_heart_protecting_mirror/core/health_core"
+                    }
+                ]
+            },
+            "availableTextures": [ "" ],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/mmt_heart_protecting_mirror/core/core_base"
+                }
+            ]
+        }
+    ]
+}

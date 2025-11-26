@@ -1,0 +1,57 @@
+[
+  {
+    "key": "severing_up",
+    "level": 1,
+    "integrity": -2,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "severing": [ 5, 2 ]
+    }
+  },
+  {
+    "key": "severing_up",
+    "level": 2,
+    "integrity": -3,
+    "aspects": {
+      "honed": 2
+    },
+    "effects": {
+      "severing": [ 7.5, 2 ]
+    }
+  },
+  {
+    "key": "severing_up",
+    "level": 3,
+    "integrity": -4,
+    "aspects": {
+      "honed": 3
+    },
+    "effects": {
+      "severing": [ 10, 2 ]
+    }
+  },
+  {
+    "key": "severing_up",
+    "level": 4,
+    "integrity": -5,
+    "aspects": {
+      "honed": 4
+    },
+    "effects": {
+      "severing": [ 15, 2 ]
+    }
+  },
+  {
+    "key": "severing_up",
+    "level": 5,
+    "integrity": -6,
+    "aspects": {
+      "honed": 5
+    },
+    "effects": {
+      "severing": [ 20, 3 ]
+    }
+  }
+]

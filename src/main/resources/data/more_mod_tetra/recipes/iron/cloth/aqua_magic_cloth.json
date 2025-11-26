@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition":{
+    "item":"alexscaves:pearl"
+  },
+  "base":{
+    "item":"irons_spellbooks:magic_cloth"
+  },
+  "result":{
+    "item":"more_mod_tetra:aqua_magic_cloth"
+  },
+  "template": {
+    "item": "irons_spellbooks:hogskin"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "traveloptics"
+    }
+  ]
+}

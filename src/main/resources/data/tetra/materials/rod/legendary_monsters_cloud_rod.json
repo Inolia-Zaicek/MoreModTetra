@@ -1,0 +1,36 @@
+{
+    "key": "legendary_monsters_cloud_rod",
+    "category": "misc",
+    "primary": 5,
+    "secondary": 0.9,
+    "tertiary": 5.6,
+    "durability": 209,
+    "integrityCost": 1,
+    "integrityGain": 7,
+    "magicCapacity": 150,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "bde0ee",
+        "texture": "bde0ee"
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.1,
+        "forge:attack_range": 1,
+        "forge:reach_distance": 1,
+        "**generic.movement_speed": 0.2
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": [ "legendary_monsters:cloud_rod" ]
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "legendary_monsters"
+        }
+    ]
+}

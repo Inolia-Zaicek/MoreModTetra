@@ -1,0 +1,35 @@
+{
+    
+    "slots": [ "sword/blade" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 96,
+        "textureY": 128
+    },
+    "translation": {
+        "primaryAttributes": {
+            "generic.attack_damage": 2.5,
+            "generic.armor": 0.5,
+            "generic.armor_toughness": 0.5
+        },
+        "primaryEffects": {
+            "more_mod_tetra:puncture": 2
+        },
+        "secondaryEffects": {
+            "more_mod_tetra:puncture": 1
+        },
+        "durability": 3.2,
+        "integrity": -2,
+        "magicCapacity": 3
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+            "countFactor": 2,
+            "moduleKey": "sword/more_mod_tetra/mmt_ceremonial_sword",
+            "moduleVariant": "mmt_ceremonial_sword/"
+        }
+    ]
+}

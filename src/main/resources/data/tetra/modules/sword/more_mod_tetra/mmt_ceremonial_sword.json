@@ -1,0 +1,61 @@
+{
+  
+  "slots": [ "sword/blade" ],
+  "type": "tetra:basic_major_module",
+  "improvements": [
+    "tetra:sword/basic_blade/",
+    "tetra:sword/shared_blade/",
+    "tetra:sword/shared/",
+    "tetra:shared/"
+  ],
+  "variants": [
+    {
+      "materials": [ "tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/" ],
+      "key": "mmt_ceremonial_sword/",
+      "attributes": {
+        "generic.attack_speed": -1.9,
+        "generic.armor": 1,
+        "generic.armor_toughness": 1
+      },
+      "effects": {
+        "more_mod_tetra:heavy_chop": 5,
+        "sweeping": 1.2
+      },
+      "tools": {
+        "cut": [ 1, 2 ]
+      },
+      "aspects": {
+        "breakable": 2
+      },
+      "durability": 10,
+      "tags": [ "forge:sword" ],
+      "extract": {
+        "primaryAttributes": {
+          "generic.attack_damage": 0.75,
+          "generic.armor": 0.5,
+          "generic.armor_toughness": 0.5
+        },
+        "primaryEffects": {
+          "more_mod_tetra:heavy_chop": 0.85
+        },
+        "secondaryEffects": {
+          "more_mod_tetra:heavy_chop": 0.5
+        },
+        "durability": 0.7,
+        "integrity": -1,
+        "magicCapacity": 1,
+        "glyph": {
+          "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+          "textureX": 96,
+          "textureY": 128
+        },
+        "availableTextures": [ "" ],
+        "models": [
+          {
+            "location": "more_mod_tetra:item/module/sword/more_mod_tetra/mmt_ceremonial_sword"
+          }
+        ]
+      }
+    }
+  ]
+}

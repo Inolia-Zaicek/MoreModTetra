@@ -1,0 +1,25 @@
+{
+    "slots": [ "mmt_glove/wristband" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "tertiaryAttributes": {
+            "**generic.attack_speed": 1
+        },
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/","tetra:skin/","tetra:fibre/","tetra:fabric/" ],
+            "countFactor": 1,
+            "moduleKey": "mmt_glove/wristband/swift_wristband",
+            "moduleVariant": "swift_wristband/"
+        }
+    ]
+}

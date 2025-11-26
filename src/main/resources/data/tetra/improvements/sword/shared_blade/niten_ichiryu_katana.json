@@ -1,0 +1,13 @@
+[
+  {
+    "key": "niten_ichiryu_katana",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "more_mod_tetra:niten_ichiryu_katana": 50
+    }
+  }
+]

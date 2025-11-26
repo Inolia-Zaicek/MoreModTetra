@@ -1,0 +1,37 @@
+{
+    "replace": true,
+    "key": "l2complements_poseidite",
+    "category": "metal",
+    "primary": 7.0,
+    "secondary": 1.6,
+    "tertiary": 3.1,
+    "durability": 1500,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 115,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "54ceff",
+        "texture": "54ceff"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "effects" : {
+        "more_mod_tetra:blessings_of_water": 12
+    },
+    "material": {
+        "items": [ "l2complements:poseidite_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2complements"
+        }
+    ]
+}

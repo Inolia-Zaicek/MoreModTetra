@@ -1,0 +1,27 @@
+{
+    "key": "iridium_ingot",
+    "category": "metal",
+    "primary": 6.7,
+    "secondary": 3.7,
+    "tertiary": 1.2,
+    "durability": 1190,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 130,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "D1CCC6",
+        "texture": "D1CCC6"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "tag": "forge:ingots/iridium"
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    }
+}

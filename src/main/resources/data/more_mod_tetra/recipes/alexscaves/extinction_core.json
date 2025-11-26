@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#A#"
+    ],
+    "key": {
+        "#": {
+            "item": "alexscaves:tectonic_shard"
+        },
+        "A": {
+            "item": "alexscaves:ominous_catalyst"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:extinction_core",
+        "count": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "alexscaves"
+        }
+    ]
+}

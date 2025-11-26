@@ -1,0 +1,35 @@
+{
+    "key": "caerula_arbor_ocean_fibre",
+    "category": "fibre",
+    "primary": 2,
+    "secondary": 2.5,
+    "tertiary": 2,
+    "durability": 350,
+    "integrityCost": 1,
+    "integrityGain": 4,
+    "magicCapacity": 84,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "FAFAFA",
+        "texture": "FAFAFA"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "caerula_arbor:ocean_fibre" ]
+    },
+    "requiredTools": {
+        "cut": "minecraft:stone"
+    },
+    "effects": {
+        "more_mod_tetra:sanity_hurt": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "caerula_arbor"
+        }
+    ]
+}

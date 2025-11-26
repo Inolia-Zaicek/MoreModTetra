@@ -1,0 +1,25 @@
+{
+    "replace": false,
+    "type": "tetra:toolbelt_module",
+    "slots": [ "toolbelt/slot1", "toolbelt/slot2", "toolbelt/slot3" ],
+    "slotSuffixes": ["_slot1","_slot2","_slot3" ],
+    "variants": [
+        {
+
+            "materials": [ "tetra:practical_core/"],
+            "key": "practical_core/",
+            "effects": {
+            },
+            "extract": {
+                "integrity": -1,
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [ "amethyst_radar","haste_core","obsidian_core","oxygen_tank","reverse_mirror","copper_lantern",
+                    "radiation_absorption_core","scabbord","shulker_pendant","hostility_core"],
+                "models": [ { "location": "tetra:item/module/toolbelt/practical_core/","renderLayer": "high" } ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "key": "botania_dreamwood_twig",
+    "category": "misc",
+    "primary": 5,
+    "secondary": 0.4,
+    "tertiary": 5.9,
+    "durability": 121,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 250,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "6accff",
+        "texture": "6accff"
+    },
+    "effects": {
+        "more_mod_tetra:mana_repair": 5,
+        "more_mod_tetra:mana_regeneration": 7
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": [ "botania:dreamwood_twig" ]
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "botania"
+        }
+    ]
+}

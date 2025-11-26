@@ -1,0 +1,37 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_amulet/dye" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": [ "tetra:dye/" ],
+            "key": "dye_item/",
+            "integrity": 1,
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
+            "extract": {
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "integrity": 1,
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_amulet/dye/omamori_fabric_envelope",
+                        "renderLayer": "high"
+                    }
+                ]
+            },
+            "availableTextures": [ "" ],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/mmt_amulet/dye/omamori_base",
+                    "renderLayer": "high"
+                }
+            ]
+        }
+    ]
+}

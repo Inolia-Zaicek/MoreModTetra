@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition":{
+    "item":"minecraft:ender_pearl"
+  },
+  "base":{
+    "item":"more_mod_tetra:empty_arcane_ingot"
+  },
+  "result":{
+    "item":"more_mod_tetra:ender_arcane_ingot"
+  },
+  "template": {
+    "item": "irons_spellbooks:arcane_essence"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ]
+}

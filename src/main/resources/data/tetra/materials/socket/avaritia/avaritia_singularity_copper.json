@@ -1,0 +1,43 @@
+{
+    "key": "avaritia_singularity_copper",
+    "hidden": false,
+    "category": "substance_singularity",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 2500,
+    "integrityCost": 1,
+    "integrityGain": 0,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "copper_glyph",
+        "texture": "copper"
+    },
+    "textures": [
+        "default_glow"
+    ],
+    "material":{
+        "items":["avaritia:singularity"],
+        "nbt":"{Id:\"avaritia:copper\"}"
+    },
+    "attributes": {
+        "**generic.attack_speed": 0.5,
+        "**forge:attack_range": 0.5,
+        "**forge:reach_distance": 0.5,
+        "**generic.attack_damage": 0.5,
+        "**generic.armor": 1,
+        "**generic.armor_toughness": 0.5,
+        "**tetra:draw_speed": -0.5,
+        "**tetra:draw_strength": 0.5,
+        "**generic.max_health": 0.5,
+        "**generic.movement_speed": 0.5
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "avaritia"
+        }
+    ]
+}

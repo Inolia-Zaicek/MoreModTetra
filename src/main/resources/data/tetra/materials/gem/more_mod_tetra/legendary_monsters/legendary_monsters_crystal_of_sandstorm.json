@@ -1,0 +1,36 @@
+{
+    "key": "legendary_monsters_crystal_of_sandstorm",
+    "category": "gem",
+    "primary": 6.5,
+    "secondary": 2.5,
+    "tertiary": 0,
+    "durability": 1561,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 150,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "FFD500",
+        "texture": "FFD500"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "legendary_monsters:crystal_of_sandstorm" ]
+    },
+    "effects" : {
+        "more_mod_tetra:slowness": 1
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "legendary_monsters"
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "key": "legendary_monsters_ancient_spike",
+    "category": "bone",
+    "primary": 6.1,
+    "secondary": 3,
+    "tertiary": 5,
+    "durability": 1500,
+    "integrityCost": 1,
+    "integrityGain": 5,
+    "magicCapacity": 108,
+    "toolLevel": 5,
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "6a5b5b",
+        "texture": "6a5b5b"
+    },
+    "attributes": {
+        "**generic.armor": 0.1,
+        "**generic.armor_toughness": 0.1
+    },
+    "textures": [
+        "bone",
+        "crude"
+    ],
+    "material": {
+        "items": [ "legendary_monsters:ancient_spike" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "legendary_monsters"
+        }
+    ]
+}

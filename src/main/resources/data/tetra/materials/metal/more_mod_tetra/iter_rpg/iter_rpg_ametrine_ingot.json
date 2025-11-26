@@ -1,0 +1,40 @@
+{
+    "key": "iter_rpg_ametrine_ingot",
+    "category": "metal",
+    "primary": 6,
+    "secondary": 2.9,
+    "tertiary": 3,
+    "durability": 1500,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 200,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "af46d0",
+        "texture": "af46d0"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "iter_rpg:ametrine_ingot" ]
+    },
+      "attributes": {
+        "*iter_rpg:base_ether_burnout_dissipation": 0.0125,
+        "iter_rpg:base_ether_burnout_threshold": 0.0125,
+        "iter_rpg:spell_burnout_multiplier": 0.45,
+        "iter_rpg:spell_cooldown": 0.45,
+        "iter_rpg:spellcasting_power": 0.56
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iter_rpg"
+    }
+  ]
+}

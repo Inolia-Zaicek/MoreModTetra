@@ -1,0 +1,41 @@
+{
+    "key": "traveloptics_hullbreaker_steel",
+    "category": "metal",
+    "primary": 10.54,
+    "secondary": 5.2,
+    "tertiary": 3.1,
+    "durability": 4000,
+    "integrityCost": 2,
+    "integrityGain": 10,
+    "magicCapacity": 2000,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "1f3143",
+        "texture": "1f3143"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "traveloptics:hullbreaker_steel" ]
+    },
+        "effects" : {
+      "more_mod_tetra:ender_arcane_edge": 30,
+          "more_mod_tetra:underocean": 5,
+          "more_mod_tetra:abyssal_ocean_echo": 15
+        },
+      "attributes": {
+        "**traveloptics:aqua_spell_power": 0.075
+  },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "traveloptics"
+    }
+  ]
+}

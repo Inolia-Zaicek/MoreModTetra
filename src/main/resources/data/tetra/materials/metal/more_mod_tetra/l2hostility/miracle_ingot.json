@@ -1,0 +1,47 @@
+{
+    "key": "miracle_ingot",
+    "category": "metal",
+    "primary": 12.4,
+    "secondary": 4.91,
+    "tertiary": 5.42,
+    "durability": 2031,
+    "integrityCost": 2,
+    "integrityGain": 10,
+    "magicCapacity": 90,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "0071ea",
+        "texture": "0071ea"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "effects" : {
+        "more_mod_tetra:miracle_and_magic": 7
+    },
+    "attributes": {
+        "**generic.attack_speed": 0.07,
+        "**forge:attack_range": 0.07,
+        "**forge:reach_distance": 0.07,
+        "**generic.attack_damage": 0.07,
+        "**generic.armor": 0.07,
+        "**generic.armor_toughness": 0.07,
+        "**tetra:draw_speed": -0.07,
+        "**tetra:draw_strength": 0.07,
+        "**generic.max_health": 0.07
+    },
+    "material": {
+        "items": [ "l2hostility:miracle_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2complements"
+        }
+    ]
+}

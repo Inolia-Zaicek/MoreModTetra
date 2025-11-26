@@ -1,0 +1,42 @@
+{
+  "key": "iceandfire_ice_dragonsteel_core",
+  "hidden": false,
+  "category": "over_core",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 300,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "aed4ea",
+    "texture": "aed4ea"
+  },
+  "textures": [
+    "perk_glow_0",
+    "perk_sided_0"
+],
+  "material": {
+    "items": [
+      "more_mod_tetra:ice_dragonsteel_core"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:ice_dragonsteel_material": 30,
+    "more_mod_tetra:ice_dragon_power": 30
+  },
+  "attributes": {
+    "**generic.attack_damage": 0.1,
+    "**tetra:draw_damage": 0.1,
+    "**tetra:ability_damage": 0.1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ]
+}

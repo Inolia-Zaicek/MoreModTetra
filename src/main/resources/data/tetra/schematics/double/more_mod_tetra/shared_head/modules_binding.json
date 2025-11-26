@@ -1,0 +1,23 @@
+{
+    
+    "slots": [
+        "double/handle"
+    ],
+    "rarity": "temporary",
+    "displayType": "improvement",
+    "materialSlotCount": 1,
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 112,
+        "textureY": 64
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:wood/", "tetra:stone/", "tetra:metal/", "tetra:gem/", "tetra:bone/","tetra:fibre/", "tetra:skin/", "tetra:fabric/"],
+            "countFactor": 1,
+            "improvements": {
+                "modules_binding/": 0
+            }
+        }
+    ]
+}

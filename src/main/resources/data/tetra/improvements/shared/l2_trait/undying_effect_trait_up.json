@@ -1,0 +1,13 @@
+[
+  {
+    "key": "undying_effect_trait_up",
+    "level": 1,
+    "integrity": -5,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "more_mod_tetra:undying_effect_trait": 1
+    }
+  }
+]

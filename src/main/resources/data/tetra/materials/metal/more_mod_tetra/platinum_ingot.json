@@ -1,0 +1,27 @@
+{
+    "key": "platinum_ingot",
+    "category": "metal",
+    "primary": 6.0,
+    "secondary": 3.55,
+    "tertiary": 2.8,
+    "durability": 1100,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 180,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "C6F8FC",
+        "texture": "C6F8FC"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "tag": "forge:ingots/platinum"
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    }
+}

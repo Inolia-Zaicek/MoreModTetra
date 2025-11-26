@@ -1,0 +1,18 @@
+[
+  {
+    "key": "sun_shooting_bow_strife_forged",
+    "level": 0,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "attributes": {
+      "**tetra:draw_speed": -0.25,
+      "**tetra:draw_strength": 0.25
+    },
+    "effects": {
+      "suspend": 30,
+      "more_mod_tetra:shooting_sun": 15
+    }
+  }
+]

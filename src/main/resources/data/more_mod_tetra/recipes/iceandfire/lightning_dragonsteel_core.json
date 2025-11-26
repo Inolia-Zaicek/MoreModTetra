@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "B#B",
+        "#A#",
+        "B#B"
+    ],
+    "key": {
+        "#": {
+            "item": "iceandfire:dragonsteel_lightning_ingot"
+        },
+        "A": {
+            "item": "minecraft:ender_eye"
+        },
+        "B": {
+            "item": "iceandfire:lightning_dragon_heart"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:lightning_dragonsteel_core",
+        "count": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "iceandfire"
+        }
+    ]
+}

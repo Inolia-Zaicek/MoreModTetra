@@ -1,0 +1,36 @@
+{
+    "key": "composite_material_prismarine_alloy_ingot",
+    "category": "metal",
+    "primary": 4.7,
+    "secondary": 2.6,
+    "tertiary": 2.8,
+    "durability": 285,
+    "integrityCost": 1,
+    "integrityGain": 5,
+    "magicCapacity": 128,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 5,
+    "tints": {
+        "glyph": "6db7ac",
+        "texture": "6db7ac"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "composite_material:prismarine_alloy_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:extra_aquatic_products": 1
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "composite_material"
+        }
+    ]
+}

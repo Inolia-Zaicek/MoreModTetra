@@ -1,0 +1,37 @@
+{
+    "key": "composite_material_dungeon_steel_ingot",
+    "category": "metal",
+    "primary": 6.6,
+    "secondary": 4.2,
+    "tertiary": 1.1,
+    "durability": 1024,
+    "integrityCost": 2,
+    "integrityGain": 7,
+    "magicCapacity": 60,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "3f6177",
+        "texture": "3f6177"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "composite_material:dungeon_steel_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:capturing": 1,
+        "more_mod_tetra:vampiric": 10
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "composite_material"
+        }
+    ]
+}

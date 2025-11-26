@@ -1,0 +1,36 @@
+{
+    "key": "astral_planks",
+    "category": "wood",
+    "primary": 4.5,
+    "secondary": 2.5,
+    "tertiary": 10.5,
+    "durability": 1065,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 90,
+    "toolLevel": "minecraft:gold",
+    "toolEfficiency": 4,
+    "tints": {
+        "glyph": "B4B3DD",
+        "texture": "B4B3DD"
+    },
+    "textures": [
+        "crude",
+        "wooden"
+    ],
+    "material": {
+        "items": [ "enigmaticdelicacy:astral_planks" ]
+    },
+    "effects": {
+        "unbreaking": 1
+    },
+    "requiredTools": {
+        "axe_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "enigmaticdelicacy"
+        }
+    ]
+}

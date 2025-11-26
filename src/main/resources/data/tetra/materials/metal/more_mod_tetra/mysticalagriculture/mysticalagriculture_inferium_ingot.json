@@ -1,0 +1,35 @@
+{
+    "key": "mysticalagriculture_inferium_ingot",
+    "category": "metal",
+    "primary": 7.5,
+    "secondary": 3.2,
+    "tertiary": 3.5,
+    "durability": 2000,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 100,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "8FAF00",
+        "texture": "8FAF00"
+    },
+    "textures": [
+        "metal"
+    ],
+    "material": {
+        "items": [ "mysticalagriculture:inferium_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:growing": 1
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "mysticalagriculture"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_necklace/pendant" ],
+    "renderLayer": "higher",
+    "improvements": [],
+    "variants": [
+        {
+            "materials": ["tetra:gem/" ],
+            "key": "arcane/",
+            "integrity": 0,
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "**irons_spellbooks:mana_regen": 0.03
+                },
+                "secondaryAttributes": {
+                    "irons_spellbooks:max_mana": 25
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_necklace/pendant/arcane",
+                        "renderLayer": "high"
+                    }
+                ]
+            },
+            "availableTextures": [ "" ],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/mmt_necklace/pendant/arcane_base",
+                    "renderLayer": "high"
+                }
+            ]
+        }
+    ]
+}

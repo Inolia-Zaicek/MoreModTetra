@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "torchesbecomesunlight:winter_pass"
+        }
+    ],
+    "result": {
+        "item": "more_mod_tetra:attainment_point",
+        "count": 4
+    }
+}

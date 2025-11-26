@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "AAA",
+        "A A"
+    ],
+    "key": {
+        "A": {
+            "item": "more_mod_tetra:rhodes_island_standard_ingot"
+        }
+    },
+    "result": {
+        "item": "torchesbecomesunlight:preparation_op_helmet",
+        "count": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "torchesbecomesunlight"
+        }
+    ]
+}

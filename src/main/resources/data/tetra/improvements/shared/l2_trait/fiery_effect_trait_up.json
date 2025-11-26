@@ -1,0 +1,13 @@
+[
+  {
+    "key": "fiery_effect_trait_up",
+    "level": 1,
+    "integrity": -1,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "more_mod_tetra:fiery_effect_trait": 1
+    }
+  }
+]

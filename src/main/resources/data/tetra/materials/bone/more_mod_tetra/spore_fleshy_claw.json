@@ -1,0 +1,40 @@
+{
+    "key": "spore_fleshy_claw",
+    "category": "bone",
+    "primary": 10.6,
+    "secondary": 1.7,
+    "tertiary": 2.4,
+    "durability": 750,
+    "integrityCost": 1,
+    "integrityGain": 7,
+    "magicCapacity": 180,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "e1d1b0",
+        "texture": "e1d1b0"
+    },
+    "attributes": {
+        "forge:attack_range": 0.5,
+        "forge:reach_distance": 0.5
+    },
+    "effects" : {
+        "armorPenetration": 15
+    },
+    "textures": [
+        "bone",
+        "crude"
+    ],
+    "material": {
+        "items": [ "spore:fleshy_claw" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "spore"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+  "key": "projecte_dark_matter",
+  "category": "metal",
+  "primary": 11.5,
+  "secondary": 5,
+  "tertiary": 1,
+  "durability": 9999,
+  "integrityCost": 2,
+  "integrityGain": 10,
+  "magicCapacity": 200,
+  "toolLevel": "minecraft:netherite",
+  "toolEfficiency": 12,
+  "tints": {
+    "glyph": "000000",
+    "texture": "000000"
+  },
+  "textures": [
+    "metal",
+    "default"
+  ],
+  "material": {
+    "items": [ "projecte:dark_matter" ]
+  },
+  "effects" : {
+    "more_mod_tetra:melee_attack_combo": [30,3]
+  },
+  "requiredTools": {
+    "hammer_dig": "minecraft:gold"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "projecte"
+    }
+  ],
+  "contexts": {
+    "armor": {
+      "effects": {
+        "more_mod_tetra:armor_sturdy": 2,
+        "more_mod_tetra:armor_tenacity": 25
+      }
+    }
+  }
+}

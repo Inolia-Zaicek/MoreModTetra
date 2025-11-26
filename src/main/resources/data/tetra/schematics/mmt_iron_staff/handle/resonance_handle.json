@@ -1,0 +1,30 @@
+{
+    "slots": [ "mmt_iron_staff/handle" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "primaryAttributes": {
+            "irons_spellbooks:max_mana": 1,
+            "irons_spellbooks:mana_regen": 1
+        },
+        "secondaryAttributes": {
+            "irons_spellbooks:mana_regen": 3,
+            "generic.attack_speed": -1
+        },
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/",  "tetra:rod/" ],
+            "countFactor": 2,
+            "moduleKey": "mmt_iron_staff/handle/resonance_handle",
+            "moduleVariant": "resonance_handle/"
+        }
+    ]
+}

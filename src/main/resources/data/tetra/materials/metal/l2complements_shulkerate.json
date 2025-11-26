@@ -1,0 +1,42 @@
+{
+    "replace": true,
+    "key": "l2complements_shulkerate",
+    "category": "metal",
+    "primary": 6.9,
+    "secondary": 2.3,
+    "tertiary": 2,
+    "durability": 4000,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 100,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "cf56ff",
+        "texture": "cf56ff"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "effects" : {
+        "more_mod_tetra:hiding_in_shulker_shell": 10,
+        "unbreaking": 1,
+        "reaching": [
+            10,
+            0.45
+        ]
+    },
+    "material": {
+        "items": [ "l2complements:shulkerate_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2complements"
+        }
+    ]
+}

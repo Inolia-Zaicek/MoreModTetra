@@ -1,0 +1,24 @@
+{
+    "key": "paper",
+    "category": "fabric",
+    "primary": 0.1,
+    "secondary": 1,
+    "tertiary": 7,
+    "durability": 100,
+    "integrityCost": 1,
+    "integrityGain": 4,
+    "magicCapacity": 90,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "ffffff",
+        "texture": "ffffff"
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": "minecraft:paper"
+    }
+}

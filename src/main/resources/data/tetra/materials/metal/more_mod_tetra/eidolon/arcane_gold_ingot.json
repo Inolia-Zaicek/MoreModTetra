@@ -1,0 +1,37 @@
+{
+    "key": "arcane_gold_ingot",
+    "category": "metal",
+    "primary": 5.5,
+    "secondary": 2.9,
+    "tertiary": 0,
+    "durability": 1561,
+    "integrityCost": 2,
+    "integrityGain": 2,
+    "magicCapacity": 60,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "fcc028",
+        "texture": "fcc028"
+    },
+    "textures": [
+        "shiny",
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "eidolon:arcane_gold_ingot" ]
+    },
+    "effects": {
+        "more_mod_tetra:soul_shard": 2
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "eidolon"
+        }
+    ]
+}

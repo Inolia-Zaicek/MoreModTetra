@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "minecraft:dragon_breath"
+        },
+        {
+            "tag": "forge:ingots"
+        }
+    ],
+    "result": {
+        "item": "more_mod_tetra:dragon_breath_ingot",
+        "count": 1
+    }
+}

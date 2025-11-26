@@ -1,0 +1,36 @@
+{
+    "key": "mysticalagriculture_supremium_ingot",
+    "category": "metal",
+    "primary": 23.1,
+    "secondary": 3.2,
+    "tertiary": 3.5,
+    "durability": 9999,
+    "integrityCost": 2,
+    "integrityGain": 10,
+    "magicCapacity": 250,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "E20000",
+        "texture": "E20000"
+    },
+    "textures": [
+        "metal"
+    ],
+    "material": {
+        "items": [ "mysticalagriculture:supremium_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:growing": 3,
+        "more_mod_tetra:ripening_halo": 2
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "mysticalagriculture"
+        }
+    ]
+}

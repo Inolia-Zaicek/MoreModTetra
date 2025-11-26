@@ -1,0 +1,37 @@
+{
+    "key": "alloy_infused",
+    "category": "metal",
+    "primary": 5.6,
+    "secondary": 4.3,
+    "tertiary": 3.5,
+    "durability": 500,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 84,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "FA0404",
+        "texture": "FA0404"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "mekanism:alloy_infused" ]
+    },
+    "effects" : {
+        "more_mod_tetra:industrial_protection": 1,
+        "unbreaking": 1
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "mekanism"
+        }
+    ]
+}

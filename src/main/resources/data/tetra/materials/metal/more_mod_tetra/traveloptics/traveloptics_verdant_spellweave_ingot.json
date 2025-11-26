@@ -1,0 +1,41 @@
+{
+    "key": "traveloptics_verdant_spellweave_ingot",
+    "category": "metal",
+    "primary": 10.54,
+    "secondary": 5.2,
+    "tertiary": 3.1,
+    "durability": 4000,
+    "integrityCost": 2,
+    "integrityGain": 10,
+    "magicCapacity": 2000,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "41d162",
+        "texture": "41d162"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "traveloptics:verdant_spellweave_ingot" ]
+    },
+        "effects" : {
+      "more_mod_tetra:nature_arcane_edge": 30,
+          "more_mod_tetra:blessing_of_amethyst": 1
+        },
+      "attributes": {
+      "**irons_spellbooks:nature_spell_power": 0.055,
+      "**irons_spellbooks:ender_spell_power": 0.055
+  },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "traveloptics"
+    }
+  ]
+}

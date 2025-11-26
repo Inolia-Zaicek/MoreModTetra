@@ -1,0 +1,36 @@
+{
+    "key": "bobsoriginiumdream_losewaystone",
+    "category": "ori_worm_skin",
+    "primary": 11.24,
+    "secondary": 4.9,
+    "tertiary": 1.2,
+    "durability": 1500,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 150,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "c758fc",
+        "texture": "c758fc"
+    },
+    "effects": {
+        "more_mod_tetra:vampiric": 20
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "bobsoriginiumdream:losewaystone" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "bobsoriginiumdream"
+        }
+    ]
+}

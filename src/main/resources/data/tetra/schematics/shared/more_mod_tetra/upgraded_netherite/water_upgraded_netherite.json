@@ -1,0 +1,70 @@
+{
+    
+    "slots": [
+        "sword/blade",
+"mmt_iron_staff/head",
+"modular_musket/barrel",
+"modular_amiya_staff/head_crystal",
+"modular_mtt_chainsword/saw",
+"modular_trident/primary_blade",
+        "sword/hilt",
+        "slashblade/blade",
+        "greatsword/blade",
+        "greatsword/hilt",
+        "polearm/head",
+        "polearm/handle",
+        "single/head",
+        "single/handle",
+        "double/head_left",
+        "double/head_right",
+        "double/handle",
+        "bow/stave",
+        "bow/string",
+        "crossbow/stave",
+        "crossbow/stock",
+        "shield/plate",
+        "shield/grip"
+    ],
+    "materialSlotCount": 1,
+    "rarity": "temporary",
+    "displayType": "improvement",
+    "glyph": {
+        "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
+        "textureX": 112,
+        "textureY": 64
+    },
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "water_upgraded_netherite"
+                }
+            },
+            {
+                "type": "tetra:aspect",
+                "aspect": "upgraded_netherite",
+                "level": {
+                    "max": 2
+                }
+            },
+            {
+                "type": "tetra:locked",
+                "key": "tetra:shared/mmt_upgraded_netherite"
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "minecraft:prismarine_crystals" ],
+                "count":4
+            },
+            "improvements": {
+                "water_upgraded_netherite": 0
+            }
+        }
+    ]
+}

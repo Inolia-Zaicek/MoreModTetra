@@ -1,0 +1,28 @@
+{
+    "replace": false,
+    "type": "tetra:basic_major_module",
+    "slots": [ "toolbelt/belt" ],
+    "improvements": [
+        "tetra:shared/l2_trait/",
+        "tetra:shared/"
+    ],
+    "variants": [
+        {
+            "key": "belt_socket",
+            "integrity": 10,
+            "glyph": {
+                "textureY": 112
+            },
+            "aspects": {
+                "strap": 2
+            },
+            "effects": {
+            },
+            "models": [
+                {
+                    "location": "tetra:item/module/toolbelt/belt/belt_socket"
+                }
+            ]
+        }
+    ]
+}

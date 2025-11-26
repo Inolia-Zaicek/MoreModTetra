@@ -1,0 +1,33 @@
+{
+    "key": "terramity_cosmilite_ingot",
+    "category": "metal",
+    "primary": 8.24,
+    "secondary": 2.9,
+    "tertiary": 3.5,
+    "durability": 2031,
+    "integrityCost": 2,
+    "integrityGain": 7,
+    "magicCapacity": 100,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "7333d2",
+        "texture": "7333d2"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "terramity:cosmilite_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "terramity"
+        }
+    ]
+}

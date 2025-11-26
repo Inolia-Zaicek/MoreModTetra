@@ -1,0 +1,82 @@
+[
+  {
+    "key": "tanky_effect_trait_up",
+    "level": 1,
+    "integrity": -3,
+    "aspects": {
+      "honed": 1
+    },
+    "effects": {
+      "more_mod_tetra:tanky_effect_trait": 1
+    },
+    "attributes": {
+      "**generic.max_health": 0.5,
+      "generic.armor": 10,
+      "generic.armor_toughness": 4
+    }
+  },
+  {
+    "key": "tanky_effect_trait_up",
+    "level": 2,
+    "integrity": -3,
+    "aspects": {
+      "honed": 2
+    },
+    "effects": {
+      "more_mod_tetra:tanky_effect_trait": 2
+    },
+    "attributes": {
+      "**generic.max_health": 1,
+      "generic.armor": 20,
+      "generic.armor_toughness": 8
+    }
+  },
+  {
+    "key": "tanky_effect_trait_up",
+    "level": 3,
+    "integrity": -3,
+    "aspects": {
+      "honed": 3
+    },
+    "effects": {
+      "more_mod_tetra:tanky_effect_trait": 3
+    },
+    "attributes": {
+      "**generic.max_health": 1.5,
+      "generic.armor": 20,
+      "generic.armor_toughness": 12
+    }
+  },
+  {
+    "key": "tanky_effect_trait_up",
+    "level": 4,
+    "integrity": -3,
+    "aspects": {
+      "honed": 4
+    },
+    "effects": {
+      "more_mod_tetra:tanky_effect_trait": 4
+    },
+    "attributes": {
+      "**generic.max_health": 2,
+      "generic.armor": 40,
+      "generic.armor_toughness": 16
+    }
+  },
+  {
+    "key": "tanky_effect_trait_up",
+    "level": 5,
+    "integrity": -3,
+    "aspects": {
+      "honed": 5
+    },
+    "effects": {
+      "more_mod_tetra:tanky_effect_trait": 5
+    },
+    "attributes": {
+      "**generic.max_health": 2.5,
+      "generic.armor": 50,
+      "generic.armor_toughness": 20
+    }
+  }
+]

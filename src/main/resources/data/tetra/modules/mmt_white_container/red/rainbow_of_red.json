@@ -1,0 +1,26 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_white_container/red" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": [ "tetra:rainbow/" ],
+            "key": "rainbow_of_red/",
+            "extract": {
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "integrity": -1
+            },
+            "availableTextures": [ "" ],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/mmt_white_container/1/default",
+                    "renderLayer": "high"
+                }
+            ]
+        }
+    ]
+}

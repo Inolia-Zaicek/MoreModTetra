@@ -1,0 +1,33 @@
+{
+    "key": "caerula_arbor_ocean_crystal",
+    "category": "gem",
+    "primary": 8.11,
+    "secondary": 3.9,
+    "tertiary": 1.5,
+    "durability": 350,
+    "integrityCost": 2,
+    "integrityGain": 7,
+    "magicCapacity": 34,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "A5A3B3",
+        "texture": "A5A3B3"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "caerula_arbor:ocean_crystal" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "caerula_arbor"
+        }
+    ]
+}

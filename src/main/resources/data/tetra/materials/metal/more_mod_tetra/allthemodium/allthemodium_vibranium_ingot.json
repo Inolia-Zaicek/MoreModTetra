@@ -1,0 +1,33 @@
+{
+    "key": "allthemodium_vibranium_ingot",
+    "category": "metal",
+    "primary": 21.24,
+    "secondary": 1.0,
+    "tertiary": 10.5,
+    "durability": 15000,
+    "integrityCost": 2,
+    "integrityGain": 10,
+    "magicCapacity": 600,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 15,
+    "tints": {
+        "glyph": "26db86",
+        "texture": "26db86"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "allthemodium:vibranium_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "avaritia"
+        }
+    ]
+}

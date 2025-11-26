@@ -1,0 +1,37 @@
+{
+    "key": "elementium_ingot",
+    "category": "metal",
+    "primary": 6.2,
+    "secondary": 4.5,
+    "tertiary": 3.1,
+    "durability": 1050,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 500,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "ff56d4",
+        "texture": "ff56d4"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "effects": {
+        "more_mod_tetra:pixie_summon": 20,
+        "more_mod_tetra:mana_regeneration": 5
+    },
+    "material": {
+        "items": [ "botania:elementium_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "botania"
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "key": "fake_hepatizon_ingot",
+    "category": "metal",
+    "primary": 5.19,
+    "secondary": 1.9,
+    "tertiary": 7.5,
+    "durability": 1149,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 100,
+    "toolLevel": "minecraft:diamond",
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "5E4769",
+        "texture": "5E4769"
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "tconstruct:hepatizon_ingot" ]
+    },
+    "effects" : {
+        "more_mod_tetra:fake_momentum": 25
+    },
+    "attributes": {
+        "**tetra:draw_speed": -0.25
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "tconstruct"
+        }
+    ]
+}

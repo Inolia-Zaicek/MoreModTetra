@@ -1,0 +1,37 @@
+{
+    "key": "hydra_fang",
+    "category": "bone",
+    "primary": 4.1,
+    "secondary": 3,
+    "tertiary": 2,
+    "durability": 120,
+    "integrityCost": 1,
+    "integrityGain": 6,
+    "magicCapacity": 108,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "efe8d5",
+        "texture": "efe8d5"
+    },
+    "effects" : {
+        "armorPenetration": 20,
+        "more_mod_tetra:poison": 1
+    },
+    "textures": [
+        "bone",
+        "crude"
+    ],
+    "material": {
+        "items": [ "iceandfire:hydra_fang" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "iceandfire"
+        }
+    ]
+}
