@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -38,44 +39,14 @@ public class OdeToCyrene {
         if (MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
             //攻击
             if (event.getSource().getEntity() instanceof LivingEntity player) {
-                var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, odeToCyreneEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, odeToCyreneEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,odeToCyreneEffect);
                 if (effectLevel > 0) {
                     float number = (float) effectLevel / 100;
                     float damage = player.getMaxHealth();
                     event.setAmount(event.getAmount()+damage*number);
                 }
             } else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
-                var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, odeToCyreneEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, odeToCyreneEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,odeToCyreneEffect);
                 if (effectLevel > 0) {
                     float number = (float) effectLevel / 100;
                     float damage = player.getMaxHealth();

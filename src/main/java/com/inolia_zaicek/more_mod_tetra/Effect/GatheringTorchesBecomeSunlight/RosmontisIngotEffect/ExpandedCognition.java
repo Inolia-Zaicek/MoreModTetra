@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.RosmontisIngotEffect;
 
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -8,7 +9,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -19,7 +19,6 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import java.util.Random;
@@ -44,24 +43,9 @@ public class ExpandedCognition {
     public static void hurt(LivingHurtEvent event) {
 
         if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
-            float damage=event.getAmount();
                 var mob = event.getEntity();
-                ItemStack mainHandItem = livingEntity.getMainHandItem();
-                ItemStack offhandItem = livingEntity.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, expandedCognitionEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, expandedCognitionEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
-                if (effectLevel > 0) {
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,expandedCognitionEffect);
+            if (effectLevel > 0) {
                     mob.invulnerableTime=0;
                     if(livingEntity instanceof Player player) {
                         mob.setLastHurtByPlayer(player);
@@ -73,19 +57,7 @@ public class ExpandedCognition {
                     }
             }
                 //二技能
-            int effectLevel2 = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, nociceptorInhibitionEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel2 += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, nociceptorInhibitionEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel2 += (int) offEffectLevel;
-                }
-            }
+            float effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,nociceptorInhibitionEffect);
             if (effectLevel2 > 0) {
                 if(MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
                     var mobList = MMTUtil.mobList(3,mob);

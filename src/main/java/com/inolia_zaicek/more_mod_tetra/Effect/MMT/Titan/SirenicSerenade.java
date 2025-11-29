@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -39,21 +40,7 @@ public class SirenicSerenade {
             if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
                 var map = mob.getActiveEffectsMap();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                float effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, sirenicSerenadeEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, sirenicSerenadeEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += offEffectLevel;
-                    }
-                }
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,sirenicSerenadeEffect);
                 if (effectLevel > 0) {
                     Random random = new Random();
                     int debuffNumber =0;

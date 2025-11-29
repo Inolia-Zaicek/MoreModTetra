@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect;
 
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -35,21 +36,7 @@ public class MarchingTimeHurt {
     public static void hurt(LivingHurtEvent event) {
         if(event.getEntity()!=null){
             LivingEntity livingEntity=event.getEntity();
-            ItemStack mainHandItem = livingEntity.getMainHandItem();
-            ItemStack offhandItem = livingEntity.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, marchingTimeEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel +=  mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, marchingTimeEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,marchingTimeEffect);
             if (effectLevel > 0&&livingEntity.hasEffect(MMTEffectsRegister.MarchingTime.get())) {
                 int buffLevel =1 + livingEntity.getEffect(MMTEffectsRegister.MarchingTime.get()).getAmplifier();
                 event.setAmount(event.getAmount()*( 1-(buffLevel*0.15f) ));

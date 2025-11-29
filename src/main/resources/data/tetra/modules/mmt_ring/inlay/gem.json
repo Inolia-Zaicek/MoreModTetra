@@ -17,7 +17,7 @@
                     "textureY": 48
                 },
                 "primaryEffects": {
-                    "more_mod_tetra:curios_critical_strike": [ 3 , 0 ]
+                    "more_mod_tetra:curios_critical_strike": [ 2.5 , 0 ]
                 },
                 "availableTextures": [ "" ],
                 "models": [

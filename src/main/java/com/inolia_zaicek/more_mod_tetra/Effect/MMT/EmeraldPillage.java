@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -8,7 +9,6 @@ import net.minecraft.world.entity.monster.Pillager;
 import net.minecraft.world.entity.monster.Vindicator;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.WanderingTrader;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
@@ -21,7 +21,6 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -45,21 +44,7 @@ public class EmeraldPillage {
         //攻击
         if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, emeraldPillageEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, emeraldPillageEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,emeraldPillageEffect);
             if (effectLevel > 0) {
                 if (mob instanceof Villager ||mob instanceof Pillager ||mob instanceof WanderingTrader ||mob instanceof Evoker ||mob instanceof Vindicator) {
                     Level level = mob.level();
@@ -76,21 +61,7 @@ public class EmeraldPillage {
             }
         }else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, emeraldPillageEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, emeraldPillageEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,emeraldPillageEffect);
             if (effectLevel > 0) {
                 if (mob instanceof Villager ||mob instanceof Pillager ||mob instanceof WanderingTrader ||mob instanceof Evoker ||mob instanceof Vindicator) {
                     Level level = mob.level();

@@ -45,7 +45,7 @@ public class StarBurstStream {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offHandItem = player.getOffhandItem();
                 int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof ItemModularHandheld item&&mainHandItem.getItem() instanceof ItemModularHandheld item2) {
+                if (mainHandItem.getItem() instanceof ItemModularHandheld item&&offHandItem.getItem() instanceof ItemModularHandheld item2) {
                     int mainEffectLevel = item.getEffectLevel(mainHandItem, starBurstStreamEffect);
                     int offEffectLevel = item2.getEffectLevel(offHandItem, starBurstStreamEffect);
                     //双等级＞0，近战

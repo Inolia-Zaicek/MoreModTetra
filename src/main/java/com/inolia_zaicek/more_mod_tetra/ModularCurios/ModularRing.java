@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriousHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTTargetMode;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -146,17 +147,20 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
     }
     // 使用此物品（右键点击），切换显示模式
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, @NotNull Player pPlayer, @NotNull InteractionHand pUsedHand) {
-        if (pPlayer.isShiftKeyDown() && !pLevel.isClientSide&&
-                // 对追踪词条进行判断
-                MMTCuriosHelper.getInstance().getCuriosEffectLevel(pPlayer, curiosProjectileTrackingEffect) > 0) {
-            // 按住Shift时，切换AngelSight的“模式”，将模式存储在玩家的PersistentData里
-            // 以前存储在ItemStack的NBT中，现在改为存储在玩家的PersistentData
-            CompoundTag playerData = pPlayer.getPersistentData(); // 获取玩家的持久化数据
-            int mode = playerData.getInt(Tracking_Mode); // 读取存储的模式（默认0）
-            mode = (mode + 1) % 3; // 模式轮换：0,1,2
-            playerData.putInt(Tracking_Mode, mode); // 保存更新后的模式到玩家数据
-            pPlayer.sendSystemMessage(Component.translatable("eidolon.angels_sight.mode." + mode));
-            return InteractionResultHolder.success(ItemStack.EMPTY); // 不用返回物品，避免影响
+        if (pPlayer.isShiftKeyDown() &&
+                MMTEffectHelper.getInstance().getMainHandEffectLevel(pPlayer, curiosProjectileTrackingEffect) > 0) {
+            // 获取玩家的持久化数据
+            CompoundTag playerData = pPlayer.getPersistentData();
+            // 读取当前模式，默认为0
+            int mode = playerData.getInt(Tracking_Mode);
+            // 轮换模式：0→1→2→0
+            mode = (mode + 1) % 3;
+            playerData.putInt(Tracking_Mode, mode);
+            if(!pPlayer.level().isClientSide()) {
+                pPlayer.sendSystemMessage(Component.translatable("more_mod_tetra.curios_projectile_tracking.mode." + mode));
+            }
+            pPlayer.getCooldowns().addCooldown(this, 10);//设置冷却时间
+            return super.use(pLevel, pPlayer, pUsedHand);
         } else {
             return super.use(pLevel, pPlayer, pUsedHand);
         }
@@ -165,26 +169,26 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
     private static final String Tracking_Mode = MoreModTetra.MODID + ":tracking_mode_nbt";
 
     // 在物品提示里显示当前模式（读取玩家的PersistentData）
+    @OnlyIn(Dist.CLIENT)
     public void appendHoverText(@NotNull ItemStack stack, Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
         super.appendHoverText(stack, level, tooltip, flag);
-        // 获取玩家的PersistentData（需要传入玩家对象，这里示例假设获取到对应玩家，实际应用中应在调用时传入玩家对象）
-        // 因为这个方法不带玩家参数，实际使用时你可能需要在调用时传入玩家对象
-        // 示例：假设当前在某个上下文中能获取玩家对象，比如在事件中
-        // 这里简化处理：假设有个全局或已知的玩家引用player（需要你调整调用方式）
-        Player player = Minecraft.getInstance().player; // 你需要自己传入或定义这个方法获取当前玩家
-        if (player!=null&&
-                // 对追踪词条进行判断
-                MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileTrackingEffect) > 0) {
-            CompoundTag playerData = player.getPersistentData();
-            int mode = playerData.getInt(Tracking_Mode); // 获取玩家当前的模式
+        if(level.isClientSide()) {
+            //手持戒指的情况下，右键
+            Player player = Minecraft.getInstance().player; // 你需要自己传入或定义这个方法获取当前玩家
+            if (player != null &&
+                    // 对追踪词条进行判断
+                    MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileTrackingEffect) > 0) {
+                CompoundTag playerData = player.getPersistentData();
+                int mode = playerData.getInt(Tracking_Mode); // 获取玩家当前的模式
 
-            String modeDescription;
-            switch (mode) {
-                case 1 -> modeDescription = "lore.eidolon.angels_sight.mode.1";
-                case 2 -> modeDescription = "lore.eidolon.angels_sight.mode.2";
-                default -> modeDescription = "lore.eidolon.angels_sight.mode.3";
+                String modeDescription;
+                switch (mode) {
+                    case 1 -> modeDescription = "lore.more_mod_tetra.curios_projectile_tracking.mode.1";
+                    case 2 -> modeDescription = "lore.more_mod_tetra.curios_projectile_tracking.mode.2";
+                    default -> modeDescription = "lore.more_mod_tetra.curios_projectile_tracking.mode.3";
+                }
+                tooltip.add(Component.translatable(modeDescription).withStyle(ChatFormatting.GRAY));
             }
-            tooltip.add(Component.translatable(modeDescription).withStyle(ChatFormatting.DARK_GRAY));
         }
     }
     // 关键部分：当实体加入到某个层级（世界）时触发
@@ -197,7 +201,7 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
             if (owner instanceof Player player &&
                     // 对追踪词条进行判断
                     MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileTrackingEffect) > 0
-            &&player.getMainHandItem().isEmpty()&&player.getOffhandItem().isEmpty() ) {
+            ) {
                 // 获取玩家存储的追踪模式（已修改存储在玩家PersistentData中）
                 // 你需要传入正确的玩家对象，这里假设已获取到player
                 CompoundTag playerData = player.getPersistentData();

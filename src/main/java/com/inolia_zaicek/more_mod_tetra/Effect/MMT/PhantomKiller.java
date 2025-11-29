@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -46,21 +47,7 @@ public class PhantomKiller {
         //攻击
         if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, phantomKillerEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, phantomKillerEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,phantomKillerEffect);
             if (effectLevel > 0) {
                 if (mob instanceof Phantom) {
                     event.setAmount(event.getAmount() + effectLevel);
@@ -68,21 +55,7 @@ public class PhantomKiller {
             }
         }else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, phantomKillerEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, phantomKillerEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,phantomKillerEffect);
             if (effectLevel > 0) {
                 if (mob instanceof Phantom) {
                     event.setAmount(event.getAmount() + effectLevel);
@@ -99,23 +72,7 @@ public class PhantomKiller {
                 return;
             }
             Level level = attacker.level();
-            //获取实体tag
-            EntityType<?> entityType = mob.getType();
-            ItemStack mainHandItem = attacker.getMainHandItem();
-            ItemStack offhandItem = attacker.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, phantomKillerEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, phantomKillerEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(attacker,phantomKillerEffect);
                 if (effectLevel > 0) {
                     if (mob instanceof Phantom) {
                     for (int i = 0; i < effectLevel; i++) {

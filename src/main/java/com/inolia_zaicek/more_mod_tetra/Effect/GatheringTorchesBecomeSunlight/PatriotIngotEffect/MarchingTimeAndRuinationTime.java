@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.P
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -46,33 +47,11 @@ public class MarchingTimeAndRuinationTime {
     public static void tick(LivingEvent.LivingTickEvent event) {
         LivingEntity livingEntity = event.getEntity();
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
-            ItemStack mainHandItem = livingEntity.getMainHandItem();
-            ItemStack offhandItem = livingEntity.getOffhandItem();
-            int effectLevel1 = 0;
-            int effectLevel2 = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel1 = item.getEffectLevel(mainHandItem, ruinationTimeEffect);
-                float mainEffectLevel2 = item.getEffectLevel(mainHandItem, marchingTimeEffect);
-                if (mainEffectLevel1 > 0) {
-                    effectLevel1 += (int) mainEffectLevel1;
-                }
-                if (mainEffectLevel2 > 0) {
-                    effectLevel2 += (int) mainEffectLevel2;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel1 = item.getEffectLevel(offhandItem, ruinationTimeEffect);
-                float offEffectLevel2 = item.getEffectLevel(offhandItem, marchingTimeEffect);
-                if (offEffectLevel1 > 0) {
-                    effectLevel1 += (int) offEffectLevel1;
-                }
-                if (offEffectLevel2 > 0) {
-                    effectLevel2 += (int) offEffectLevel2;
-                }
-            }
+            float effectLevel1 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,ruinationTimeEffect);
+            float effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,marchingTimeEffect);
             //行军给状态
             if(effectLevel2>0&& livingEntity.tickCount % 10 == 0&&!livingEntity.hasEffect(MMTEffectsRegister.RuinationTime.get())){
-                livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.MarchingTime.get(),40,effectLevel2-1));
+                livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.MarchingTime.get(),40, (int) (effectLevel2-1)));
             }
             //毁灭--毁灭词条，时间，毁灭状态，防止有行军状态
             if(effectLevel1>0&& livingEntity.tickCount % 10 == 0&&livingEntity.hasEffect(MMTEffectsRegister.RuinationTime.get()) &&livingEntity.hasEffect(MMTEffectsRegister.MarchingTime.get())){

@@ -49,8 +49,8 @@ public class UniversePower {
         // 确保伤害来源是 LivingEntity（例如玩家或怪物）
         if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
             // 获取玩家的增伤等级和最大种类等级
-            float damageLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity, universe_power_Effect);
-            int numberLevel = (int) MMTEffectHelper.getInstance().getMainOffHandSumEffectEfficiency(livingEntity, universe_power_Effect);
+            float damageLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, universe_power_Effect);
+            int numberLevel = (int) MMTEffectHelper.getInstance().getMainOffHandMaxEffectEfficiency(livingEntity, universe_power_Effect);
 
             // 只有当增伤和种类等级都有效时才执行
             if (damageLevel > 0 && numberLevel > 0) {
@@ -101,8 +101,8 @@ public class UniversePower {
         // 再次检查玩家是否满足生效条件，避免不必要的 NBT 操作。
         // 也可以选择在这里直接访问 PersistentData，而不用重复获取 effectLevel 和 numberLevel。
         // 但保留这些检查是为了确保只在需要时执行 NBT 操作。
-        float damageLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity, universe_power_Effect);
-        int numberLevel = (int) MMTEffectHelper.getInstance().getMainOffHandSumEffectEfficiency(livingEntity, universe_power_Effect);
+        float damageLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, universe_power_Effect);
+        int numberLevel = (int) MMTEffectHelper.getInstance().getMainOffHandMaxEffectEfficiency(livingEntity, universe_power_Effect);
 
         if (damageLevel > 0 && numberLevel > 0) {
             // 获取玩家的持久化数据。

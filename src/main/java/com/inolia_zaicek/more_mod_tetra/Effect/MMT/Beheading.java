@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
@@ -25,7 +26,6 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -48,22 +48,10 @@ public class Beheading {
         LivingEntity target = event.getEntity();
         Entity attackingEntity = event.getSource().getEntity();
         if (attackingEntity instanceof LivingEntity attacker) {
-                ItemStack mainHandItem = attacker.getMainHandItem();
-                ItemStack offhandItem = attacker.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, beheadingEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, beheadingEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
-                if (effectLevel > 0) {
+
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(attacker,beheadingEffect);
+
+            if (effectLevel > 0) {
                     float chance = (float) effectLevel / 100;
                     ItemStack headDrop = ItemStack.EMPTY;
                     if (target instanceof Zombie) {

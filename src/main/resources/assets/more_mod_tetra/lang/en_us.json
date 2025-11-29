@@ -3425,7 +3425,7 @@
 "tetra.material.fake_manyullyn_ingot": "Manyullyn Ingot",
 "tetra.material.fake_manyullyn_ingot.prefix": "Manyullyn Ingot",
 "more_mod_tetra.effect.fake_insatiable.name": "Pseudo-Greed",
-"more_mod_tetra.effect.fake_insatiable.tooltip": "Each time damage is dealt, increases §e[Pseudo-Greed]§r by 1 level (max §e%1$s§r levels). Each level increases dealt damage by §e2 points§r.",
+"more_mod_tetra.effect.fake_insatiable.tooltip": "Each time damage is dealt, increases §e[Pseudo-Greed]§r by 1 level (max §e%1$s§r levels). Each level increases dealt damage by §e0.5 points§r.",
 "tetra.stats.more_mod_tetra:fake_insatiable": "Pseudo-Greed",
 "tetra.stats.more_mod_tetra:fake_insatiable.tooltip_short": "Each damage dealt increases [Pseudo-Greed] level. Level cap depends on trait level. Boosts base damage dealt.",
 "effect.more_mod_tetra.fake_insatiable": "Pseudo-Greed",

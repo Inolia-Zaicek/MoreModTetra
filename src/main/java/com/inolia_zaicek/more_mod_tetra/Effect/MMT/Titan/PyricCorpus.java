@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -171,19 +172,8 @@ public class PyricCorpus {
             LivingEntity entity =event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, pyricCorpusEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, pyricCorpusEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,pyricCorpusEffect);
             //火种(轮回）
             int coreFlames =Math.min(33550336, offhandItem.getOrCreateTag().getInt(String.valueOf(Number)) + mainHandItem.getOrCreateTag().getInt(String.valueOf(Number)) );
             if (effectLevel > 0&&coreFlames>0) {

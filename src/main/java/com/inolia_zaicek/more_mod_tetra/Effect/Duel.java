@@ -43,7 +43,7 @@ public class Duel {
         if(attacked!=null&&attacker!=null) {
             //攻击者是玩家
             if (attacker instanceof LivingEntity livingEntity) {
-                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity,duelEffect);
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,duelEffect);
                 //我手持武器
                 //判断等级与近战
                 if (effectLevel > 0&& MMTDamageSourceHelper.isMeleeAttack(event.getSource()) ) {
@@ -78,7 +78,7 @@ public class Duel {
             if (event.getSource().getEntity() instanceof LivingEntity) {
                 var livingEntity = attacked;
                 LivingEntity mob = event.getSource().getEntity().getControllingPassenger();
-                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity,duelEffect);
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,duelEffect);
                 //我手持武器
                 //判断等级与近战
                 if (effectLevel > 0&&mob!=null) {

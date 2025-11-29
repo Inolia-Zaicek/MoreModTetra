@@ -1,9 +1,9 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Botania.AncientWill;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -15,7 +15,6 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -38,22 +37,10 @@ public class AncientWillTorag {
         if(ModList.get().isLoaded("botania")) {
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = livingEntity.getMainHandItem();
-                ItemStack offhandItem = livingEntity.getOffhandItem();
-                int effectLevel = 0;
-                int gaia = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, ancientWillToragEffect);
-                    float gaiaLevel = item.getEffectLevel(offhandItem, willOfGaiaEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                    if (gaiaLevel > 0) {
-                        gaia += (int) mainEffectLevel;
-                    }
-                }
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,ancientWillToragEffect);
+                float gaiaLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,willOfGaiaEffect);
                 if (effectLevel > 0) {
-                    if(!livingEntity.onGround()||gaia>0){
+                    if(!livingEntity.onGround()||gaiaLevel>0){
                         mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,1));
                     }
                 }

@@ -2,12 +2,12 @@ package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.F
 
 import com.freefish.torchesbecomesunlight.server.init.EffectHandle;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -18,7 +18,6 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -40,21 +39,7 @@ public class Freeze {
     public static void hurt(LivingHurtEvent event) {
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = livingEntity.getMainHandItem();
-                ItemStack offhandItem = livingEntity.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, freezeEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, freezeEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,freezeEffect);
                 if (effectLevel > 0&&mob.hasEffect(EffectHandle.FREEZE.get())) {
                     float damage =event.getAmount();
                     event.setAmount(damage*(1+ (float) effectLevel /100));
@@ -62,21 +47,7 @@ public class Freeze {
             }
             else if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = livingEntity.getMainHandItem();
-            ItemStack offhandItem = livingEntity.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, freezeEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, freezeEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,freezeEffect);
                 if (effectLevel > 0&&mob.hasEffect(EffectHandle.FREEZE.get())) {
                 float damage =event.getAmount();
                 event.setAmount(damage*(1+ (float) effectLevel /100));
@@ -85,21 +56,7 @@ public class Freeze {
             //圣爹
         //挨打
         if (event.getEntity() instanceof Player livingEntity) {
-            ItemStack mainHandItem = livingEntity.getMainHandItem();
-            ItemStack offhandItem = livingEntity.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, ritualOfHolyGuardEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, ritualOfHolyGuardEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,ritualOfHolyGuardEffect);
             if (effectLevel > 0&&livingEntity.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
                 int buffLevel = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
                 int buffTime = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getDuration();
@@ -121,30 +78,8 @@ public class Freeze {
         }
         //打人
         if (event.getSource().getEntity() instanceof Player livingEntity) {
-            ItemStack mainHandItem = livingEntity.getMainHandItem();
-            ItemStack offhandItem = livingEntity.getOffhandItem();
-            int effectLevel = 0;
-            int effectLevel2 = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, ritualOfHolyGuardEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-                float mainEffectLevel2 = item.getEffectLevel(mainHandItem, exhortationOfGunKnightPatriotEffect);
-                if (mainEffectLevel2 > 0) {
-                    effectLevel2 += (int) mainEffectLevel2;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, ritualOfHolyGuardEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-                float offEffectLevel2 = item.getEffectLevel(mainHandItem, exhortationOfGunKnightPatriotEffect);
-                if (offEffectLevel2 > 0) {
-                    effectLevel2 += (int) offEffectLevel2;
-                }
-            }
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,ritualOfHolyGuardEffect);
+            float effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,exhortationOfGunKnightPatriotEffect);
             if (effectLevel > 0) {
                 //有圣卫核心
                 if(effectLevel2>0){
@@ -190,21 +125,7 @@ public class Freeze {
         //减伤
         if (event.getEntity() instanceof Player livingEntity) {
             var mob = event.getSource().getEntity();
-            ItemStack mainHandItem = livingEntity.getMainHandItem();
-            ItemStack offhandItem = livingEntity.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, ritualOfExhortationEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, ritualOfExhortationEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,ritualOfExhortationEffect);
             if (effectLevel > 0) {
                 float damage = event.getAmount();
                 float finish = damage*(1- (float) effectLevel /100);

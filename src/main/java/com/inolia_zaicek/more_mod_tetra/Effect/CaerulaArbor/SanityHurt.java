@@ -1,8 +1,8 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.CaerulaArbor;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.mcreator.caerulaarbor.procedures.DeductPlayerSanityProcedure;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -14,7 +14,6 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -36,22 +35,7 @@ public class SanityHurt {
         if (ModList.get().isLoaded("caerula_arbor")) {
             //攻击者是玩家
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity &&event.getEntity()!=null) {
-                int effectLevel =0;
-                //获取一下玩家主副手
-                ItemStack mainHandItem = livingEntity.getMainHandItem();
-                ItemStack offhandItem = livingEntity.getOffhandItem();
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, sanityHurtEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, sanityHurtEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,sanityHurtEffect);
                 if (effectLevel > 0&&event.getEntity()!=null) {
                     var mob = event.getEntity();
                     var map = mob.getActiveEffectsMap();

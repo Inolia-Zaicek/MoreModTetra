@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
 import com.inolia_zaicek.more_mod_tetra.Damage.MMTTickZero;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -41,21 +42,7 @@ public class OdeToPassage {
             //攻击
             if (event.getSource().getEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, odeToPassageEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, odeToPassageEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,odeToPassageEffect);
                 if (effectLevel > 0) {
                     float number = (float) effectLevel / 100;
                     float damage = event.getAmount();
@@ -71,21 +58,7 @@ public class OdeToPassage {
                 }
             } else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
                 var mob = event.getEntity();
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, odeToPassageEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, odeToPassageEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,odeToPassageEffect);
                 if (effectLevel > 0) {
                     float number = (float) effectLevel / 100;
                     float damage = event.getAmount();

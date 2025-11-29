@@ -41,8 +41,8 @@ public class MeleeAttackCombo {
             //攻击
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                int effectLevel1 = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity, melee_attack_combo_Effect);
-                int effectLevel2 = (int) MMTEffectHelper.getInstance().getMainOffHandSumEffectEfficiency(livingEntity, melee_attack_combo_Effect);
+                int effectLevel1 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, melee_attack_combo_Effect);
+                int effectLevel2 = (int) MMTEffectHelper.getInstance().getMainOffHandMaxEffectEfficiency(livingEntity, melee_attack_combo_Effect);
                 if (effectLevel1 > 0) {
                     float number = (float) effectLevel1 / 100;
                     float damage = event.getAmount();

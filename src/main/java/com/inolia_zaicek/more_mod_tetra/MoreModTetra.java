@@ -310,7 +310,6 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(CollapsingFear.class);
             MinecraftForge.EVENT_BUS.register(Dominion.class);
         }
-
         MinecraftForge.EVENT_BUS.register(EtheriumGuard.class);
         if(ModList.get().isLoaded("enigmaticlegacy")) {
             MinecraftForge.EVENT_BUS.register(EvilIngotMaterial.class);

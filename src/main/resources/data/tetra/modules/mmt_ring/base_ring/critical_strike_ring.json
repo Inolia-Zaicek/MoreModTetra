@@ -9,13 +9,12 @@
             "key": "critical_strike_ring/",
             "integrity": 0,
             "effects": {
-                "more_mod_tetra:curios_projectile_tracking": 1,
                 "more_mod_tetra:curios_materials_effect_invalidation": 1,
-                "more_mod_tetra:curios_critical_strike": [0,5]
+                "more_mod_tetra:curios_critical_strike": [0,3.5]
             },
             "extract": {
                 "primaryEffects": {
-                    "more_mod_tetra:curios_critical_strike": [2,0]
+                    "more_mod_tetra:curios_critical_strike": [1.75,0]
                 },
                 "glyph": {
                     "textureX": 176,

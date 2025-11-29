@@ -1,11 +1,11 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -22,7 +22,6 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import java.util.Random;
@@ -48,22 +47,7 @@ public class RipeningHalo {
     public static void tick(LivingEvent.LivingTickEvent event) {
         LivingEntity player = event.getEntity();
         Level world = player.level(); // 获取当前世界，可能是 ClientLevel 或 ServerLevel
-        ItemStack mainHandItem = player.getMainHandItem();
-        ItemStack offhandItem = player.getOffhandItem();
-        int effectLevel = 0;
-        if (mainHandItem.getItem() instanceof IModularItem item) {
-            float mainEffectLevel = item.getEffectLevel(mainHandItem, ripeningHaloEffect);
-            if (mainEffectLevel > 0) {
-                effectLevel += (int) mainEffectLevel;
-            }
-        }
-        if (offhandItem.getItem() instanceof IModularItem item) {
-            float offEffectLevel = item.getEffectLevel(offhandItem, ripeningHaloEffect);
-            if (offEffectLevel > 0) {
-                effectLevel += (int) offEffectLevel;
-            }
-        }
-
+        int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,ripeningHaloEffect);
         if (effectLevel > 0 && world.getGameTime() % (Math.max(2, 20 - effectLevel)) == 0) {
             Random random = new Random();
             float rx = random.nextFloat() * 5.0F - 3.0F;

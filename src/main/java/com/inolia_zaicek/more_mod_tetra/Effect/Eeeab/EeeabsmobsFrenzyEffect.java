@@ -41,13 +41,13 @@ public class EeeabsmobsFrenzyEffect {
         if (ModList.get().isLoaded("eeeabsmobs")) {
             //攻击者是玩家
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity,eeeabsmobs_frenzy_effect_Effect);
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,eeeabsmobs_frenzy_effect_Effect);
                 if (effectLevel > 0) {
                     livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("eeeabsmobs", "frenzy_effect"))), 300, effectLevel-1));
                 }
             }
             else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
-                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity,eeeabsmobs_frenzy_effect_Effect);
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,eeeabsmobs_frenzy_effect_Effect);
                 if (effectLevel > 0) {
                     livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("eeeabsmobs", "frenzy_effect"))), 300, effectLevel-1));
                 }

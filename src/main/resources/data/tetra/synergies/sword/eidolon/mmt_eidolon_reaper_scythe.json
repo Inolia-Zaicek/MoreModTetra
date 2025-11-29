@@ -5,8 +5,7 @@
             "sword/more_mod_tetra/eidolon/mmt_eidolon_reaper_scythe_fuller"
         ],
         "attributes": {
-            "generic.attack_damage": 4,
-            "**generic.attack_damage": 0.2,
+            "generic.attack_damage": 1,
             "**generic.attack_speed": 0.1
         },
         "effects": {

@@ -45,7 +45,7 @@ public class Eclipse {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offHandItem = player.getOffhandItem();
                 int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof ItemModularHandheld item&&mainHandItem.getItem() instanceof ItemModularHandheld item2) {
+                if (mainHandItem.getItem() instanceof ItemModularHandheld item&&offHandItem.getItem() instanceof ItemModularHandheld item2) {
                     int mainEffectLevel = item.getEffectLevel(mainHandItem, eclipseEffect);
                     int offEffectLevel = item2.getEffectLevel(offHandItem, eclipseEffect);
                     //双等级＞0，近战

@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Slash;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,21 +37,7 @@ public class OriginSlash {
     public static void hurt(LivingHurtEvent event) {
         if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            float effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, originSlashEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, originSlashEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += offEffectLevel;
-                }
-            }
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,originSlashEffect);
             float hp =mob.getHealth();
             float mhp =mob.getMaxHealth();
             //当前生命值比例
@@ -65,21 +52,7 @@ public class OriginSlash {
             }
         }else        if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            float effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, originSlashEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, originSlashEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += offEffectLevel;
-                }
-            }
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,originSlashEffect);
             float hp =mob.getHealth();
             float mhp =mob.getMaxHealth();
             //当前生命值比例

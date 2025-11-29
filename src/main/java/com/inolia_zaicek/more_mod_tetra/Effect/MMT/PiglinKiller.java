@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -48,21 +49,7 @@ public class PiglinKiller {
         //攻击
         if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, piglinKillerEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, piglinKillerEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,piglinKillerEffect);
             if (effectLevel > 0) {
                 if (mob instanceof Piglin||mob instanceof ZombifiedPiglin||mob instanceof PiglinBrute) {
                     event.setAmount(event.getAmount() + effectLevel);
@@ -70,21 +57,7 @@ public class PiglinKiller {
             }
         }else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, piglinKillerEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += (int) mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, piglinKillerEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,piglinKillerEffect);
             if (effectLevel > 0) {
                 if (mob instanceof Piglin||mob instanceof ZombifiedPiglin||mob instanceof PiglinBrute) {
                     event.setAmount(event.getAmount() + effectLevel);
@@ -101,23 +74,7 @@ public class PiglinKiller {
                 return;
             }
             Level level = attacker.level();
-            //获取实体tag
-            EntityType<?> entityType = mob.getType();
-            ItemStack mainHandItem = attacker.getMainHandItem();
-            ItemStack offhandItem = attacker.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, piglinKillerEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += (int) mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, piglinKillerEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(attacker,piglinKillerEffect);
                 if (effectLevel > 0) {
                     if (mob instanceof Piglin||mob instanceof ZombifiedPiglin||mob instanceof PiglinBrute) {
                     for (int i = 0; i < effectLevel; i++) {

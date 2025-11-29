@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.RosmontisIngotEffect;
 
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -38,22 +39,16 @@ public class Notes {
         if (isBossEntity(event.getEntity().getType()) ) {
             //攻击
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
-                ItemStack mainHandItem = livingEntity.getMainHandItem();
-                ItemStack offhandItem = livingEntity.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, notesEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,notesEffect);
+                if (effectLevel > 0) {
+                    if (MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
+                        event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                    }else{
+                        event.setAmount(event.getAmount() * (1 + (float) effectLevel / 50));
                     }
                 }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, notesEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+            }else if(event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,notesEffect);
                 if (effectLevel > 0) {
                     if (MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
                         event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));

@@ -13,7 +13,7 @@ public class RideSkill {
             //攻击
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity,assassinateEffect);
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,assassinateEffect);
                 float hp =mob.getHealth();
                 float mhp =mob.getMaxHealth();
                 if (effectLevel > 0&&hp==mhp) {
@@ -22,7 +22,7 @@ public class RideSkill {
                     }
                 } else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity,assassinateEffect);
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,assassinateEffect);
                 float hp =mob.getHealth();
                 float mhp =mob.getMaxHealth();
                 //实体骑乘的东西非空

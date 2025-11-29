@@ -1,16 +1,13 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        " # ",
-        "ABA",
-        " # "
+        " B ",
+        "B#B",
+        " B "
     ],
     "key": {
         "#": {
             "item": "minecraft:heart_of_the_sea"
-        },
-        "A": {
-            "item": "minecraft:nautilus_shell"
         },
         "B": {
             "item": "minecraft:iron_ingot"
@@ -18,6 +15,6 @@
     },
     "result": {
         "item": "more_mod_tetra:tidal_ingot",
-        "count": 2
+        "count": 4
     }
 }

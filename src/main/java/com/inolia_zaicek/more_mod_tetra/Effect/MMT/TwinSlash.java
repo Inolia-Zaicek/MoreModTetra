@@ -1,12 +1,15 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -18,6 +21,7 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
 public class TwinSlash {
     @OnlyIn(Dist.CLIENT)
     public static void init() {
@@ -59,6 +63,41 @@ public class TwinSlash {
                     }
                 }
             }
+        }
+    }
+    //如果两个buff都没有
+
+    @SubscribeEvent
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        LivingEntity livingEntity = event.getEntity();
+        //星爆气流斩
+        if (livingEntity.hasEffect(MMTEffectsRegister.StarBurstStream.get()) &&
+                !(
+                        livingEntity.getMainHandItem().getItem() instanceof ItemModularHandheld item1 &&
+                                livingEntity.getOffhandItem().getItem() instanceof ItemModularHandheld item2 &&
+                                item1.getEffectLevel(livingEntity.getMainHandItem(), starBurstStreamEffect) > 0 &&
+                                item2.getEffectLevel(livingEntity.getOffhandItem(), starBurstStreamEffect) > 0
+                )) {
+            livingEntity.removeEffect(MMTEffectsRegister.StarBurstStream.get());
+        }
+        //日蚀
+        if (livingEntity.hasEffect(MMTEffectsRegister.Eclipse.get()) &&
+                !(
+                        livingEntity.getMainHandItem().getItem() instanceof ItemModularHandheld item1 &&
+                                livingEntity.getOffhandItem().getItem() instanceof ItemModularHandheld item2 &&
+                                item1.getEffectLevel(livingEntity.getMainHandItem(), eclipseEffect) > 0 &&
+                                item2.getEffectLevel(livingEntity.getOffhandItem(), eclipseEffect) > 0
+                )) {
+            livingEntity.removeEffect(MMTEffectsRegister.Eclipse.get());
+        }
+        if (livingEntity.hasEffect(MMTEffectsRegister.EclipseStarBurstStream.get()) &&
+                !(
+                        livingEntity.getMainHandItem().getItem() instanceof ItemModularHandheld item1 &&
+                                livingEntity.getOffhandItem().getItem() instanceof ItemModularHandheld item2 &&
+                                item1.getEffectLevel(livingEntity.getMainHandItem(), eclipseStarBurstStreamEffect) > 0 &&
+                                item2.getEffectLevel(livingEntity.getOffhandItem(), eclipseStarBurstStreamEffect) > 0
+                )) {
+            livingEntity.removeEffect(MMTEffectsRegister.EclipseStarBurstStream.get());
         }
     }
 }

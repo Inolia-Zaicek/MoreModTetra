@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,21 +37,7 @@ public class TorchTheLawsOfOld {
         //攻击
         if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            float effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, torchTheLawsOfOldEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, torchTheLawsOfOldEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += offEffectLevel;
-                }
-            }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,torchTheLawsOfOldEffect);
             float mobHp = mob.getHealth();
             float playerHhp = player.getHealth();
             //生命值不等
@@ -60,35 +47,21 @@ public class TorchTheLawsOfOld {
                     //生命值差额
                     float dhp =Math.min(80,mobHp-playerHhp);
                     //增幅强度*生命值差额进度
-                    float finish = 1 + (effectLevel/100)*(dhp/80);
+                    float finish = 1 + ((float) effectLevel /100)*(dhp/80);
                     event.setAmount(event.getAmount() * finish);
                 }
                 else if (playerHhp > mobHp) {
                     //生命值差额
                     float dhp =Math.min(80,playerHhp-mobHp);
                     //增幅强度*生命值差额进度
-                    float finish = 1 + (effectLevel/100)*(dhp/80);
+                    float finish = 1 + ((float) effectLevel /100)*(dhp/80);
                     event.setAmount(event.getAmount() * finish);
                 }
             }
         }
         else         if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
-            float effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, torchTheLawsOfOldEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel += mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, torchTheLawsOfOldEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += offEffectLevel;
-                }
-            }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,torchTheLawsOfOldEffect);
             float mobHp = mob.getHealth();
             float playerHhp = player.getHealth();
             //生命值不等
@@ -98,14 +71,14 @@ public class TorchTheLawsOfOld {
                     //生命值差额
                     float dhp =Math.min(80,mobHp-playerHhp);
                     //增幅强度*生命值差额进度
-                    float finish = 1 + (effectLevel/100)*(dhp/80);
+                    float finish = 1 + ((float) effectLevel /100)*(dhp/80);
                     event.setAmount(event.getAmount() * finish);
                 }
                 else if (playerHhp > mobHp) {
                     //生命值差额
                     float dhp =Math.min(80,playerHhp-mobHp);
                     //增幅强度*生命值差额进度
-                    float finish = 1 + (effectLevel/100)*(dhp/80);
+                    float finish = 1 + ((float) effectLevel /100)*(dhp/80);
                     event.setAmount(event.getAmount() * finish);
                 }
             }

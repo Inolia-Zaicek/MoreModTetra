@@ -213,13 +213,13 @@ public class MMTEffectHelper {
                 getChestArmorEffectLevel(livingEntity, effect) +
                 getLegsArmorEffectLevel(livingEntity, effect) +
                 getFeetArmorEffectLevel(livingEntity, effect) +
-                getMainOffHandSumEffectLevel(livingEntity,effect);
+                getMainOffHandMaxEffectLevel(livingEntity,effect);
     }
     public float getAllEffectEfficiency(LivingEntity livingEntity, ItemEffect effect) {
         return getHeadArmorEffectEfficiency(livingEntity, effect) +
                 getChestArmorEffectEfficiency(livingEntity, effect) +
                 getLegsArmorEffectEfficiency(livingEntity, effect) +
                 getFeetArmorEffectEfficiency(livingEntity, effect) +
-                getMainOffHandSumEffectEfficiency(livingEntity,effect);
+                getMainOffHandMaxEffectEfficiency(livingEntity,effect);
     }
 }

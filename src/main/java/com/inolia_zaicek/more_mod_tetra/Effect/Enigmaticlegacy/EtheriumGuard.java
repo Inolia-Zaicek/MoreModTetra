@@ -35,7 +35,7 @@ public class EtheriumGuard {
     public static void hurt(LivingHurtEvent event) {
             //挨打是玩家
             LivingEntity livingEntity = event.getEntity();
-            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,etheriumGuardEffect);
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity,etheriumGuardEffect);
             float hp = livingEntity.getHealth();
             float mhp = livingEntity.getMaxHealth();
             float finish = hp / mhp;
@@ -48,7 +48,7 @@ public class EtheriumGuard {
     @SubscribeEvent
     public static void heal(LivingHealEvent event) {
         LivingEntity livingEntity = event.getEntity();
-        int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,etheriumGuardEffect);
+        int effectLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity,etheriumGuardEffect);
         float heal = event.getAmount();
         float hp = livingEntity.getHealth();
         float mhp2 = livingEntity.getMaxHealth() / 2;

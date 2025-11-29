@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.AlexCave;
 
 import com.github.alexmodguy.alexscaves.server.potion.ACEffectRegistry;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -42,21 +43,7 @@ public class OceanPearl {
     public static void tick(LivingEvent.LivingTickEvent event) {
         if (ModList.get().isLoaded("alexscaves")) {
             LivingEntity livingEntity = event.getEntity();
-            ItemStack mainHandItem = livingEntity.getMainHandItem();
-            ItemStack offhandItem = livingEntity.getOffhandItem();
-            int effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
-                float mainEffectLevel = item.getEffectLevel(mainHandItem, oceanPearlEffect);
-                if (mainEffectLevel > 0) {
-                    effectLevel +=  mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, oceanPearlEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += (int) offEffectLevel;
-                }
-            }
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,oceanPearlEffect);
             if (effectLevel > 0) {
                 if (livingEntity.level().getGameTime() % 20L == 0) {
                     livingEntity.addEffect(new MobEffectInstance(ACEffectRegistry.DEEPSIGHT.get(), 100, effectLevel - 1, true, true, true));

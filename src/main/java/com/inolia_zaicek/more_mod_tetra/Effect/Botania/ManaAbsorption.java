@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Botania;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,21 +37,7 @@ public class ManaAbsorption {
     public static void hurt(LivingHurtEvent event) {
         if(ModList.get().isLoaded("botania")) {
             if (event.getSource().getEntity() instanceof Player player) {
-                ItemStack mainHandItem = player.getMainHandItem();
-                ItemStack offhandItem = player.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, manaAbsorptionEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, manaAbsorptionEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,manaAbsorptionEffect);
                 if (effectLevel > 0) {
                     float damage=event.getAmount();
                     ItemStack itemStack = player.getInventory().getSelected();

@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Core;
 
 import com.github.L_Ender.cataclysm.init.ModEffect;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -38,22 +39,19 @@ public class OverPostmortal {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("cataclysm")) {
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
-                ItemStack mainHandItem = livingEntity.getMainHandItem();
-                ItemStack offhandItem = livingEntity.getOffhandItem();
-                int effectLevel = 0;
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, overPostmortalEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel += mainEffectLevel;
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,overPostmortalEffect);
+                if (effectLevel > 0 && livingEntity.hasEffect(ModEffect.EFFECTGHOST_SICKNESS.get())) {
+                    int buffLevel = livingEntity.getEffect(ModEffect.EFFECTGHOST_SICKNESS.get()).getAmplifier();
+                    int buffTime = livingEntity.getEffect(ModEffect.EFFECTGHOST_SICKNESS.get()).getDuration();
+                    if (buffTime > 20) {
+                        livingEntity.removeEffect(ModEffect.EFFECTGHOST_SICKNESS.get());
+                        livingEntity.addEffect(new MobEffectInstance(ModEffect.EFFECTGHOST_SICKNESS.get(), buffLevel, buffTime / 2));
+                    } else {
+                        livingEntity.removeEffect(ModEffect.EFFECTGHOST_SICKNESS.get());
                     }
                 }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, overPostmortalEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+            }else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,overPostmortalEffect);
                 if (effectLevel > 0 && livingEntity.hasEffect(ModEffect.EFFECTGHOST_SICKNESS.get())) {
                     int buffLevel = livingEntity.getEffect(ModEffect.EFFECTGHOST_SICKNESS.get()).getAmplifier();
                     int buffTime = livingEntity.getEffect(ModEffect.EFFECTGHOST_SICKNESS.get()).getDuration();

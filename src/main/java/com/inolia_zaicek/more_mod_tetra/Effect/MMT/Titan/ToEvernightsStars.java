@@ -46,43 +46,68 @@ public class ToEvernightsStars {
         if (event.getSource().getEntity() instanceof LivingEntity player) {
             var mob = event.getEntity();
             ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offhandItem = player.getOffhandItem();
+            ItemStack offHandItem = player.getOffhandItem();
             float effectLevel = 0;
-            if (mainHandItem.getItem() instanceof IModularItem item) {
+            if (mainHandItem.getItem() instanceof IModularItem item
+            &&item.getEffectLevel(mainHandItem, toEvernightsStarsEffect)>0) {
                 float mainEffectLevel = item.getEffectLevel(mainHandItem, toEvernightsStarsEffect);
                 if (mainEffectLevel > 0) {
                     effectLevel += mainEffectLevel;
-                }
-            }
-            if (offhandItem.getItem() instanceof IModularItem item) {
-                float offEffectLevel = item.getEffectLevel(offhandItem, toEvernightsStarsEffect);
-                if (offEffectLevel > 0) {
-                    effectLevel += offEffectLevel;
-                }
-            }
-            //NBT
-            CompoundTag persistentData = mainHandItem.getOrCreateTag();
-            //获取生命值数额
-            float healthNbt = mainHandItem.getOrCreateTag().getInt(String.valueOf(HP));
-            //当前血量比例小于数值比例
-            if (effectLevel > 0) {
-                float hp = player.getHealth();
-                float finish =event.getAmount()*(1+effectLevel/100);
-                //未记录生命值
-                if(healthNbt==0){
-                    persistentData.putInt(String.valueOf(HP), (int) hp);
-                }else{
-                    //生命值相等或者记录的小于当前
-                    if(healthNbt==hp||healthNbt<=hp){
-                        event.setAmount(finish/2);
-                    }else{
-                        //记录生命值大于当前
-                        player.heal(  (healthNbt-hp)*effectLevel/100  );
-                        event.setAmount(finish);
+                    //NBT
+                    CompoundTag persistentData = mainHandItem.getOrCreateTag();
+                    //获取生命值数额
+                    float healthNbt = mainHandItem.getOrCreateTag().getInt(String.valueOf(HP));
+                    //当前血量比例小于数值比例
+                    if (effectLevel > 0) {
+                        float hp = player.getHealth();
+                        float finish = event.getAmount() * (1 + effectLevel / 100);
+                        //未记录生命值
+                        if (healthNbt == 0) {
+                            persistentData.putInt(String.valueOf(HP), (int) hp);
+                        } else {
+                            //生命值相等或者记录的小于当前
+                            if (healthNbt == hp || healthNbt <= hp) {
+                                event.setAmount(finish / 2);
+                            } else {
+                                //记录生命值大于当前
+                                player.heal((healthNbt - hp) * effectLevel / 100);
+                                event.setAmount(finish);
+                            }
+                        }
+                        //反正最后都会记录一下
+                        persistentData.putInt(String.valueOf(HP), (int) hp);
                     }
                 }
-                //反正最后都会记录一下
-                persistentData.putInt(String.valueOf(HP), (int) hp);
+            }else if (offHandItem.getItem() instanceof IModularItem item
+                    &&item.getEffectLevel(offHandItem, toEvernightsStarsEffect)>0) {
+                float offEffectLevel = item.getEffectLevel(offHandItem, toEvernightsStarsEffect);
+                if (offEffectLevel > 0) {
+                    effectLevel += offEffectLevel;
+                    //NBT
+                    CompoundTag persistentData = offHandItem.getOrCreateTag();
+                    //获取生命值数额
+                    float healthNbt = offHandItem.getOrCreateTag().getInt(String.valueOf(HP));
+                    //当前血量比例小于数值比例
+                    if (effectLevel > 0) {
+                        float hp = player.getHealth();
+                        float finish = event.getAmount() * (1 + effectLevel / 100);
+                        //未记录生命值
+                        if (healthNbt == 0) {
+                            persistentData.putInt(String.valueOf(HP), (int) hp);
+                        } else {
+                            //生命值相等或者记录的小于当前
+                            if (healthNbt == hp || healthNbt <= hp) {
+                                event.setAmount(finish / 2);
+                            } else {
+                                //记录生命值大于当前
+                                player.heal((healthNbt - hp) * effectLevel / 100);
+                                event.setAmount(finish);
+                            }
+                        }
+                        //反正最后都会记录一下
+                        persistentData.putInt(String.valueOf(HP), (int) hp);
+                    }
+                }
             }
         }
     }
