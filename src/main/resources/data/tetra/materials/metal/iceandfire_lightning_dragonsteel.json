@@ -8,7 +8,7 @@
   "durability": 8000,
   "integrityCost": 4,
   "integrityGain": 6,
-  "magicCapacity": 300,
+  "magicCapacity": 60,
   "toolLevel": "tetra:maxed_forge_hammer",
   "toolEfficiency": 10,
   "tints": {
@@ -35,5 +35,13 @@
       "type": "forge:mod_loaded",
       "modid": "iceandfire"
     }
-  ]
+  ],
+  "contexts": {
+    "armor": {
+      "effects": {
+        "more_mod_tetra:lightning_thorns": 10,
+        "more_mod_tetra:armor_last_stand": 8
+      }
+    }
+  }
 }

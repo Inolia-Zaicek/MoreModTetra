@@ -22,10 +22,7 @@
     "effects" : {
         "more_mod_tetra:hiding_in_shulker_shell": 10,
         "unbreaking": 1,
-        "reaching": [
-            10,
-            0.45
-        ]
+        "reaching": [10, 0.45]
     },
     "material": {
         "items": [ "l2complements:shulkerate_ingot" ]
@@ -38,5 +35,12 @@
             "type": "forge:mod_loaded",
             "modid": "l2complements"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:hiding_in_shulker_shell": 8
+            }
+        }
+    }
 }

@@ -22,7 +22,7 @@
     "items": [ "projecte:red_matter" ]
   },
   "effects" : {
-    "more_mod_tetra:melee_attack_combo": [50,5]
+    "more_mod_tetra:melee_attack_combo": [50,3]
   },
   "requiredTools": {
     "hammer_dig": "minecraft:gold"

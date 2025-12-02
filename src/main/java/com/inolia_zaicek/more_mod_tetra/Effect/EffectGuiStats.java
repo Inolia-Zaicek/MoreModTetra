@@ -1496,6 +1496,30 @@ public class EffectGuiStats {
     public static final String invisibility_buff_Name = MoreModTetra.MODID + ".effect.invisibility_buff.name";
     public static final String invisibility_buff_Tooltip = MoreModTetra.MODID + ".effect.invisibility_buff.tooltip";
 
+    public static final ItemEffect gather_ore_Effect = ItemEffect.get(MoreModTetra.MODID + ":gather_ore");
+    public static final String gather_ore_Name = MoreModTetra.MODID + ".effect.gather_ore.name";
+    public static final String gather_ore_Tooltip = MoreModTetra.MODID + ".effect.gather_ore.tooltip";
+
+    public static final ItemEffect mineral_essence_Effect = ItemEffect.get(MoreModTetra.MODID + ":mineral_essence");
+    public static final String mineral_essence_Name = MoreModTetra.MODID + ".effect.mineral_essence.name";
+    public static final String mineral_essence_Tooltip = MoreModTetra.MODID + ".effect.mineral_essence.tooltip";
+
+    public static final ItemEffect archaeology_Effect = ItemEffect.get(MoreModTetra.MODID + ":archaeology");
+    public static final String archaeology_Name = MoreModTetra.MODID + ".effect.archaeology.name";
+    public static final String archaeology_Tooltip = MoreModTetra.MODID + ".effect.archaeology.tooltip";
+
+    public static final ItemEffect turning_stone_into_gold_Effect = ItemEffect.get(MoreModTetra.MODID + ":turning_stone_into_gold");
+    public static final String turning_stone_into_gold_Name = MoreModTetra.MODID + ".effect.turning_stone_into_gold.name";
+    public static final String turning_stone_into_gold_Tooltip = MoreModTetra.MODID + ".effect.turning_stone_into_gold.tooltip";
+
+    public static final ItemEffect hunting_Effect = ItemEffect.get(MoreModTetra.MODID + ":hunting");
+    public static final String hunting_Name = MoreModTetra.MODID + ".effect.hunting.name";
+    public static final String hunting_Tooltip = MoreModTetra.MODID + ".effect.hunting.tooltip";
+
+    public static final ItemEffect warden_killer_Effect = ItemEffect.get(MoreModTetra.MODID + ":warden_killer");
+    public static final String warden_killer_Name = MoreModTetra.MODID + ".effect.warden_killer.name";
+    public static final String warden_killer_Tooltip = MoreModTetra.MODID + ".effect.warden_killer.tooltip";
+
 
     //判断bo
     public static boolean isBossEntity(EntityType<?> entity) {

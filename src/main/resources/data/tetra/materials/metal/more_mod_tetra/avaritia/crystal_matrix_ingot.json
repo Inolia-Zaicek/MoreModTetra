@@ -32,5 +32,12 @@
             "type": "forge:mod_loaded",
             "modid": "avaritia"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:armor_tenacity": 8
+            }
+        }
+    }
 }

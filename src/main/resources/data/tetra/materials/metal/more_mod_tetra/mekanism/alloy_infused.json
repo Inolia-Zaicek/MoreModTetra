@@ -33,5 +33,12 @@
             "type": "forge:mod_loaded",
             "modid": "mekanism"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:industrial_protection": 1
+            }
+        }
+    }
 }

@@ -35,5 +35,12 @@
       "type": "forge:mod_loaded",
       "modid": "aquaculture"
     }
-  ]
+  ],
+  "contexts": {
+    "armor": {
+      "effects": {
+        "more_mod_tetra:blessings_of_water": 2
+      }
+    }
+  }
 }

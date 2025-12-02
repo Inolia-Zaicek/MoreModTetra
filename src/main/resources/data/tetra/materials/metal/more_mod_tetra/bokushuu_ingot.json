@@ -22,7 +22,7 @@
         "items": [ "more_mod_tetra:bokushuu_ingot" ]
     },
     "effects" : {
-        "more_mod_tetra:bokushuu_s_desire": 30
+        "more_mod_tetra:bokushuu_s_desire": 25
     },
     "requiredTools": {
         "hammer_dig": "minecraft:stone"

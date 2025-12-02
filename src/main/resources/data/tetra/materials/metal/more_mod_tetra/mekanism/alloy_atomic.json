@@ -1,14 +1,14 @@
 {
     "key": "alloy_atomic",
     "category": "metal",
-    "primary": 7.1,
+    "primary": 11.1,
     "secondary": 4.9,
     "tertiary": 2.6,
     "durability": 2500,
     "integrityCost": 2,
     "integrityGain": 7,
     "magicCapacity": 104,
-    "toolLevel": "minecraft:diamond",
+    "toolLevel": "minecraft:netherite",
     "toolEfficiency": 9,
     "tints": {
         "glyph": "B77AE0",
@@ -33,5 +33,12 @@
             "type": "forge:mod_loaded",
             "modid": "mekanism"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:industrial_protection": 3
+            }
+        }
+    }
 }

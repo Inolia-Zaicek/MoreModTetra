@@ -8,7 +8,7 @@
     "integrityCost": 2,
     "integrityGain": 7,
     "magicCapacity": 800,
-    "toolLevel": "minecraft:iron",
+    "toolLevel": "minecraft:netherite",
     "toolEfficiency": 8,
     "tints": {
         "glyph": "00ff00",
@@ -20,7 +20,8 @@
     ],
     "effects": {
         "more_mod_tetra:terra_ray": 2,
-        "more_mod_tetra:mana_regeneration": 10
+        "more_mod_tetra:mana_regeneration": 10,
+        "more_mod_tetra:mana_repair": 2
     },
     "material": {
         "items": [ "botania:terrasteel_ingot" ]
@@ -33,5 +34,14 @@
             "type": "forge:mod_loaded",
             "modid": "botania"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:armor_critical_strike": [3,7],
+                "more_mod_tetra:mana_regeneration": 10,
+                "more_mod_tetra:mana_repair": 2
+            }
+        }
+    }
 }

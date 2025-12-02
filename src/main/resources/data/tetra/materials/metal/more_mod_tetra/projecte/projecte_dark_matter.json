@@ -22,7 +22,7 @@
     "items": [ "projecte:dark_matter" ]
   },
   "effects" : {
-    "more_mod_tetra:melee_attack_combo": [30,3]
+    "more_mod_tetra:melee_attack_combo": [30,0]
   },
   "requiredTools": {
     "hammer_dig": "minecraft:gold"

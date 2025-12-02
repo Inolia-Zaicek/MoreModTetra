@@ -21,7 +21,8 @@
     "effects": {
         "more_mod_tetra:mana_force": 25,
         "more_mod_tetra:will_of_gaia": 1,
-        "more_mod_tetra:mana_regeneration": 30
+        "more_mod_tetra:mana_regeneration": 30,
+        "more_mod_tetra:mana_repair": 5
     },
     "material": {
         "items": [ "extrabotany:orichalcos_ingot" ]
@@ -34,5 +35,14 @@
             "type": "forge:mod_loaded",
             "modid": "extrabotany"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:armor_critical_strike": [7,12],
+                "more_mod_tetra:mana_regeneration": 30,
+                "more_mod_tetra:mana_repair": 5
+            }
+        }
+    }
 }

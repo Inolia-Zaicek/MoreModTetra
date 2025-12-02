@@ -25,7 +25,7 @@
       "more_mod_tetra:arcane_arcane_edge": 20
 	},
       "attributes": {
-      "irons_spellbooks:max_mana": 100
+      "irons_spellbooks:max_mana": 125
   },
     "requiredTools": {
         "hammer_dig": "minecraft:iron"
@@ -35,5 +35,17 @@
       "type": "forge:mod_loaded",
       "modid": "irons_spellbooks"
     }
-  ]
+  ],
+  "contexts": {
+    "armor": {
+      "attributes": {
+        "**irons_spellbooks:spell_power": 0.025,
+        "irons_spellbooks:max_mana": 100,
+        "**irons_spellbooks:spell_resist": 0.025
+      },
+      "effects": {
+        "more_mod_tetra:eldritch_arcane_guard": 30
+      }
+    }
+  }
 }

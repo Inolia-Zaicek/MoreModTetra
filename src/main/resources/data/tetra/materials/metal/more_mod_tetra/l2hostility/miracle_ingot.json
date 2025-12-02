@@ -43,5 +43,21 @@
             "type": "forge:mod_loaded",
             "modid": "l2complements"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "attributes": {
+                "**generic.attack_speed": 0.07,
+                "**forge:attack_range": 0.07,
+                "**forge:reach_distance": 0.07,
+                "**generic.attack_damage": 0.07,
+                "**generic.armor": 0.07,
+                "**generic.armor_toughness": 0.07,
+                "**generic.max_health": 0.07
+            },
+            "effects": {
+                "more_mod_tetra:miracle_and_magic": 7
+            }
+        }
+    }
 }

@@ -22,7 +22,6 @@
     "material": {
         "items": [ "forbidden_arcanus:deorum_ingot" ]
     },
-    ,
     "effects" : {
         "more_mod_tetra:defeat_demons": 20
     },

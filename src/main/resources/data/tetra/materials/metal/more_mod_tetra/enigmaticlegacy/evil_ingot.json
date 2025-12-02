@@ -32,5 +32,12 @@
             "type": "forge:mod_loaded",
             "modid": "enigmaticlegacy"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:evil_ingot_material": 15
+            }
+        }
+    }
 }

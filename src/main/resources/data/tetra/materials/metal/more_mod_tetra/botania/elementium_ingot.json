@@ -7,7 +7,7 @@
     "durability": 1050,
     "integrityCost": 2,
     "integrityGain": 6,
-    "magicCapacity": 500,
+    "magicCapacity": 600,
     "toolLevel": "minecraft:iron",
     "toolEfficiency": 7,
     "tints": {
@@ -20,7 +20,8 @@
     ],
     "effects": {
         "more_mod_tetra:pixie_summon": 20,
-        "more_mod_tetra:mana_regeneration": 5
+        "more_mod_tetra:mana_regeneration": 5,
+        "more_mod_tetra:mana_repair": 1
     },
     "material": {
         "items": [ "botania:elementium_ingot" ]
@@ -33,5 +34,14 @@
             "type": "forge:mod_loaded",
             "modid": "botania"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:pixie_summon": 20,
+                "more_mod_tetra:mana_regeneration": 5,
+                "more_mod_tetra:mana_repair": 1
+            }
+        }
+    }
 }

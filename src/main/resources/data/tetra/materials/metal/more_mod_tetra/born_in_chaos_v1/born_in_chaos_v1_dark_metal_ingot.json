@@ -32,5 +32,12 @@
             "type": "forge:mod_loaded",
             "modid": "born_in_chaos_v1"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:undead_protection": 8
+            }
+        }
+    }
 }

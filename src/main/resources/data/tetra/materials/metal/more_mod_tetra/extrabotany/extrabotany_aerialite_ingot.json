@@ -20,7 +20,8 @@
     ],
     "effects": {
         "more_mod_tetra:speed_force": 15,
-        "more_mod_tetra:mana_regeneration": 7
+        "more_mod_tetra:mana_regeneration": 7,
+        "more_mod_tetra:mana_repair": 2
     },
     "attributes": {
         "**generic.movement_speed": 0.05
@@ -36,5 +37,14 @@
             "type": "forge:mod_loaded",
             "modid": "extrabotany"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:armor_critical_strike": [2,5],
+                "more_mod_tetra:mana_regeneration": 7,
+                "more_mod_tetra:mana_repair": 2
+            }
+        }
+    }
 }

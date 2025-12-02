@@ -25,7 +25,8 @@
       "more_mod_tetra:ice_arcane_edge": 20
 	},
       "attributes": {
-      "**irons_spellbooks:ice_spell_power": 0.04
+      "**irons_spellbooks:ice_spell_power": 0.05,
+        "irons_spellbooks:max_mana": 50
   },
     "requiredTools": {
         "hammer_dig": "minecraft:iron"
@@ -35,5 +36,19 @@
       "type": "forge:mod_loaded",
       "modid": "irons_spellbooks"
     }
-  ]
+  ],
+  "contexts": {
+    "armor": {
+      "attributes": {
+        "**irons_spellbooks:spell_power": 0.025,
+        "**irons_spellbooks:ice_spell_power": 0.05,
+        "irons_spellbooks:max_mana": 62.5,
+        "**irons_spellbooks:spell_resist": 0.025,
+        "**irons_spellbooks:ice_magic_resist": 0.025
+      },
+      "effects": {
+        "more_mod_tetra:ice_arcane_guard": 20
+      }
+    }
+  }
 }

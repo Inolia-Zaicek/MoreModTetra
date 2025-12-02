@@ -44,5 +44,23 @@
             "type": "forge:mod_loaded",
             "modid": "avaritia"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "attributes": {
+                "**generic.attack_speed": 10,
+                "**forge:attack_range": 10,
+                "**forge:reach_distance": 10,
+                "**generic.attack_damage": 10,
+                "**generic.armor": 10,
+                "**generic.armor_toughness": 10,
+                "**generic.max_health": 10,
+                "generic.attack_speed": 50
+            },
+            "effects": {
+                "more_mod_tetra:diamond_guard": 11,
+                "more_mod_tetra:armor_sturdy": 20
+            }
+        }
+    }
 }

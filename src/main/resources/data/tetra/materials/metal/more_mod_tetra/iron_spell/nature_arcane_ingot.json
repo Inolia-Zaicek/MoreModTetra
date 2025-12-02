@@ -35,5 +35,19 @@
       "type": "forge:mod_loaded",
       "modid": "irons_spellbooks"
     }
-  ]
+  ],
+  "contexts": {
+    "armor": {
+      "attributes": {
+        "**irons_spellbooks:spell_power": 0.025,
+        "**irons_spellbooks:nature_spell_power": 0.05,
+        "irons_spellbooks:max_mana": 62.5,
+        "**irons_spellbooks:spell_resist": 0.025,
+        "**irons_spellbooks:nature_magic_resist": 0.025
+      },
+      "effects": {
+        "more_mod_tetra:nature_arcane_guard": 20
+      }
+    }
+  }
 }

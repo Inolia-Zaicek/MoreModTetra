@@ -20,8 +20,9 @@
         "metal"
     ],
     "effects" : {
-        "more_mod_tetra:eternium_durability": 15,
-        "unbreaking": 4
+        "more_mod_tetra:eternium_durability": 25,
+        "more_mod_tetra:flawless_attack": 15,
+        "more_mod_tetra:flawless_protection": 10
     },
     "material": {
         "items": [ "l2complements:eternium_ingot" ]
@@ -34,5 +35,13 @@
             "type": "forge:mod_loaded",
             "modid": "l2complements"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:eternium_durability": 25,
+                "more_mod_tetra:flawless_protection": 5
+            }
+        }
+    }
 }

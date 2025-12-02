@@ -22,7 +22,7 @@
         "items": [ "more_mod_tetra:tidal_ingot" ]
     },
     "effects" : {
-        "more_mod_tetra:let_the_people_rejoice": 25
+        "more_mod_tetra:let_the_people_rejoice": 17.5
     },
     "requiredTools": {
         "hammer_dig": "minecraft:iron"

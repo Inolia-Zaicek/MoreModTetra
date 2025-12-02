@@ -26,5 +26,12 @@
     },
     "requiredTools": {
         "hammer_dig": "minecraft:stone"
+    },
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:undead_protection": 8
+            }
+        }
     }
 }

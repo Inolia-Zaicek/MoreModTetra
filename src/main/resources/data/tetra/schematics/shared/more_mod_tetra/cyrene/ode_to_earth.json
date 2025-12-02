@@ -2,14 +2,19 @@
     
     "slots": [
 "sword/blade",
+
+
 "mmt_iron_staff/head",
 "modular_musket/barrel",
 "modular_amiya_staff/head_crystal",
 "modular_apocalypse_greatblade/blade",
 "modular_banaddur_the_magic_greatsword/blade",
+"modular_black_abyss_flower/blade",
 "modular_black_worldbearing_greatblade/blade",
 "modular_blazing_sun/blade",
 "modular_blemishine_sword/blade",
+"modular_blood_sacrifice_blade/blade",
+"modular_butterfly_flurry/blade",
 "modular_coral_sorrow/blade",
 "modular_decapitator/blade",
 "modular_deicider_katana/blade",
@@ -21,6 +26,7 @@
 "modular_freeze_greatblade/blade",
 "modular_guardian_of_the_stars/blade",
 "modular_iron_rider/blade",
+"modular_jia_qiu_battlestaff/handle",
 "modular_judgment_of_shamash/blade",
 "modular_kaminari_katana/blade",
 "modular_la_pluma_scythe/blade",
@@ -43,8 +49,13 @@
 "modular_traveller_stick/head",
 "modular_trident/primary_blade",
 "modular_udumbara/blade",
+"modular_ultimate_dragon_sword/blade",
+"modular_white_abyss_flower/blade",
 "modular_white_worldbearing_greatblade/blade",
 "modular_ying_xiao/blade",
+
+
+
 
 
         "slashblade/blade",

@@ -16,6 +16,8 @@ import com.inolia_zaicek.more_mod_tetra.Effect.Ars.ThreadDepths;
 import com.inolia_zaicek.more_mod_tetra.Effect.Ars.ThreadFeather;
 import com.inolia_zaicek.more_mod_tetra.Effect.Ars.ThreadHeights;
 import com.inolia_zaicek.more_mod_tetra.Effect.Ars.ThreadRepairing;
+import com.inolia_zaicek.more_mod_tetra.Effect.Azure.ResourcePointGetEvent;
+import com.inolia_zaicek.more_mod_tetra.Effect.Azure.WardenKiller;
 import com.inolia_zaicek.more_mod_tetra.Effect.Biomancy.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.BornInChaos.SoulStratification;
 import com.inolia_zaicek.more_mod_tetra.Effect.Botania.AncientWill.*;
@@ -347,9 +349,9 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(EterniumDurability.class);
         MinecraftForge.EVENT_BUS.register(HidingInShulkerShell.class);
         MinecraftForge.EVENT_BUS.register(HostilityControl.class);
+        MinecraftForge.EVENT_BUS.register(ObsessionOfWarden.class);
         if(ModList.get().isLoaded("l2complements")) {
             MinecraftForge.EVENT_BUS.register(Recovery.class);
-            MinecraftForge.EVENT_BUS.register(ObsessionOfWarden.class);
             //词条
             MinecraftForge.EVENT_BUS.register(UndyingEffectTrait.class);
             MinecraftForge.EVENT_BUS.register(FieryEffectTraitHurt.class);
@@ -539,6 +541,9 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(SoulStratification.class);
         MinecraftForge.EVENT_BUS.register(RideSkill.class);
         MinecraftForge.EVENT_BUS.register(SoulRage.class);
+
+        MinecraftForge.EVENT_BUS.register(ResourcePointGetEvent.class);
+        MinecraftForge.EVENT_BUS.register(WardenKiller.class);
     }
 
     @SubscribeEvent

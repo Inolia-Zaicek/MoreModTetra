@@ -22,7 +22,7 @@
         "items": [ "traveloptics:hullbreaker_steel" ]
     },
         "effects" : {
-      "more_mod_tetra:ender_arcane_edge": 30,
+      "more_mod_tetra:aqua_arcane_edge": 30,
           "more_mod_tetra:underocean": 5,
           "more_mod_tetra:abyssal_ocean_echo": 15
         },

@@ -7036,7 +7036,7 @@
 "tetra.variant.inlay/tracking": "追迹核心",
 
 "more_mod_tetra.effect.gather_ore.name":"凝矿",
-"more_mod_tetra.effect.gather_ore.tooltip":"每次破坏方块时，为持有者提升§e%1$s§r资源点(死亡时会清空资源点)。当资源点≥100时，下一次破坏方块§e消耗所有资源点§r，概率获得§e%1$s§r份§e矿物§r(矿物之间概率独立，部分矿物数量额外提升)\n§7【煤炭(99%%)、粗铜(80%%)、粗铁(70%%)、粗金(60%%)、红石(50%%)、青金石(40%%)、绿宝石(30%%)、钻石(20%%)、远古残骸(10%%)】",
+"more_mod_tetra.effect.gather_ore.tooltip":"每次破坏方块时，为持有者提升§e%1$s§r资源点(死亡时会清空资源点)。当资源点≥100时，下一次破坏方块§e消耗所有资源点§r，概率获得§e%2$s§r份§e矿物§r(矿物之间概率独立，部分矿物数量额外提升)\n§7【煤炭(99%%)、粗铜(80%%)、粗铁(70%%)、粗金(60%%)、红石(50%%)、青金石(40%%)、绿宝石(30%%)、钻石(20%%)、远古残骸(10%%)】",
 "tetra.stats.more_mod_tetra:gather_ore":"凝矿",
 "tetra.stats.more_mod_tetra:gather_ore.tooltip_short":"挖掘方块获取资源点，到达上限时额外出产矿物",
 
@@ -7051,14 +7051,20 @@
 "tetra.stats.more_mod_tetra:archaeology.tooltip_short":"挖掘矿石概率获取远古残骸",
 
 "more_mod_tetra.effect.turning_stone_into_gold.name":"点石成金",
-"more_mod_tetra.effect.turning_stone_into_gold.tooltip":"右键§e石头/煤炭块/铁块/金块/绿宝石块/钻石块§r会消耗工具§e%1$s%%§r耐久(至多消耗99%%)，将其转化为下一级的高价值方块。(消耗的耐久会提供少量打磨进度)\n\n当前炼成等级：§e%2$s§r(最高转化方块等级：1:煤炭 2:铁块 3:金块 4:绿宝石块 5:钻石块)",
+"more_mod_tetra.effect.turning_stone_into_gold.tooltip":"主手持握时，右键§e石头/煤炭块/铁块/金块/绿宝石块/钻石块§r会消耗工具§e%1$s%%§r耐久(至多消耗99%%)，将其转化为下一级的高价值方块。(消耗的耐久会提供少量打磨进度)\n\n当前炼成等级：§e%2$s§r(最高转化方块等级：1:煤炭 2:铁块 3:金块 4:绿宝石块 5:钻石块)",
 "tetra.stats.more_mod_tetra:turning_stone_into_gold":"点石成金",
 "tetra.stats.more_mod_tetra:turning_stone_into_gold.tooltip_short":"右键石头将其转化为矿石材料方块",
+"tooltip.more_mod_tetra:turning_stone_into_gold.error":"所需耐久不足，无法转化方块",
 
 "more_mod_tetra.effect.hunting.name":"狩猎",
-"more_mod_tetra.effect.hunting.tooltip":"击杀实体有§e%1$s%%§r概率，额外掉落§e%2$s§r份§e战利品§r",
+"more_mod_tetra.effect.hunting.tooltip":"击杀实体有§e%1$s%%§r概率，额外掉落§e%2$s§r份§e战利品§r(取整)",
 "tetra.stats.more_mod_tetra:hunting":"狩猎",
 "tetra.stats.more_mod_tetra:hunting.tooltip_short":"概率额外掉落战利品",
+
+"more_mod_tetra.effect.warden_killer.name":"监守者之殇",
+"more_mod_tetra.effect.warden_killer.tooltip":"对监守者造成的伤害提升§e%1$s%%§r数额，来自监守者的伤害降低§e%2$s%%§r数额",
+"tetra.stats.more_mod_tetra:warden_killer":"监守者之殇",
+"tetra.stats.more_mod_tetra:warden_killer.tooltip_short":"获得针对监守者的增减伤",
 
 "tetra.variant.basic_handle/nether_star_rod": "下界之星棒",
 "tetra.material.blank_thread":"空白纤维",

@@ -6,6 +6,12 @@
             "item": "minecraft:netherite_scrap"
         },
         {
+            "item": "minecraft:netherite_scrap"
+        },
+        {
+            "item": "minecraft:diamond"
+        },
+        {
             "item": "minecraft:diamond"
         },
         {
@@ -17,6 +23,6 @@
     ],
     "result": {
         "item": "more_mod_tetra:fake_manyullyn_ingot",
-        "count": 2
+        "count": 1
     }
 }

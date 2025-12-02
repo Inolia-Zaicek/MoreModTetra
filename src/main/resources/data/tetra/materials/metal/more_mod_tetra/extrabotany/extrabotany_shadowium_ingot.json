@@ -20,7 +20,8 @@
     ],
     "effects": {
         "more_mod_tetra:shadow_power": 15,
-        "more_mod_tetra:mana_regeneration": 7
+        "more_mod_tetra:mana_regeneration": 7,
+        "more_mod_tetra:mana_repair": 2
     },
     "material": {
         "items": [ "extrabotany:shadowium_ingot" ]
@@ -33,5 +34,14 @@
             "type": "forge:mod_loaded",
             "modid": "extrabotany"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:armor_critical_strike": [2,7],
+                "more_mod_tetra:mana_regeneration": 7,
+                "more_mod_tetra:mana_repair": 2
+            }
+        }
+    }
 }

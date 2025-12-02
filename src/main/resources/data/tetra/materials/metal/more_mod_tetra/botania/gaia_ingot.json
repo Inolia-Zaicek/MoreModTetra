@@ -7,8 +7,8 @@
     "durability": 3050,
     "integrityCost": 1,
     "integrityGain": 10,
-    "magicCapacity": 800,
-    "toolLevel": "minecraft:iron",
+    "magicCapacity": 900,
+    "toolLevel": "minecraft:netherite",
     "toolEfficiency": 10,
     "tints": {
         "glyph": "def7e3",
@@ -20,7 +20,8 @@
     ],
     "effects": {
         "more_mod_tetra:will_of_gaia": 1,
-        "more_mod_tetra:mana_regeneration": 20
+        "more_mod_tetra:mana_regeneration": 20,
+        "more_mod_tetra:mana_repair": 5
     },
     "material": {
         "items": [ "botania:gaia_ingot" ]
@@ -33,5 +34,15 @@
             "type": "forge:mod_loaded",
             "modid": "botania"
         }
-    ]
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:diamond_guard": 5,
+                "more_mod_tetra:armor_critical_strike": [5,10],
+                "more_mod_tetra:mana_regeneration": 20,
+                "more_mod_tetra:mana_repair": 5
+            }
+        }
+    }
 }

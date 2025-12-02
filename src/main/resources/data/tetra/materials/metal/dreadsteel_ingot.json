@@ -2,7 +2,7 @@
   "replace": true,
   "key": "dreadsteel_ingot",
   "category": "metal",
-  "primary": 50,
+  "primary": 30,
   "secondary": 5.5,
   "tertiary": 1,
   "durability": 9999,
@@ -25,7 +25,8 @@
     ]
   },
   "effects" : {
-    "more_mod_tetra:rising_slash": 12
+    "more_mod_tetra:rising_slash": 4,
+    "armorPenetration": 20
   },
   "attributes": {
     "**generic.attack_speed": 0.02,
@@ -41,5 +42,13 @@
       "type": "forge:mod_loaded",
       "modid": "dreadsteel"
     }
-  ]
+  ],
+  "contexts": {
+    "armor": {
+      "effects": {
+        "more_mod_tetra:armor_final_stand": 15,
+        "more_mod_tetra:armor_last_stand": 9
+      }
+    }
+  }
 }
