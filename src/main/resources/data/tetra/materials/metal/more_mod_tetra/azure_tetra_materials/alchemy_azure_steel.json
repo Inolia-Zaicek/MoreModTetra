@@ -1,0 +1,42 @@
+{
+    "key": "alchemy_azure_steel",
+    "category": "azure_steel",
+    "primary": 4.4,
+    "secondary": 4.4,
+    "tertiary": 4.4,
+    "durability": 2012,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 202,
+    "toolLevel": 6,
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "FFFFFF",
+        "texture": "FFFFFF"
+    },
+    "textures": [
+        "metal"
+    ],
+    "effects" : {
+        "more_mod_tetra:turning_stone_into_gold": [10,1]
+    },
+    "material": {
+        "items": [ "azure_tetra_materials:alchemy_azure_steel" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "azure_tetra_materials"
+        }
+    ],
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:industrial_protection": 1
+            }
+        }
+    }
+}

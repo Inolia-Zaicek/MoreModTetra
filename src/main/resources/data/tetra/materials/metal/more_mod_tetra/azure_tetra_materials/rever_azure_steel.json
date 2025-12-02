@@ -1,0 +1,32 @@
+{
+    "key": "rever_azure_steel",
+    "category": "azure_steel",
+    "primary": 7.7,
+    "secondary": 5.5,
+    "tertiary": 2.2,
+    "durability": 2048,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 505,
+    "toolLevel": 7,
+    "toolEfficiency": 12,
+    "tints": {
+        "glyph": "c1c1c1",
+        "texture": "c1c1c1"
+    },
+    "textures": [
+        "metal"
+    ],
+    "material": {
+        "items": [ "azure_tetra_materials:rever_azure_steel" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "azure_tetra_materials"
+        }
+    ]
+}
