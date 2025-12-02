@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.ArmorEffect.Cataclysm;
 
 import com.github.L_Ender.cataclysm.init.ModEffect;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
@@ -10,7 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,29 +25,27 @@ import static net.minecraft.tags.DamageTypeTags.IS_PROJECTILE;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
 public class CursiumSuit {
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-        if (event.getEntity() != null) {
-            LivingEntity livingEntity = event.getEntity();
-            int legsArmorEffectLevel = MMTEffectHelper.getInstance().getAllArmorSumEffectLevel(livingEntity, cursium_legs_Effect);
-            int feetArmorEffectLevel = MMTEffectHelper.getInstance().getAllArmorSumEffectLevel(livingEntity, cursium_feet_Effect);
-            //3
-            if (legsArmorEffectLevel > 0) {
-                Random random = new Random();
-                float chance = legsArmorEffectLevel;
-                if (event.getSource().is(IS_PROJECTILE)) {
-                    chance += legsArmorEffectLevel;
-                }
-                if (random.nextInt(100) <= chance) {
-                    event.setAmount(0);
-                }
+    public static void effectLevel(EffectLevelEvent event) {
+        LivingEntity livingEntity = event.getAttacker();
+        int legsArmorEffectLevel = MMTEffectHelper.getInstance().getAllArmorSumEffectLevel(livingEntity, cursium_legs_Effect);
+        int feetArmorEffectLevel = MMTEffectHelper.getInstance().getAllArmorSumEffectLevel(livingEntity, cursium_feet_Effect);
+        //3
+        if (legsArmorEffectLevel > 0) {
+            Random random = new Random();
+            float chance = legsArmorEffectLevel;
+            if (event.hurtEvent.getSource().is(IS_PROJECTILE)) {
+                chance += legsArmorEffectLevel;
             }
-            //4
-            if (feetArmorEffectLevel > 0 && event.getSource().is(IS_FALL)) {
-                if (feetArmorEffectLevel >= 100) {
-                    event.setAmount(0);
-                } else {
-                    event.setAmount(event.getAmount() * (1 - (float) feetArmorEffectLevel / 100));
-                }
+            if (random.nextInt(100) <= chance) {
+                event.setResult(Event.Result.DENY);
+            }
+        }
+        //41
+        if (feetArmorEffectLevel > 0 && event.hurtEvent.getSource().is(IS_FALL)) {
+            if (feetArmorEffectLevel >= 100) {
+                event.setResult(Event.Result.DENY);
+            } else {
+                event.addNormalMulti((-(float) feetArmorEffectLevel / 100));
             }
         }
     }

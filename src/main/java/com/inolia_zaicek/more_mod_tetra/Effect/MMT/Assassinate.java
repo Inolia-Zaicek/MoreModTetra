@@ -31,26 +31,26 @@ public class Assassinate {
     }
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            //攻击
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
-                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,assassinateEffect);
-                float hp =mob.getHealth();
-                float mhp =mob.getMaxHealth();
-                if (effectLevel > 0&&hp==mhp) {
-                    float number = (float) effectLevel / 100;
-                    event.setAmount(event.getAmount()*(1+number));
-                    }
-                } else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
-                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,assassinateEffect);
-                float hp =mob.getHealth();
-                float mhp =mob.getMaxHealth();
-                if (effectLevel > 0&&hp==mhp) {
-                    float number = (float) effectLevel / 100;
-                    event.setAmount(event.getAmount()*(1+number));
-                }
+        //攻击
+        if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            var mob = event.getEntity();
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,assassinateEffect);
+            float hp =mob.getHealth();
+            float mhp =mob.getMaxHealth();
+            if (effectLevel > 0&&hp==mhp) {
+                float number = (float) effectLevel / 100;
+                event.setAmount(event.getAmount()*(1+number));
             }
+        } else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+            var mob = event.getEntity();
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,assassinateEffect);
+            float hp =mob.getHealth();
+            float mhp =mob.getMaxHealth();
+            if (effectLevel > 0&&hp==mhp) {
+                float number = (float) effectLevel / 100;
+                event.setAmount(event.getAmount()*(1+number));
             }
         }
+    }
+}
 
