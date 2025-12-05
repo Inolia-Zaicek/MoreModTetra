@@ -7,6 +7,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -31,15 +32,15 @@ public class ReverselSmite {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
             //攻击
-            if (event.getSource().getEntity() instanceof LivingEntity player) {
-                LivingEntity mob = event.getEntity();
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+                LivingEntity mob = event.getAttacked();
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,reverselSmiteEffect);
                 //亡灵
                 if (effectLevel > 0&&!( mob.getMobType() == MobType.UNDEAD )) {
                     float number = (float) effectLevel / 100;
-                    event.setAmount(event.getAmount()*(1+number));
+                    event.addNormalMulti((number));
                     }
                 }
             }

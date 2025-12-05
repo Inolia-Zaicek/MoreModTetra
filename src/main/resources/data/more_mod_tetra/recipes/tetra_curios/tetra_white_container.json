@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         "ACA",
-        "ABA",
+        "FBF",
         "ADA"
     ],
     "key": {
@@ -10,13 +10,16 @@
             "item": "minecraft:iron_ingot"
         },
         "B": {
-            "item": "minecraft:brewing_stand"
+            "item": "minecraft:blaze_rod"
         },
         "C": {
             "item": "minecraft:white_dye"
         },
         "D": {
             "item": "minecraft:black_dye"
+        },
+        "F": {
+            "item": "minecraft:diamond"
         }
     },
     "result": {

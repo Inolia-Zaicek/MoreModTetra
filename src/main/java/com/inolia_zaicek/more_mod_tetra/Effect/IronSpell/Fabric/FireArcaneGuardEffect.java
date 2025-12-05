@@ -1,12 +1,13 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.Fabric;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -33,16 +34,15 @@ public class FireArcaneGuardEffect {
 
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-        LivingEntity target = event.getEntity();
-        //基础攻击伤害量
-        float baseAmount = event.getAmount();
+    
+    public static void hurt(EffectLevelEvent event) {
+        LivingEntity target = event.getAttacked();
         float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(target, fireArcaneGuardEffect);
         if (effectLevel > 0) {
             //获取法抗属性
             float magic = (float) target.getAttributeValue(AttributeRegistry.FIRE_MAGIC_RESIST.get());
             float resist = (float) target.getAttributeValue(AttributeRegistry.SPELL_RESIST.get());
-            event.setAmount(baseAmount * (1 - (magic+resist-2) * (effectLevel / 100)  ));
+            event.addNormalMulti((1 - (magic+resist-2) * (effectLevel / 100)  ));
         }
     }
 }

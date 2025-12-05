@@ -1,11 +1,11 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -33,10 +33,10 @@ public class TorchTheLawsOfOld {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof LivingEntity player) {
-            var mob = event.getEntity();
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+            var mob = event.getAttacked();
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,torchTheLawsOfOldEffect);
             float mobHp = mob.getHealth();
             float playerHhp = player.getHealth();
@@ -48,19 +48,19 @@ public class TorchTheLawsOfOld {
                     float dhp =Math.min(80,mobHp-playerHhp);
                     //增幅强度*生命值差额进度
                     float finish = 1 + ((float) effectLevel /100)*(dhp/80);
-                    event.setAmount(event.getAmount() * finish);
+                    event.addNormalMulti(finish);
                 }
                 else if (playerHhp > mobHp) {
                     //生命值差额
                     float dhp =Math.min(80,playerHhp-mobHp);
                     //增幅强度*生命值差额进度
                     float finish = 1 + ((float) effectLevel /100)*(dhp/80);
-                    event.setAmount(event.getAmount() * finish);
+                    event.addNormalMulti(finish);
                 }
             }
         }
-        else         if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
-            var mob = event.getEntity();
+        else         if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
+            var mob = event.getAttacked();
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,torchTheLawsOfOldEffect);
             float mobHp = mob.getHealth();
             float playerHhp = player.getHealth();
@@ -72,19 +72,19 @@ public class TorchTheLawsOfOld {
                     float dhp =Math.min(80,mobHp-playerHhp);
                     //增幅强度*生命值差额进度
                     float finish = 1 + ((float) effectLevel /100)*(dhp/80);
-                    event.setAmount(event.getAmount() * finish);
+                    event.addNormalMulti(finish);
                 }
                 else if (playerHhp > mobHp) {
                     //生命值差额
                     float dhp =Math.min(80,playerHhp-mobHp);
                     //增幅强度*生命值差额进度
                     float finish = 1 + ((float) effectLevel /100)*(dhp/80);
-                    event.setAmount(event.getAmount() * finish);
+                    event.addNormalMulti(finish);
                 }
             }
         }
-        else if (event.getSource().getDirectEntity() instanceof LivingEntity mob) {
-            LivingEntity player = event.getEntity();
+        else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity mob) {
+            LivingEntity player = event.getAttacked();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             float effectLevel = 0;
@@ -110,19 +110,19 @@ public class TorchTheLawsOfOld {
                     float dhp =Math.min(80,mobHp-playerHhp);
                     //增幅强度*生命值差额进度
                     float finish = 1 - (effectLevel/100)*(dhp/80);
-                    event.setAmount(event.getAmount() * finish);
+                    event.addNormalMulti(finish);
                 }
                 else if (playerHhp > mobHp) {
                     //生命值差额
                     float dhp =Math.min(80,playerHhp-mobHp);
                     //增幅强度*生命值差额进度
                     float finish = 1 - (effectLevel/100)*(dhp/80);
-                    event.setAmount(event.getAmount() * finish);
+                    event.addNormalMulti(finish);
                 }
             }
         }
-        else if (event.getSource().getEntity() instanceof LivingEntity mob) {
-            LivingEntity player = event.getEntity();
+        else if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity mob) {
+            LivingEntity player = event.getAttacked();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             float effectLevel = 0;
@@ -148,14 +148,14 @@ public class TorchTheLawsOfOld {
                     float dhp =Math.min(80,mobHp-playerHhp);
                     //增幅强度*生命值差额进度
                     float finish = 1 - (effectLevel/100)*(dhp/80);
-                    event.setAmount(event.getAmount() * finish);
+                    event.addNormalMulti(finish);
                 }
                 else if (playerHhp > mobHp) {
                     //生命值差额
                     float dhp =Math.min(80,playerHhp-mobHp);
                     //增幅强度*生命值差额进度
                     float finish = 1 - (effectLevel/100)*(dhp/80);
-                    event.setAmount(event.getAmount() * finish);
+                    event.addNormalMulti(finish);
                 }
             }
         }

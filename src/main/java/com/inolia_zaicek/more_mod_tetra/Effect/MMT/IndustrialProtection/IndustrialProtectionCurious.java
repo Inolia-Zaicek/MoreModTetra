@@ -7,8 +7,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -35,9 +35,9 @@ public class IndustrialProtectionCurious {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-            if (event.getEntity() instanceof Player player&&event.getSource().getEntity()==null
-                    &&!event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
+    public static void hurt(EffectLevelEvent event) {
+            if (event.getAttacked() instanceof Player player&&event.hurtEvent.getSource().getEntity()==null
+                    &&!event.hurtEvent.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
                         (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                         slotResult -> {
@@ -48,12 +48,12 @@ public class IndustrialProtectionCurious {
 
                             if (level > 0 &&player.hasEffect(MMTEffectsRegister.IndustrialProtection.get())) {
                                 int buffLevel = player.getEffect(MMTEffectsRegister.IndustrialProtection.get()).getAmplifier();
-                                event.setAmount(  Math.max(0,event.getAmount()-buffLevel)  );
+                                event.addFixedDamage((-buffLevel)  );
                             }
                         }
                 ));
             }
-        if (event.getEntity() instanceof Player player&&event.getSource().getEntity()!=null&&player.hasEffect(MMTEffectsRegister.IndustrialProtection.get())) {
+        if (event.getAttacked() instanceof Player player&&event.hurtEvent.getSource().getEntity()!=null&&player.hasEffect(MMTEffectsRegister.IndustrialProtection.get())) {
             player.removeEffect(MMTEffectsRegister.IndustrialProtection.get());
             player.addEffect(new MobEffectInstance(MMTEffectsRegister.UnIndustrialProtection.get(),200,0));
         }

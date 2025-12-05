@@ -38,7 +38,7 @@ public class WeaknessRealm {
     }
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, weaknessRealmEffect);
             if (effectLevel > 0) {
                 var mobList = MMTUtil.mobList(17,livingEntity);

@@ -1,12 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -36,10 +36,10 @@ public class SMCFrost {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("smc")) {
             //攻击者是玩家
-            if (event.getSource().getEntity() instanceof LivingEntity player  &&event.getEntity()!=null) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player  &&event.getAttacked()!=null) {
                 int effectLevel = 0;
                                     //获取一下玩家主副手
                                     ItemStack mainHandItem = player.getMainHandItem();
@@ -56,15 +56,15 @@ public class SMCFrost {
                                             effectLevel += (int) offEffectLevel;
                                         }
                                     }
-                                    if (effectLevel > 0&&event.getEntity()!=null) {
-                                        var mob = event.getEntity();
+                                    if (effectLevel > 0&&event.getAttacked()!=null) {
+                                        var mob = event.getAttacked();
                                         var map = mob.getActiveEffectsMap();
                                         //通过id直接给buff
                                         mob.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("smc", "frost"))), 20 * effectLevel, 0));
                                         map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("smc", "frost")))
                                                 , new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("smc", "frost"))), 20 * effectLevel, 0));
                                     }
-            }else if (event.getSource().getDirectEntity() instanceof LivingEntity player &&event.getEntity()!=null) {
+            }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player &&event.getAttacked()!=null) {
                 int effectLevel = 0;
                 //获取一下玩家主副手
                 ItemStack mainHandItem = player.getMainHandItem();
@@ -81,8 +81,8 @@ public class SMCFrost {
                         effectLevel += (int) offEffectLevel;
                     }
                 }
-                if (effectLevel > 0 && event.getEntity() != null) {
-                    var mob = event.getEntity();
+                if (effectLevel > 0 && event.getAttacked() != null) {
+                    var mob = event.getAttacked();
                     var map = mob.getActiveEffectsMap();
                     //通过id直接给buff
                     mob.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("smc", "frost"))), 20 * effectLevel, 0));

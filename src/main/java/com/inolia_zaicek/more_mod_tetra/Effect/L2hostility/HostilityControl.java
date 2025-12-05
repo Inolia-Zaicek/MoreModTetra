@@ -6,6 +6,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -33,7 +34,7 @@ public class HostilityControl {
     public static void hurt(LivingHurtEvent event) {
             //挨打的是玩家
             if (event.getEntity()!=null) {
-                LivingEntity livingEntity = event.getEntity();
+                LivingEntity livingEntity = event.getEntity();;
                 float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, hostilityControlEffect);
                 if (effectLevel > 0) {
                     float mhp =livingEntity.getMaxHealth();

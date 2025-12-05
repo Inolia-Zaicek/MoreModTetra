@@ -1,10 +1,10 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -30,40 +30,38 @@ public class ShootingSun {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
-                var mob = event.getEntity();
+    public static void hurt(EffectLevelEvent event) {
+            if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
+                var mob = event.getAttacked();
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,shootingSunEffect);
                 if (effectLevel > 0) {
                     float number =effectLevel/1000;
                     float fireTime =mob.getRemainingFireTicks();
-                    float damage= event.getAmount();
                     //xx秒*倍率,最多30秒*倍率
                     float finish =Math.min(30, (fireTime/20) ) * number;
                     if(fireTime>0) {
                         mob.setRemainingFireTicks((int) (fireTime+100));
-                        event.setAmount(damage*(1+finish));
+                        event.addNormalMulti((1+finish));
                     }else{
                         mob.setRemainingFireTicks(100);
-                        event.setAmount(damage*(1+number));
+                        event.addNormalMulti((1+number));
                     }
                 }
         }
-        else if (event.getSource().getEntity() instanceof LivingEntity player) {
-            var mob = event.getEntity();
+        else if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+            var mob = event.getAttacked();
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,shootingSunEffect);
             if (effectLevel > 0) {
                 float number = (float) effectLevel /1000;
                 float fireTime =mob.getRemainingFireTicks();
-                float damage= event.getAmount();
                 //xx秒*倍率,最多30秒*倍率
                 float finish =Math.min(30, (fireTime/20) ) * number;
                 if(fireTime>0) {
                     mob.setRemainingFireTicks((int) (fireTime+100));
-                    event.setAmount(damage*(1+finish));
+                    event.addNormalMulti((1+finish));
                 }else{
                     mob.setRemainingFireTicks(100);
-                    event.setAmount(damage*(1+number));
+                    event.addNormalMulti((1+number));
                 }
             }
         }

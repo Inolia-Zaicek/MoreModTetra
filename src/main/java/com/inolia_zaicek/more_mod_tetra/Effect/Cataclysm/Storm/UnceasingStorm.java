@@ -1,12 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Storm;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -33,14 +33,14 @@ public class UnceasingStorm {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if(ModList.get().isLoaded("cataclysm")) {
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,unceasingStormEffect);
                 if (effectLevel > 0) {
                     livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.StormEye.get(),200,effectLevel-1));
                 }
-            }else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+            }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,unceasingStormEffect);
                 if (effectLevel > 0) {
                     livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.StormEye.get(),200,effectLevel-1));

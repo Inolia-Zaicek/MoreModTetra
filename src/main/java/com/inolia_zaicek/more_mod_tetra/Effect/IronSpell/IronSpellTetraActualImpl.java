@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell;
 
 import com.inolia_zaicek.more_mod_tetra.Effect.MMTITetraProxy;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.compat.tetra.StatGetterPercentAttribute;
 import io.redspace.ironsspellbooks.compat.tetra.effects.FreezeTetraEffect;

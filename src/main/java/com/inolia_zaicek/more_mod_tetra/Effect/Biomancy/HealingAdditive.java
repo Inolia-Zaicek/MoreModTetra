@@ -5,8 +5,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -32,15 +32,15 @@ public class HealingAdditive {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if(ModList.get().isLoaded("biomancy")) {
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,healingAdditiveEffect);
                 if (effectLevel > 0) {
                     float mhp= (float) livingEntity.getAttributeValue(Attributes.MAX_HEALTH);
                     livingEntity.heal(mhp*0.05f);
                 }
-            }else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+            }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,healingAdditiveEffect);
                 if (effectLevel > 0) {
                     float mhp= (float) livingEntity.getAttributeValue(Attributes.MAX_HEALTH);

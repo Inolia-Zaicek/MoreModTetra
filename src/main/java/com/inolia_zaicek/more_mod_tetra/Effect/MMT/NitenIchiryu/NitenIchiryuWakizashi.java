@@ -6,8 +6,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -33,8 +33,8 @@ public class NitenIchiryuWakizashi {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof LivingEntity player) {
+    public static void hurt(EffectLevelEvent event) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
                 ItemStack mainHandItem = player.getMainHandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -51,7 +51,7 @@ public class NitenIchiryuWakizashi {
                     }else{
                         player.removeEffect(MMTEffectsRegister.NitenIchiryuWakizashi.get());
                         player.removeEffect(MMTEffectsRegister.NitenIchiryuKatana.get());
-                        event.setAmount(event.getAmount()*(1+ (float) effectLevel /100));
+                        event.addNormalMulti(( (float) effectLevel /100));
                     }
                 }
             }

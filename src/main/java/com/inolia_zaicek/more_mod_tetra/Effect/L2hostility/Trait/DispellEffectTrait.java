@@ -1,11 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -34,11 +35,11 @@ public class DispellEffectTrait {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("l2complements")) {
             //挨打是玩家
-            if (event.getEntity()!=null) {
-                LivingEntity livingEntity = event.getEntity();
+            if (event.getAttacked()!=null) {
+                LivingEntity livingEntity = event.getAttacked();;
                 CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
@@ -62,8 +63,8 @@ public class DispellEffectTrait {
                                         }
                                     }
                                     if (effectLevel > 0) {
-                                        if (event.getSource().is(DamageTypeTags.BYPASSES_EFFECTS) || event.getSource().is(WITCH_RESISTANT_TO) ) {
-                                            event.setAmount(0);
+                                        if (event.hurtEvent.getSource().is(DamageTypeTags.BYPASSES_EFFECTS) || event.hurtEvent.getSource().is(WITCH_RESISTANT_TO) ) {
+                                            event.setResult(Event.Result.DENY);
                                         }
                                     }
                                 }

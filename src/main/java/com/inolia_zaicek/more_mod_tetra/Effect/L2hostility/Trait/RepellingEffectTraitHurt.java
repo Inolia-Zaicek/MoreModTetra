@@ -5,7 +5,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -33,11 +35,11 @@ public class RepellingEffectTraitHurt {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("l2complements")) {
             //挨打的是玩家且攻击者非空
-            if (event.getEntity()!=null&&event.getSource().is(IS_PROJECTILE)) {
-                LivingEntity livingEntity = event.getEntity();
+            if (event.getAttacked()!=null&&event.hurtEvent.getSource().is(IS_PROJECTILE)) {
+                LivingEntity livingEntity = event.getAttacked();;
                 CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
@@ -61,7 +63,7 @@ public class RepellingEffectTraitHurt {
                                         }
                                     }
                                     if (effectLevel > 0) {
-                                            event.setAmount(0);
+                                        event.setResult(Event.Result.DENY);
                                     }
                                 }
                         )

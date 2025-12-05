@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraftforge.api.distmarker.Dist;

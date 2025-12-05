@@ -7,6 +7,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -35,9 +36,9 @@ public class RuneOfIgneousSolace {
 
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("malum")) {
-            Entity entity = event.getEntity();
+            Entity entity = event.getAttacked();
             if (entity.isOnFire() || entity.getRemainingFireTicks() > 0) {
                 if (entity instanceof LivingEntity livingEntity) {
                     ItemStack mainHandItem = livingEntity.getMainHandItem();
@@ -56,7 +57,7 @@ public class RuneOfIgneousSolace {
                         }
                     }
                     if (effectLevel > 0) {
-                        event.setAmount(event.getAmount() * 0.75f);
+                        event.addNormalMulti(0.75f);
                     }
                 }
             }

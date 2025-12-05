@@ -10,15 +10,15 @@
             "integrity": 0,
             "effects": {
                 "more_mod_tetra:curios_materials_effect_invalidation": 1,
-                "more_mod_tetra:curios_totem_cooldown": 30,
-                "more_mod_tetra:curios_totem_health": 1
+                "more_mod_tetra:curios_totem_cooldown": 120,
+                "more_mod_tetra:curios_totem_health": 10
             },
             "extract": {
                 "primaryEffects": {
-                    "more_mod_tetra:curios_totem_cooldown": -1
+                    "more_mod_tetra:curios_totem_cooldown": -4
                 },
                 "secondaryEffects": {
-                    "more_mod_tetra:curios_totem_health": 2
+                    "more_mod_tetra:curios_totem_health": 3
                 },
                 "glyph": {
                     "textureX": 176,

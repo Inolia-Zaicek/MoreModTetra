@@ -428,5 +428,69 @@ public class MMTEffectClent {
         );
         WorkbenchStatsGui.addBar(statBar47);
         HoloStatsGui.addBar(statBar47);
+        var statGetter48 = new StatGetterEffectLevel(projectileTrackingEffect, 1);
+        GuiStatBar statBar48 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                projectileTrackingName, 0, 1, false, false, false,
+                statGetter48, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(projectileTrackingTooltip, statGetter48)
+        );
+        WorkbenchStatsGui.addBar(statBar48);
+        HoloStatsGui.addBar(statBar48);
+        var statGetter49 = new StatGetterEffectLevel(goety_soul_repair_Effect, 1);
+        GuiStatBar statBar49 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                goety_soul_repair_Name, 0, 1, false, false, false,
+                statGetter49, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(goety_soul_repair_Tooltip, statGetter49)
+        );
+        WorkbenchStatsGui.addBar(statBar49);
+        HoloStatsGui.addBar(statBar49);
+        var statGetter50 = new StatGetterEffectLevel(goety_soul_absorb_Effect, 1);
+        GuiStatBar statBar50 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                goety_soul_absorb_Name, 0, 1, false, false, false,
+                statGetter50, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(goety_soul_absorb_Tooltip, statGetter50)
+        );
+        WorkbenchStatsGui.addBar(statBar50);
+        HoloStatsGui.addBar(statBar50);
+        var statGetter51 = new StatGetterEffectLevel(goety_acid_venom_Effect, 1);
+        GuiStatBar statBar51 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                goety_acid_venom_Name, 0, 5, false, false, false,
+                statGetter51, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(goety_acid_venom_Tooltip, statGetter51)
+        );
+        WorkbenchStatsGui.addBar(statBar51);
+        HoloStatsGui.addBar(statBar51);
+        var statGetter52 = new StatGetterEffectLevel(goety_ally_vex_Effect, 1);
+        GuiStatBar statBar52 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                goety_ally_vex_Name, 0, 50, false, false, false,
+                statGetter52, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(goety_ally_vex_Tooltip, statGetter52)
+        );
+        WorkbenchStatsGui.addBar(statBar52);
+        HoloStatsGui.addBar(statBar52);
+        var statGetter53 = new StatGetterEffectLevel(goety_soul_extract_Effect, 1);
+        GuiStatBar statBar53 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                goety_soul_extract_Name, 0, 100, false, false, false,
+                statGetter53, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(goety_soul_extract_Tooltip, statGetter53)
+        );
+        WorkbenchStatsGui.addBar(statBar53);
+        HoloStatsGui.addBar(statBar53);
+        var statGetter54 = new StatGetterEffectLevel(goety_soul_edge_Effect, 1);
+        GuiStatBar statBar54 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                goety_soul_edge_Name, 0, 10, false, false, false,
+                statGetter54, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(goety_soul_edge_Tooltip, statGetter54)
+        );
+        WorkbenchStatsGui.addBar(statBar54);
+        HoloStatsGui.addBar(statBar54);
+        var statGetter55 = new StatGetterEffectLevel(goety_soul_burst_Effect, 1);
+        GuiStatBar statBar55 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                goety_soul_burst_Name, 0, 50, false, false, false,
+                statGetter55, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(goety_soul_burst_Tooltip, statGetter55)
+        );
+        WorkbenchStatsGui.addBar(statBar55);
+        HoloStatsGui.addBar(statBar55);
     }
 }

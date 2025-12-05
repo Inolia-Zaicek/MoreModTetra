@@ -6,6 +6,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -33,23 +34,23 @@ public class RisingSlash {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof LivingEntity player) {
-            var mob = event.getEntity();
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+            var mob = event.getAttacked();
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player, risingSlashEffect);
             Random random = new Random();
             float mhp = mob.getMaxHealth();
             if (effectLevel > 0 && random.nextInt(100) <= (effectLevel)) {
-                event.setAmount(event.getAmount() + mhp * 0.05f);
+                event.addFixedDamage( mhp * 0.05f);
             }
-        } else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
-            var mob = event.getEntity();
+        } else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
+            var mob = event.getAttacked();
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player, risingSlashEffect);
             Random random = new Random();
             float mhp = mob.getMaxHealth();
             if (effectLevel > 0 && random.nextInt(100) <= (effectLevel)) {
-                event.setAmount(event.getAmount() + mhp * 0.05f);
+                event.addFixedDamage( mhp * 0.05f);
             }
         }
     }

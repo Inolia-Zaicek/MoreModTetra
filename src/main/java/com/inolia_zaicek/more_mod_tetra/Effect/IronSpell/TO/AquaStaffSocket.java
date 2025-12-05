@@ -42,12 +42,12 @@ public class AquaStaffSocket {
                 if (mainStack.getItem() instanceof IModularItem item) {
                     float level = item.getEffectLevel(mainStack, aquaStaffSocketEffect);
                     if (level > 0) {
-                        event.setAmount(event.getAmount() * 1.1f);
+                        event.setAmount(event.getAmount()*1.1f);
                     }
                 } else if (offStack.getItem() instanceof IModularItem item) {
                     float level = item.getEffectLevel(offStack, aquaStaffSocketEffect);
                     if (level > 0) {
-                        event.setAmount(event.getAmount() * 1.1f);
+                        event.setAmount(event.getAmount()*1.1f);
                     }
                 }
             }
@@ -58,12 +58,12 @@ public class AquaStaffSocket {
                 if (mainStack.getItem() instanceof IModularItem item) {
                     float level = item.getEffectLevel(mainStack, aquaStaffSocketEffect);
                     if (level > 0) {
-                        event.setAmount(event.getAmount() * 1.1f);
+                        event.setAmount(event.getAmount()*1.1f);
                     }
                 } else if (offStack.getItem() instanceof IModularItem item) {
                     float level = item.getEffectLevel(offStack, aquaStaffSocketEffect);
                     if (level > 0) {
-                        event.setAmount(event.getAmount() * 1.1f);
+                        event.setAmount(event.getAmount()*1.1f);
                     }
                 }
             }

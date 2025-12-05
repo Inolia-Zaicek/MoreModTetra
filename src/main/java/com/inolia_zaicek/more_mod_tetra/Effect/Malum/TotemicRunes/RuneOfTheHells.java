@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Malum.TotemicRunes;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.sammy.malum.registry.common.MobEffectRegistry;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -9,6 +10,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -39,7 +41,7 @@ public class RuneOfTheHells {
 
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         if(ModList.get().isLoaded("malum")) {
             if (livingEntity.isOnFire() || livingEntity.getRemainingFireTicks() > 0) {
                 ItemStack mainHandItem = livingEntity.getMainHandItem();

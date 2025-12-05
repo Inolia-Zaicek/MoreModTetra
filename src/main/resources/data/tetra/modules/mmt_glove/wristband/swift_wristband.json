@@ -12,7 +12,7 @@
             },
             "extract": {
                 "tertiaryAttributes": {
-                    "**generic.attack_speed": 0.02
+                    "**generic.attack_speed": 0.015
                 },
                 "glyph": {
                     "textureX": 176,

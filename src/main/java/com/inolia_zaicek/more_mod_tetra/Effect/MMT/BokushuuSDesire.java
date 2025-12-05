@@ -1,12 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -33,32 +33,37 @@ public class BokushuuSDesire {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof LivingEntity player) {
-            var mob = event.getEntity();
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+            var mob = event.getAttacked();
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,bokushuuSDesireEffect);
             if (effectLevel > 0) {
-                player.addEffect(new MobEffectInstance(MMTEffectsRegister.BokushuuSDesire.get(), 100, 0));
                 if (player.hasEffect(MMTEffectsRegister.BokushuuSDesire.get())) {
                     //按tick算
                     int time = player.getEffect(MMTEffectsRegister.BokushuuSDesire.get()).getDuration();
+                    float number1 = (float) effectLevel / 100;
+                    float number2 = (float) time / 100;
+                    float finish = number1*number2;
                     //tick数量*增伤%%*0.01
-                    float finish = 1 + (float) (time * (effectLevel / 100)) /100;
-                    event.setAmount(event.getAmount() * finish);
+                    event.addNormalMulti(finish);
                 }
+                player.addEffect(new MobEffectInstance(MMTEffectsRegister.BokushuuSDesire.get(), 100, 0));
             }
-        }
-        else if (event.getSource().getEntity() instanceof LivingEntity player) {
+        }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
+            var mob = event.getAttacked();
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,bokushuuSDesireEffect);
             if (effectLevel > 0) {
-                player.addEffect(new MobEffectInstance(MMTEffectsRegister.BokushuuSDesire.get(), 100, 0));
                 if (player.hasEffect(MMTEffectsRegister.BokushuuSDesire.get())) {
                     //按tick算
                     int time = player.getEffect(MMTEffectsRegister.BokushuuSDesire.get()).getDuration();
-                    float finish = 1 + (float) (time * (effectLevel / 100)) /100;
-                    event.setAmount(event.getAmount() * finish);
+                    float number1 = (float) effectLevel / 100;
+                    float number2 = (float) time / 100;
+                    float finish = number1*number2;
+                    //tick数量*增伤%%*0.01
+                    event.addNormalMulti(finish);
                 }
+                player.addEffect(new MobEffectInstance(MMTEffectsRegister.BokushuuSDesire.get(), 100, 0));
             }
         }
     }

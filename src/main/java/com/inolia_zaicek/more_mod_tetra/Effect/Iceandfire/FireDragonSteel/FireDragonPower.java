@@ -4,8 +4,8 @@ import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -31,26 +31,26 @@ public class FireDragonPower {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if(ModList.get().isLoaded("iceandfire")) {
             //攻击
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                var mob = event.getAttacked();
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, fireDragonPowerEffect);
                 if (effectLevel > 0&&mob.getRemainingFireTicks()>0) {
                     if(livingEntity.getRemainingFireTicks()>0){
-                        event.setAmount(event.getAmount()*(1+ (float) effectLevel /50) );
+                        event.addNormalMulti(( (float) effectLevel /50) );
                     }else{
-                        event.setAmount(event.getAmount()*(1+ (float) effectLevel /100) );
+                        event.addNormalMulti(( (float) effectLevel /100) );
                     }
                     }
                 }
             //挨打
-            if (event.getEntity()!=null) {
-                LivingEntity livingEntity = event.getEntity();
+            if (event.getAttacked()!=null) {
+                LivingEntity livingEntity = event.getAttacked();;
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, fireDragonPowerEffect);
                 if (effectLevel > 0&&livingEntity.getRemainingFireTicks()>0) {
-                        event.setAmount(event.getAmount()*0.9f);
+                         event.addNormalMulti(0.9f);
                 }
             }
             }

@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import net.minecraft.world.InteractionHand;
@@ -8,7 +9,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -38,10 +38,10 @@ public class Eclipse {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof LivingEntity player) {
-            var mob = event.getEntity();
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+            var mob = event.getAttacked();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offHandItem = player.getOffhandItem();
                 int effectLevel = 0;
@@ -49,7 +49,7 @@ public class Eclipse {
                     int mainEffectLevel = item.getEffectLevel(mainHandItem, eclipseEffect);
                     int offEffectLevel = item2.getEffectLevel(offHandItem, eclipseEffect);
                     //双等级＞0，近战
-                    if (mainEffectLevel > 0&&offEffectLevel>0&&MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
+                    if (mainEffectLevel > 0&&offEffectLevel>0&&MMTDamageSourceHelper.isMeleeAttack(event.hurtEvent.getSource())) {
                         //上buff部分
                         if (!player.hasEffect(MMTEffectsRegister.Eclipse.get())) {
                             player.addEffect(new MobEffectInstance(MMTEffectsRegister.Eclipse.get(), 200, 0));

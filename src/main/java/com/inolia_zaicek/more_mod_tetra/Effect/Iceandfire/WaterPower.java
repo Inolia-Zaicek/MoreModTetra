@@ -36,7 +36,7 @@ public class WaterPower {
     }
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, waterPowerEffect);
             if (effectLevel > 0) {
                 if(livingEntity.isUnderWater()||livingEntity.isInWaterOrRain()||livingEntity.isInWater()) {

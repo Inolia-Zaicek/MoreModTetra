@@ -31,6 +31,10 @@ public class EffectLevelEvent extends Event {
         this.fixedDamage = fixedDamage;
     }
 
+    public void addFixedDamage(float fixedDamage) {
+        this.fixedDamage += fixedDamage;
+    }
+
     public float getNormalMulti() {
         return normalMulti;
     }
@@ -51,7 +55,7 @@ public class EffectLevelEvent extends Event {
         this.independentMulti.add(independentMulti);
     }
 
-    public LivingEntity getTarget() {
+    public LivingEntity getAttacked() {
         return target;
     }
 

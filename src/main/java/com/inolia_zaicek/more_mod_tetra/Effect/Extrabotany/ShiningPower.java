@@ -1,12 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -33,25 +33,25 @@ public class ShiningPower {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, shiningPowerEffect);
             Level level = livingEntity.level();
             BlockPos pos = livingEntity.blockPosition();
             int brightness = level.getMaxLocalRawBrightness(pos);
             if (effectLevel > 0 && brightness >= 8) {
                 float number = (float) effectLevel / 100;
-                event.setAmount(event.getAmount() * (1 + number));
+                event.addNormalMulti((1 + number));
             }
-        } else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+        } else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, shiningPowerEffect);
             Level level = livingEntity.level();
             BlockPos pos = livingEntity.blockPosition();
             int brightness = level.getMaxLocalRawBrightness(pos);
             if (effectLevel > 0 && brightness >= 8) {
                 float number = (float) effectLevel / 100;
-                event.setAmount(event.getAmount() * (1 + number));
+                event.addNormalMulti((1 + number));
             }
         }
     }

@@ -6,8 +6,10 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -33,18 +35,18 @@ public class SanctuaryOfMooncocoon {
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //挨打
-        if (event.getEntity().hasEffect(MMTEffectsRegister.SanctuaryOfMooncocoon.get()) && !event.getEntity().hasEffect(MMTEffectsRegister.SanctuaryOfMooncocoonCooldown.get())) {
-            event.setAmount(0);
+        if (event.getAttacked().hasEffect(MMTEffectsRegister.SanctuaryOfMooncocoon.get()) && !event.getAttacked().hasEffect(MMTEffectsRegister.SanctuaryOfMooncocoonCooldown.get())) {
+            event.setResult(Event.Result.DENY);
         }
         //攻击
-        if(event.getSource().getEntity() instanceof LivingEntity livingEntity){
+        if(event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity){
             if(livingEntity.hasEffect(MMTEffectsRegister.SanctuaryOfMooncocoon.get())){
                 livingEntity.removeEffect(MMTEffectsRegister.SanctuaryOfMooncocoon.get());
             }
         }
-        if(event.getSource().getDirectEntity() instanceof LivingEntity livingEntity){
+        if(event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity){
             if(livingEntity.hasEffect(MMTEffectsRegister.SanctuaryOfMooncocoon.get())){
                 livingEntity.removeEffect(MMTEffectsRegister.SanctuaryOfMooncocoon.get());
             }

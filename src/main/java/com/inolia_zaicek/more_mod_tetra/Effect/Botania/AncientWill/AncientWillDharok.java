@@ -1,10 +1,10 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Botania.AncientWill;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -31,9 +31,9 @@ public class AncientWillDharok {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if(ModList.get().isLoaded("botania")) {
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,ancientWillDharokEffect);
                 float gaiaLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,willOfGaiaEffect);
                 if (effectLevel > 0) {
@@ -41,7 +41,7 @@ public class AncientWillDharok {
                         float mhp = livingEntity.getMaxHealth();
                         float hp = livingEntity.getHealth();
                         float dhp = hp / mhp;
-                        event.setAmount(event.getAmount()*(1+dhp));
+                        event.addNormalMulti((dhp));
                     }
                 }
             }

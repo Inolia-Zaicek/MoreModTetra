@@ -7,7 +7,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -35,11 +37,11 @@ public class GrenadeEffectTraitHurt {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("l2complements")) {
             //挨打的是玩家且攻击者非空
-            if (event.getEntity()!=null&&event.getSource().is(IS_EXPLOSION)) {
-                LivingEntity livingEntity = event.getEntity();
+            if (event.getAttacked()!=null&&event.hurtEvent.getSource().is(IS_EXPLOSION)) {
+                LivingEntity livingEntity = event.getAttacked();;
                 CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
@@ -63,14 +65,14 @@ public class GrenadeEffectTraitHurt {
                                         }
                                     }
                                     if (effectLevel > 0) {
-                                            event.setAmount(0);
+                                        event.setResult(Event.Result.DENY);
                                     }
                                 }
                         )
                 );
             }
             //攻击者是玩家
-            if (event.getSource().getEntity() instanceof Player player &&event.getEntity()!=null&&event.getSource().is(DamageTypeTags.IS_EXPLOSION)) {
+            if (event.hurtEvent.getSource().getEntity() instanceof Player player &&event.getAttacked()!=null&&event.hurtEvent.getSource().is(DamageTypeTags.IS_EXPLOSION)) {
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
@@ -94,7 +96,7 @@ public class GrenadeEffectTraitHurt {
                                         }
                                     }
                                     if (effectLevel > 0) {
-                                        event.setAmount(event.getAmount()*(1+effectLevel*0.5f));
+                                        event.addNormalMulti((effectLevel*0.5f));
                                     }
                                 }
                         )

@@ -1,8 +1,8 @@
 package com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.armor_heal_Effect;
@@ -10,8 +10,8 @@ import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.armor_reviv
 
 public class ArmorHealAndRevival {
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+    public static void hurt(EffectLevelEvent event) {
+        LivingEntity livingEntity = event.getAttacked();
         //百分比
         float percentage = MMTEffectHelper.getInstance().getAllArmorSumEffectLevel(livingEntity, armor_heal_Effect);
         //固定

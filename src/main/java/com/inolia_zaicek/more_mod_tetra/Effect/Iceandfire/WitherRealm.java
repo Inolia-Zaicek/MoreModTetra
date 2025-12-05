@@ -39,7 +39,7 @@ public class WitherRealm {
     }
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, witherRealmEffect);
             if (effectLevel > 0&&livingEntity.level().getGameTime() % 20L == 0) {
                 var mobList = MMTUtil.mobList(8,livingEntity);

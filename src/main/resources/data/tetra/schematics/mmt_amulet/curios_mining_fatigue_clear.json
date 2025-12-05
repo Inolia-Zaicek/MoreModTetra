@@ -28,7 +28,7 @@
         {
             "material": {
                 "items": [ "minecraft:sponge" ],
-                "count": 1
+                "count": 4
             },
             "improvements": {
                 "curios_mining_fatigue_clear": 0

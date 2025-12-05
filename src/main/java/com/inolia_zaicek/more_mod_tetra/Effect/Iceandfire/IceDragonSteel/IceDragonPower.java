@@ -11,8 +11,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -38,17 +38,17 @@ public class IceDragonPower {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if(ModList.get().isLoaded("iceandfire")) {
             //攻击
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                var mob = event.getAttacked();
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, iceDragonPowerEffect);
                 if (effectLevel > 0) {
                     var map = mob.getActiveEffectsMap();
                     //缓慢增伤
                     if(mob.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)){
-                        event.setAmount(event.getAmount()*(1+ (float) effectLevel /100) );
+                        event.addNormalMulti(( (float) effectLevel /100) );
                     }
                     //龙霜
                     if(mob.hasEffect(MMTEffectsRegister.DragonIce.get())){

@@ -22,7 +22,7 @@
         "items": [ "more_mod_tetra:wither_ingot" ]
     },
     "effects" : {
-        "more_mod_tetra:wither_edge": 25,
+        "more_mod_tetra:wither_edge": 15,
         "more_mod_tetra:wither_proficiency": 5
     },
     "requiredTools": {

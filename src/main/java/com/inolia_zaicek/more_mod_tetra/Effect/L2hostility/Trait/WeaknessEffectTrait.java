@@ -1,12 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -34,10 +34,10 @@ public class WeaknessEffectTrait {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("l2complements")) {
             //攻击者是玩家
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity &&event.getEntity()!=null) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity &&event.getAttacked()!=null) {
                 CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
@@ -60,8 +60,8 @@ public class WeaknessEffectTrait {
                                             effectLevel += (int) offEffectLevel;
                                         }
                                     }
-                                    if (effectLevel > 0&&event.getEntity()!=null) {
-                                        var mob = event.getEntity();
+                                    if (effectLevel > 0&&event.getAttacked()!=null) {
+                                        var mob = event.getAttacked();
                                         var map = mob.getActiveEffectsMap();
                                         map.put(MobEffects.WEAKNESS,
                                                 new MobEffectInstance(MobEffects.WEAKNESS, 200, effectLevel - 1));

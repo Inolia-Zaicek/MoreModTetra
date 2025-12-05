@@ -8,17 +8,17 @@
             "materials": [ "tetra:skin/","tetra:fibre/","tetra:fabric/" ],
             "key": "sports_shoes/",
             "attributes": {
-                "**generic.movement_speed": 0.5
+                "**generic.movement_speed": 0.15
             },
             "effects": {
                 "more_mod_tetra:curios_materials_effect_invalidation": 1
             },
             "extract": {
                 "primaryAttributes": {
-                    "**generic.movement_speed": 0.04
+                    "**generic.movement_speed": 0.01
                 },
                 "secondaryAttributes": {
-                    "**generic.movement_speed": -0.1
+                    "**generic.movement_speed": -0.03
                 },
                 "glyph": {
                     "textureX": 176,

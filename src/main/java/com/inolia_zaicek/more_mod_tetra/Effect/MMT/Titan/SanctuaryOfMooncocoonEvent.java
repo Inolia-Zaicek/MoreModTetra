@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -9,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.items.modular.IModularItem;
 

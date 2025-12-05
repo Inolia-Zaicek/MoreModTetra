@@ -28,7 +28,7 @@
         {
             "material": {
                 "items": [ "minecraft:echo_shard" ],
-                "count": 1
+                "count": 4
             },
             "improvements": {
                 "curios_darkness_clear": 0

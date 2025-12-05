@@ -6,6 +6,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -31,15 +32,15 @@ public class Recovery {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if(ModList.get().isLoaded("l2complements")) {
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, recoveryEffect);
                 float mhp =livingEntity.getMaxHealth();
                 if (effectLevel > 0) {
                     livingEntity.heal( (1+(mhp/100))*effectLevel );
                 }
-            }else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+            }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
                 float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, recoveryEffect);
                 float mhp =livingEntity.getMaxHealth();
                 if (effectLevel > 0) {

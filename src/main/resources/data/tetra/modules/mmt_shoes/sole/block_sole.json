@@ -10,7 +10,7 @@
                 "more_mod_tetra:curios_materials_effect_invalidation": 1
             },
             "attributes": {
-                "**generic.movement_speed": 0.3
+                "**generic.movement_speed": 0.075
             },
             "extract": {
                 "glyph": {

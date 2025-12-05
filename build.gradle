@@ -34,6 +34,8 @@ minecraft {
     mappings channel: mapping_channel, version: mapping_version
 
     copyIdeResources = true
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
 
     runs {
         configureEach {
@@ -162,6 +164,8 @@ dependencies {
     compileOnly fg.deobf("blank:fantasy_ending-1.20.1:1")
     compileOnly fg.deobf("blank:primogemcraft-1.20.1:1")
     compileOnly fg.deobf("blank:slashblade-1.20.1:1")
+    compileOnly fg.deobf("blank:goety_revelation-1.20.1:1")
+    implementation fg.deobf("blank:goety-1.20.1:1")
 }
 
 tasks.named('processResources', ProcessResources).configure {

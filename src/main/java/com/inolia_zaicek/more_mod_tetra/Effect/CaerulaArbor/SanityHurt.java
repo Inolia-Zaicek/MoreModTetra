@@ -7,6 +7,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -31,13 +32,13 @@ public class SanityHurt {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("caerula_arbor")) {
             //攻击者是玩家
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity &&event.getEntity()!=null) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity &&event.getAttacked()!=null) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,sanityHurtEffect);
-                if (effectLevel > 0&&event.getEntity()!=null) {
-                    var mob = event.getEntity();
+                if (effectLevel > 0&&event.getAttacked()!=null) {
+                    var mob = event.getAttacked();
                     var map = mob.getActiveEffectsMap();
                     //通过id直接给buff
                     //map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("caerula_arbor", "instant_sanity"))),new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("caerula_arbor", "instant_sanity"))), 20, effectLevel - 1));

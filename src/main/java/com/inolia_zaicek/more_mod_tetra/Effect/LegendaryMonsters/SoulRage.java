@@ -39,7 +39,7 @@ public class SoulRage {
     }
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         if (ModList.get().isLoaded("legendary_monsters")) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,witheriteEffect);
             if (effectLevel > 0) {

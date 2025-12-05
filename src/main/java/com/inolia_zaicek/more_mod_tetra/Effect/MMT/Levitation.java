@@ -6,8 +6,8 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -32,15 +32,15 @@ public class Levitation {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof LivingEntity player) {
-                var mob = event.getEntity();
+    public static void hurt(EffectLevelEvent event) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+                var mob = event.getAttacked();
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,levitationEffect);
                 if (effectLevel > 0) {
                     mob.addEffect(new MobEffectInstance(MobEffects.LEVITATION,200,effectLevel-1));
                 }
-            }else            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
-                var mob = event.getEntity();
+            }else            if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
+                var mob = event.getAttacked();
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,levitationEffect);
                 if (effectLevel > 0) {
                     mob.addEffect(new MobEffectInstance(MobEffects.LEVITATION,200,effectLevel-1));

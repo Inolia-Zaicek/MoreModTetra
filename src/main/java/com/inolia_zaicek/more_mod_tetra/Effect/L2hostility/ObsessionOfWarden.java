@@ -5,8 +5,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -31,31 +31,31 @@ public class ObsessionOfWarden {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
             //挨打
-            if (!( event.getSource().getEntity() instanceof Warden )) {
-                LivingEntity livingEntity = event.getEntity();
+            if (!( event.hurtEvent.getSource().getEntity() instanceof Warden )) {
+                LivingEntity livingEntity = event.getAttacked();;
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,obsessionOfWardenEffect);
                 if (effectLevel > 0) {
-                        event.setAmount(event.getAmount() * (1 - (float) effectLevel / 100));
+                        event.addNormalMulti((1 - (float) effectLevel / 100));
                 }
-            }else if (!( event.getSource().getDirectEntity() instanceof Warden )) {
-                LivingEntity livingEntity = event.getEntity();
+            }else if (!( event.hurtEvent.getSource().getDirectEntity() instanceof Warden )) {
+                LivingEntity livingEntity = event.getAttacked();;
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,obsessionOfWardenEffect);
                 if (effectLevel > 0) {
-                        event.setAmount(event.getAmount() * (1 - (float) effectLevel / 100));
+                        event.addNormalMulti((1 - (float) effectLevel / 100));
                 }
             }
             //打人
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity &&!( event.getEntity() instanceof Warden )) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity &&!( event.getAttacked()  instanceof Warden )) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,obsessionOfWardenEffect);
                 if (effectLevel > 0) {
-                        event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                        event.addNormalMulti((1 + (float) effectLevel / 100));
                 }
-            }else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity &&!( event.getEntity() instanceof Warden )) {
+            }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity &&!( event.getAttacked()  instanceof Warden )) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,obsessionOfWardenEffect);
                 if (effectLevel > 0) {
-                    event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                    event.addNormalMulti((1 + (float) effectLevel / 100));
                 }
             }
     }

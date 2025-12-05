@@ -1,10 +1,10 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -36,25 +36,23 @@ public class CuriosCriticalStrike {
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getSource().getEntity() instanceof LivingEntity player) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
                 float chance = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player,curiosCriticalStrikeEffect);
                 float damage = MMTCuriosHelper.getInstance().getCuriosEffectEfficiency(player,curiosCriticalStrikeEffect);
                 Random random = new Random();
                 if (chance > 0&&random.nextInt(100) <= chance) {
                     //最终伤害：与原版不同，是200————200%爆伤
-                    float finish = event.getAmount() * (1 + damage / 100);
-                    event.setAmount(finish);
+                    event.addIndependentMulti(1 + damage / 100);
                 }
-            }else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
+            }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
                 float chance = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player,curiosCriticalStrikeEffect);
                 float damage = MMTCuriosHelper.getInstance().getCuriosEffectEfficiency(player,curiosCriticalStrikeEffect);
                 Random random = new Random();
                 if (chance > 0&&random.nextInt(100) <= chance) {
                     //最终伤害：与原版不同，是200————200%爆伤
-                    float finish = event.getAmount() * (1 + damage / 100);
-                    event.setAmount(finish);
+                    event.addIndependentMulti(1 + damage / 100);
                 }
             }
         }

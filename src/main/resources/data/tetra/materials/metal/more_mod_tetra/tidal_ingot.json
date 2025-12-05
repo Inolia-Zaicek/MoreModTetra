@@ -1,8 +1,8 @@
 {
     "key": "tidal_ingot",
     "category": "metal",
-    "primary": 7.01,
-    "secondary": 10.9,
+    "primary": 6.81,
+    "secondary": 5.9,
     "tertiary": 7.5,
     "durability": 2631,
     "integrityCost": 2,
@@ -22,7 +22,7 @@
         "items": [ "more_mod_tetra:tidal_ingot" ]
     },
     "effects" : {
-        "more_mod_tetra:let_the_people_rejoice": 17.5
+        "more_mod_tetra:let_the_people_rejoice": 16
     },
     "requiredTools": {
         "hammer_dig": "minecraft:iron"

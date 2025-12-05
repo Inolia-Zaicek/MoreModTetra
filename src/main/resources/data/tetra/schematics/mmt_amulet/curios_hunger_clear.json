@@ -28,7 +28,7 @@
         {
             "material": {
                 "items": [ "minecraft:rotten_flesh" ],
-                "count": 8
+                "count": 32
             },
             "improvements": {
                 "curios_hunger_clear": 0

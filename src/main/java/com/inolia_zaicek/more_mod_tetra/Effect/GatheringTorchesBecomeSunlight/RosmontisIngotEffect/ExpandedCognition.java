@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.RosmontisIngotEffect;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
@@ -11,7 +12,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -40,10 +40,10 @@ public class ExpandedCognition {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
 
-        if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
+        if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+                var mob = event.getAttacked();
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,expandedCognitionEffect);
             if (effectLevel > 0) {
                     mob.invulnerableTime=0;
@@ -59,7 +59,7 @@ public class ExpandedCognition {
                 //二技能
             float effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,nociceptorInhibitionEffect);
             if (effectLevel2 > 0) {
-                if(MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
+                if(MMTDamageSourceHelper.isMeleeAttack(event.hurtEvent.getSource())) {
                     var mobList = MMTUtil.mobList(3,mob);
                     float number=1+ (float) effectLevel2 /100;
                     for (Mob mobs:mobList){

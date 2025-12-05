@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.nbt.CompoundTag;
@@ -7,7 +8,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -45,9 +45,9 @@ public class UniversePower {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         // 确保伤害来源是 LivingEntity（例如玩家或怪物）
-        if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
             // 获取玩家的增伤等级和最大种类等级
             float damageLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, universe_power_Effect);
             int numberLevel = (int) MMTEffectHelper.getInstance().getMainOffHandMaxEffectEfficiency(livingEntity, universe_power_Effect);
@@ -62,9 +62,9 @@ public class UniversePower {
                 compoundTag.putInt(UNIVERSE_POWER_TIME_NBT, 200);
 
                 // 记录伤害类型。
-                // event.getSource().type() 返回 DamageType 对象，会自动转换为字符串（如 "player", "mob", "fall"）。
+                // event.hurtEvent.getSource().type() 返回 DamageType 对象，会自动转换为字符串（如 "player", "mob", "fall"）。
                 // 我们在后面加上自定义的前缀，以避免与其他模组的 NBT 键冲突。
-                String damageType = event.getSource().type().toString(); // 获取伤害类型字符串
+                String damageType = event.hurtEvent.getSource().type().toString(); // 获取伤害类型字符串
                 String nbtKeyForDamageType = damageType + DAMAGE_TYPE_TAG_PREFIX; // 构建完整的 NBT 键
                 // 存储这个键，值也一样
                 compoundTag.putString(nbtKeyForDamageType, nbtKeyForDamageType);
@@ -89,14 +89,14 @@ public class UniversePower {
                 // 确保增伤层数不超过最大允许种类数。
                 int finalNumberOfDamageTypes = Math.min(numberOfDamageTypes, numberLevel);
                 //结算
-                event.setAmount(event.getAmount() * (1 + (float)finalNumberOfDamageTypes * damageLevel / 100.0F)); // 使用 float 确保精度
+                event.addNormalMulti((1 + (float)finalNumberOfDamageTypes * damageLevel / 100.0F)); // 使用 float 确保精度
             }
         }
     }
 
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
 
         // 再次检查玩家是否满足生效条件，避免不必要的 NBT 操作。
         // 也可以选择在这里直接访问 PersistentData，而不用重复获取 effectLevel 和 numberLevel。

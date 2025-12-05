@@ -22,7 +22,7 @@
     ]
   },
   "attributes": {
-    "**generic.movement_speed": -0.15
+    "**generic.movement_speed": -0.1
   },
   "effects" : {
     "more_mod_tetra:curios_feather_falling": 100

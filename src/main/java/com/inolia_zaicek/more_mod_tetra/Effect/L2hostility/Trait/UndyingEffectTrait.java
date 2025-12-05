@@ -51,7 +51,7 @@ public class UndyingEffectTrait {
                     //无诅咒
                     !event.getEntity().hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "curse"))))
             ) {
-                LivingEntity livingEntity = event.getEntity();
+                LivingEntity livingEntity = event.getEntity();;
                 //饰品部分（莱特兰必定有饰品
                 CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                         (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(

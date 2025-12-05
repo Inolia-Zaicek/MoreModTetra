@@ -38,7 +38,7 @@ public class SpeedyEffectTrait {
     }
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         if (ModList.get().isLoaded("l2complements")) {
             CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                     (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(

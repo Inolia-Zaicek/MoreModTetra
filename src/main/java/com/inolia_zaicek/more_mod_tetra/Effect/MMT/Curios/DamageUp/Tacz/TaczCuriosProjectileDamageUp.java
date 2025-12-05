@@ -1,11 +1,11 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.Tacz;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import com.tacz.guns.init.ModDamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -33,26 +33,24 @@ public class TaczCuriosProjectileDamageUp {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("tacz")) {
-            if (event.getSource().getEntity() instanceof LivingEntity player) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.getSource().is(ModDamageTypes.BULLETS_TAG) || event.getSource().is(ModDamageTypes.BULLET)
-                            || event.getSource().is(ModDamageTypes.BULLET_VOID) || event.getSource().is(ModDamageTypes.BULLET_IGNORE_ARMOR)
-                            || event.getSource().is(ModDamageTypes.BULLET_VOID_IGNORE_ARMOR)) {
-                        float finish = event.getAmount() * (1 + effectLevel / 100);
-                        event.setAmount(finish);
+                    if (event.hurtEvent.getSource().is(ModDamageTypes.BULLETS_TAG) || event.hurtEvent.getSource().is(ModDamageTypes.BULLET)
+                            || event.hurtEvent.getSource().is(ModDamageTypes.BULLET_VOID) || event.hurtEvent.getSource().is(ModDamageTypes.BULLET_IGNORE_ARMOR)
+                            || event.hurtEvent.getSource().is(ModDamageTypes.BULLET_VOID_IGNORE_ARMOR)) {
+                        event.addIndependentMulti(1+effectLevel / 100);
                     }
                 }
-            } else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
+            } else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.getSource().is(ModDamageTypes.BULLETS_TAG) || event.getSource().is(ModDamageTypes.BULLET)
-                            || event.getSource().is(ModDamageTypes.BULLET_VOID) || event.getSource().is(ModDamageTypes.BULLET_IGNORE_ARMOR)
-                            || event.getSource().is(ModDamageTypes.BULLET_VOID_IGNORE_ARMOR)) {
-                        float finish = event.getAmount() * (1 + effectLevel / 100);
-                        event.setAmount(finish);
+                    if (event.hurtEvent.getSource().is(ModDamageTypes.BULLETS_TAG) || event.hurtEvent.getSource().is(ModDamageTypes.BULLET)
+                            || event.hurtEvent.getSource().is(ModDamageTypes.BULLET_VOID) || event.hurtEvent.getSource().is(ModDamageTypes.BULLET_IGNORE_ARMOR)
+                            || event.hurtEvent.getSource().is(ModDamageTypes.BULLET_VOID_IGNORE_ARMOR)) {
+                        event.addIndependentMulti(1+effectLevel / 100);
                     }
                 }
             }

@@ -28,7 +28,7 @@
         {
             "material": {
                 "items": [ "minecraft:wither_skeleton_skull" ],
-                "count": 1
+                "count": 4
             },
             "improvements": {
                 "curios_wither_clear": 0

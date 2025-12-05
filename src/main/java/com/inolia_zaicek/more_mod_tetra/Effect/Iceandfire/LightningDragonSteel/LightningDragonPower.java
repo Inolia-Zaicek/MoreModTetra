@@ -4,8 +4,9 @@ import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -32,33 +33,31 @@ public class LightningDragonPower {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if(ModList.get().isLoaded("iceandfire")) {
             //攻击（龙霆雷伤增幅单独判断
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, lightningDragonPowerEffect);
                 //是雷霆伤害，增伤
-                if (effectLevel > 0&&event.getSource().is(IS_LIGHTNING)) {
+                if (effectLevel > 0&&event.hurtEvent.getSource().is(IS_LIGHTNING)) {
                     float number = (float) effectLevel / 100;
-                    float damage =event.getAmount();
-                    event.setAmount(damage*(1+number));
+                    event.addNormalMulti((1+number));
                     }
                 }
-            else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+            else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, lightningDragonPowerEffect);
                 //是雷霆伤害，增伤
-                if (effectLevel > 0&&event.getSource().is(IS_LIGHTNING)) {
+                if (effectLevel > 0&&event.hurtEvent.getSource().is(IS_LIGHTNING)) {
                     float number = (float) effectLevel / 100;
-                    float damage =event.getAmount();
-                    event.setAmount(damage*(1+number));
+                    event.addNormalMulti((1+number));
                 }
             }
             //雷伤归零
-            if (event.getEntity()!=null) {
-                LivingEntity livingEntity = event.getEntity();
+            if (event.getAttacked()!=null) {
+                LivingEntity livingEntity = event.getAttacked();;
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, lightningDragonPowerEffect);
-                if (effectLevel > 0&&event.getSource()==livingEntity.damageSources().lightningBolt()) {
-                    event.setAmount(0);
+                if (effectLevel > 0&&event.hurtEvent.getSource()==livingEntity.damageSources().lightningBolt()) {
+                    event.setResult(Event.Result.DENY);
                 }
             }
             }

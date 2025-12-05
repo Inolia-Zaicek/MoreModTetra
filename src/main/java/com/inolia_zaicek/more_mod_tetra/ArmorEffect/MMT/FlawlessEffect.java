@@ -3,7 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.items.modular.IModularItem;
 
@@ -11,18 +11,18 @@ import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.cursium_leg
 
 public class FlawlessEffect {
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //挨打
-        if (event.getEntity() != null) {
-            LivingEntity livingEntity = event.getEntity();
+        if (event.getAttacked() != null) {
+            LivingEntity livingEntity = event.getAttacked();
             //主手等级
             float allEffectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, cursium_legs_Effect);
             if (allEffectLevel > 0) {
-                event.setAmount(event.getAmount() * (1 - allEffectLevel / 100));
+                event.addNormalMulti((1 - allEffectLevel / 100));
             }
         }
         //打人
-        if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
             float number = 0;
             //主手等级
             float mainHandEffectLevel = MMTEffectHelper.getInstance().getMainHandEffectLevel(livingEntity, cursium_legs_Effect);
@@ -47,7 +47,7 @@ public class FlawlessEffect {
                 }
             }
             if (number > 0) {
-                event.setAmount(event.getAmount() * (1 + number / 100));
+                event.addNormalMulti((1 + number / 100));
                 if (mainHandItem.getItem() instanceof IModularItem && mainHandEffectLevel > 0) {
                     int currentDamage = mainHandItem.getDamageValue();
                     int newDamage =  (currentDamage + 1);

@@ -15,7 +15,7 @@
         "texture": "695e5f"
     },
     "effects": {
-        "more_mod_tetra:defeat_demons": 25
+        "more_mod_tetra:defeat_demons": 20
     },
     "textures": [
         "heavy",

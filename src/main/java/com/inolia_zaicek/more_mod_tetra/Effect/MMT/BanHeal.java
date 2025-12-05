@@ -1,12 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -32,9 +32,9 @@ public class BanHeal {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof LivingEntity player) {
-                LivingEntity entity =event.getEntity();
+    public static void hurt(EffectLevelEvent event) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+                LivingEntity entity =event.getAttacked();
                 var map = entity.getActiveEffectsMap();
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,banHealEffect);
                 if (effectLevel > 0) {
@@ -42,8 +42,8 @@ public class BanHeal {
                     map.put(MMTEffectsRegister.BanHeal.get(),
                             new MobEffectInstance(MMTEffectsRegister.BanHeal.get(), 200,effectLevel-1 ));
                 }
-            }else            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
-                LivingEntity entity =event.getEntity();
+            }else            if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
+                LivingEntity entity =event.getAttacked();
                 var map = entity.getActiveEffectsMap();
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,banHealEffect);
                 if (effectLevel > 0) {

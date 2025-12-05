@@ -1,12 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Botania.AncientWill;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -33,10 +33,10 @@ public class AncientWillKaril {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if(ModList.get().isLoaded("botania")) {
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                var mob = event.getAttacked();
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,ancientWillKarilEffect);
                 float gaiaLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,willOfGaiaEffect);
                 if (effectLevel > 0) {

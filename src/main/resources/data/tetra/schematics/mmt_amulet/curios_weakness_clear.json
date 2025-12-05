@@ -28,7 +28,7 @@
         {
             "material": {
                 "items": [ "minecraft:redstone" ],
-                "count": 16
+                "count": 64
             },
             "improvements": {
                 "curios_weakness_clear": 0

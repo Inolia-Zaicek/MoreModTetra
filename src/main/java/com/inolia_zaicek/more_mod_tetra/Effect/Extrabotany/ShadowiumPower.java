@@ -8,6 +8,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -33,9 +34,9 @@ public class ShadowiumPower {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, shadowiumPowerEffect);
             //亡灵
             Level level = livingEntity.level();
@@ -43,9 +44,9 @@ public class ShadowiumPower {
             int brightness = level.getMaxLocalRawBrightness(pos);
             if (effectLevel > 0 && brightness <= 8) {
                 float number = (float) effectLevel / 100;
-                event.setAmount(event.getAmount() * (1 + number));
+                event.addNormalMulti((1 + number));
             }
-        } else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+        } else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, shadowiumPowerEffect);
             //亡灵
             Level level = livingEntity.level();
@@ -53,7 +54,7 @@ public class ShadowiumPower {
             int brightness = level.getMaxLocalRawBrightness(pos);
             if (effectLevel > 0 && brightness <= 8) {
                 float number = (float) effectLevel / 100;
-                event.setAmount(event.getAmount() * (1 + number));
+                event.addNormalMulti((1 + number));
             }
         }
     }

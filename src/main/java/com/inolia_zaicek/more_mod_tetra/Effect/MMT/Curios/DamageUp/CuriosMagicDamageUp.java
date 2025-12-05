@@ -1,10 +1,10 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -33,22 +33,20 @@ public class CuriosMagicDamageUp {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getSource().getEntity() instanceof LivingEntity player) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagicDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.getSource().is(WITCH_RESISTANT_TO)) {
-                        float finish = event.getAmount() * (1 + effectLevel / 100);
-                        event.setAmount(finish);
+                    if (event.hurtEvent.getSource().is(WITCH_RESISTANT_TO)) {
+                        event.addIndependentMulti(1+effectLevel / 100);
                     }
                 }
-            } else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
+            } else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagicDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.getSource().is(WITCH_RESISTANT_TO)) {
-                        float finish = event.getAmount() * (1 + effectLevel / 100);
-                        event.setAmount(finish);
+                    if (event.hurtEvent.getSource().is(WITCH_RESISTANT_TO)) {
+                        event.addIndependentMulti(1+effectLevel / 100);
                     }
                 }
             }

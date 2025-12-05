@@ -1,11 +1,11 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Extrabotany;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -32,9 +32,9 @@ public class SpeedForce {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,speedForceEffect);
             if (effectLevel > 0) {
                 float speed = 1 - (float) livingEntity.getAttributeValue(Attributes.MOVEMENT_SPEED);
@@ -44,10 +44,10 @@ public class SpeedForce {
                     float number = (float) effectLevel / 100;
                     //取最小值
                     float finish=Math.min(speed,number);
-                    event.setAmount(event.getAmount() * (1 + finish));
+                    event.addNormalMulti((1 + finish));
                 }
             }
-        }else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+        }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,speedForceEffect);
             if (effectLevel > 0) {
                 float speed = 1 - (float) livingEntity.getAttributeValue(Attributes.MOVEMENT_SPEED);
@@ -57,7 +57,7 @@ public class SpeedForce {
                     float number = (float) effectLevel / 100;
                     //取最小值
                     float finish=Math.min(speed,number);
-                    event.setAmount(event.getAmount() * (1 + finish));
+                    event.addNormalMulti((1 + finish));
                 }
             }
         }

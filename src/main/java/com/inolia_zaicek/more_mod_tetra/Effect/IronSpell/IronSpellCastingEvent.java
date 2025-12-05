@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import io.redspace.ironsspellbooks.api.magic.SpellSelectionManager;
 import io.redspace.ironsspellbooks.api.spells.SpellData;
 import io.redspace.ironsspellbooks.player.ClientMagicData;
@@ -12,6 +13,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;

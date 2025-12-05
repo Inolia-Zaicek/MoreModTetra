@@ -1,12 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Cataclysm.Core;
 
 import com.github.L_Ender.cataclysm.init.ModEffect;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -34,27 +34,27 @@ public class BlazingAbsorb {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("cataclysm")) {
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                var mob = event.getAttacked();
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, blazingAbsorbEffect);
                 if (effectLevel > 0 && mob.hasEffect(ModEffect.EFFECTBLAZING_BRAND.get())) {
                     int buffLevel = mob.getEffect(ModEffect.EFFECTBLAZING_BRAND.get()).getAmplifier();
                     float mhp = (float) livingEntity.getAttributeValue(Attributes.MAX_HEALTH);
                     float heal = mhp / 100 + 1;
                     livingEntity.heal(heal * buffLevel);
-                    event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                    event.addNormalMulti((1 + (float) effectLevel / 100));
                 }
-            } else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
+            } else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+                var mob = event.getAttacked();
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, blazingAbsorbEffect);
                 if (effectLevel > 0 && mob.hasEffect(ModEffect.EFFECTBLAZING_BRAND.get())) {
                     int buffLevel = mob.getEffect(ModEffect.EFFECTBLAZING_BRAND.get()).getAmplifier();
                     float mhp = (float) livingEntity.getAttributeValue(Attributes.MAX_HEALTH);
                     float heal = mhp / 100 + 1;
                     livingEntity.heal(heal * buffLevel);
-                    event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                    event.addNormalMulti((1 + (float) effectLevel / 100));
                 }
             }
         }

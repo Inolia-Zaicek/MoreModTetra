@@ -42,7 +42,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.curiosProjectileTrackingEffect;
+import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
 @SuppressWarnings({"all", "removal"})
 public class ModularRing extends ModularItem implements  ICurioItem { // 声明一个名为Modularring的公共类，它继承自ModularItem并实现ICurio接口。
@@ -198,7 +198,7 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
         if (entity instanceof Projectile projectile) {
             // 如果实体是投射物（如箭），尝试找到它的发射者
             Entity owner = projectile.getOwner();
-            if (owner instanceof Player player &&
+            if (owner instanceof LivingEntity player &&
                     // 对追踪词条进行判断
                     MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileTrackingEffect) > 0
             ) {
@@ -223,6 +223,31 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
                 if (projectile instanceof MMTTargetMode modeObj) {
                    modeObj.mmt$setMode(targetMode);
                }
+            }
+            //如果是工具
+            else if (owner instanceof LivingEntity player &&
+                    // 对追踪词条进行判断
+                    MMTEffectHelper.getInstance().getAllEffectLevel(player, projectileTrackingEffect)>0
+            ) {
+                // 获取玩家存储的追踪模式（已修改存储在玩家PersistentData中）
+                // 你需要传入正确的玩家对象，这里假设已获取到player
+                CompoundTag playerData = player.getPersistentData();
+                int mode = playerData.getInt(Tracking_Mode);
+
+                // 根据玩家的模式设置目标筛选规则
+                Predicate targetPredicate;
+                switch (mode) {
+                    //固定锁定
+                    case 1 -> targetPredicate = (target) -> target instanceof LivingEntity && !(target instanceof Player) && !(target!=player);
+                    case 2 -> targetPredicate = (target) -> target instanceof LivingEntity && !(target instanceof Player) && !(target!=player);
+                    default -> targetPredicate = (target) -> target instanceof LivingEntity && !(target instanceof Player) && !(target!=player);
+                }
+
+                Predicate<Entity> targetMode = targetPredicate;
+
+                if (projectile instanceof MMTTargetMode modeObj) {
+                    modeObj.mmt$setMode(targetMode);
+                }
             }
         }
     }

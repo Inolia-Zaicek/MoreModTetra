@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -10,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -131,9 +131,9 @@ public class FantasyDevour {
         }
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-        if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-            LivingEntity entity =event.getEntity();
+    public static void hurt(EffectLevelEvent event) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            LivingEntity entity =event.getAttacked();
             ItemStack mainHandItem = livingEntity.getMainHandItem();
             ItemStack offhandItem = livingEntity.getOffhandItem();
             int effectLevel = 0;
@@ -153,8 +153,7 @@ public class FantasyDevour {
             int kill =Math.min(499366777, offhandItem.getOrCreateTag().getInt(String.valueOf(Kill)) + mainHandItem.getOrCreateTag().getInt(String.valueOf(Kill)) );
             if (effectLevel > 0&&kill>0) {
                 //最大增幅数额*火种进度
-                float finish =1+(float) (((float) effectLevel/100)*((float) kill /499366777));
-                event.setAmount(event.getAmount()*(finish));
+                event.addIndependentMulti(((float) effectLevel/100)*((float) kill /499366777));
             }
         }
     }

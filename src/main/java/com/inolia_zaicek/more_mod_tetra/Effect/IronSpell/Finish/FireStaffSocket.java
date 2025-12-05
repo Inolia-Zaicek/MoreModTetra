@@ -5,8 +5,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -42,12 +42,12 @@ public class FireStaffSocket {
                 if (mainStack.getItem() instanceof IModularItem item) {
                     float level = item.getEffectLevel(mainStack, fireStaffSocketEffect);
                     if (level > 0) {
-                        event.setAmount(event.getAmount() * 1.1f);
+                        event.setAmount(event.getAmount()*1.1f);
                     }
                 } else if (offStack.getItem() instanceof IModularItem item) {
                     float level = item.getEffectLevel(offStack, fireStaffSocketEffect);
                     if (level > 0) {
-                        event.setAmount(event.getAmount() * 1.1f);
+                        event.setAmount(event.getAmount()*1.1f);
                     }
                 }
             }
@@ -58,12 +58,12 @@ public class FireStaffSocket {
                 if (mainStack.getItem() instanceof IModularItem item) {
                     float level = item.getEffectLevel(mainStack, fireStaffSocketEffect);
                     if (level > 0) {
-                        event.setAmount(event.getAmount() * 1.1f);
+                        event.setAmount(event.getAmount()*1.1f);
                     }
                 } else if (offStack.getItem() instanceof IModularItem item) {
                     float level = item.getEffectLevel(offStack, fireStaffSocketEffect);
                     if (level > 0) {
-                        event.setAmount(event.getAmount() * 1.1f);
+                        event.setAmount(event.getAmount()*1.1f);
                     }
                 }
             }

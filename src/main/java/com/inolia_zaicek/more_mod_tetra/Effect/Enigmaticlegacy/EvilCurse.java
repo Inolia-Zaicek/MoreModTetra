@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Enigmaticlegacy;
 
 import com.aizistral.enigmaticlegacy.handlers.SuperpositionHandler;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,34 +31,38 @@ public class EvilCurse {
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
+
+    @SubscribeEvent
+    public static void hurt(EffectLevelEvent event) {
+        //攻击
+        if (event.hurtEvent.getSource().getEntity() instanceof Player player) {
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player, evilCurseEffect);
+            if (effectLevel > 0) {
+                int curses = SuperpositionHandler.getCurseAmount(player);
+                float number = (float) effectLevel / 100;
+                event.addNormalMulti((number * curses));
+            }
+        }
+    }
+
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-            //攻击
-            if (event.getSource().getEntity() instanceof Player player) {
-                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,evilCurseEffect);
-                if (effectLevel > 0) {
-                    int curses = SuperpositionHandler.getCurseAmount(player);
-                    float number = (float) effectLevel / 100;
-                    float damage =event.getAmount();
-                    event.setAmount(damage*(1+number*curses));
-                    }
-                }
-            //挨打
-            if (event.getEntity() instanceof Player player ) {
-                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,evilCurseEffect);
-                if (effectLevel > 0 ) {
-                    int curses = SuperpositionHandler.getCurseAmount(player);
-                    float number = (float) effectLevel / 100;
-                    float damage = event.getAmount();
-                    float mhp = player.getMaxHealth();
-                    //计算伤害阈值
-                    float damageN = Math.max(0.1f, (1 - number * curses));
-                    //这次伤害占生命值的比例(伤害/最大生命值)＞伤害阈值比例（0.1*最大生命值
-                    if (damage / mhp >= mhp * damageN) ;
-                    {
-                        event.setAmount(mhp * damageN);
-                    }
+        //挨打
+        if (event.getEntity() instanceof Player player) {
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player, evilCurseEffect);
+            if (effectLevel > 0) {
+                int curses = SuperpositionHandler.getCurseAmount(player);
+                float number = (float) effectLevel / 100;
+                float damage = event.getAmount();
+                float mhp = player.getMaxHealth();
+                //计算伤害阈值
+                float damageN = Math.max(0.1f, (1 - number * curses));
+                //这次伤害占生命值的比例(伤害/最大生命值)＞伤害阈值比例（0.1*最大生命值
+                if (damage / mhp >= mhp * damageN) ;
+                {
+                    event.setAmount(mhp * damageN);
                 }
             }
         }
     }
+}

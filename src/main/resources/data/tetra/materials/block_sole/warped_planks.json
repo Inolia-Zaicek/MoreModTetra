@@ -23,7 +23,7 @@
     ]
   },
   "attributes": {
-    "**generic.movement_speed": 0.1
+    "**generic.movement_speed": 0.025
   },
   "effects" : {
     "more_mod_tetra:curios_magma_walker": 1,

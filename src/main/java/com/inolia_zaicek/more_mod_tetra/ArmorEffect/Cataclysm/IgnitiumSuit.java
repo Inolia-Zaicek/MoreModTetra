@@ -17,7 +17,7 @@ public class IgnitiumSuit {
     public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("cataclysm")) {
             //火减
-            LivingEntity livingEntity = event.getTarget();
+            LivingEntity livingEntity = event.getAttacked();
             //总火抗
             int effectLevel1 = MMTEffectHelper.getInstance().getAllArmorSumEffectLevel(livingEntity, ignitium_suit_Effect);
             //等级

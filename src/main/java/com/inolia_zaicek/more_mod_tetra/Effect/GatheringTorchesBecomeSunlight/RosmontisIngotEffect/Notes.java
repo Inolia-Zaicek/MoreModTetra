@@ -3,18 +3,16 @@ package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.R
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
@@ -34,26 +32,26 @@ public class Notes {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //血条判断
-        if (isBossEntity(event.getEntity().getType()) ) {
+        if (isBossEntity(event.getAttacked().getType()) ) {
             //攻击
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,notesEffect);
                 if (effectLevel > 0) {
-                    if (MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
-                        event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                    if (MMTDamageSourceHelper.isMeleeAttack(event.hurtEvent.getSource())) {
+                        event.addIndependentMulti((1 + (float) effectLevel / 100));
                     }else{
-                        event.setAmount(event.getAmount() * (1 + (float) effectLevel / 50));
+                        event.addIndependentMulti((1 + (float) effectLevel / 50));
                     }
                 }
-            }else if(event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+            }else if(event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,notesEffect);
                 if (effectLevel > 0) {
-                    if (MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
-                        event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                    if (MMTDamageSourceHelper.isMeleeAttack(event.hurtEvent.getSource())) {
+                        event.addIndependentMulti((1 + (float) effectLevel / 100));
                     }else{
-                        event.setAmount(event.getAmount() * (1 + (float) effectLevel / 50));
+                        event.addIndependentMulti((1 + (float) effectLevel / 50));
                     }
                 }
             }

@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -11,8 +12,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -63,9 +64,9 @@ public class FieryPalpitation {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof Player player) {
+        if (event.hurtEvent.getSource().getEntity() instanceof Player player) {
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,fieryPalpitationEffect);
             if (effectLevel > 0) {
                 var mobList = MMTUtil.mobList(6, player);

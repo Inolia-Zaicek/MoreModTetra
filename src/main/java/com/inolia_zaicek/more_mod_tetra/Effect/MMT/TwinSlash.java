@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.world.entity.LivingEntity;
@@ -7,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -37,11 +37,11 @@ public class TwinSlash {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //挨打
-        if (event.getEntity()!=null) {
-            LivingEntity player = event.getEntity();
-            var mob = event.getEntity();
+        if (event.getAttacked()!=null) {
+            LivingEntity player = event.getAttacked();
+            var mob = event.getAttacked();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
             if (mainHandItem.getItem() instanceof ItemModularHandheld item&&mainHandItem.getItem() instanceof ItemModularHandheld item2) {
@@ -50,16 +50,15 @@ public class TwinSlash {
                 //双等级＞0
                 if (mainEffectLevel > 0&&offEffectLevel>0) {
                     int effectLevel = Math.max(1, (Math.min(mainEffectLevel,offEffectLevel)) );
-                    float damage = event.getAmount();
                     if (player.hasEffect(MMTEffectsRegister.EclipseStarBurstStream.get())) {
                         int buffLevel = mob.getEffect(MMTEffectsRegister.EclipseStarBurstStream.get()).getAmplifier();
-                        event.setAmount(damage * (1 - (float) (effectLevel * buffLevel) / 100));
+                        event.addNormalMulti((1 - (float) (effectLevel * buffLevel) / 100));
                     } else if (player.hasEffect(MMTEffectsRegister.Eclipse.get())) {
                         int buffLevel = mob.getEffect(MMTEffectsRegister.Eclipse.get()).getAmplifier();
-                        event.setAmount(damage * (1 - (float) (effectLevel * buffLevel) / 100));
+                        event.addNormalMulti((1 - (float) (effectLevel * buffLevel) / 100));
                     } else if (player.hasEffect(MMTEffectsRegister.StarBurstStream.get())) {
                         int buffLevel = mob.getEffect(MMTEffectsRegister.StarBurstStream.get()).getAmplifier();
-                        event.setAmount(damage * (1 - (float) (effectLevel * buffLevel) / 100));
+                        event.addNormalMulti((1 - (float) (effectLevel * buffLevel) / 100));
                     }
                 }
             }
@@ -69,7 +68,7 @@ public class TwinSlash {
 
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         //星爆气流斩
         if (livingEntity.hasEffect(MMTEffectsRegister.StarBurstStream.get()) &&
                 !(

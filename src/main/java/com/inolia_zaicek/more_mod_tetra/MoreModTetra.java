@@ -60,6 +60,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.Pu
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.RosmontisIngotEffect.ExpandedCognition;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.RosmontisIngotEffect.NociceptorInhibition;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.RosmontisIngotEffect.Notes;
+import com.inolia_zaicek.more_mod_tetra.Effect.Goety.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.FireDragonSteel.FireDragonBloodCoating;
 import com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.FireDragonSteel.FireDragonPower;
 import com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.FireDragonSteel.FireDragonsteelMaterial;
@@ -388,6 +389,13 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(TickLightningProficiency.class);
             MinecraftForge.EVENT_BUS.register(TickWitherProficiency.class);
         }
+        if(ModList.get().isLoaded("goety")) {
+            MinecraftForge.EVENT_BUS.register(GoetySoulAbsorb.class);
+            MinecraftForge.EVENT_BUS.register(GoetyCursed.class);
+            MinecraftForge.EVENT_BUS.register(GoetySoulRepair.class);
+            MinecraftForge.EVENT_BUS.register(GoetyAcidVenom.class);
+            MinecraftForge.EVENT_BUS.register(GoetySoulExtract.class);
+        }
         MinecraftForge.EVENT_BUS.register(Assassinate.class);
         MinecraftForge.EVENT_BUS.register(ConstantFlux.class);
         MinecraftForge.EVENT_BUS.register(DefeatDemons.class);
@@ -584,6 +592,9 @@ public class MoreModTetra {
             CuriosHealthBoost.init();
             CuriosHaste.init();
             CuriosFireResistance.init();
+            if(ModList.get().isLoaded("goety")) {
+                GoetyCursed.init();
+            }
             if(ModList.get().isLoaded("fantasy_ending")) {
                 FantasyArcaneEdgeEffect.init();
                 FantasyArcaneGuardEffect.init();

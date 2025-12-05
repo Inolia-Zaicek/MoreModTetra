@@ -6,8 +6,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.effect.ItemEffect;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -34,10 +34,10 @@ public class HeavyHit {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
             //攻击
-            if (event.getSource().getEntity() instanceof LivingEntity player) {
-                var mob = event.getEntity();
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+                var mob = event.getAttacked();
                 ItemStack mainHandItem = player.getMainHandItem();
                 int effectLevel = 0;
                 if (mainHandItem.getItem() instanceof IModularItem item) {
@@ -47,8 +47,8 @@ public class HeavyHit {
                         effectLevel += (int) mainEffectLevel;
                     }
                 }
-                float armor = (float) event.getEntity().getAttributeValue(Attributes.ARMOR);
-                if (effectLevel > 0&&event.getEntity()!=null) {
+                float armor = (float) event.getAttacked().getAttributeValue(Attributes.ARMOR);
+                if (effectLevel > 0&&event.getAttacked()!=null) {
                     int emptyArmorSlots = 0; // 用于计数目标生物身上空着的护甲槽位数量
 
                     // 遍历目标生物的四种主要护甲槽位：头盔、胸甲、护腿、鞋子
@@ -68,7 +68,7 @@ public class HeavyHit {
                     if (emptyArmorSlots > 0) {
                         //护甲数量*增伤
                         float totalDamageIncrease = emptyArmorSlots * damageMultiplier;
-                        event.setAmount(event.getAmount() * (1 + totalDamageIncrease));
+                        event.addNormalMulti((1 + totalDamageIncrease));
                     }
             }
         }

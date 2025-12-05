@@ -37,7 +37,7 @@ public class BlessingOfAmethyst {
     }
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         if(ModList.get().isLoaded("cataclysm")) {
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,blessingOfAmethystEffect);
             if (effectLevel > 0) {

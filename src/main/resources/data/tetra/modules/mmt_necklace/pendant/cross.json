@@ -10,7 +10,8 @@
             "key": "cross/",
             "integrity": 0,
             "effects": {
-                "more_mod_tetra:curios_materials_effect_invalidation": 1
+                "more_mod_tetra:curios_materials_effect_invalidation": 1,
+                "more_mod_tetra:curios_kamui": 15
             },
             "extract": {
                 "glyph": {
@@ -18,7 +19,7 @@
                     "textureY": 48
                 },
                 "primaryEffects": {
-                    "more_mod_tetra:curios_kamui": 5
+                    "more_mod_tetra:curios_kamui": 2
                 },
                 "availableTextures": [ "" ],
                 "models": [

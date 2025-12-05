@@ -28,7 +28,7 @@
         {
             "material": {
                 "items": [ "minecraft:bone" ],
-                "count": 16
+                "count": 64
             },
             "improvements": {
                 "curios_slowness_clear": 0

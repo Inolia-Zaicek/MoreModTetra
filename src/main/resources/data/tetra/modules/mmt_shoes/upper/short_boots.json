@@ -8,7 +8,7 @@
             "materials": [ "tetra:skin/","tetra:fibre/","tetra:fabric/" ],
             "key": "short_boots/",
             "attributes": {
-                "**generic.movement_speed": 0.3,
+                "**generic.movement_speed": 0.065,
                 "forge:step_height_addition": 0.3
             },
             "effects": {
@@ -16,11 +16,11 @@
             },
             "extract": {
                 "primaryAttributes": {
-                    "**generic.movement_speed": 0.02,
+                    "**generic.movement_speed": 0.004,
                     "forge:step_height_addition": 0.1
                 },
                 "secondaryAttributes": {
-                    "**generic.movement_speed": -0.075,
+                    "**generic.movement_speed": -0.016,
                     "forge:step_height_addition": 0.2
                 },
                 "glyph": {

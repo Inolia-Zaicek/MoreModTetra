@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -7,7 +8,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -39,13 +39,13 @@ public class CuriosArmorPenetration {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getEntity()!=null) {
-                LivingEntity player = event.getEntity();
+            if (event.getAttacked()!=null) {
+                LivingEntity player = event.getAttacked();
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosArmorPenetrationEffect);
                 if (effectLevel > 0) {
-                    Optional.of(event.getEntity())
+                    Optional.of(event.getAttacked())
                             .map(LivingEntity::getAttributes)
                             .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
                             .map(manager -> manager.getInstance(Attributes.ARMOR))

@@ -7,6 +7,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.effect.ItemEffect;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -33,10 +34,10 @@ public class Puncture {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
             //攻击
-            if (event.getSource().getEntity() instanceof LivingEntity player&&event.getEntity()!=null) {
-                var mob = event.getEntity();
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player&&event.getAttacked()!=null) {
+                var mob = event.getAttacked();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
                 int effectLevel = 0;
@@ -49,13 +50,13 @@ public class Puncture {
                         armorPenetrationLevel += armorPenetrationMainEffectLevel;
                     }
                 }
-                int armor = (int) event.getEntity().getAttributeValue(Attributes.ARMOR);
+                int armor = (int) event.getAttacked().getAttributeValue(Attributes.ARMOR);
                 if (effectLevel > 0) {
                     if(!(armor>0)||armorPenetrationLevel>=100||
                             //护甲*穿甲比例小于等于0
                             !( ((int)( armor* (1-armorPenetrationLevel/100) )) > 0)) {
                         float number = (float) effectLevel / 100;
-                        event.setAmount(event.getAmount() * (1 + number));
+                        event.addNormalMulti((1 + number));
                     }
                     }
                 }

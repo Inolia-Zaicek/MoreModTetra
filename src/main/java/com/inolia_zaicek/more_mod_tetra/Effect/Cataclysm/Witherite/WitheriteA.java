@@ -36,7 +36,7 @@ public class WitheriteA {
     }
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         if(ModList.get().isLoaded("cataclysm")) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,witheriteEffect);
             if (effectLevel > 0&&livingEntity.hasEffect(MobEffects.WITHER)) {

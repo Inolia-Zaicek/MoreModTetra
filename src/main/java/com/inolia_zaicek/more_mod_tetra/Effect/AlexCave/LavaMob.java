@@ -10,6 +10,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -38,7 +39,7 @@ public class LavaMob {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         Entity attackingEntity = event.getSource().getEntity();
-        // 获取触发攻击的实体（攻击者）。event.getSource() 返回攻击来源，.getEntity() 获取来源的实体对象。
+        // 获取触发攻击的实体（攻击者）。event.hurtEvent.getSource() 返回攻击来源，.getEntity() 获取来源的实体对象。
 
         LivingEntity target = event.getEntity();
         // 获取被攻击的生物实体（目标）。event.getEntity() 返回事件中的目标实体。

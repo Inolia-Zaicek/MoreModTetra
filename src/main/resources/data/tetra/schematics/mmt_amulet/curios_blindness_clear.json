@@ -28,7 +28,7 @@
         {
             "material": {
                 "items": [ "minecraft:sculk" ],
-                "count": 8
+                "count": 32
             },
             "improvements": {
                 "curios_blindness_clear": 0

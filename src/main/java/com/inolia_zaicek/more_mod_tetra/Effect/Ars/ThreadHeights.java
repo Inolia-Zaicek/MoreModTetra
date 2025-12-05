@@ -37,7 +37,7 @@ public class ThreadHeights {
     }
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         ItemStack mainStack = livingEntity.getMainHandItem();
         ItemStack offStack = livingEntity.getOffhandItem();
         if (mainStack.getItem() instanceof IModularItem item) {

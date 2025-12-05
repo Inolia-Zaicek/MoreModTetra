@@ -17,7 +17,6 @@ import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
-import team.lodestar.lodestone.helpers.EntityHelper;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
@@ -40,16 +39,14 @@ public class CleansingSerum {
     public static void hurt(MobEffectEvent.Added event) {
         Entity entity = event.getEntity();
             if (entity instanceof LivingEntity livingEntity) {
-                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,cleansingSerumEffect);
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, cleansingSerumEffect);
                 if (effectLevel > 0) {
                     MobEffectInstance effect = event.getEffectInstance();
                     MobEffect type = effect.getEffect();
                     if (type.getCategory().equals(MobEffectCategory.HARMFUL)) {
-                        EntityHelper.shortenEffect(effect, livingEntity, effect.getDuration() / 5);
+                        MMTEffectHelper.shortenEffect(effect, livingEntity, effect.getDuration() / 5);
                     }
                 }
-                }
-
-
+            }
     }
 }

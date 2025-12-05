@@ -9,6 +9,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -36,8 +37,8 @@ public class RuneOfVolatileDistortion {
 
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-        Entity attacker = event.getSource().getEntity();
+    public static void hurt(EffectLevelEvent event) {
+        Entity attacker = event.hurtEvent.getSource().getEntity();
             if (attacker instanceof LivingEntity player) {
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
@@ -60,7 +61,7 @@ public class RuneOfVolatileDistortion {
                     if (random.nextFloat() < 0.1f) {
                         multiplier *= 2;
                     }
-                    event.setAmount(event.getAmount() * multiplier);
+                    event.addNormalMulti(multiplier);
                 }
                 }
     }

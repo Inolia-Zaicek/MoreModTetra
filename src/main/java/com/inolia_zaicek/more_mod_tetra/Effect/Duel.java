@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
@@ -9,7 +10,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -35,18 +35,17 @@ public class Duel {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-        DamageSource damageSource = event.getSource();
-        Entity attacker = event.getSource().getEntity();
-        LivingEntity attacked=event.getEntity();
-        float damage=event.getAmount();
+    public static void hurt(EffectLevelEvent event) {
+        DamageSource damageSource = event.hurtEvent.getSource();
+        Entity attacker = event.hurtEvent.getSource().getEntity();
+        LivingEntity attacked=event.getAttacked();
         if(attacked!=null&&attacker!=null) {
             //攻击者是玩家
             if (attacker instanceof LivingEntity livingEntity) {
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,duelEffect);
                 //我手持武器
                 //判断等级与近战
-                if (effectLevel > 0&& MMTDamageSourceHelper.isMeleeAttack(event.getSource()) ) {
+                if (effectLevel > 0&& MMTDamageSourceHelper.isMeleeAttack(event.hurtEvent.getSource()) ) {
                     //用list添加①
                     var map = attacked.getActiveEffectsMap();
                     //上buff
@@ -70,14 +69,14 @@ public class Duel {
                     if(attacked.hasEffect(MMTEffectsRegister.NeutralReverDuel.get()) &&livingEntity.hasEffect(MMTEffectsRegister.BeneficialReverDuel.get()) ){
                         int BeLevel = livingEntity.getEffect(MMTEffectsRegister.BeneficialReverDuel.get()).getAmplifier();
                         int NeLevel = attacked.getEffect(MMTEffectsRegister.NeutralReverDuel.get()).getAmplifier();
-                        event.setAmount(damage * (1+(BeLevel+NeLevel)/100f));
+                        event.addNormalMulti((BeLevel+NeLevel)/100f);
                     }
                 }
             }
             //挨打的是玩家
-            if (event.getSource().getEntity() instanceof LivingEntity) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity) {
                 var livingEntity = attacked;
-                LivingEntity mob = event.getSource().getEntity().getControllingPassenger();
+                LivingEntity mob = event.hurtEvent.getSource().getEntity().getControllingPassenger();
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,duelEffect);
                 //我手持武器
                 //判断等级与近战
@@ -86,9 +85,9 @@ public class Duel {
                     if (  !(mob.hasEffect(MMTEffectsRegister.NeutralReverDuel.get()))
                             || !(mob.hasEffect(MMTEffectsRegister.BeneficialReverDuel.get()))) {
                         //挨打的有两个buff之一
-                        if (event.getEntity().hasEffect(MMTEffectsRegister.NeutralReverDuel.get())
-                                ||event.getEntity().hasEffect(MMTEffectsRegister.BeneficialReverDuel.get())) {
-                            event.setAmount(damage - damage * 0.1f);
+                        if (event.getAttacked().hasEffect(MMTEffectsRegister.NeutralReverDuel.get())
+                                ||event.getAttacked().hasEffect(MMTEffectsRegister.BeneficialReverDuel.get())) {
+                            event.addNormalMulti(0.9F);;
                         }
                     }
                     //敌人打我&&都有buff（敌负我正
@@ -96,7 +95,7 @@ public class Duel {
                             && livingEntity.hasEffect(MMTEffectsRegister.BeneficialReverDuel.get())) {
                         int BeLevel = mob.getEffect(MMTEffectsRegister.NeutralReverDuel.get()).getAmplifier();
                         int NeLevel = attacked.getEffect(MMTEffectsRegister.BeneficialReverDuel.get()).getAmplifier();
-                        event.setAmount(damage * (1-(BeLevel+NeLevel)/200f));
+                        event.addNormalMulti((1-(BeLevel+NeLevel)/200f));
                     }
                 }
             }

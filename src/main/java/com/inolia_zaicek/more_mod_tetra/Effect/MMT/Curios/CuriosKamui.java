@@ -1,10 +1,10 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -33,10 +33,10 @@ public class CuriosKamui {
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getEntity()!=null) {
-                LivingEntity player = event.getEntity();
+            if (event.getAttacked()!=null) {
+                LivingEntity player = event.getAttacked();
                 int effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectMaxLevel(player, curiosKamuiEffect);
                 if (effectLevel > 0) {
                     int time = (int) ((player.invulnerableTime) + (effectLevel * 0.01 * 20));

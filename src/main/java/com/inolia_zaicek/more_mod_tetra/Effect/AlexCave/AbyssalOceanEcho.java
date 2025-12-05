@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.AlexCave;
 
 import com.github.alexmodguy.alexscaves.server.potion.ACEffectRegistry;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -8,7 +9,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -34,27 +34,27 @@ public class AbyssalOceanEcho {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
+    public static void hurt(EffectLevelEvent event) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                var mob = event.getAttacked();
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,abyssalOceanEchoEffect);
                 if (effectLevel > 0&&mob.hasEffect(ACEffectRegistry.BUBBLED.get())) {
                     //近战
-                    if(MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
+                    if(MMTDamageSourceHelper.isMeleeAttack(event.hurtEvent.getSource())) {
                         mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, (int) (20*effectLevel), 2));
                     }else{
-                        event.setAmount(event.getAmount()*(1+ (float) effectLevel /100));
+                        event.addNormalMulti(( (float) effectLevel /100));
                     }
                 }
-            }else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
-            var mob = event.getEntity();
+            }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+            var mob = event.getAttacked();
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,abyssalOceanEchoEffect);
             if (effectLevel > 0&&mob.hasEffect(ACEffectRegistry.BUBBLED.get())) {
                 //近战
-                if(MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
+                if(MMTDamageSourceHelper.isMeleeAttack(event.hurtEvent.getSource())) {
                     mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, (int) (20*effectLevel), 2));
                 }else{
-                    event.setAmount(event.getAmount()*(1+ (float) effectLevel /100));
+                    event.addNormalMulti(( (float) effectLevel /100));
                 }
             }
         }

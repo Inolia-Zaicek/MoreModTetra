@@ -6,8 +6,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -36,9 +36,9 @@ public class HideBladeCurious {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getSource().getEntity() instanceof Player player) {
+            if (event.hurtEvent.getSource().getEntity() instanceof Player player) {
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
@@ -48,10 +48,10 @@ public class HideBladeCurious {
                                     int effectLevel = item.getEffectLevel(itemStack, hideBladeEffect);
                                     if (effectLevel > 0) {
                                         //是近战
-                                        if (MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
+                                        if (MMTDamageSourceHelper.isMeleeAttack(event.hurtEvent.getSource())) {
                                             //藏锋已满
                                             if (player.hasEffect(MMTEffectsRegister.HideBladeMax.get())) {
-                                                event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                                                event.addNormalMulti((1 + (float) effectLevel / 100));
                                                 player.removeEffect(MMTEffectsRegister.HideBlade.get());
                                                 player.removeEffect(MMTEffectsRegister.HideBladeMax.get());
                                             } else {
@@ -69,7 +69,7 @@ public class HideBladeCurious {
                         )
                 );
             }
-            else if (event.getSource().getDirectEntity() instanceof Player player) {
+            else if (event.hurtEvent.getSource().getDirectEntity() instanceof Player player) {
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
@@ -79,10 +79,10 @@ public class HideBladeCurious {
                                     int effectLevel = item.getEffectLevel(itemStack, hideBladeEffect);
                                     if (effectLevel > 0) {
                                         //是近战
-                                        if (MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
+                                        if (MMTDamageSourceHelper.isMeleeAttack(event.hurtEvent.getSource())) {
                                             //藏锋已满
                                             if (player.hasEffect(MMTEffectsRegister.HideBladeMax.get())) {
-                                                event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                                                event.addNormalMulti((1 + (float) effectLevel / 100));
                                                 player.removeEffect(MMTEffectsRegister.HideBlade.get());
                                                 player.removeEffect(MMTEffectsRegister.HideBladeMax.get());
                                             } else {

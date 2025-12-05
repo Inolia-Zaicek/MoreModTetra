@@ -3,7 +3,7 @@
     "pattern": [
         " A ",
         "ABA",
-        "AAA"
+        "ACA"
     ],
     "key": {
         "A": {
@@ -11,6 +11,9 @@
         },
         "B": {
             "item": "minecraft:paper"
+        },
+        "C": {
+            "item": "minecraft:diamond"
         }
     },
     "result": {

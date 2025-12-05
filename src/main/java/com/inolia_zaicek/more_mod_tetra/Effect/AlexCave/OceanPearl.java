@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.AlexCave;
 
 import com.github.alexmodguy.alexscaves.server.potion.ACEffectRegistry;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -11,6 +12,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -42,7 +44,7 @@ public class OceanPearl {
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
         if (ModList.get().isLoaded("alexscaves")) {
-            LivingEntity livingEntity = event.getEntity();
+            LivingEntity livingEntity = event.getEntity();;
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,oceanPearlEffect);
             if (effectLevel > 0) {
                 if (livingEntity.level().getGameTime() % 20L == 0) {

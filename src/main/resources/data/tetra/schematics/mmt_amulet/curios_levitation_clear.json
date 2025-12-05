@@ -28,7 +28,7 @@
         {
             "material": {
                 "items": [ "minecraft:end_stone" ],
-                "count": 8
+                "count": 32
             },
             "improvements": {
                 "curios_levitation_clear": 0

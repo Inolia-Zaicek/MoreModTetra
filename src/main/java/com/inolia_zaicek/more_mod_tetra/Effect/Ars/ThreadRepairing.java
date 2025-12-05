@@ -39,7 +39,7 @@ public class ThreadRepairing {
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
         if(ModList.get().isLoaded("ars_nouveau")) {
-            LivingEntity livingEntity = event.getEntity();
+            LivingEntity livingEntity = event.getEntity();;
             ItemStack mainStack = livingEntity.getMainHandItem();
             ItemStack offStack = livingEntity.getOffhandItem();
             ItemStack head = livingEntity.getItemBySlot(EquipmentSlot.HEAD);

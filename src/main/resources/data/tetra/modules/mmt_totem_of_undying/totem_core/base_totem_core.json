@@ -9,7 +9,8 @@
             "key": "base_totem_core/",
             "integrity": 0,
             "effects": {
-                "more_mod_tetra:curios_materials_effect_invalidation": 1
+                "more_mod_tetra:curios_materials_effect_invalidation": 1,
+                "more_mod_tetra:curios_totem_effect": [5,1]
             },
             "extract": {
                 "glyph": {

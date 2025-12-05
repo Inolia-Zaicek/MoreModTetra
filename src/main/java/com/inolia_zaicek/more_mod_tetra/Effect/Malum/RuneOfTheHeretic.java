@@ -8,6 +8,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -34,10 +35,10 @@ public class RuneOfTheHeretic {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if(ModList.get().isLoaded("malum")) {
-            if (event.getEntity()!=null&&event.getSource().getEntity() instanceof LivingEntity attacker) {
-                LivingEntity livingEntity = event.getEntity();
+            if (event.getAttacked()!=null&&event.hurtEvent.getSource().getEntity() instanceof LivingEntity attacker) {
+                LivingEntity livingEntity = event.getAttacked();;
                 ItemStack mainHandItem = livingEntity.getMainHandItem();
                 ItemStack offhandItem = livingEntity.getOffhandItem();
                 int effectLevel = 0;

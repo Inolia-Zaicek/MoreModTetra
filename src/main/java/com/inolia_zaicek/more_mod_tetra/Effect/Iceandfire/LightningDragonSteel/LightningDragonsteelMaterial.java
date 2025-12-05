@@ -10,6 +10,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -82,20 +83,23 @@ public class LightningDragonsteelMaterial {
                     }
                 }
             }
-            //挨打
-            if (event.getEntity()!=null) {
-                LivingEntity livingEntity = event.getEntity();
-                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, lightningDragonsteelMaterialEffect);
-                if (effectLevel > 0&&livingEntity.getLastAttacker()!=null) {
-                    float number = (float) effectLevel / 100;
-                    float numberA = (float) effectLevel / 200;
-                    //冰龙
-                    if(livingEntity.getLastAttacker() instanceof EntityFireDragon||livingEntity.getLastAttacker() instanceof EntityIceDragon) {
-                        event.setAmount(event.getAmount()*(1-number));
-                    }
-                    if(livingEntity.getLastAttacker() instanceof EntityLightningDragon) {
-                        event.setAmount(event.getAmount()*(1-numberA));
-                    }
+        }
+    }
+    @SubscribeEvent
+    public static void hurt(EffectLevelEvent event) {
+        //挨打
+        if (event.getAttacked()!=null) {
+            LivingEntity livingEntity = event.getAttacked();;
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, lightningDragonsteelMaterialEffect);
+            if (effectLevel > 0&&livingEntity.getLastAttacker()!=null) {
+                float number = (float) effectLevel / 100;
+                float numberA = (float) effectLevel / 200;
+                //冰龙
+                if(livingEntity.getLastAttacker() instanceof EntityFireDragon||livingEntity.getLastAttacker() instanceof EntityIceDragon) {
+                    event.addNormalMulti((1-number));
+                }
+                if(livingEntity.getLastAttacker() instanceof EntityLightningDragon) {
+                    event.addNormalMulti((1-numberA));
                 }
             }
         }

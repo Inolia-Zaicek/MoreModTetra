@@ -1520,6 +1520,44 @@ public class EffectGuiStats {
     public static final String warden_killer_Name = MoreModTetra.MODID + ".effect.warden_killer.name";
     public static final String warden_killer_Tooltip = MoreModTetra.MODID + ".effect.warden_killer.tooltip";
 
+    public static final ItemEffect projectileTrackingEffect = ItemEffect.get(MoreModTetra.MODID + ":projectile_tracking");
+    public static final String projectileTrackingName = MoreModTetra.MODID + ".effect.projectile_tracking.name";
+    public static final String projectileTrackingTooltip = MoreModTetra.MODID + ".effect.projectile_tracking.tooltip";
+
+    public static final ItemEffect goety_soul_repair_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_soul_repair");
+    public static final String goety_soul_repair_Name = MoreModTetra.MODID + ".effect.goety_soul_repair.name";
+    public static final String goety_soul_repair_Tooltip = MoreModTetra.MODID + ".effect.goety_soul_repair.tooltip";
+
+    public static final ItemEffect goety_cursed_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_cursed");
+    public static final String goety_cursed_Name = MoreModTetra.MODID + ".effect.goety_cursed.name";
+    public static final String goety_cursed_Tooltip = MoreModTetra.MODID + ".effect.goety_cursed.tooltip";
+
+    public static final ItemEffect goety_soul_absorb_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_soul_absorb");
+    public static final String goety_soul_absorb_Name = MoreModTetra.MODID + ".effect.goety_soul_absorb.name";
+    public static final String goety_soul_absorb_Tooltip = MoreModTetra.MODID + ".effect.goety_soul_absorb.tooltip";
+
+    public static final ItemEffect goety_acid_venom_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_acid_venom");
+    public static final String goety_acid_venom_Name = MoreModTetra.MODID + ".effect.goety_acid_venom.name";
+    public static final String goety_acid_venom_Tooltip = MoreModTetra.MODID + ".effect.goety_acid_venom.tooltip";
+
+    public static final ItemEffect goety_ally_vex_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_ally_vex");
+    public static final String goety_ally_vex_Name = MoreModTetra.MODID + ".effect.goety_ally_vex.name";
+    public static final String goety_ally_vex_Tooltip = MoreModTetra.MODID + ".effect.goety_ally_vex.tooltip";
+
+    public static final ItemEffect goety_soul_edge_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_soul_edge");
+    public static final String goety_soul_edge_Name = MoreModTetra.MODID + ".effect.goety_soul_edge.name";
+    public static final String goety_soul_edge_Tooltip = MoreModTetra.MODID + ".effect.goety_soul_edge.tooltip";
+
+    public static final ItemEffect goety_soul_burst_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_soul_burst");
+    public static final String goety_soul_burst_Name = MoreModTetra.MODID + ".effect.goety_soul_burst.name";
+    public static final String goety_soul_burst_Tooltip = MoreModTetra.MODID + ".effect.goety_soul_burst.tooltip";
+
+    public static final ItemEffect goety_soul_extract_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_soul_extract");
+    public static final String goety_soul_extract_Name = MoreModTetra.MODID + ".effect.goety_soul_extract.name";
+    public static final String goety_soul_extract_Tooltip = MoreModTetra.MODID + ".effect.goety_soul_extract.tooltip";
+
+
+
 
     //判断bo
     public static boolean isBossEntity(EntityType<?> entity) {

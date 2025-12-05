@@ -4,8 +4,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -31,10 +31,10 @@ public class Fragile {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
             //攻击
-            if (event.getSource().getEntity() instanceof LivingEntity player) {
-                var mob = event.getEntity();
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+                var mob = event.getAttacked();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
                 int effectLevel = 0;
@@ -46,7 +46,7 @@ public class Fragile {
                 }
                 //当前血量比例小于数值比例
                 if (effectLevel > 0) {
-                    event.setAmount(event.getAmount()* (1+ (float) effectLevel /100) );
+                     event.addNormalMulti( (1+ (float) effectLevel /100) );
                     mainHandItem.setDamageValue(mainHandItem.getMaxDamage());
                     }
                 }

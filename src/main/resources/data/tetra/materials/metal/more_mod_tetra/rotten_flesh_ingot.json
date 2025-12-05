@@ -21,7 +21,7 @@
         "items": [ "more_mod_tetra:rotten_flesh_ingot" ]
     },
     "effects" : {
-        "more_mod_tetra:reversel_smite": 12
+        "more_mod_tetra:reversel_smite": 10
     },
     "requiredTools": {
         "hammer_dig": "minecraft:stone"

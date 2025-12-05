@@ -8,7 +8,7 @@
             "materials": [ "tetra:skin/","tetra:fibre/","tetra:fabric/" ],
             "key": "long_boots/",
             "attributes": {
-                "**generic.movement_speed": 0.15,
+                "**generic.movement_speed": 0.035,
                 "**generic.knockback_resistance": 0.1
             },
             "effects": {
@@ -16,11 +16,11 @@
             },
             "extract": {
                 "primaryAttributes": {
-                    "**generic.movement_speed": 0.015,
+                    "**generic.movement_speed": 0.004,
                     "**generic.knockback_resistance": 0.02
                 },
                 "secondaryAttributes": {
-                    "**generic.movement_speed": -0.075,
+                    "**generic.movement_speed": -0.02,
                     "**generic.knockback_resistance": 0.01
                 },
                 "glyph": {

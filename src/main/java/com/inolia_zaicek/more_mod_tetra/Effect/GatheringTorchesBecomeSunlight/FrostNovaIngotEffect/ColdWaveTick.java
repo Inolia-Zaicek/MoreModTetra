@@ -1,9 +1,9 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect;
 
-import com.freefish.torchesbecomesunlight.server.init.EffectHandle;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -19,7 +19,7 @@ import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.coldWaveEff
 public class ColdWaveTick {
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,coldWaveEffect);
             if(effectLevel>0&&event.getEntity().tickCount % 20 == 0){
@@ -27,7 +27,7 @@ public class ColdWaveTick {
                 var mobList = MMTUtil.mobList(5,livingEntity);
                 for (Mob mobs:mobList){
                     if(mobs!=null) {
-                        if(mobs.hasEffect(EffectHandle.FREEZE.get())) {
+                        if(mobs.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
                             //获取伤害类型
                             mobs.invulnerableTime = 0;
                             if(livingEntity instanceof Player player) {

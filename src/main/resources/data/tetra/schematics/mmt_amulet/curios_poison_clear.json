@@ -28,7 +28,7 @@
         {
             "material": {
                 "items": [ "minecraft:spider_eye" ],
-                "count": 4
+                "count": 16
             },
             "improvements": {
                 "curios_poison_clear": 0

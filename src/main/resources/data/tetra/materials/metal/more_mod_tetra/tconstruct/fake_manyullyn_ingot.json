@@ -2,7 +2,7 @@
     "key": "fake_manyullyn_ingot",
     "category": "metal",
     "primary": 7.74,
-    "secondary": 3.9,
+    "secondary": 3.2,
     "tertiary": 4.5,
     "durability": 1512,
     "integrityCost": 2,
@@ -22,7 +22,7 @@
         "items": [ "more_mod_tetra:fake_manyullyn_ingot" ]
     },
     "effects" : {
-        "more_mod_tetra:fake_insatiable": 3
+        "more_mod_tetra:fake_insatiable": 1
     },
     "requiredTools": {
         "hammer_dig": "minecraft:iron"

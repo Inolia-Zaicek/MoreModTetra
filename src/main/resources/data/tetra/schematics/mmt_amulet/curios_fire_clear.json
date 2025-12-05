@@ -28,7 +28,7 @@
         {
             "material": {
                 "items": [ "minecraft:obsidian" ],
-                "count": 8
+                "count": 32
             },
             "improvements": {
                 "curios_fire_clear": 0

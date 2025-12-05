@@ -1,13 +1,13 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 
 import com.inolia_zaicek.more_mod_tetra.Event.MMTFluidCollisionEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -38,10 +38,10 @@ public class CuriosMagmaWalker {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void onLivingAttack(LivingHurtEvent event) {
+    public static void onLivingAttack(EffectLevelEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getEntity()!=null) {
-                LivingEntity player = event.getEntity();
+            if (event.getAttacked()!=null) {
+                LivingEntity player = event.getAttacked();
                 CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
                         (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                         slotResult -> {
@@ -49,7 +49,7 @@ public class CuriosMagmaWalker {
                             ItemStack itemStack = slotResult.stack();
                             IModularItem iModularItem = (IModularItem) itemStack.getItem();
                             int effectLevel = iModularItem.getEffectLevel(itemStack, curiosMagmaWalkerEffect);
-                            if (effectLevel > 0 && event.getSource() == event.getEntity().level().damageSources().hotFloor()) {
+                            if (effectLevel > 0 && event.hurtEvent.getSource() == event.getAttacked().level().damageSources().hotFloor()) {
                                 // 则取消伤害事件，使玩家不受伤害。
                                 event.setCanceled(true);
                             }

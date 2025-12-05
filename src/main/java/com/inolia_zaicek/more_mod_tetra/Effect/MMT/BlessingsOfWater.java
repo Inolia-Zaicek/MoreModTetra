@@ -1,10 +1,10 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -30,30 +30,30 @@ public class BlessingsOfWater {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //挨打
-        if (event.getEntity() != null) {
-            LivingEntity player = event.getEntity();
+        if (event.getAttacked() != null) {
+            LivingEntity player = event.getAttacked();
             float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, blessingsOfWaterEffect);
             if (effectLevel > 0) {
                 if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
-                    event.setAmount(event.getAmount() * (1 - (float) effectLevel / 100));
+                    event.addNormalMulti((1 - (float) effectLevel / 100));
                 }
             }
         }
         //打人
-        if (event.getSource().getEntity() instanceof LivingEntity player) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
             float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, blessingsOfWaterEffect);
             if (effectLevel > 0) {
                 if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
-                    event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                    event.addNormalMulti((1 + (float) effectLevel / 100));
                 }
             }
-        } else if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
+        } else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
             float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, blessingsOfWaterEffect);
             if (effectLevel > 0) {
                 if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
-                    event.setAmount(event.getAmount() * (1 + (float) effectLevel / 100));
+                    event.addNormalMulti((1 + (float) effectLevel / 100));
                 }
             }
         }

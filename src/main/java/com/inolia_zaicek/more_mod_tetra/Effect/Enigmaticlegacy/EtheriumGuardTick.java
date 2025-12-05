@@ -12,7 +12,7 @@ import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.etheriumGua
 public class EtheriumGuardTick {
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         int effectLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity,etheriumGuardEffect);
         float hp =livingEntity.getHealth();
         float mhp =livingEntity.getMaxHealth();

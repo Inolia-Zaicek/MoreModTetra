@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Malum;
 
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -10,6 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -18,7 +20,6 @@ import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
-import team.lodestar.lodestone.helpers.EntityHelper;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
@@ -60,7 +61,7 @@ public class RuneOfAlimentCleansing {
                     MobEffectInstance effect = event.getEffectInstance();
                     MobEffect type = effect.getEffect();
                     if (type.getCategory().equals(MobEffectCategory.HARMFUL)) {
-                        EntityHelper.shortenEffect(effect, player, effect.getDuration() / 4);
+                        MMTEffectHelper.shortenEffect(effect, player, effect.getDuration() / 4);
                     }
                 }
                 }

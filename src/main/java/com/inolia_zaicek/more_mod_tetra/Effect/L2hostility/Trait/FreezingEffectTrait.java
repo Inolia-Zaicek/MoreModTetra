@@ -8,6 +8,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -37,10 +38,10 @@ public class FreezingEffectTrait {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("l2complements")) {
             //攻击者是玩家
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity &&event.getEntity()!=null) {
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity &&event.getAttacked()!=null) {
                 CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
@@ -63,8 +64,8 @@ public class FreezingEffectTrait {
                                             effectLevel += (int) offEffectLevel;
                                         }
                                     }
-                                    if (effectLevel > 0&&event.getEntity()!=null) {
-                                        var mob = event.getEntity();
+                                    if (effectLevel > 0&&event.getAttacked()!=null) {
+                                        var mob = event.getAttacked();
                                         var map = mob.getActiveEffectsMap();
                                         //通过id直接给buff
                                         map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "frozen")))

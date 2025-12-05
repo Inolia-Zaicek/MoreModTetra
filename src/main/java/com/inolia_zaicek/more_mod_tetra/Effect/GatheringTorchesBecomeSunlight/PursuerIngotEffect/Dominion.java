@@ -40,7 +40,7 @@ public class Dominion {
     }
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
-        LivingEntity livingEntity = event.getEntity();
+        LivingEntity livingEntity = event.getEntity();;
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,dominionEffect);
             if(effectLevel>0&& livingEntity.tickCount % 10 == 0){

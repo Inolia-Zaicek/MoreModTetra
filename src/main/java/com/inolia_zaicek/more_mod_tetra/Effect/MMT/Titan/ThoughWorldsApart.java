@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -7,7 +8,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -34,9 +34,9 @@ public class ThoughWorldsApart {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof LivingEntity player) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,thoughWorldsApartEffect);
             if (effectLevel > 0) {
                 double atk = player.getAttributeValue(Attributes.ATTACK_DAMAGE);

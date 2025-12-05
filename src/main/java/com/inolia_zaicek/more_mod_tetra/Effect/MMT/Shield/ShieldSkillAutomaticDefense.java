@@ -1,11 +1,11 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Shield;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -32,9 +32,9 @@ public class ShieldSkillAutomaticDefense {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-            if (event.getEntity() instanceof Player player) {
-                var mob = event.getEntity();
+    public static void hurt(EffectLevelEvent event) {
+            if (event.getAttacked() instanceof Player player) {
+                var mob = event.getAttacked();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
                 int effectLevel = 0;
@@ -42,7 +42,7 @@ public class ShieldSkillAutomaticDefense {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, shieldSkillAutomaticDefenseEffect);
                     if (mainEffectLevel > 0&&  !(player.getCooldowns().isOnCooldown((Item) item))  ) {
                         effectLevel += (int) mainEffectLevel;
-                        event.setAmount(event.getAmount()*(1- (float) effectLevel /100));
+                         event.addNormalMulti((1- (float) effectLevel /100));
                         player.getCooldowns().addCooldown((Item) item, 7*20);
                     }
                 }
@@ -50,7 +50,7 @@ public class ShieldSkillAutomaticDefense {
                     float offEffectLevel = item.getEffectLevel(offhandItem, shieldSkillAutomaticDefenseEffect);
                     if (offEffectLevel > 0&&  !(player.getCooldowns().isOnCooldown((Item) item))  ) {
                         effectLevel += (int) offEffectLevel;
-                        event.setAmount(event.getAmount()*(1- (float) effectLevel /100));
+                         event.addNormalMulti((1- (float) effectLevel /100));
                         player.getCooldowns().addCooldown((Item) item, 7*20);
                     }
                 }

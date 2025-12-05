@@ -7,6 +7,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -37,7 +38,7 @@ public class ReflectEffectTrait {
         if (ModList.get().isLoaded("l2complements")) {
             //挨打的是玩家且攻击者非空
             if (event.getEntity()!=null&&event.getSource().getEntity()!=null) {
-                LivingEntity livingEntity = event.getEntity();
+                LivingEntity livingEntity = event.getEntity();;
                 CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
                                 (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
                                 slotResult -> {
@@ -66,7 +67,9 @@ public class ReflectEffectTrait {
                                                 mob.setLastHurtByPlayer(player);
                                             }
                                         }
-                                        event.getSource().getEntity().hurt(event.getSource().getEntity().damageSources().magic(),event.getAmount()*0.3f*effectLevel);
+                                        event.getSource().getEntity().hurt(
+                                                event.getSource().getEntity().damageSources().magic(),
+                                                event.getAmount()*0.3f*effectLevel);
                                     }
                                 }
                         )

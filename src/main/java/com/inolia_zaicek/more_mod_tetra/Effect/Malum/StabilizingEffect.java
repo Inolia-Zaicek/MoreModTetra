@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Malum;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.sammy.malum.registry.common.item.ItemRegistry;
 import net.minecraft.world.entity.Entity;
@@ -12,7 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -41,8 +41,8 @@ public class StabilizingEffect {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-        Entity attacker = event.getSource().getEntity();
+    public static void hurt(EffectLevelEvent event) {
+        Entity attacker = event.hurtEvent.getSource().getEntity();
         if (attacker instanceof LivingEntity player) {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
@@ -61,7 +61,7 @@ public class StabilizingEffect {
             }
             if (effectLevel > 0) {
                float scythe_proficiency= (float) player.getAttributeValue(AttributeRegistry.SCYTHE_PROFICIENCY.get());
-               event.setAmount(event.getAmount()*scythe_proficiency);
+                event.addNormalMulti(scythe_proficiency);
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -7,7 +8,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -36,9 +36,9 @@ public class SirenicSerenade {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
-                var mob = event.getEntity();
+    public static void hurt(EffectLevelEvent event) {
+            if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
+                var mob = event.getAttacked();
                 var map = mob.getActiveEffectsMap();
                 int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,sirenicSerenadeEffect);
                 if (effectLevel > 0) {
@@ -93,11 +93,11 @@ public class SirenicSerenade {
                     if(mob.hasEffect(MobEffects.DARKNESS)){debuffNumber +=1;}
                     if(mob.hasEffect(MobEffects.BLINDNESS)){debuffNumber +=1;}
                     if(debuffNumber>0){
-                        event.setAmount(event.getAmount()*(1+effectLevel/100*debuffNumber));
+                        event.addNormalMulti((effectLevel/100*debuffNumber));
                     }
                 }
-        }else if (event.getSource().getEntity() instanceof LivingEntity player) {
-                var mob = event.getEntity();
+        }else if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+                var mob = event.getAttacked();
                 var map = mob.getActiveEffectsMap();
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offhandItem = player.getOffhandItem();
@@ -166,7 +166,7 @@ public class SirenicSerenade {
                     if(mob.hasEffect(MobEffects.DARKNESS)){debuffNumber +=1;}
                     if(mob.hasEffect(MobEffects.BLINDNESS)){debuffNumber +=1;}
                     if(debuffNumber>0){
-                        event.setAmount(event.getAmount()*(1+effectLevel/100*debuffNumber));
+                        event.addNormalMulti((effectLevel/100*debuffNumber));
                     }
                 }
             }

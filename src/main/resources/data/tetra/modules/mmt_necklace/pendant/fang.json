@@ -10,7 +10,8 @@
             "key": "fang/",
             "integrity": 0,
             "effects": {
-                "more_mod_tetra:curios_materials_effect_invalidation": 1
+                "more_mod_tetra:curios_materials_effect_invalidation": 1,
+                "more_mod_tetra:curios_armor_penetration": 2
             },
             "extract": {
                 "glyph": {
@@ -18,10 +19,10 @@
                     "textureY": 48
                 },
                 "primaryEffects": {
-                    "more_mod_tetra:curios_armor_penetration": 0.075
+                    "more_mod_tetra:curios_armor_penetration": 0.4
                 },
                 "secondaryEffects": {
-                    "more_mod_tetra:curios_armor_penetration": 0.075
+                    "more_mod_tetra:curios_armor_penetration": 0.2
                 },
                 "availableTextures": [ "" ],
                 "models": [

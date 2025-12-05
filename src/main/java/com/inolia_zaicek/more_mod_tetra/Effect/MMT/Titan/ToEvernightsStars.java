@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -7,7 +8,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -41,10 +41,10 @@ public class ToEvernightsStars {
     }
 
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //攻击
-        if (event.getSource().getEntity() instanceof LivingEntity player) {
-            var mob = event.getEntity();
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+            var mob = event.getAttacked();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offHandItem = player.getOffhandItem();
             float effectLevel = 0;
@@ -60,18 +60,18 @@ public class ToEvernightsStars {
                     //当前血量比例小于数值比例
                     if (effectLevel > 0) {
                         float hp = player.getHealth();
-                        float finish = event.getAmount() * (1 + effectLevel / 100);
+                        float finish = (1 + effectLevel / 100);
                         //未记录生命值
                         if (healthNbt == 0) {
                             persistentData.putInt(String.valueOf(HP), (int) hp);
                         } else {
                             //生命值相等或者记录的小于当前
                             if (healthNbt == hp || healthNbt <= hp) {
-                                event.setAmount(finish / 2);
+                                event.addNormalMulti(finish / 2);
                             } else {
                                 //记录生命值大于当前
                                 player.heal((healthNbt - hp) * effectLevel / 100);
-                                event.setAmount(finish);
+                                event.addNormalMulti(finish);
                             }
                         }
                         //反正最后都会记录一下
@@ -90,18 +90,18 @@ public class ToEvernightsStars {
                     //当前血量比例小于数值比例
                     if (effectLevel > 0) {
                         float hp = player.getHealth();
-                        float finish = event.getAmount() * (1 + effectLevel / 100);
+                        float finish = (1 + effectLevel / 100);
                         //未记录生命值
                         if (healthNbt == 0) {
                             persistentData.putInt(String.valueOf(HP), (int) hp);
                         } else {
                             //生命值相等或者记录的小于当前
                             if (healthNbt == hp || healthNbt <= hp) {
-                                event.setAmount(finish / 2);
+                                event.addNormalMulti(finish / 2);
                             } else {
                                 //记录生命值大于当前
                                 player.heal((healthNbt - hp) * effectLevel / 100);
-                                event.setAmount(finish);
+                                event.addNormalMulti(finish);
                             }
                         }
                         //反正最后都会记录一下

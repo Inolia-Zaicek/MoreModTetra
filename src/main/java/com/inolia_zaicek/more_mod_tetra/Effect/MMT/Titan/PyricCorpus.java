@@ -1,6 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -14,6 +15,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -167,9 +169,9 @@ public class PyricCorpus {
         }
     }
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-        if (event.getSource().getEntity() instanceof LivingEntity player) {
-            LivingEntity entity =event.getEntity();
+    public static void hurt(EffectLevelEvent event) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+            LivingEntity entity =event.getAttacked();
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offhandItem = player.getOffhandItem();
 
@@ -178,8 +180,8 @@ public class PyricCorpus {
             int coreFlames =Math.min(33550336, offhandItem.getOrCreateTag().getInt(String.valueOf(Number)) + mainHandItem.getOrCreateTag().getInt(String.valueOf(Number)) );
             if (effectLevel > 0&&coreFlames>0) {
                 //最大增幅数额*火种进度
-                float finish =1+(float) (((float) effectLevel/100)*((float) coreFlames /33550336));
-                event.setAmount(event.getAmount()*(finish));
+                float finish =(((float) effectLevel/100)*((float) coreFlames /33550336));
+                 event.addNormalMulti((finish));
             }
         }
     }

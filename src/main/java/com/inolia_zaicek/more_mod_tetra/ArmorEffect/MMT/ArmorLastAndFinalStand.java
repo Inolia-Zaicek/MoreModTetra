@@ -1,8 +1,8 @@
 package com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.armor_final_stand_Effect;
@@ -10,10 +10,10 @@ import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.armor_last_
 
 public class ArmorLastAndFinalStand {
     @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
+    public static void hurt(EffectLevelEvent event) {
         //坚毅不倒
-        if (event.getEntity() != null) {
-            LivingEntity livingEntity = event.getEntity();
+        if (event.getAttacked() != null) {
+            LivingEntity livingEntity = event.getAttacked();
             float effectLevelN = MMTEffectHelper.getInstance().getAllArmorSumEffectLevel(livingEntity, armor_last_stand_Effect);
             float effectLevelD = MMTEffectHelper.getInstance().getAllArmorSumEffectEfficiency(livingEntity, armor_last_stand_Effect);
             float mhp = livingEntity.getMaxHealth();
@@ -26,11 +26,11 @@ public class ArmorLastAndFinalStand {
             //如果阈值40，当前40%，也就是dhp=0.6 dEffect = 0.6，完美
             float finalDhp =Math.min(1, ( dhp-dEffect ) / ( dEffect ) );
             if (effectLevelN > 0 && hp > 0) {
-                event.setAmount(event.getAmount() * (1 - (finalDhp) * (effectLevelN / 100)));
+                event.addNormalMulti((1 - (finalDhp) * (effectLevelN / 100)));
             }
         }
         //背水一战
-        if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
             float effectLevelN = MMTEffectHelper.getInstance().getAllArmorSumEffectLevel(livingEntity, armor_final_stand_Effect);
             float effectLevelD = MMTEffectHelper.getInstance().getAllArmorSumEffectEfficiency(livingEntity, armor_final_stand_Effect);
             float mhp = livingEntity.getMaxHealth();
@@ -43,9 +43,9 @@ public class ArmorLastAndFinalStand {
             //如果阈值40，当前40%，也就是dhp=0.6 dEffect = 0.6，完美
             float finalDhp =Math.min(1, ( dhp-dEffect ) / ( dEffect ) );
             if (effectLevelN > 0 && hp > 0) {
-                event.setAmount(event.getAmount() * (1 + (finalDhp) * (effectLevelN / 100)));
+                event.addNormalMulti((1 + (finalDhp) * (effectLevelN / 100)));
             }
-        }else if (event.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+        }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
             float effectLevelN = MMTEffectHelper.getInstance().getAllArmorSumEffectLevel(livingEntity, armor_final_stand_Effect);
             float effectLevelD = MMTEffectHelper.getInstance().getAllArmorSumEffectEfficiency(livingEntity, armor_final_stand_Effect);
             float mhp = livingEntity.getMaxHealth();
@@ -58,7 +58,7 @@ public class ArmorLastAndFinalStand {
             //如果阈值40，当前40%，也就是dhp=0.6 dEffect = 0.6，完美
             float finalDhp =Math.min(1, ( dhp-dEffect ) / ( dEffect ) );
             if (effectLevelN > 0 && hp > 0) {
-                event.setAmount(event.getAmount() * (1 + (finalDhp) * (effectLevelN / 100)));
+                event.addNormalMulti((1 + (finalDhp) * (effectLevelN / 100)));
             }
         }
     }

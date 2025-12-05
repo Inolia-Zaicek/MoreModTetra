@@ -10,15 +10,15 @@
                 "more_mod_tetra:curios_materials_effect_invalidation": 1
             },
             "attributes": {
-                "**generic.movement_speed": 0.12
+                "**generic.movement_speed": 0.15
             },
             "extract": {
                 "primaryAttributes": {
-                    "**generic.knockback_resistance": 0.03
+                    "**generic.knockback_resistance": 0.015
                 },
                 "secondaryAttributes": {
-                    "**generic.knockback_resistance": 0.01,
-                    "**generic.movement_speed": -0.04
+                    "**generic.knockback_resistance": 0.005,
+                    "**generic.movement_speed": -0.0
                 },
                 "tertiaryEffects": {
                     "more_mod_tetra:curios_feather_falling": 7
