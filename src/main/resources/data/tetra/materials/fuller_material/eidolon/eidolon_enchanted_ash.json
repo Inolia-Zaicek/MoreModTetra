@@ -1,0 +1,38 @@
+{
+    "key": "eidolon_enchanted_ash",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 5,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "c7baca",
+        "texture": "c7baca"
+    },
+    "effects" : {
+        "more_mod_tetra:defeat_demons": 15
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "eidolon:enchanted_ash" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.02
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "eidolon"
+        }
+    ]
+}

@@ -11,8 +11,8 @@
     "toolLevel": "minecraft:netherite",
     "toolEfficiency": 11,
     "tints": {
-        "glyph": "FFCD40",
-        "texture": "FFCD40"
+        "glyph": "FFE040",
+        "texture": "FFE040"
     },
     "effects" : {
         "more_mod_tetra:blazing_brand": 1

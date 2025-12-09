@@ -1,0 +1,46 @@
+{
+    "key": "l2hostility_miracle_powder",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 10,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "0071ea",
+        "texture": "0071ea"
+    },
+    "effects" : {
+        "more_mod_tetra:miracle_and_magic": 2
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "l2hostility:miracle_powder" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.07,
+        "**generic.attack_speed": 0.02,
+        "**forge:attack_range": 0.02,
+        "**forge:reach_distance": 0.02,
+        "**generic.armor": 0.02,
+        "**generic.armor_toughness": 0.02,
+        "**tetra:draw_speed": -0.02,
+        "**tetra:draw_strength": 0.02,
+        "**generic.max_health": 0.02
+    },
+    "requiredTools": {
+        "hammer_dig": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2hostility"
+        }
+    ]
+}

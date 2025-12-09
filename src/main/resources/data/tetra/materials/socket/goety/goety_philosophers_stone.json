@@ -1,0 +1,37 @@
+{
+    "key": "goety_philosophers_stone",
+    "category": "socket",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 666,
+    "integrityCost": 1,
+    "integrityGain": 0,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "fc10fc",
+        "texture": "fc10fc"
+    },
+    "effects" : {
+        "more_mod_tetra:goety_soul_repair": 5,
+        "more_mod_tetra:turning_stone_into_gold": [5,5]
+    },
+    "textures": [
+        "perk_glow_0",
+        "perk_sided_0"
+    ],
+    "material": {
+        "items": [ "goety:philosophers_stone" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "goety"
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "key": "goety_dark_ingot",
+    "category": "metal",
+    "primary": 6,
+    "secondary": 3.8,
+    "tertiary": 3,
+    "durability": 666,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 130,
+    "toolLevel": 4,
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "343a3d",
+        "texture": "343a3d"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "goety:dark_ingot" ]
+    },
+    "effects" : {
+      "more_mod_tetra:goety_soul_repair": 2,
+      "more_mod_tetra:goety_cursed": [13,2]
+    },
+  "attributes": {
+    "goety_revelation:none_power": 0.3
+  },
+    "requiredTools": {
+        "hammer_dig": 2
+    },
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "goety"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "goety_revelation"
+          }
+        }
+      ]
+    }
+  ]
+}

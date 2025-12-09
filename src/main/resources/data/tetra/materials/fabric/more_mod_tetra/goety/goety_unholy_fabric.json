@@ -1,0 +1,48 @@
+{
+    "key": "goety_unholy_fabric",
+    "category": "fabric",
+    "primary": 4,
+    "secondary": 2,
+    "tertiary": 5,
+    "durability": 400,
+    "integrityCost": 1,
+    "integrityGain": 7,
+    "magicCapacity": 160,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "360404",
+        "texture": "360404"
+    },
+    "effects" : {
+        "quickStrike": 15
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": ["goety:unholy_fabric"]
+    },
+    "requiredTools": {
+        "cut": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:and",
+            "values": [
+                {
+                    "type": "forge:mod_loaded",
+                    "modid": "goety"
+                },
+                {
+                    "type": "forge:not",
+                    "value": {
+                        "type": "forge:mod_loaded",
+                        "modid": "goety_revelation"
+                    }
+                }
+            ]
+        }
+    ]
+}

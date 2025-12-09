@@ -1,0 +1,19 @@
+[
+    {
+        "materials": [ "tetra:fuller_material/" ],
+        "key": "improvements_material_fuller/",
+        "level": 0,
+        "durability": 10,
+        "group": "improvements_material_fuller",
+        "attributes": {
+            "generic.attack_speed": -0.1
+        },
+        "extract": {
+            "secondaryAttributes": {
+                "generic.attack_speed": -0.1
+            },
+            "durability": 1,
+            "integrity": 1
+        }
+    }
+]

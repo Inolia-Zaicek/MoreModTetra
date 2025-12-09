@@ -1,0 +1,45 @@
+{
+    "key": "goety_gale_fabric",
+    "category": "fabric",
+    "primary": 3,
+    "secondary": 2,
+    "tertiary": 5,
+    "durability": 200,
+    "integrityCost": 1,
+    "integrityGain": 5,
+    "magicCapacity": 160,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "2f6a49",
+        "texture": "2f6a49"
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": ["goety:gale_fabric"]
+    },
+    "requiredTools": {
+        "cut": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:and",
+            "values": [
+                {
+                    "type": "forge:mod_loaded",
+                    "modid": "goety"
+                },
+                {
+                    "type": "forge:not",
+                    "value": {
+                        "type": "forge:mod_loaded",
+                        "modid": "goety_revelation"
+                    }
+                }
+            ]
+        }
+    ]
+}

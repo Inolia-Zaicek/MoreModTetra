@@ -1,0 +1,36 @@
+{
+    "key": "enigmaticlegacy_astral_dust",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 10,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "ffffdb",
+        "texture": "ffffdb"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "enigmaticlegacy:astral_dust" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.075,
+        "**generic.attack_speed": 0.15
+    },
+    "requiredTools": {
+        "hammer_dig": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "enigmaticlegacy"
+        }
+    ]
+}

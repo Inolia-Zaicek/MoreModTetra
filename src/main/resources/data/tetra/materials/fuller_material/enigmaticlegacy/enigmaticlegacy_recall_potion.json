@@ -1,0 +1,38 @@
+{
+    "key": "enigmaticlegacy_recall_potion",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 5,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "8fecff",
+        "texture": "8fecff"
+    },
+    "textures": [
+        "default"
+    ],
+    "effects" : {
+        "more_mod_tetra:the_century_gate": 1
+    },
+    "material": {
+        "items": [ "enigmaticlegacy:recall_potion" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.05
+    },
+    "requiredTools": {
+        "hammer_dig": 2
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "enigmaticlegacy"
+        }
+    ]
+}

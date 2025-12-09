@@ -1,0 +1,17 @@
+{
+    
+    "slots": ["sword/fuller"],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 67,
+        "textureY": 108
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:fuller_material/" ],
+            "moduleKey": "sword/more_mod_tetra/material_fuller",
+            "moduleVariant": "material_fuller/"
+        }
+    ]
+}

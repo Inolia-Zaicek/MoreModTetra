@@ -1,0 +1,28 @@
+{
+    "slots": [ "sword/fuller" ],
+    "type": "tetra:basic_module",
+    "variants": [
+        {
+            "materials": [ "tetra:fuller_material/" ],
+            "key": "material_fuller/",
+            "attributes": {
+                "generic.attack_speed": -0.1
+            },
+            "durability": 100,
+            "durabilityMultiplier": 1.1,
+            "extract": {
+                "secondaryAttributes": {
+                    "generic.attack_speed": -0.1
+                },
+                "durability": 1,
+                "integrity": 1,
+                "glyph": {
+                    "textureX": 72,
+                    "textureY": 112
+                },
+                "availableTextures": [ "default" ],
+                "models": [ { "location": "tetra:item/module/sword/fuller/reinforced_fuller/" } ]
+            }
+        }
+    ]
+}

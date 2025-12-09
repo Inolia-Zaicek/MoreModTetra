@@ -1,7 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Register;
 
-import com.inolia_zaicek.more_mod_tetra.ModularCurios.Iron.ModularIronStaff;
-import com.inolia_zaicek.more_mod_tetra.ModularCurios.*;
+import com.inolia_zaicek.more_mod_tetra.Modular.Iron.ModularIronStaff;
+import com.inolia_zaicek.more_mod_tetra.Modular.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;

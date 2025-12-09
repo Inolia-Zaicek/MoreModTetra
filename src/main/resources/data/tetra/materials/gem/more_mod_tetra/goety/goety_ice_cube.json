@@ -1,0 +1,48 @@
+{
+    "key": "goety_ice_cube",
+    "category": "gem",
+    "primary": 3,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 72,
+    "integrityCost": 1,
+    "integrityGain": 6,
+    "magicCapacity": 180,
+    "toolLevel": 1,
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "CCE5FF",
+        "texture": "CCE5FF"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "goety:ice_cube" ]
+    },
+    "effects" : {
+        "more_mod_tetra:freeze_edge": 7
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:and",
+            "values": [
+                {
+                    "type": "forge:mod_loaded",
+                    "modid": "goety"
+                },
+                {
+                    "type": "forge:not",
+                    "value": {
+                        "type": "forge:mod_loaded",
+                        "modid": "goety_revelation"
+                    }
+                }
+            ]
+        }
+    ]
+}

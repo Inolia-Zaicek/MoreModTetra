@@ -1,0 +1,36 @@
+{
+    "key": "goety_goety_soul_ruby",
+    "category": "gem",
+    "primary": 6.3,
+    "secondary": 2.7,
+    "tertiary": 0,
+    "durability": 1050,
+    "integrityCost": 2,
+    "integrityGain": 3,
+    "magicCapacity": 256,
+    "toolLevel": 5,
+    "toolEfficiency": 8,
+    "tints": {
+        "glyph": "ec464a",
+        "texture": "ec464a"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "goety:goety_soul_ruby" ]
+    },
+    "effects" : {
+        "more_mod_tetra:magic_edge": 18
+    },
+    "requiredTools": {
+        "hammer_dig": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "goety"
+        }
+    ]
+}

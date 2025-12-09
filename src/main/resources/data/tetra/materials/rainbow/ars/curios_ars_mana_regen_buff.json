@@ -1,0 +1,33 @@
+{
+  "key": "curios_ars_mana_regen_buff",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "category": "rainbow",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "8d2fac"
+  },
+  "textures": [
+    ""
+  ],
+  "material": {
+    "items": [
+      "ars_nouveau:sourceberry_bush"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:curios_ars_mana_regen_buff": 1
+  }
+}

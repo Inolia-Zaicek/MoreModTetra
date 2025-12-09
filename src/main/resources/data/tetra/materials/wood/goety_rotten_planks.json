@@ -1,0 +1,45 @@
+{
+    "key": "goety_rotten_planks",
+    "category": "wood",
+    "primary": 3,
+    "secondary": 1.9,
+    "tertiary": 5.5,
+    "durability": 128,
+    "integrityCost": 1,
+    "integrityGain": 6,
+    "magicCapacity": 102,
+    "toolLevel": 3,
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "40351f",
+        "texture": "40351f"
+    },
+    "textures": [
+        "crude",
+        "wooden"
+    ],
+    "material": {
+        "items": [ "goety:rotten_planks" ]
+    },
+    "requiredTools": {
+        "axe_dig": 2
+    },
+    "conditions": [
+        {
+            "type": "forge:and",
+            "values": [
+                {
+                    "type": "forge:mod_loaded",
+                    "modid": "goety"
+                },
+                {
+                    "type": "forge:not",
+                    "value": {
+                        "type": "forge:mod_loaded",
+                        "modid": "goety_revelation"
+                    }
+                }
+            ]
+        }
+    ]
+}

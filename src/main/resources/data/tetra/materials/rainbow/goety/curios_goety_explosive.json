@@ -1,0 +1,33 @@
+{
+  "key": "curios_goety_explosive",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
+  "category": "rainbow",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "ba9688"
+  },
+  "textures": [
+    ""
+  ],
+  "material": {
+    "items": [
+      "minecraft:creeper_head"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:curios_goety_explosive": 1
+  }
+}

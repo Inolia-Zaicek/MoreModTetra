@@ -1,0 +1,53 @@
+{
+    "key": "goety_savage_tooth",
+    "category": "bone",
+    "primary": 5,
+    "secondary": 2,
+    "tertiary": 4.5,
+    "durability": 180,
+    "integrityCost": 1,
+    "integrityGain": 5,
+    "magicCapacity": 180,
+    "toolLevel": 3,
+    "toolEfficiency":4,
+    "tints": {
+        "glyph": "bone_glyph",
+        "texture": "bone"
+    },
+    "effects" : {
+        "reaching": [ 5, 0.1 ]
+    },
+    "textures": [
+        "bone",
+        "crude"
+    ],
+    "material": {
+        "items": [ "goety:savage_tooth" ]
+    },
+    "attributes": {
+        "forge:attack_range": 0.2,
+        "forge:reach_distance": 0.2,
+        "goety_revelation:ill_power": 0.3
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:and",
+            "values": [
+                {
+                    "type": "forge:mod_loaded",
+                    "modid": "goety"
+                },
+                {
+                    "type": "forge:not",
+                    "value": {
+                        "type": "forge:mod_loaded",
+                        "modid": "goety_revelation"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "key": "irons_spellbooks_lightning_bottle",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 4,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "8273E0",
+        "texture": "8273E0"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "irons_spellbooks:lightning_bottle" ]
+    },
+    "attributes": {
+        "**irons_spellbooks:lightning_spell_power": 0.01,
+        "**generic.attack_damage": 0.025
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "irons_spellbooks"
+        }
+    ]
+}

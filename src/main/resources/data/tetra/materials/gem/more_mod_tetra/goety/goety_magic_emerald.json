@@ -1,0 +1,49 @@
+{
+    "key": "goety_magic_emerald",
+    "category": "gem",
+    "primary": 5.5,
+    "secondary": 2.5,
+    "tertiary": 0,
+    "durability": 850,
+    "integrityCost": 1,
+    "integrityGain": 2,
+    "magicCapacity": 216,
+    "toolLevel": 4,
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "emerald_glyph",
+        "texture": "emerald"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "goety:magic_emerald" ]
+    },
+    "effects" : {
+        "more_mod_tetra:goety_soul_repair": 2,
+        "more_mod_tetra:magic_edge": 10
+    },
+    "requiredTools": {
+        "hammer_dig": 3
+    },
+    "conditions": [
+        {
+            "type": "forge:and",
+            "values": [
+                {
+                    "type": "forge:mod_loaded",
+                    "modid": "goety"
+                },
+                {
+                    "type": "forge:not",
+                    "value": {
+                        "type": "forge:mod_loaded",
+                        "modid": "goety_revelation"
+                    }
+                }
+            ]
+        }
+    ]
+}

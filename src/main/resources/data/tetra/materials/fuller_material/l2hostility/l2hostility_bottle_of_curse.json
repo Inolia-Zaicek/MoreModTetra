@@ -1,0 +1,38 @@
+{
+    "key": "l2hostility_bottle_of_curse",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 9,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "c700ff",
+        "texture": "c700ff"
+    },
+    "effects" : {
+        "more_mod_tetra:hostility_control": 15
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "l2hostility:bottle_of_curse" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.05
+    },
+    "requiredTools": {
+        "hammer_dig": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2hostility"
+        }
+    ]
+}

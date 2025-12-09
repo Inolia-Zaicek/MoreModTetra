@@ -1,0 +1,48 @@
+{
+    "key": "goety_heart_of_the_night",
+    "category": "socket",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 166,
+    "integrityCost": 1,
+    "integrityGain": 0,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "9eec24",
+        "texture": "9eec24"
+    },
+    "effects" : {
+        "more_mod_tetra:shadow_power": 60
+    },
+    "textures": [
+        "perk_glow_0",
+        "perk_sided_0"
+    ],
+    "material": {
+        "items": [ "goety:heart_of_the_night" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:and",
+            "values": [
+                {
+                    "type": "forge:mod_loaded",
+                    "modid": "goety"
+                },
+                {
+                    "type": "forge:not",
+                    "value": {
+                        "type": "forge:mod_loaded",
+                        "modid": "goety_revelation"
+                    }
+                }
+            ]
+        }
+    ]
+}

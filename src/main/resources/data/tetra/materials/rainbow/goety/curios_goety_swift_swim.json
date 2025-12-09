@@ -1,0 +1,33 @@
+{
+  "key": "curios_goety_swift_swim",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
+  "category": "rainbow",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "91bdcf"
+  },
+  "textures": [
+    ""
+  ],
+  "material": {
+    "items": [
+      "goety:cooked_feet_of_frog"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:curios_goety_swift_swim": 1
+  }
+}

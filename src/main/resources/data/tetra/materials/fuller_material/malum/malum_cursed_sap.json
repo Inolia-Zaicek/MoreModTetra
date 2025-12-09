@@ -1,0 +1,36 @@
+{
+    "key": "malum_cursed_sap",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 5,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "8e2453",
+        "texture": "8e2453"
+    },
+    "effects" : {
+        "more_mod_tetra:strength_buff": 1,
+        "more_mod_tetra:resistance_buff": 1
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "malum:cursed_sap" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.025
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "malum"
+        }
+    ]
+}

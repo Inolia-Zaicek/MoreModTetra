@@ -1,0 +1,37 @@
+{
+    "key": "irons_spellbooks_epic_ink",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 6,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "cb40bf",
+        "texture": "cb40bf"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "irons_spellbooks:epic_ink" ]
+    },
+    "attributes": {
+        "**irons_spellbooks:spell_power": 0.04,
+        "irons_spellbooks:max_mana": 40,
+        "**generic.attack_damage": 0.04
+    },
+    "requiredTools": {
+        "hammer_dig": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "irons_spellbooks"
+        }
+    ]
+}

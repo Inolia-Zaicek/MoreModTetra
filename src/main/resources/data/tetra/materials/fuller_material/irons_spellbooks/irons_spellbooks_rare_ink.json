@@ -1,0 +1,37 @@
+{
+    "key": "irons_spellbooks_rare_ink",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 5,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "245f5d",
+        "texture": "245f5d"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "irons_spellbooks:rare_ink" ]
+    },
+    "attributes": {
+        "**irons_spellbooks:spell_power": 0.03,
+        "irons_spellbooks:max_mana": 30,
+        "**generic.attack_damage": 0.035
+    },
+    "requiredTools": {
+        "hammer_dig": 3
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "irons_spellbooks"
+        }
+    ]
+}

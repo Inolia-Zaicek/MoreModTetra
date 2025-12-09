@@ -1,0 +1,48 @@
+{
+    "key": "goety_shadow_essence",
+    "category": "socket",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 1,
+    "integrityGain": 0,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "0a0a0a",
+        "texture": "0a0a0a"
+    },
+    "effects" : {
+        "more_mod_tetra:shadow_power": 30
+    },
+    "textures": [
+        "perk_glow_0",
+        "perk_sided_0"
+    ],
+    "material": {
+        "items": [ "goety:shadow_essence" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:and",
+            "values": [
+                {
+                    "type": "forge:mod_loaded",
+                    "modid": "goety"
+                },
+                {
+                    "type": "forge:not",
+                    "value": {
+                        "type": "forge:mod_loaded",
+                        "modid": "goety_revelation"
+                    }
+                }
+            ]
+        }
+    ]
+}

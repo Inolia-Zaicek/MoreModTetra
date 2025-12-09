@@ -1,0 +1,37 @@
+{
+    "key": "irons_spellbooks_uncommon_ink",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 5,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "266a1f",
+        "texture": "266a1f"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "irons_spellbooks:uncommon_ink" ]
+    },
+    "attributes": {
+        "**irons_spellbooks:spell_power": 0.02,
+        "irons_spellbooks:max_mana": 20,
+        "**generic.attack_damage": 0.03
+    },
+    "requiredTools": {
+        "hammer_dig": 2
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "irons_spellbooks"
+        }
+    ]
+}

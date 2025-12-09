@@ -1,0 +1,39 @@
+{
+    "key": "malum_auric_embers",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 5,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "blaze_rod_glyph",
+        "texture": "blaze_rod"
+    },
+    "effects" : {
+        "more_mod_tetra:fire_edge": 15,
+        "more_mod_tetra:fire_combo": 7
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "malum:auric_embers" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.05
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "malum"
+        }
+    ]
+}

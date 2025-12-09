@@ -1,0 +1,39 @@
+{
+    "key": "iceandfire_ice_dragon_blood",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 7,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "aed4ea",
+        "texture": "aed4ea"
+    },
+    "effects" : {
+        "armorPenetration": 20,
+        "more_mod_tetra:ice_dragon_blood_coating": 80
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "iceandfire:ice_dragon_blood" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.05
+    },
+    "requiredTools": {
+        "hammer_dig": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "iceandfire"
+        }
+    ]
+}

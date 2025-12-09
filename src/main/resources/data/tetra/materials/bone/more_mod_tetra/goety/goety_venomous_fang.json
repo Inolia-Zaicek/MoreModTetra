@@ -1,0 +1,51 @@
+{
+    "key": "goety_venomous_fang",
+    "category": "bone",
+    "primary": 5,
+    "secondary": 2,
+    "tertiary": 4.5,
+    "durability": 180,
+    "integrityCost": 1,
+    "integrityGain": 5,
+    "magicCapacity": 180,
+    "toolLevel": 3,
+    "toolEfficiency":4,
+    "tints": {
+        "glyph": "32271e",
+        "texture": "32271e"
+    },
+    "effects" : {
+        "more_mod_tetra:goety_acid_venom": 1
+    },
+    "textures": [
+        "bone",
+        "crude"
+    ],
+    "material": {
+        "items": [ "goety:venomous_fang" ]
+    },
+    "attributes": {
+        "goety_revelation:wild_power": 0.3
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:and",
+            "values": [
+                {
+                    "type": "forge:mod_loaded",
+                    "modid": "goety"
+                },
+                {
+                    "type": "forge:not",
+                    "value": {
+                        "type": "forge:mod_loaded",
+                        "modid": "goety_revelation"
+                    }
+                }
+            ]
+        }
+    ]
+}
