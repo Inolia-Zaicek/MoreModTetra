@@ -1,0 +1,45 @@
+{
+    "slots": [ "modular_dark_wand/guard" ],
+    "type": "tetra:basic_major_module",
+    "improvements": [
+        "tetra:modular_dark_wand/shared/",
+        "tetra:shared/"
+    ],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "key": "base_guard/",
+            "aspects": {
+                "breakable": 2
+            },
+            "effects": {
+                "more_mod_tetra:goety_soul_cost_discount": [0,-2]
+            },
+            "durability": 100,
+            "durabilityMultiplier": 1.1,
+            "extract": {
+                "primaryEffects": {
+                    "more_mod_tetra:goety_soul_cost_discount": [1,0.2]
+                },
+                "secondaryEffects": {
+                    "more_mod_tetra:goety_soul_cost_discount": [0,0.4]
+                },
+                "tertiaryEffects": {
+                    "more_mod_tetra:goety_soul_cost_discount": [0,0.2]
+                },
+                "durability": -0.5,
+                "integrity": 1,
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [ ""],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/modular_dark_wand/base_guard"
+                    }
+                ]
+            }
+        }
+    ]
+}

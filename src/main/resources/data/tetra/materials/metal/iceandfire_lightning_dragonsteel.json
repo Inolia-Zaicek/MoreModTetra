@@ -8,7 +8,7 @@
   "durability": 8000,
   "integrityCost": 4,
   "integrityGain": 6,
-  "magicCapacity": 60,
+  "magicCapacity": 160,
   "toolLevel": "tetra:maxed_forge_hammer",
   "toolEfficiency": 10,
   "tints": {

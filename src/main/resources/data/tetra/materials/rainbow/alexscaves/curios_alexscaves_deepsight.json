@@ -1,9 +1,9 @@
 {
-  "key": "curios_ars_mana_regen_buff",
+  "key": "curios_alexscaves_deepsight",
   "conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "ars_nouveau"
+      "modid": "alexscaves"
     }
   ],
   "category": "rainbow",
@@ -17,17 +17,17 @@
   "toolLevel": 0,
   "toolEfficiency": 0,
   "tints": {
-    "glyph": "8d2fac"
+    "glyph": "00f1ff"
   },
   "textures": [
     ""
   ],
   "material": {
     "items": [
-      "ars_nouveau:sourceberry_bush"
+      "alexscaves:lanternfish"
     ]
   },
   "effects" : {
-    "more_mod_tetra:curios_ars_mana_regen_buff": 1
+    "more_mod_tetra:curios_alexscaves_deepsight": 1
   }
 }

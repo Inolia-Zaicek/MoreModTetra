@@ -88,5 +88,45 @@ public class CuriosBlindnessClear {
                 && ModList.get().isLoaded("goety") && livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "freezing")))) ) {
             livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "freezing"))));
         }
+        /// A C
+        if ( (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, alexscaves_magnetizing_clear_Effect) || MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexscaves_magnetizing_clear_Effect) )
+                && ModList.get().isLoaded("alexscaves") && livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "magnetizing")))) ) {
+            livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "magnetizing"))));
+        }
+        if ( (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, alexscaves_irradiated_clear_Effect) || MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexscaves_irradiated_clear_Effect) )
+                && ModList.get().isLoaded("alexscaves") && livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "irradiated")))) ) {
+            livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "irradiated"))));
+        }
+        //天境
+        if ( (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, aether_inebriation_clear_Effect) || MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_aether_inebriation_clear_Effect) )
+                && ModList.get().isLoaded("aether") && livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("aether", "inebriation")))) ) {
+            livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("aether", "inebriation"))));
+        }
+        //灾变
+        if ( (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, cataclysm_blazing_brand_clear_Effect) || MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_cataclysm_blazing_brand_clear_Effect) )
+                && ModList.get().isLoaded("cataclysm") && livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("cataclysm", "blazing_brand")))) ) {
+            livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("cataclysm", "blazing_brand"))));
+        }
+        if ( (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, cataclysm_curse_of_desert_clear_Effect) || MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_cataclysm_curse_of_desert_clear_Effect) )
+                && ModList.get().isLoaded("cataclysm") && livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("cataclysm", "curse_of_desert")))) ) {
+            livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("cataclysm", "curse_of_desert"))));
+        }
+        //生于混沌
+        if ( (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, born_in_chaos_v1_bone_fracture_clear_Effect) || MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_born_in_chaos_v1_bone_fracture_clear_Effect) )
+                && ModList.get().isLoaded("born_in_chaos_v1") && livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("born_in_chaos_v1", "bone_fracture")))) ) {
+            livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("born_in_chaos_v1", "bone_fracture"))));
+        }
+        if ( (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, born_in_chaos_v1_intoxicating_decoction_clear_Effect) || MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_born_in_chaos_v1_intoxicating_decoction_clear_Effect) )
+                && ModList.get().isLoaded("born_in_chaos_v1") && livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("born_in_chaos_v1", "intoxicating_decoction")))) ) {
+            livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("born_in_chaos_v1", "intoxicating_decoction"))));
+        }
+        if ( (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, born_in_chaos_v1_magic_depletion_clear_Effect) || MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_born_in_chaos_v1_magic_depletion_clear_Effect) )
+                && ModList.get().isLoaded("born_in_chaos_v1") && livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("born_in_chaos_v1", "magic_depletion")))) ) {
+            livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("born_in_chaos_v1", "magic_depletion"))));
+        }
+        if ( (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, born_in_chaos_v1_myiasis_clear_Effect) || MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_born_in_chaos_v1_myiasis_clear_Effect) )
+                && ModList.get().isLoaded("born_in_chaos_v1") && livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("born_in_chaos_v1", "myiasis")))) ) {
+            livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("born_in_chaos_v1", "myiasis"))));
+        }
     }
 }

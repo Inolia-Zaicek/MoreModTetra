@@ -1,0 +1,32 @@
+{
+    
+    "slots": [ "modular_dark_wand/core" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "primaryAttributes": {
+            "generic.attack_damage": 1
+        },
+        "secondaryAttributes": {
+            "generic.attack_speed": -1
+        },
+        "primaryEffects": {
+            "more_mod_tetra:magic_proficiency": 1
+        },
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "countFactor": 2,
+            "moduleKey": "modular_dark_wand/core/goety_spell_core",
+            "moduleVariant": "goety_spell_core/"
+        }
+    ]
+}

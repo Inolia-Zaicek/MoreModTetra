@@ -44,7 +44,7 @@ public class SpeedForce {
                     float number = (float) effectLevel / 100;
                     //取最小值
                     float finish=Math.min(speed,number);
-                    event.addNormalMulti((1 + finish));
+                    event.addNormalMulti((finish));
                 }
             }
         }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
@@ -57,7 +57,7 @@ public class SpeedForce {
                     float number = (float) effectLevel / 100;
                     //取最小值
                     float finish=Math.min(speed,number);
-                    event.addNormalMulti((1 + finish));
+                    event.addNormalMulti((finish));
                 }
             }
         }

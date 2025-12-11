@@ -35,8 +35,9 @@ public class DiamondGuard {
             //挨打的是玩家
         if (event.getEntity()!=null) {
             LivingEntity player = event.getEntity();
-                float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, cursium_legs_Effect);
+                float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, diamond_guard_Effect);
                 if (effectLevel > 0) {
+                    if(effectLevel>95){effectLevel=95;}
                     float mhp =player.getMaxHealth();
                     float damage =event.getAmount();
                     //最大扣血：最大生命值*（100%-比例)

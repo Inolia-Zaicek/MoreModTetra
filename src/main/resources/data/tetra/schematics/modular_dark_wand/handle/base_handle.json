@@ -1,0 +1,33 @@
+{
+    
+    "slots": [ "modular_dark_wand/handle" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "primaryAttributes": {
+            "goety:cooldown_discount": 3
+        },
+        "secondaryAttributes": {
+            "goety:cooldown_discount": 2,
+            "generic.attack_speed": -1
+        },
+        "tertiaryAttributes": {
+            "goety:cooldown_discount": 1
+        },
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/",  "tetra:rod/" ],
+            "countFactor": 1,
+            "moduleKey": "modular_dark_wand/handle/base_handle",
+            "moduleVariant": "base_handle/"
+        }
+    ]
+}

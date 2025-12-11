@@ -1,0 +1,37 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_ring/base_ring" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "key": "focus_cooldown_ring/",
+            "integrity": 0,
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "goety:cooldown_discount": 0.01
+                },
+                "secondaryAttributes": {
+                    "goety:cooldown_discount": 0.0075
+                },
+                "tertiaryAttributes": {
+                    "goety:cooldown_discount": 0.005
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [ "" ],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/mmt_ring/base_ring/focus_cooldown_ring"
+                    }
+                ]
+            }
+        }
+    ]
+}

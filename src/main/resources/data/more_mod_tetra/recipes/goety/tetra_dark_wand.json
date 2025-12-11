@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
+  "pattern":
+  [
+    " et",
+    " me",
+    "c  "
+  ],
+  "key":
+  {
+    "t":
+    {
+      "item": "goety:empty_focus"
+    },
+    "e":
+    {
+      "tag": "forge:gems/lapis"
+    },
+    "m":
+    {
+      "item": "goety:magic_fabric"
+    },
+    "c":
+    {
+      "item": "goety:haunted_planks"
+    }
+  },
+  "result":
+  {
+    "item": "more_mod_tetra:tetra_dark_wand",
+    "count": 1
+  }
+}

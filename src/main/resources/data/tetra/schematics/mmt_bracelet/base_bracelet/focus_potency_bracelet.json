@@ -1,0 +1,38 @@
+{
+
+    "slots": [ "mmt_bracelet/base_bracelet" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "goety"
+        }
+    ],
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "primaryEffects": {
+            "more_mod_tetra:curios_goety_soul_focus_potency": 3
+        },
+        "secondaryEffects": {
+            "more_mod_tetra:curios_goety_soul_focus_potency": 2
+        },
+        "tertiaryEffects": {
+            "more_mod_tetra:curios_goety_soul_focus_potency": 1
+        },
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "countFactor": 2,
+            "moduleKey": "mmt_bracelet/base_bracelet/focus_potency_bracelet",
+            "moduleVariant": "focus_potency_bracelet/"
+        }
+    ]
+}

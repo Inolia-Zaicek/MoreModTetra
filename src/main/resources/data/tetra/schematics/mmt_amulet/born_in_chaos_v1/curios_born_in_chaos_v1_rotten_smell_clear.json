@@ -1,0 +1,44 @@
+{
+    
+    "slots": [ "mmt_amulet/fill" ],
+    "materialSlotCount": 1,
+    "rarity": "temporary",
+    "displayType": "improvement",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "born_in_chaos_v1"
+        }
+    ],
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:module",
+                "module": "mmt_amulet/fill/fill_item"
+            },
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "curios_born_in_chaos_v1_rotten_smell_clear"
+                }
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "born_in_chaos_v1:monster_flesh" ],
+                "count": 8
+            },
+            "improvements": {
+                "curios_born_in_chaos_v1_rotten_smell_clear": 0
+            }
+        }
+    ]
+}

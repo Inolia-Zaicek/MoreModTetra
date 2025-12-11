@@ -1,0 +1,33 @@
+{
+  "key": "curios_alexsmobs_knockback_resistance",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "alexsmobs"
+    }
+  ],
+  "category": "rainbow",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "956043"
+  },
+  "textures": [
+    ""
+  ],
+  "material": {
+    "items": [
+      "alexsmobs:bear_fur"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:curios_alexsmobs_knockback_resistance": 1
+  }
+}

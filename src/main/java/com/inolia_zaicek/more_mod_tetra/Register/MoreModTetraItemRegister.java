@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Register;
 
+import com.inolia_zaicek.more_mod_tetra.Modular.Goety.ModularGoetyWandItem;
 import com.inolia_zaicek.more_mod_tetra.Modular.Iron.ModularIronStaff;
 import com.inolia_zaicek.more_mod_tetra.Modular.*;
 import net.minecraft.core.registries.Registries;
@@ -29,6 +30,7 @@ public class MoreModTetraItemRegister {
     public static final DeferredRegister<Item> AlexsCavesITEM=DeferredRegister.create(Registries.ITEM,MODID);
     public static final DeferredRegister<Item> L2ITEM=DeferredRegister.create(Registries.ITEM,MODID);
     public static final DeferredRegister<Item> ArkNightsITEM=DeferredRegister.create(Registries.ITEM,MODID);
+    public static final DeferredRegister<Item> GoetyITEM=DeferredRegister.create(Registries.ITEM,MODID);
     public static List<RegistryObject<Item>> CommonItem=new ArrayList<>(List.of());
 
     public static RegistryObject<Item> registerCommonMaterials(DeferredRegister<Item> register,String name, Supplier<? extends Item> sup){
@@ -185,6 +187,8 @@ public class MoreModTetraItemRegister {
     public static final RegistryObject<Item> ProofOfVictoryPatriot = registerCommonMaterials(ArkNightsITEM,"proof_of_victory_patriot", () -> new TooltipItem(new TooltipItem.Properties().stacksTo(64)));
     public static final RegistryObject<Item> ProofOfVictoryPursuer = registerCommonMaterials(ArkNightsITEM,"proof_of_victory_pursuer", () -> new TooltipItem(new TooltipItem.Properties().stacksTo(64)));
 
+    public static RegistryObject<Item> MODULAR_GoetyWandItem;
+    public static RegistryObject<Item> TetraGoetyWandItem;
     public MoreModTetraItemRegister(){
     }
 
@@ -192,6 +196,11 @@ public class MoreModTetraItemRegister {
         ZeroingITEM.register(bus);
         if(ModList.get().isLoaded("torchesbecomesunlight")){
             ArkNightsITEM.register(bus);
+        }
+        if(ModList.get().isLoaded("goety")){
+            GoetyITEM.register(bus);
+            MODULAR_GoetyWandItem = GoetyITEM.register(ModularGoetyWandItem.identifier, ModularGoetyWandItem::new);
+            TetraGoetyWandItem = registerCommonMaterials(GoetyITEM,"tetra_dark_wand", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
         }
         if(ModList.get().isLoaded("irons_spellbooks")){
             IronSpellITEM.register(bus);

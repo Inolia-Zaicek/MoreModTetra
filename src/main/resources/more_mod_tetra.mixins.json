@@ -6,7 +6,8 @@
   "refmap": "more_mod_tetra.refmap.json",
   "mixins": [
     "MMTEntityMixin",
-    "MMTProjectileMixin"
+    "MMTProjectileMixin",
+    "Goety.MMTWandUtilMixin"
   ],
   "client": [
   ],

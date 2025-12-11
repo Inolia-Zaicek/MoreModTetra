@@ -1,0 +1,44 @@
+{
+    
+    "slots": [ "mmt_amulet/fill" ],
+    "materialSlotCount": 1,
+    "rarity": "temporary",
+    "displayType": "improvement",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "aether"
+        }
+    ],
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:module",
+                "module": "mmt_amulet/fill/fill_item"
+            },
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "curios_aether_inebriation_clear"
+                }
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "aether:skyroot_poison_bucket" ],
+                "count": 1
+            },
+            "improvements": {
+                "curios_aether_inebriation_clear": 0
+            }
+        }
+    ]
+}

@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -7,7 +8,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -43,7 +43,7 @@ public class Glowing {
                         map.put(MobEffects.GLOWING,
                                 new MobEffectInstance(MobEffects.GLOWING, 200, 0));
                     if (mob.hasEffect(MobEffects.GLOWING)) {
-                        event.addNormalMulti((effectLevel/100));
+                        event.addNormalMulti(((float) effectLevel /100));
                     }
                 }
         }
@@ -56,7 +56,7 @@ public class Glowing {
                 map.put(MobEffects.GLOWING,
                         new MobEffectInstance(MobEffects.GLOWING, 200, 0));
                 if (mob.hasEffect(MobEffects.GLOWING)) {
-                    event.addNormalMulti((effectLevel/100));
+                    event.addNormalMulti(((float) effectLevel /100));
                 }
             }
         }

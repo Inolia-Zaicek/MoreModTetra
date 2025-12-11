@@ -7,7 +7,7 @@
     "durability": 2031,
     "integrityCost": 2,
     "integrityGain": 10,
-    "magicCapacity": 90,
+    "magicCapacity": 555,
     "toolLevel": "minecraft:netherite",
     "toolEfficiency": 9,
     "tints": {
@@ -30,7 +30,9 @@
         "**generic.armor_toughness": 0.07,
         "**tetra:draw_speed": -0.07,
         "**tetra:draw_strength": 0.07,
-        "**generic.max_health": 0.07
+        "**generic.max_health": 0.07,
+        "**irons_spellbooks:spell_power": 0.07,
+        "irons_spellbooks:max_mana": 70
     },
     "material": {
         "items": [ "l2hostility:miracle_ingot" ]

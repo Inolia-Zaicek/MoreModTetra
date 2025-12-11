@@ -13,13 +13,13 @@
             },
             "extract": {
                 "primaryAttributes": {
-                    "generic.luck": 0.5
+                    "generic.luck": 0.4
                 },
                 "secondaryAttributes": {
-                    "generic.luck": 0.5
+                    "generic.luck": 0.3
                 },
                 "tertiaryAttributes": {
-                    "generic.luck": 0.4
+                    "generic.luck": 0.3
                 },
                 "glyph": {
                     "textureX": 176,

@@ -1,0 +1,33 @@
+{
+  "key": "curios_alexsmobs_bug_pheromones",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "alexsmobs"
+    }
+  ],
+  "category": "rainbow",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "573b2f"
+  },
+  "textures": [
+    ""
+  ],
+  "material": {
+    "items": [
+      "alexsmobs:cockroach_wing"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:curios_alexsmobs_bug_pheromones": 1
+  }
+}

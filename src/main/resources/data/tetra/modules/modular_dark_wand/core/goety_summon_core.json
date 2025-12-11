@@ -1,0 +1,52 @@
+{
+    "type": "tetra:basic_major_module",
+    "slots": [ "modular_dark_wand/core" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "key": "goety_summon_core/",
+            "attributes": {
+                "generic.attack_damage": -0.5
+            },
+            "aspects": {
+                "breakable": 2
+            },
+            "durability": 100,
+            "integrity": 0,
+            "effects": {
+                "more_mod_tetra:orders": 1
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "generic.attack_damage": 0.9
+                },
+                "secondaryAttributes": {
+                    "generic.attack_speed": -0.1
+                },
+                "primaryEffects": {
+                    "more_mod_tetra:orders": 2
+                },
+                "durability": 0.6,
+                "integrity": -1,
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "availableTextures": [""],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/modular_dark_wand/base_core"
+                    }
+                ]
+            },
+            "availableTextures": [""],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/module/modular_dark_wand/base",
+                    "renderLayer": "lower"
+                }
+            ]
+        }
+    ]
+}

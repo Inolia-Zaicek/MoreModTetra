@@ -314,6 +314,7 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(Dominion.class);
         }
         MinecraftForge.EVENT_BUS.register(EtheriumGuard.class);
+        MinecraftForge.EVENT_BUS.register(Orders.class);
         if(ModList.get().isLoaded("enigmaticlegacy")) {
             MinecraftForge.EVENT_BUS.register(EvilIngotMaterial.class);
             MinecraftForge.EVENT_BUS.register(EtheriumIngotMaterial.class);
@@ -322,10 +323,10 @@ public class MoreModTetra {
         }
         if(ModList.get().isLoaded("extrabotany")) {
             MinecraftForge.EVENT_BUS.register(ManaForce.class);
-            MinecraftForge.EVENT_BUS.register(ShadowiumPower.class);
-            MinecraftForge.EVENT_BUS.register(ShiningPower.class);
-            MinecraftForge.EVENT_BUS.register(SpeedForce.class);
         }
+        MinecraftForge.EVENT_BUS.register(ShadowiumPower.class);
+        MinecraftForge.EVENT_BUS.register(ShiningPower.class);
+        MinecraftForge.EVENT_BUS.register(SpeedForce.class);
         if(ModList.get().isLoaded("botania")) {
             MinecraftForge.EVENT_BUS.register(PixieSummon.class);
             MinecraftForge.EVENT_BUS.register(ManaAbsorption.class);
@@ -351,8 +352,8 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(HidingInShulkerShell.class);
         MinecraftForge.EVENT_BUS.register(HostilityControl.class);
         MinecraftForge.EVENT_BUS.register(ObsessionOfWarden.class);
+        MinecraftForge.EVENT_BUS.register(Recovery.class);
         if(ModList.get().isLoaded("l2complements")) {
-            MinecraftForge.EVENT_BUS.register(Recovery.class);
             //词条
             MinecraftForge.EVENT_BUS.register(UndyingEffectTrait.class);
             MinecraftForge.EVENT_BUS.register(FieryEffectTraitHurt.class);
@@ -765,13 +766,13 @@ public class MoreModTetra {
             EterniumDurability.init();
             HostilityControl.init();
             HidingInShulkerShell.init();
+            Recovery.init();
+            ObsessionOfWarden.init();
             if(ModList.get().isLoaded("l2complements")) {
                 RepellingEffectTraitHurt.init();
                 WeaknessEffectTrait.init();
                 GrenadeEffectTraitHurt.init();
                 FreezingEffectTrait.init();
-                Recovery.init();
-                ObsessionOfWarden.init();
                 MiracleAndMagic.init();
                 //词条
                 SoulBurnerEffectTrait.init();
@@ -937,10 +938,10 @@ public class MoreModTetra {
             }
             if(ModList.get().isLoaded("extrabotany")) {
                 ManaForce.init();
-                ShadowiumPower.init();
-                ShiningPower.init();
-                SpeedForce.init();
             }
+            ShadowiumPower.init();
+            ShiningPower.init();
+            SpeedForce.init();
             WaterPower.init();
             WeaknessRealm.init();
             WitherRealm.init();

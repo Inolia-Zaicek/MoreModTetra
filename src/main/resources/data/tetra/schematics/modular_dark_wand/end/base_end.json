@@ -1,0 +1,32 @@
+{
+    
+    "slots": [ "modular_dark_wand/end" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "translation": {
+        "primaryEffects": {
+            "more_mod_tetra:goety_soul_focus_potency": 2
+        },
+        "secondaryEffects": {
+            "more_mod_tetra:goety_soul_focus_potency": 2
+        },
+        "tertiaryEffects": {
+            "more_mod_tetra:goety_soul_focus_potency": 1
+        },
+        "durability": 1,
+        "integrity": 1,
+        "magicCapacity": 1
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/" ],
+            "countFactor": 2,
+            "moduleKey": "modular_dark_wand/end/base_end",
+            "moduleVariant": "base_end/"
+        }
+    ]
+}

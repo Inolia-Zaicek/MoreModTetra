@@ -1,0 +1,49 @@
+{
+    "type": "tetra:basic_major_module",
+    "slots": [ "modular_dark_wand/handle" ],
+    "improvements": [
+        "tetra:modular_dark_wand/handle/",
+        "tetra:modular_dark_wand/shared/",
+        "tetra:shared/"
+    ],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/",  "tetra:rod/" ],
+            "key": "base_handle/",
+            "durability": 10,
+            "integrity": 1,
+            "attributes": {
+                "generic.attack_speed": -0.35,
+                "goety:cooldown_discount": -0.1
+            },
+            "aspects": {
+                "breakable": 2
+            },
+            "extract": {
+                "primaryAttributes": {
+                    "goety:cooldown_discount": 0.025
+                },
+                "secondaryAttributes": {
+                    "goety:cooldown_discount": 0.015,
+                    "generic.attack_speed": -0.1
+                },
+                "tertiaryAttributes": {
+                    "goety:cooldown_discount": 0.01
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "durability": 0.5,
+                "integrity": 1,
+                "magicCapacity": 2,
+                "availableTextures": [ ""],
+                "models": [
+                    {
+                        "location": "more_mod_tetra:item/module/modular_dark_wand/base_handle"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+[
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "goety"
+            }
+        ],
+            "predicate": {
+            "items": [ "more_mod_tetra:tetra_dark_wand" ]
+        },
+        "item": "more_mod_tetra:modular_dark_wand",
+        "modules": {
+            "staff/casing": [ "modular_dark_wand/core/goety_spell_core", "goety_spell_core/iron"],
+            "staff/head": [ "modular_dark_wand/end/base_end", "base_end/iron" ],
+            "staff/handle": [ "modular_dark_wand/handle/base_handle", "base_handle/iron" ],
+            "staff/guard": [ "modular_dark_wand/guard/base_guard", "base_guard/iron" ]
+        },
+        "improvements": {}
+    }
+]

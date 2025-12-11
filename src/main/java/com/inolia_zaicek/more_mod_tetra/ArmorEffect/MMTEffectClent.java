@@ -13,6 +13,50 @@ import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 public class MMTEffectClent {
     @OnlyIn(Dist.CLIENT)
     public static void init() {
+        var statGetter023 = new StatGetterEffectLevel(goety_soul_cost_discount_Effect, 1);
+        var statGetter024 = new StatGetterEffectEfficiency(goety_soul_cost_discount_Effect, 1);
+        IStatGetter[] statGetters033 = {statGetter023, statGetter024};
+        IStatFormat[] statFormats033 = {StatFormat.noDecimal, StatFormat.noDecimal};
+        GuiStatBar statBar033 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                goety_soul_cost_discount_Name, 0, 5, false, false, false,
+                statGetter023, LabelGetterBasic.integerLabel,
+                new TooltipGetterMultiValue(goety_soul_cost_discount_Tooltip, statGetters033, statFormats033)
+        );
+        WorkbenchStatsGui.addBar(statBar033);
+        HoloStatsGui.addBar(statBar033);
+        var statGetter025 = new StatGetterEffectLevel(goety_soul_focus_potency_Effect, 1);
+        var statGetter026 = new StatGetterEffectEfficiency(goety_soul_focus_potency_Effect, 1);
+        IStatGetter[] statGetters034 = {statGetter025, statGetter026};
+        IStatFormat[] statFormats034 = {StatFormat.noDecimal, StatFormat.noDecimal};
+        GuiStatBar statBar034 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                goety_soul_focus_potency_Name, 0, 5, false, false, false,
+                statGetter025, LabelGetterBasic.integerLabel,
+                new TooltipGetterMultiValue(goety_soul_focus_potency_Tooltip, statGetters034, statFormats034)
+        );
+        WorkbenchStatsGui.addBar(statBar034);
+        HoloStatsGui.addBar(statBar034);
+        var statGetter0023 = new StatGetterEffectLevel(curios_goety_soul_cost_discount_Effect, 1);
+        var statGetter0024 = new StatGetterEffectEfficiency(curios_goety_soul_cost_discount_Effect, 1);
+        IStatGetter[] statGetters0033 = {statGetter0023, statGetter0024};
+        IStatFormat[] statFormats0033 = {StatFormat.noDecimal, StatFormat.noDecimal};
+        GuiStatBar statBar0033 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_goety_soul_cost_discount_Name, 0, 10, false, false, false,
+                statGetter0023, LabelGetterBasic.integerLabel,
+                new TooltipGetterMultiValue(curios_goety_soul_cost_discount_Tooltip, statGetters0033, statFormats0033)
+        );
+        WorkbenchStatsGui.addBar(statBar0033);
+        HoloStatsGui.addBar(statBar0033);
+        var statGetter0025 = new StatGetterEffectLevel(curios_goety_soul_focus_potency_Effect, 1);
+        var statGetter0026 = new StatGetterEffectEfficiency(curios_goety_soul_focus_potency_Effect, 1);
+        IStatGetter[] statGetters0034 = {statGetter0025, statGetter0026};
+        IStatFormat[] statFormats0034 = {StatFormat.noDecimal, StatFormat.noDecimal};
+        GuiStatBar statBar0034 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_goety_soul_focus_potency_Name, 0, 10, false, false, false,
+                statGetter0025, LabelGetterBasic.integerLabel,
+                new TooltipGetterMultiValue(curios_goety_soul_focus_potency_Tooltip, statGetters0034, statFormats0034)
+        );
+        WorkbenchStatsGui.addBar(statBar0034);
+        HoloStatsGui.addBar(statBar0034);
         /*
         var statGetter1 = new StatGetterEffectLevel(ignitium_suit_Effect, 1);
         GuiStatBar statBar1 = new GuiStatBar(0, 0, StatsHelper.barLength,
@@ -997,6 +1041,302 @@ public class MMTEffectClent {
         );
         WorkbenchStatsGui.addBar(statBar118);
         HoloStatsGui.addBar(statBar118);
+        var statGetter119 = new StatGetterEffectLevel(alexscaves_magnetizing_clear_Effect, 1);
+        GuiStatBar statBar119 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                alexscaves_magnetizing_clear_Name, 0, 1, false, false, false,
+                statGetter119, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(alexscaves_magnetizing_clear_Tooltip, statGetter119)
+        );
+        WorkbenchStatsGui.addBar(statBar119);
+        HoloStatsGui.addBar(statBar119);
+        var statGetter120 = new StatGetterEffectLevel(curios_alexscaves_magnetizing_clear_Effect, 1);
+        GuiStatBar statBar120 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_alexscaves_magnetizing_clear_Name, 0, 1, false, false, false,
+                statGetter120, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_alexscaves_magnetizing_clear_Tooltip, statGetter120)
+        );
+        WorkbenchStatsGui.addBar(statBar120);
+        HoloStatsGui.addBar(statBar120);
+        var statGetter121 = new StatGetterEffectLevel(alexscaves_irradiated_clear_Effect, 1);
+        GuiStatBar statBar121 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                alexscaves_irradiated_clear_Name, 0, 1, false, false, false,
+                statGetter121, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(alexscaves_irradiated_clear_Tooltip, statGetter121)
+        );
+        WorkbenchStatsGui.addBar(statBar121);
+        HoloStatsGui.addBar(statBar121);
+        var statGetter122 = new StatGetterEffectLevel(curios_alexscaves_irradiated_clear_Effect, 1);
+        GuiStatBar statBar122 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_alexscaves_irradiated_clear_Name, 0, 1, false, false, false,
+                statGetter122, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_alexscaves_irradiated_clear_Tooltip, statGetter122)
+        );
+        WorkbenchStatsGui.addBar(statBar122);
+        HoloStatsGui.addBar(statBar122);
+        var statGetter123 = new StatGetterEffectLevel(aether_inebriation_clear_Effect, 1);
+        GuiStatBar statBar123 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                aether_inebriation_clear_Name, 0, 1, false, false, false,
+                statGetter123, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(aether_inebriation_clear_Tooltip, statGetter123)
+        );
+        WorkbenchStatsGui.addBar(statBar123);
+        HoloStatsGui.addBar(statBar123);
+        var statGetter124 = new StatGetterEffectLevel(curios_aether_inebriation_clear_Effect, 1);
+        GuiStatBar statBar124 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_aether_inebriation_clear_Name, 0, 1, false, false, false,
+                statGetter124, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_aether_inebriation_clear_Tooltip, statGetter124)
+        );
+        WorkbenchStatsGui.addBar(statBar124);
+        HoloStatsGui.addBar(statBar124);
+        var statGetter125 = new StatGetterEffectLevel(cataclysm_blazing_brand_clear_Effect, 1);
+        GuiStatBar statBar125 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                cataclysm_blazing_brand_clear_Name, 0, 1, false, false, false,
+                statGetter125, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(cataclysm_blazing_brand_clear_Tooltip, statGetter125)
+        );
+        WorkbenchStatsGui.addBar(statBar125);
+        HoloStatsGui.addBar(statBar125);
+        var statGetter126 = new StatGetterEffectLevel(curios_cataclysm_blazing_brand_clear_Effect, 1);
+        GuiStatBar statBar126 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_cataclysm_blazing_brand_clear_Name, 0, 1, false, false, false,
+                statGetter126, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_cataclysm_blazing_brand_clear_Tooltip, statGetter126)
+        );
+        WorkbenchStatsGui.addBar(statBar126);
+        HoloStatsGui.addBar(statBar126);
+        var statGetter127 = new StatGetterEffectLevel(cataclysm_curse_of_desert_clear_Effect, 1);
+        GuiStatBar statBar127 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                cataclysm_curse_of_desert_clear_Name, 0, 1, false, false, false,
+                statGetter127, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(cataclysm_curse_of_desert_clear_Tooltip, statGetter127)
+        );
+        WorkbenchStatsGui.addBar(statBar127);
+        HoloStatsGui.addBar(statBar127);
+        var statGetter128 = new StatGetterEffectLevel(curios_cataclysm_curse_of_desert_clear_Effect, 1);
+        GuiStatBar statBar128 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_cataclysm_curse_of_desert_clear_Name, 0, 1, false, false, false,
+                statGetter128, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_cataclysm_curse_of_desert_clear_Tooltip, statGetter128)
+        );
+        WorkbenchStatsGui.addBar(statBar128);
+        HoloStatsGui.addBar(statBar128);
+        var statGetter129 = new StatGetterEffectLevel(born_in_chaos_v1_bone_fracture_clear_Effect, 1);
+        GuiStatBar statBar129 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                born_in_chaos_v1_bone_fracture_clear_Name, 0, 1, false, false, false,
+                statGetter129, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(born_in_chaos_v1_bone_fracture_clear_Tooltip, statGetter129)
+        );
+        WorkbenchStatsGui.addBar(statBar129);
+        HoloStatsGui.addBar(statBar129);
+        var statGetter130 = new StatGetterEffectLevel(curios_born_in_chaos_v1_bone_fracture_clear_Effect, 1);
+        GuiStatBar statBar130 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_born_in_chaos_v1_bone_fracture_clear_Name, 0, 1, false, false, false,
+                statGetter130, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_born_in_chaos_v1_bone_fracture_clear_Tooltip, statGetter130)
+        );
+        WorkbenchStatsGui.addBar(statBar130);
+        HoloStatsGui.addBar(statBar130);
+        var statGetter131 = new StatGetterEffectLevel(born_in_chaos_v1_intoxicating_decoction_clear_Effect, 1);
+        GuiStatBar statBar131 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                born_in_chaos_v1_intoxicating_decoction_clear_Name, 0, 1, false, false, false,
+                statGetter131, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(born_in_chaos_v1_intoxicating_decoction_clear_Tooltip, statGetter131)
+        );
+        WorkbenchStatsGui.addBar(statBar131);
+        HoloStatsGui.addBar(statBar131);
+        var statGetter132 = new StatGetterEffectLevel(curios_born_in_chaos_v1_intoxicating_decoction_clear_Effect, 1);
+        GuiStatBar statBar132 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_born_in_chaos_v1_intoxicating_decoction_clear_Name, 0, 1, false, false, false,
+                statGetter132, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_born_in_chaos_v1_intoxicating_decoction_clear_Tooltip, statGetter132)
+        );
+        WorkbenchStatsGui.addBar(statBar132);
+        HoloStatsGui.addBar(statBar132);
+        var statGetter133 = new StatGetterEffectLevel(born_in_chaos_v1_magic_depletion_clear_Effect, 1);
+        GuiStatBar statBar133 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                born_in_chaos_v1_magic_depletion_clear_Name, 0, 1, false, false, false,
+                statGetter133, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(born_in_chaos_v1_magic_depletion_clear_Tooltip, statGetter133)
+        );
+        WorkbenchStatsGui.addBar(statBar133);
+        HoloStatsGui.addBar(statBar133);
+        var statGetter134 = new StatGetterEffectLevel(curios_born_in_chaos_v1_magic_depletion_clear_Effect, 1);
+        GuiStatBar statBar134 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_born_in_chaos_v1_magic_depletion_clear_Name, 0, 1, false, false, false,
+                statGetter134, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_born_in_chaos_v1_magic_depletion_clear_Tooltip, statGetter134)
+        );
+        WorkbenchStatsGui.addBar(statBar134);
+        HoloStatsGui.addBar(statBar134);
+        var statGetter135 = new StatGetterEffectLevel(born_in_chaos_v1_myiasis_clear_Effect, 1);
+        GuiStatBar statBar135 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                born_in_chaos_v1_myiasis_clear_Name, 0, 1, false, false, false,
+                statGetter135, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(born_in_chaos_v1_myiasis_clear_Tooltip, statGetter135)
+        );
+        WorkbenchStatsGui.addBar(statBar135);
+        HoloStatsGui.addBar(statBar135);
+        var statGetter136 = new StatGetterEffectLevel(curios_born_in_chaos_v1_myiasis_clear_Effect, 1);
+        GuiStatBar statBar136 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_born_in_chaos_v1_myiasis_clear_Name, 0, 1, false, false, false,
+                statGetter136, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_born_in_chaos_v1_myiasis_clear_Tooltip, statGetter136)
+        );
+        WorkbenchStatsGui.addBar(statBar136);
+        HoloStatsGui.addBar(statBar136);
+        var statGetter137 = new StatGetterEffectLevel(born_in_chaos_v1_rotten_smell_clear_Effect, 1);
+        GuiStatBar statBar137 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                born_in_chaos_v1_rotten_smell_clear_Name, 0, 1, false, false, false,
+                statGetter137, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(born_in_chaos_v1_rotten_smell_clear_Tooltip, statGetter137)
+        );
+        WorkbenchStatsGui.addBar(statBar137);
+        HoloStatsGui.addBar(statBar137);
+        var statGetter138 = new StatGetterEffectLevel(curios_born_in_chaos_v1_rotten_smell_clear_Effect, 1);
+        GuiStatBar statBar138 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_born_in_chaos_v1_rotten_smell_clear_Name, 0, 1, false, false, false,
+                statGetter138, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_born_in_chaos_v1_rotten_smell_clear_Tooltip, statGetter138)
+        );
+        WorkbenchStatsGui.addBar(statBar138);
+        HoloStatsGui.addBar(statBar138);
+        var statGetter139 = new StatGetterEffectLevel(quark_resilience_Effect, 1);
+        GuiStatBar statBar139 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                quark_resilience_Name, 0, 1, false, false, false,
+                statGetter139, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(quark_resilience_Tooltip, statGetter139)
+        );
+        WorkbenchStatsGui.addBar(statBar139);
+        HoloStatsGui.addBar(statBar139);
+        var statGetter140 = new StatGetterEffectLevel(curios_quark_resilience_Effect, 1);
+        GuiStatBar statBar140 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_quark_resilience_Name, 0, 1, false, false, false,
+                statGetter140, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_quark_resilience_Tooltip, statGetter140)
+        );
+        WorkbenchStatsGui.addBar(statBar140);
+        HoloStatsGui.addBar(statBar140);
+        var statGetter141 = new StatGetterEffectLevel(alexsmobs_bug_pheromones_Effect, 1);
+        GuiStatBar statBar141 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                alexsmobs_bug_pheromones_Name, 0, 1, false, false, false,
+                statGetter141, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(alexsmobs_bug_pheromones_Tooltip, statGetter141)
+        );
+        WorkbenchStatsGui.addBar(statBar141);
+        HoloStatsGui.addBar(statBar141);
+        var statGetter142 = new StatGetterEffectLevel(curios_alexsmobs_bug_pheromones_Effect, 1);
+        GuiStatBar statBar142 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_alexsmobs_bug_pheromones_Name, 0, 1, false, false, false,
+                statGetter142, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_alexsmobs_bug_pheromones_Tooltip, statGetter142)
+        );
+        WorkbenchStatsGui.addBar(statBar142);
+        HoloStatsGui.addBar(statBar142);
+        var statGetter143 = new StatGetterEffectLevel(alexsmobs_clinging_Effect, 1);
+        GuiStatBar statBar143 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                alexsmobs_clinging_Name, 0, 1, false, false, false,
+                statGetter143, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(alexsmobs_clinging_Tooltip, statGetter143)
+        );
+        WorkbenchStatsGui.addBar(statBar143);
+        HoloStatsGui.addBar(statBar143);
+        var statGetter144 = new StatGetterEffectLevel(curios_alexsmobs_clinging_Effect, 1);
+        GuiStatBar statBar144 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_alexsmobs_clinging_Name, 0, 1, false, false, false,
+                statGetter144, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_alexsmobs_clinging_Tooltip, statGetter144)
+        );
+        WorkbenchStatsGui.addBar(statBar144);
+        HoloStatsGui.addBar(statBar144);
+        var statGetter145 = new StatGetterEffectLevel(alexsmobs_knockback_resistance_Effect, 1);
+        GuiStatBar statBar145 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                alexsmobs_knockback_resistance_Name, 0, 1, false, false, false,
+                statGetter145, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(alexsmobs_knockback_resistance_Tooltip, statGetter145)
+        );
+        WorkbenchStatsGui.addBar(statBar145);
+        HoloStatsGui.addBar(statBar145);
+        var statGetter146 = new StatGetterEffectLevel(curios_alexsmobs_knockback_resistance_Effect, 1);
+        GuiStatBar statBar146 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_alexsmobs_knockback_resistance_Name, 0, 1, false, false, false,
+                statGetter146, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_alexsmobs_knockback_resistance_Tooltip, statGetter146)
+        );
+        WorkbenchStatsGui.addBar(statBar146);
+        HoloStatsGui.addBar(statBar146);
+        var statGetter147 = new StatGetterEffectLevel(alexsmobs_soulsteal_Effect, 1);
+        GuiStatBar statBar147 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                alexsmobs_soulsteal_Name, 0, 1, false, false, false,
+                statGetter147, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(alexsmobs_soulsteal_Tooltip, statGetter147)
+        );
+        WorkbenchStatsGui.addBar(statBar147);
+        HoloStatsGui.addBar(statBar147);
+        var statGetter148 = new StatGetterEffectLevel(curios_alexsmobs_soulsteal_Effect, 1);
+        GuiStatBar statBar148 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_alexsmobs_soulsteal_Name, 0, 1, false, false, false,
+                statGetter148, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_alexsmobs_soulsteal_Tooltip, statGetter148)
+        );
+        WorkbenchStatsGui.addBar(statBar148);
+        HoloStatsGui.addBar(statBar148);
+        var statGetter149 = new StatGetterEffectLevel(alexscaves_deepsight_Effect, 1);
+        GuiStatBar statBar149 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                alexscaves_deepsight_Name, 0, 1, false, false, false,
+                statGetter149, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(alexscaves_deepsight_Tooltip, statGetter149)
+        );
+        WorkbenchStatsGui.addBar(statBar149);
+        HoloStatsGui.addBar(statBar149);
+        var statGetter150 = new StatGetterEffectLevel(curios_alexscaves_deepsight_Effect, 1);
+        GuiStatBar statBar150 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_alexscaves_deepsight_Name, 0, 1, false, false, false,
+                statGetter150, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_alexscaves_deepsight_Tooltip, statGetter150)
+        );
+        WorkbenchStatsGui.addBar(statBar150);
+            HoloStatsGui.addBar(statBar150);
+            var statGetter151 = new StatGetterEffectLevel(cataclysm_blessing_of_amethyst_Effect, 1);
+            GuiStatBar statBar151 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                    cataclysm_blessing_of_amethyst_Name, 0, 1, false, false, false,
+                    statGetter151, LabelGetterBasic.integerLabel,
+                    new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(cataclysm_blessing_of_amethyst_Tooltip, statGetter151)
+            );
+            WorkbenchStatsGui.addBar(statBar151);
+            HoloStatsGui.addBar(statBar151);
+            var statGetter152 = new StatGetterEffectLevel(curios_cataclysm_blessing_of_amethyst_Effect, 1);
+            GuiStatBar statBar152 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                    curios_cataclysm_blessing_of_amethyst_Name, 0, 1, false, false, false,
+                    statGetter152, LabelGetterBasic.integerLabel,
+                    new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_cataclysm_blessing_of_amethyst_Tooltip, statGetter152)
+            );
+            WorkbenchStatsGui.addBar(statBar152);
+            HoloStatsGui.addBar(statBar152);
+        var statGetter153 = new StatGetterEffectLevel(goety_soul_spell_cooldown_Effect, 1);
+        GuiStatBar statBar153 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                goety_soul_spell_cooldown_Name, 0, 10, false, false, false,
+                statGetter153, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(goety_soul_spell_cooldown_Tooltip, statGetter153)
+        );
+        WorkbenchStatsGui.addBar(statBar153);
+        HoloStatsGui.addBar(statBar153);
+        var statGetter154 = new StatGetterEffectLevel(curios_goety_soul_spell_cooldown_Effect, 1);
+        GuiStatBar statBar154 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                curios_goety_soul_spell_cooldown_Name, 0, 10, false, false, false,
+                statGetter154, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(curios_goety_soul_spell_cooldown_Tooltip, statGetter154)
+        );
+        WorkbenchStatsGui.addBar(statBar154);
+        HoloStatsGui.addBar(statBar154);
+        var statGetter155 = new StatGetterEffectLevel(orders_Effect, 1);
+        GuiStatBar statBar155 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                orders_Name, 0, 100, false, false, false,
+                statGetter155, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(orders_Tooltip, statGetter155)
+        );
+        WorkbenchStatsGui.addBar(statBar155);
+        HoloStatsGui.addBar(statBar155);
 
     }
 }

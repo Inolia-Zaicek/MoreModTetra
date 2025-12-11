@@ -1808,6 +1808,172 @@ public class EffectGuiStats {
     public static final String curios_goety_freezing_clear_Name = MoreModTetra.MODID + ".effect.curios_goety_freezing_clear.name";
     public static final String curios_goety_freezing_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_goety_freezing_clear.tooltip";
 
+    public static final ItemEffect alexscaves_magnetizing_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":alexscaves_magnetizing_clear");
+    public static final String alexscaves_magnetizing_clear_Name = MoreModTetra.MODID + ".effect.alexscaves_magnetizing_clear.name";
+    public static final String alexscaves_magnetizing_clear_Tooltip = MoreModTetra.MODID + ".effect.alexscaves_magnetizing_clear.tooltip";
+
+    public static final ItemEffect curios_alexscaves_magnetizing_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_alexscaves_magnetizing_clear");
+    public static final String curios_alexscaves_magnetizing_clear_Name = MoreModTetra.MODID + ".effect.curios_alexscaves_magnetizing_clear.name";
+    public static final String curios_alexscaves_magnetizing_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_alexscaves_magnetizing_clear.tooltip";
+
+    public static final ItemEffect alexscaves_irradiated_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":alexscaves_irradiated_clear");
+    public static final String alexscaves_irradiated_clear_Name = MoreModTetra.MODID + ".effect.alexscaves_irradiated_clear.name";
+    public static final String alexscaves_irradiated_clear_Tooltip = MoreModTetra.MODID + ".effect.alexscaves_irradiated_clear.tooltip";
+
+    public static final ItemEffect curios_alexscaves_irradiated_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_alexscaves_irradiated_clear");
+    public static final String curios_alexscaves_irradiated_clear_Name = MoreModTetra.MODID + ".effect.curios_alexscaves_irradiated_clear.name";
+    public static final String curios_alexscaves_irradiated_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_alexscaves_irradiated_clear.tooltip";
+
+    public static final ItemEffect aether_inebriation_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":aether_inebriation_clear");
+    public static final String aether_inebriation_clear_Name = MoreModTetra.MODID + ".effect.aether_inebriation_clear.name";
+    public static final String aether_inebriation_clear_Tooltip = MoreModTetra.MODID + ".effect.aether_inebriation_clear.tooltip";
+
+    public static final ItemEffect curios_aether_inebriation_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_aether_inebriation_clear");
+    public static final String curios_aether_inebriation_clear_Name = MoreModTetra.MODID + ".effect.curios_aether_inebriation_clear.name";
+    public static final String curios_aether_inebriation_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_aether_inebriation_clear.tooltip";
+
+    public static final ItemEffect cataclysm_blazing_brand_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":cataclysm_blazing_brand_clear");
+    public static final String cataclysm_blazing_brand_clear_Name = MoreModTetra.MODID + ".effect.cataclysm_blazing_brand_clear.name";
+    public static final String cataclysm_blazing_brand_clear_Tooltip = MoreModTetra.MODID + ".effect.cataclysm_blazing_brand_clear.tooltip";
+
+    public static final ItemEffect curios_cataclysm_blazing_brand_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_cataclysm_blazing_brand_clear");
+    public static final String curios_cataclysm_blazing_brand_clear_Name = MoreModTetra.MODID + ".effect.curios_cataclysm_blazing_brand_clear.name";
+    public static final String curios_cataclysm_blazing_brand_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_cataclysm_blazing_brand_clear.tooltip";
+
+    public static final ItemEffect cataclysm_curse_of_desert_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":cataclysm_curse_of_desert_clear");
+    public static final String cataclysm_curse_of_desert_clear_Name = MoreModTetra.MODID + ".effect.cataclysm_curse_of_desert_clear.name";
+    public static final String cataclysm_curse_of_desert_clear_Tooltip = MoreModTetra.MODID + ".effect.cataclysm_curse_of_desert_clear.tooltip";
+
+    public static final ItemEffect curios_cataclysm_curse_of_desert_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_cataclysm_curse_of_desert_clear");
+    public static final String curios_cataclysm_curse_of_desert_clear_Name = MoreModTetra.MODID + ".effect.curios_cataclysm_curse_of_desert_clear.name";
+    public static final String curios_cataclysm_curse_of_desert_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_cataclysm_curse_of_desert_clear.tooltip";
+
+    public static final ItemEffect born_in_chaos_v1_bone_fracture_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":born_in_chaos_v1_bone_fracture_clear");
+    public static final String born_in_chaos_v1_bone_fracture_clear_Name = MoreModTetra.MODID + ".effect.born_in_chaos_v1_bone_fracture_clear.name";
+    public static final String born_in_chaos_v1_bone_fracture_clear_Tooltip = MoreModTetra.MODID + ".effect.born_in_chaos_v1_bone_fracture_clear.tooltip";
+
+    public static final ItemEffect curios_born_in_chaos_v1_bone_fracture_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_born_in_chaos_v1_bone_fracture_clear");
+    public static final String curios_born_in_chaos_v1_bone_fracture_clear_Name = MoreModTetra.MODID + ".effect.curios_born_in_chaos_v1_bone_fracture_clear.name";
+    public static final String curios_born_in_chaos_v1_bone_fracture_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_born_in_chaos_v1_bone_fracture_clear.tooltip";
+
+    public static final ItemEffect born_in_chaos_v1_intoxicating_decoction_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":born_in_chaos_v1_intoxicating_decoction_clear");
+    public static final String born_in_chaos_v1_intoxicating_decoction_clear_Name = MoreModTetra.MODID + ".effect.born_in_chaos_v1_intoxicating_decoction_clear.name";
+    public static final String born_in_chaos_v1_intoxicating_decoction_clear_Tooltip = MoreModTetra.MODID + ".effect.born_in_chaos_v1_intoxicating_decoction_clear.tooltip";
+
+    public static final ItemEffect curios_born_in_chaos_v1_intoxicating_decoction_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_born_in_chaos_v1_intoxicating_decoction_clear");
+    public static final String curios_born_in_chaos_v1_intoxicating_decoction_clear_Name = MoreModTetra.MODID + ".effect.curios_born_in_chaos_v1_intoxicating_decoction_clear.name";
+    public static final String curios_born_in_chaos_v1_intoxicating_decoction_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_born_in_chaos_v1_intoxicating_decoction_clear.tooltip";
+
+    public static final ItemEffect born_in_chaos_v1_magic_depletion_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":born_in_chaos_v1_magic_depletion_clear");
+    public static final String born_in_chaos_v1_magic_depletion_clear_Name = MoreModTetra.MODID + ".effect.born_in_chaos_v1_magic_depletion_clear.name";
+    public static final String born_in_chaos_v1_magic_depletion_clear_Tooltip = MoreModTetra.MODID + ".effect.born_in_chaos_v1_magic_depletion_clear.tooltip";
+
+    public static final ItemEffect curios_born_in_chaos_v1_magic_depletion_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_born_in_chaos_v1_magic_depletion_clear");
+    public static final String curios_born_in_chaos_v1_magic_depletion_clear_Name = MoreModTetra.MODID + ".effect.curios_born_in_chaos_v1_magic_depletion_clear.name";
+    public static final String curios_born_in_chaos_v1_magic_depletion_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_born_in_chaos_v1_magic_depletion_clear.tooltip";
+
+    public static final ItemEffect born_in_chaos_v1_myiasis_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":born_in_chaos_v1_myiasis_clear");
+    public static final String born_in_chaos_v1_myiasis_clear_Name = MoreModTetra.MODID + ".effect.born_in_chaos_v1_myiasis_clear.name";
+    public static final String born_in_chaos_v1_myiasis_clear_Tooltip = MoreModTetra.MODID + ".effect.born_in_chaos_v1_myiasis_clear.tooltip";
+
+    public static final ItemEffect curios_born_in_chaos_v1_myiasis_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_born_in_chaos_v1_myiasis_clear");
+    public static final String curios_born_in_chaos_v1_myiasis_clear_Name = MoreModTetra.MODID + ".effect.curios_born_in_chaos_v1_myiasis_clear.name";
+    public static final String curios_born_in_chaos_v1_myiasis_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_born_in_chaos_v1_myiasis_clear.tooltip";
+
+    public static final ItemEffect born_in_chaos_v1_rotten_smell_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":born_in_chaos_v1_rotten_smell_clear");
+    public static final String born_in_chaos_v1_rotten_smell_clear_Name = MoreModTetra.MODID + ".effect.born_in_chaos_v1_rotten_smell_clear.name";
+    public static final String born_in_chaos_v1_rotten_smell_clear_Tooltip = MoreModTetra.MODID + ".effect.born_in_chaos_v1_rotten_smell_clear.tooltip";
+
+    public static final ItemEffect curios_born_in_chaos_v1_rotten_smell_clear_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_born_in_chaos_v1_rotten_smell_clear");
+    public static final String curios_born_in_chaos_v1_rotten_smell_clear_Name = MoreModTetra.MODID + ".effect.curios_born_in_chaos_v1_rotten_smell_clear.name";
+    public static final String curios_born_in_chaos_v1_rotten_smell_clear_Tooltip = MoreModTetra.MODID + ".effect.curios_born_in_chaos_v1_rotten_smell_clear.tooltip";
+
+    public static final ItemEffect quark_resilience_Effect = ItemEffect.get(MoreModTetra.MODID + ":quark_resilience");
+    public static final String quark_resilience_Name = MoreModTetra.MODID + ".effect.quark_resilience.name";
+    public static final String quark_resilience_Tooltip = MoreModTetra.MODID + ".effect.quark_resilience.tooltip";
+
+    public static final ItemEffect curios_quark_resilience_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_quark_resilience");
+    public static final String curios_quark_resilience_Name = MoreModTetra.MODID + ".effect.curios_quark_resilience.name";
+    public static final String curios_quark_resilience_Tooltip = MoreModTetra.MODID + ".effect.curios_quark_resilience.tooltip";
+
+    public static final ItemEffect alexsmobs_bug_pheromones_Effect = ItemEffect.get(MoreModTetra.MODID + ":alexsmobs_bug_pheromones");
+    public static final String alexsmobs_bug_pheromones_Name = MoreModTetra.MODID + ".effect.alexsmobs_bug_pheromones.name";
+    public static final String alexsmobs_bug_pheromones_Tooltip = MoreModTetra.MODID + ".effect.alexsmobs_bug_pheromones.tooltip";
+
+    public static final ItemEffect curios_alexsmobs_bug_pheromones_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_alexsmobs_bug_pheromones");
+    public static final String curios_alexsmobs_bug_pheromones_Name = MoreModTetra.MODID + ".effect.curios_alexsmobs_bug_pheromones.name";
+    public static final String curios_alexsmobs_bug_pheromones_Tooltip = MoreModTetra.MODID + ".effect.curios_alexsmobs_bug_pheromones.tooltip";
+
+    public static final ItemEffect alexsmobs_clinging_Effect = ItemEffect.get(MoreModTetra.MODID + ":alexsmobs_clinging");
+    public static final String alexsmobs_clinging_Name = MoreModTetra.MODID + ".effect.alexsmobs_clinging.name";
+    public static final String alexsmobs_clinging_Tooltip = MoreModTetra.MODID + ".effect.alexsmobs_clinging.tooltip";
+
+    public static final ItemEffect curios_alexsmobs_clinging_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_alexsmobs_clinging");
+    public static final String curios_alexsmobs_clinging_Name = MoreModTetra.MODID + ".effect.curios_alexsmobs_clinging.name";
+    public static final String curios_alexsmobs_clinging_Tooltip = MoreModTetra.MODID + ".effect.curios_alexsmobs_clinging.tooltip";
+
+    public static final ItemEffect alexsmobs_knockback_resistance_Effect = ItemEffect.get(MoreModTetra.MODID + ":alexsmobs_knockback_resistance");
+    public static final String alexsmobs_knockback_resistance_Name = MoreModTetra.MODID + ".effect.alexsmobs_knockback_resistance.name";
+    public static final String alexsmobs_knockback_resistance_Tooltip = MoreModTetra.MODID + ".effect.alexsmobs_knockback_resistance.tooltip";
+
+    public static final ItemEffect curios_alexsmobs_knockback_resistance_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_alexsmobs_knockback_resistance");
+    public static final String curios_alexsmobs_knockback_resistance_Name = MoreModTetra.MODID + ".effect.curios_alexsmobs_knockback_resistance.name";
+    public static final String curios_alexsmobs_knockback_resistance_Tooltip = MoreModTetra.MODID + ".effect.curios_alexsmobs_knockback_resistance.tooltip";
+
+    public static final ItemEffect alexsmobs_soulsteal_Effect = ItemEffect.get(MoreModTetra.MODID + ":alexsmobs_soulsteal");
+    public static final String alexsmobs_soulsteal_Name = MoreModTetra.MODID + ".effect.alexsmobs_soulsteal.name";
+    public static final String alexsmobs_soulsteal_Tooltip = MoreModTetra.MODID + ".effect.alexsmobs_soulsteal.tooltip";
+
+    public static final ItemEffect curios_alexsmobs_soulsteal_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_alexsmobs_soulsteal");
+    public static final String curios_alexsmobs_soulsteal_Name = MoreModTetra.MODID + ".effect.curios_alexsmobs_soulsteal.name";
+    public static final String curios_alexsmobs_soulsteal_Tooltip = MoreModTetra.MODID + ".effect.curios_alexsmobs_soulsteal.tooltip";
+
+    public static final ItemEffect alexscaves_deepsight_Effect = ItemEffect.get(MoreModTetra.MODID + ":alexscaves_deepsight");
+    public static final String alexscaves_deepsight_Name = MoreModTetra.MODID + ".effect.alexscaves_deepsight.name";
+    public static final String alexscaves_deepsight_Tooltip = MoreModTetra.MODID + ".effect.alexscaves_deepsight.tooltip";
+
+    public static final ItemEffect curios_alexscaves_deepsight_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_alexscaves_deepsight");
+    public static final String curios_alexscaves_deepsight_Name = MoreModTetra.MODID + ".effect.curios_alexscaves_deepsight.name";
+    public static final String curios_alexscaves_deepsight_Tooltip = MoreModTetra.MODID + ".effect.curios_alexscaves_deepsight.tooltip";
+
+    public static final ItemEffect cataclysm_blessing_of_amethyst_Effect = ItemEffect.get(MoreModTetra.MODID + ":cataclysm_blessing_of_amethyst");
+    public static final String cataclysm_blessing_of_amethyst_Name = MoreModTetra.MODID + ".effect.cataclysm_blessing_of_amethyst.name";
+    public static final String cataclysm_blessing_of_amethyst_Tooltip = MoreModTetra.MODID + ".effect.cataclysm_blessing_of_amethyst.tooltip";
+
+    public static final ItemEffect curios_cataclysm_blessing_of_amethyst_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_cataclysm_blessing_of_amethyst");
+    public static final String curios_cataclysm_blessing_of_amethyst_Name = MoreModTetra.MODID + ".effect.curios_cataclysm_blessing_of_amethyst.name";
+    public static final String curios_cataclysm_blessing_of_amethyst_Tooltip = MoreModTetra.MODID + ".effect.curios_cataclysm_blessing_of_amethyst.tooltip";
+
+    public static final ItemEffect goety_soul_cost_discount_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_soul_cost_discount");
+    public static final String goety_soul_cost_discount_Name = MoreModTetra.MODID + ".effect.goety_soul_cost_discount.name";
+    public static final String goety_soul_cost_discount_Tooltip = MoreModTetra.MODID + ".effect.goety_soul_cost_discount.tooltip";
+
+    public static final ItemEffect curios_goety_soul_cost_discount_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_goety_soul_cost_discount");
+    public static final String curios_goety_soul_cost_discount_Name = MoreModTetra.MODID + ".effect.curios_goety_soul_cost_discount.name";
+    public static final String curios_goety_soul_cost_discount_Tooltip = MoreModTetra.MODID + ".effect.curios_goety_soul_cost_discount.tooltip";
+
+    public static final ItemEffect goety_soul_focus_potency_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_soul_focus_potency");
+    public static final String goety_soul_focus_potency_Name = MoreModTetra.MODID + ".effect.goety_soul_focus_potency.name";
+    public static final String goety_soul_focus_potency_Tooltip = MoreModTetra.MODID + ".effect.goety_soul_focus_potency.tooltip";
+
+    public static final ItemEffect curios_goety_soul_focus_potency_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_goety_soul_focus_potency");
+    public static final String curios_goety_soul_focus_potency_Name = MoreModTetra.MODID + ".effect.curios_goety_soul_focus_potency.name";
+    public static final String curios_goety_soul_focus_potency_Tooltip = MoreModTetra.MODID + ".effect.curios_goety_soul_focus_potency.tooltip";
+
+    public static final ItemEffect goety_soul_spell_cooldown_Effect = ItemEffect.get(MoreModTetra.MODID + ":goety_soul_spell_cooldown");
+    public static final String goety_soul_spell_cooldown_Name = MoreModTetra.MODID + ".effect.goety_soul_spell_cooldown.name";
+    public static final String goety_soul_spell_cooldown_Tooltip = MoreModTetra.MODID + ".effect.goety_soul_spell_cooldown.tooltip";
+
+    public static final ItemEffect curios_goety_soul_spell_cooldown_Effect = ItemEffect.get(MoreModTetra.MODID + ":curios_goety_soul_spell_cooldown");
+    public static final String curios_goety_soul_spell_cooldown_Name = MoreModTetra.MODID + ".effect.curios_goety_soul_spell_cooldown.name";
+    public static final String curios_goety_soul_spell_cooldown_Tooltip = MoreModTetra.MODID + ".effect.curios_goety_soul_spell_cooldown.tooltip";
+
+    public static final ItemEffect orders_Effect = ItemEffect.get(MoreModTetra.MODID + ":orders");
+    public static final String orders_Name = MoreModTetra.MODID + ".effect.orders.name";
+    public static final String orders_Tooltip = MoreModTetra.MODID + ".effect.orders.tooltip";
+
+
+
 
 
 

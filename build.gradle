@@ -122,7 +122,7 @@ dependencies {
     implementation fg.deobf("blank:curios-1.20.1:1")
     implementation fg.deobf("blank:mmmmmmmmmmmm-1.20.1:1")
     implementation fg.deobf("blank:geckolib-1.20.1:1")
-    compileOnly fg.deobf("blank:irons_spellbooks-1.20.1:1")
+    implementation fg.deobf("blank:irons_spellbooks-1.20.1:1")
     implementation fg.deobf("blank:jade-1.20.1:1")
     implementation fg.deobf("blank:jei-1.20.1:1")
     compileOnly fg.deobf("blank:cataclysm-1.20.1:1")
