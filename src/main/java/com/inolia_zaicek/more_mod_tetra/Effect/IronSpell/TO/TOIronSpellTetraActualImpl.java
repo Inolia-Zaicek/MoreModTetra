@@ -1,11 +1,11 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.TO;
 
 import com.gametechbc.traveloptics.api.init.TravelopticsAttributes;
+import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.MMTFreezeTetraEffect;
+import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.MMTManaSiphonTetraEffect;
+import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.MMTStatGetterPercentAttribute;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMTITetraProxy;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import io.redspace.ironsspellbooks.compat.tetra.StatGetterPercentAttribute;
-import io.redspace.ironsspellbooks.compat.tetra.effects.FreezeTetraEffect;
-import io.redspace.ironsspellbooks.compat.tetra.effects.ManaSiphonTetraEffect;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -25,8 +25,8 @@ public class TOIronSpellTetraActualImpl implements MMTITetraProxy {
     @OnlyIn(Dist.CLIENT)
     public static void initClient() {
 
-        FreezeTetraEffect.addGuiBars();
-        ManaSiphonTetraEffect.addGuiBars();
+        MMTFreezeTetraEffect.addGuiBars();
+        MMTManaSiphonTetraEffect.addGuiBars();
 
         createPercentAttributeBar(TravelopticsAttributes.AQUA_MAGIC_RESIST.get(), "aqua_magic_resist");
         createPercentAttributeBar(TravelopticsAttributes.AQUA_SPELL_POWER.get(), "aqua_spell_power");
@@ -44,14 +44,14 @@ public class TOIronSpellTetraActualImpl implements MMTITetraProxy {
     @Override
     public void handleLivingAttackEvent(LivingAttackEvent event) {
         if (!event.getEntity().level().isClientSide) {
-            FreezeTetraEffect.handleLivingAttackEvent(event);
-            ManaSiphonTetraEffect.handleLivingAttackEvent(event);
+            MMTFreezeTetraEffect.handleLivingAttackEvent(event);
+            MMTManaSiphonTetraEffect.handleLivingAttackEvent(event);
         }
     }
 
     @OnlyIn(Dist.CLIENT)
     private static void createPercentAttributeBar(Attribute attribute, String languageKey) {
-        IStatGetter statGetter = new StatGetterPercentAttribute(attribute);
+        IStatGetter statGetter = new MMTStatGetterPercentAttribute(attribute);
         GuiStatBar statBar = new GuiStatBar(0, 0, StatsHelper.barLength, attribute.getDescriptionId(), 0, 100, false,
                 statGetter,
                 LabelGetterBasic.percentageLabel,

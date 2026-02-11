@@ -23,6 +23,13 @@ public abstract class MMTProjectileMixin extends Entity implements MMTTargetMode
         super(type, level);
     }
 
+    // 新增字段：用于保存弹射物的初始速度
+    @Unique
+    private double mmt$initialSpeed = 0.0;
+
+    // 标志是否已经记录过速度
+    @Unique
+    private boolean mmt$speedRecorded = false;
 
     @Unique
     private Predicate<Entity> mmt$targetMode = null;
@@ -37,17 +44,29 @@ public abstract class MMTProjectileMixin extends Entity implements MMTTargetMode
         return mmt$targetMode;
     }
 
-    //set target mode to null after the entity is hit
+    // 在实体初始化或首次追踪时，记录初始速度
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void mmt$recordInitialSpeed(CallbackInfo ci) {
+        if (!mmt$speedRecorded) {
+            // 计算当前速度的模，作为初始速度
+            this.mmt$initialSpeed = (double) this.getDeltaMovement().length();
+            mmt$speedRecorded = true;
+        }
+    }
+
+    // 在击中目标时，清除mode
     @Inject(method = "onHit", at = @At("TAIL"))
     private void mmt$onHit(HitResult pResult, CallbackInfo ci) {
         if (pResult.getType() != HitResult.Type.MISS)
             mmt$setMode(null);
     }
 
+    // 控制弹射物移动，保持速度
     @Inject(method = "tick", at = @At("TAIL"))
     private void mmt$moveTowardsTarget(CallbackInfo ci) {
         if (mmt$targetMode != null && !onGround()) {
-            MMTEntityUtil.moveTowardsTarget(this);
+            // 使用保存的初始速度
+            MMTEntityUtil.moveTowardsTargetWithSpeed(this, mmt$initialSpeed);
         }
     }
 }

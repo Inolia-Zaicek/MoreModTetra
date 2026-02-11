@@ -1,5 +1,6 @@
 {
     "key": "paper",
+    "hidden": false,
     "category": "fabric",
     "primary": 0.1,
     "secondary": 1,
@@ -19,6 +20,9 @@
         "default"
     ],
     "material": {
-        "items": "minecraft:paper"
+        "items": ["minecraft:paper"]
+    },
+    "requiredTools": {
+        "cut": "minecraft:wood"
     }
 }

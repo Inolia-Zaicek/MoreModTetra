@@ -22,7 +22,7 @@
         "items": [ "more_mod_tetra:protection_arcane_ingot" ]
     },
         "effects" : {
-      "more_mod_tetra:protection_arcane_edge": 20
+      "more_mod_tetra:protection_arcane_edge": 25
 	},
       "attributes": {
       "**irons_spellbooks:spell_resist": 0.1,

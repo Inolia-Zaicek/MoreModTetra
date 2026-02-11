@@ -1,0 +1,36 @@
+{
+    "key": "savage_and_ravage_blast_proof_plating",
+    "category": "metal",
+    "primary": 5.4,
+    "secondary": 2.0,
+    "tertiary": 2.8,
+    "durability": 1031,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 150,
+    "toolLevel": 5,
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "648443",
+        "texture": "648443"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "attributes": {
+        "savage_and_ravage:explosive_damage_reduction": 0.2
+    },
+    "material": {
+        "items": [ "savage_and_ravage:blast_proof_plating" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 2
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "savage_and_ravage"
+        }
+    ]
+}

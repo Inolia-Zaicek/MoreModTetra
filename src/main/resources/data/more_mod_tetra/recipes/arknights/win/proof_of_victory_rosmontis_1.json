@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:stonecutting",
+    "count": 1,
+    "group": "more_mod_tetra_proof_of_victory_rosmontis",
+    "ingredient": {
+        "item": "torchesbecomesunlight:rosmontis_embrace"
+    },
+    "result": "more_mod_tetra:proof_of_victory_rosmontis"
+}

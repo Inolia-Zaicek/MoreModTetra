@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.Metal;
 
 import com.inolia_zaicek.more_mod_tetra.Damage.MMTTickZero;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.world.entity.Entity;
@@ -12,7 +13,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -58,13 +58,11 @@ public class ProtectionArcaneEdgeEffect {
                 // 检查主手物品是否是 IModularItem 的实例。
                 // 如果是，则将其转换为 IModularItem 类型，并赋值给变量 item。
                 //获取词条数值
-                float level = item.getEffectLevel(heldStack, protectionArcaneEdgeEffect);
+                float level = MMTEffectHelper.getInstance().getMainHandEffectLevel(attacker, protectionArcaneEdgeEffect);
                 // 只有当 "Esoteric Edge" 效果等级大于 0 时才执行以下操作。
                 if (level > 0&& MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
                     //基础攻击伤害量
                     float baseAmount = event.getAmount();
-                    //额外法伤+基础伤害
-                    float magicBonusDamage = baseAmount+getDecimalPercentage(level, baseAmount);
                     //获取法强属性
                     float all = (float) attacker.getAttributeValue(AttributeRegistry.SPELL_RESIST.get());
                     float a = (float) attacker.getAttributeValue(AttributeRegistry.FIRE_MAGIC_RESIST.get());
@@ -79,7 +77,7 @@ public class ProtectionArcaneEdgeEffect {
                     float resist = all+a+b+c+d+e+f+g+h+i-10;
                     float power = (float) attacker.getAttributeValue(AttributeRegistry.SPELL_POWER.get());
                     //结算
-                    float finish =resist*power*magicBonusDamage;
+                    float finish =(resist*level/100+1)*power*baseAmount;
                     //获取怪物之前的无敌时间
                     int time = target.invulnerableTime;
                     target.invulnerableTime=0;

@@ -1,0 +1,17 @@
+{
+    "slots": [ "mmt_white_quiver/white" ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/","tetra:skin/","tetra:fibre/","tetra:fabric/" ],
+            "countFactor": 1,
+            "moduleKey": "mmt_white_quiver/white/rainbow_of_white",
+            "moduleVariant": "rainbow_of_white/"
+        }
+    ]
+}

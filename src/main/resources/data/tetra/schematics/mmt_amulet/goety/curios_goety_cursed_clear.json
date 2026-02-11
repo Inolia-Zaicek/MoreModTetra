@@ -25,7 +25,7 @@
                 "type": "tetra:not",
                 "requirement": {
                     "type": "tetra:improvement",
-                    "improvement": "curios_goety_curse_clear"
+                    "improvement": "curios_goety_cursed_clear"
                 }
             }
         ]
@@ -37,7 +37,7 @@
                 "count": 32
             },
             "improvements": {
-                "curios_goety_curse_clear": 0
+                "curios_goety_cursed_clear": 0
             }
         }
     ]

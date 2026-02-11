@@ -37,7 +37,7 @@ public class TerraRay {
     }
     @SubscribeEvent
     public static void hurt(PlayerInteractEvent.LeftClickEmpty event) {
-        if(ModList.get().isLoaded("iceandfire")) {
+        if(ModList.get().isLoaded("botania")) {
             var playerEntity = event.getEntity();
             ItemStack mainHandItem = playerEntity.getMainHandItem();
             int nEffectLevel = 0;

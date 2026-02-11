@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.Metal;
 
 import com.inolia_zaicek.more_mod_tetra.Damage.MMTTickZero;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.world.entity.Entity;
@@ -57,18 +58,16 @@ public class EldritchArcaneEdgeEffect {
                 // 检查主手物品是否是 IModularItem 的实例。
                 // 如果是，则将其转换为 IModularItem 类型，并赋值给变量 item。
                 //获取词条数值
-                float level = item.getEffectLevel(heldStack, eldritchArcaneEdgeEffect);
+                float level = MMTEffectHelper.getInstance().getMainHandEffectLevel(attacker, eldritchArcaneEdgeEffect);
                 // 只有当 "Esoteric Edge" 效果等级大于 0 时才执行以下操作。
                 if (level > 0&& MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
                     //基础攻击伤害量
                     float baseAmount = event.getAmount();
-                    //额外法伤+基础伤害
-                    float magicBonusDamage = baseAmount+getDecimalPercentage(level, baseAmount);
                     //获取法强属性
-                    float fire = (float) attacker.getAttributeValue(AttributeRegistry.ELDRITCH_SPELL_POWER.get());
-                    float power = (float) attacker.getAttributeValue(AttributeRegistry.SPELL_POWER.get());
+                    float fire = (float) (attacker.getAttributeValue(AttributeRegistry.ELDRITCH_SPELL_POWER.get())-1)*(level/100)+1;
+                    float power = (float) (attacker.getAttributeValue(AttributeRegistry.SPELL_POWER.get())-1)*(level/100)+1;
                     //结算
-                    float finish =fire*power*magicBonusDamage;
+                    float finish =fire*power*baseAmount;
                     //获取怪物之前的无敌时间
                     int time = target.invulnerableTime;
                     target.invulnerableTime=0;

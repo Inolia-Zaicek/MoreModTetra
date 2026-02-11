@@ -1,0 +1,33 @@
+{
+  "key": "goety_freezing_attack",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
+  "category": "white_material",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "92aab4"
+  },
+  "textures": [
+    ""
+  ],
+  "material": {
+    "items": [
+      "minecraft:powder_snow_bucket"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:white_goety_freezing_attack": 1
+  }
+}

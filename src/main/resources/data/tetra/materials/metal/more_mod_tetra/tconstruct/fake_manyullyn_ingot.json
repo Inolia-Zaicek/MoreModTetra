@@ -26,5 +26,12 @@
     },
     "requiredTools": {
         "hammer_dig": "minecraft:iron"
+    },
+    "contexts": {
+        "armor": {
+            "effects": {
+                "more_mod_tetra:fake_kinetic": 1
+            }
+        }
     }
 }

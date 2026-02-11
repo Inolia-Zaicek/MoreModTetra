@@ -2,6 +2,12 @@
     "replace": false,
     "values": [
         "more_mod_tetra:modular_mmt_jetpack",
-        "more_mod_tetra:curios_jetpack"
+        "more_mod_tetra:curios_jetpack",
+        "more_mod_tetra:modular_mmt_white_scabbard",
+        "more_mod_tetra:tetra_white_scabbard",
+        "more_mod_tetra:modular_mmt_white_quiver",
+        "more_mod_tetra:tetra_white_quiver",
+        "more_mod_tetra:modular_mmt_white_bag",
+        "more_mod_tetra:tetra_white_bag"
     ]
 }

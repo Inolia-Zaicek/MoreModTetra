@@ -24,6 +24,42 @@ public class MMTEntityUtil {
 
     }
 
+    /**
+     * 使用指定速度将实体朝最近目标移动
+     * @param entity 目标实体
+     * @param speed 初始速度（单位：块/秒或其他）
+     */
+    public static void moveTowardsTargetWithSpeed(Entity entity, double speed) {
+        if (entity == null || entity.level().isClientSide) {
+            return;
+        }
+
+        Predicate<Entity> targetPredicate = null;
+        if (entity instanceof net.minecraft.world.entity.projectile.Projectile projectile) {
+            if (projectile instanceof MMTTargetMode) {
+                targetPredicate = ((MMTTargetMode) projectile).mmt$getMode();
+            }
+        }
+
+        if (targetPredicate == null) {
+            targetPredicate = (target) -> true;
+        }
+
+        // 获取目标：这里可以限定范围或其他条件
+        Predicate<Entity> finalTargetPredicate = targetPredicate;
+        var entities = entity.level().getEntitiesOfClass(LivingEntity.class, entity.getBoundingBox().inflate(12.0), (target) -> finalTargetPredicate.test(target) && target != null && target.isAlive());
+
+        if (entities.isEmpty()) return;
+
+        LivingEntity nearest = entities.stream().min(Comparator.comparingDouble(e -> e.distanceToSqr(entity))).orElse(null);
+        if (nearest == null) return;
+
+        Vec3 direction = nearest.position().add(0, nearest.getBbHeight() / 2.0, 0).subtract(entity.position()).normalize();
+
+        // 设置实体的速度为目标方向 * 保存的初始速度
+        Vec3 newVelocity = direction.scale(speed);
+        entity.setDeltaMovement(newVelocity);
+    }
     public static boolean isEnthralled(LivingEntity entity) {
         return entity.getPersistentData().contains("mmt:thrall");
     }

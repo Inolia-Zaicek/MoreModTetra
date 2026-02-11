@@ -1,0 +1,31 @@
+{
+    "key": "upgrade_aquatic_prismarine_rod",
+    "primary": 5,
+    "secondary": 0.4,
+    "tertiary": 1,
+    "durability": 111,
+    "integrityCost": 2,
+    "integrityGain": 7,
+    "magicCapacity": 108,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "68ad90",
+        "texture": "68ad90"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "upgrade_aquatic:prismarine_rod" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 2
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "upgrade_aquatic"
+        }
+    ]
+}

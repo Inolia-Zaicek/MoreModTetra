@@ -1,0 +1,54 @@
+{
+    "key": "irons_spellbooks_pyrium_ingot",
+    "category": "metal",
+    "primary": 9.24,
+    "secondary": 4.9,
+    "tertiary": 5.5,
+    "durability": 2500,
+    "integrityCost": 2,
+    "integrityGain": 9,
+    "magicCapacity": 1000,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "d6af39",
+        "texture": "d6af39"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "irons_spellbooks:pyrium_ingot" ]
+    },
+        "effects" : {
+      "more_mod_tetra:fire_arcane_edge": 25
+	},
+      "attributes": {
+      "**irons_spellbooks:fire_spell_power": 0.05,
+        "irons_spellbooks:max_mana": 50
+  },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "contexts": {
+    "armor": {
+      "attributes": {
+        "**irons_spellbooks:spell_power": 0.025,
+        "**irons_spellbooks:fire_spell_power": 0.05,
+        "irons_spellbooks:max_mana": 62.5,
+        "**irons_spellbooks:spell_resist": 0.025,
+        "**irons_spellbooks:fire_magic_resist": 0.025
+      },
+      "effects": {
+        "more_mod_tetra:fire_arcane_guard": 20
+      }
+    }
+  }
+}

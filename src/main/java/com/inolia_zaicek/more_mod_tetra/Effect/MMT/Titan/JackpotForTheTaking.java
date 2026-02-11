@@ -3,6 +3,8 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Titan;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -16,7 +18,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -47,30 +48,13 @@ public class JackpotForTheTaking {
     @SubscribeEvent
     public static void entityKilled(LivingDeathEvent event) {
         if (!(event.getEntity() instanceof Player)) {
-            if (event.getSource().getDirectEntity() instanceof Player player) {
-                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,jackpotForTheTakingEffect);
+            if (event.getSource().getEntity() instanceof LivingEntity player && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
+                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player, jackpotForTheTakingEffect);
                 if (effectLevel > 0) {
                     for (int i = 0; i < effectLevel; i++) {
                         Level level = player.level();
                         LootTable loot = ((MinecraftServer) Objects.requireNonNull(level.getServer())).getLootData().getLootTable(event.getEntity().getType().getDefaultLootTable());
-                        LootParams context = (new LootParams.Builder((ServerLevel) level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getEntity().blockPosition())).withParameter(LootContextParams.THIS_ENTITY, event.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, player.damageSources().playerAttack(player)).create(LootContextParamSets.ENTITY);
-                        List<ItemStack> drops = loot.getRandomItems(context);
-                        for (ItemStack drop : drops) {
-                            ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), drop);
-                            itementity.setDefaultPickUpDelay();
-                            itementity.setDeltaMovement(itementity.getDeltaMovement().add((double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F), (double) (level.random.nextFloat() * 0.05F), (double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F)));
-                            level.addFreshEntity(itementity);
-                        }
-                    }
-                }
-            }
-            else if (event.getSource().getEntity() instanceof Player player) {
-                int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,jackpotForTheTakingEffect);
-                if (effectLevel > 0) {
-                    for (int i = 0; i < effectLevel; i++) {
-                        Level level = player.level();
-                        LootTable loot = ((MinecraftServer) Objects.requireNonNull(level.getServer())).getLootData().getLootTable(event.getEntity().getType().getDefaultLootTable());
-                        LootParams context = (new LootParams.Builder((ServerLevel) level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getEntity().blockPosition())).withParameter(LootContextParams.THIS_ENTITY, event.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, player.damageSources().playerAttack(player)).create(LootContextParamSets.ENTITY);
+                        LootParams context = (new LootParams.Builder((ServerLevel) level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getEntity().blockPosition())).withParameter(LootContextParams.THIS_ENTITY, event.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, player.damageSources().playerAttack((Player) player)).create(LootContextParamSets.ENTITY);
                         List<ItemStack> drops = loot.getRandomItems(context);
                         for (ItemStack drop : drops) {
                             ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), drop);

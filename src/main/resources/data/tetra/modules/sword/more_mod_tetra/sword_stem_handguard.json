@@ -9,11 +9,18 @@
       "durability": 15,
       "integrity": -1,
       "effects": {
-        "more_mod_tetra:duel": 15
+        "more_mod_tetra:duel": [1,1]
       },
       "extract": {
+        "primaryEffects": {
+          "more_mod_tetra:duel": [1,0.15]
+        },
         "secondaryEffects": {
-          "counterweight": 1
+          "counterweight": 1,
+          "more_mod_tetra:duel": [0.4,1]
+        },
+        "tertiaryEffects": {
+          "more_mod_tetra:duel": [0.2,0.5]
         },
         "durability": 0.05,
         "glyph": {

@@ -2,6 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.Metal;
 
 import com.inolia_zaicek.more_mod_tetra.Damage.MMTTickZero;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.world.entity.Entity;
@@ -53,18 +54,15 @@ public class ArcaneArcaneEdgeEffect {
             // 检查 attacker 是否是一个 LivingEntity。如果不是（例如箭矢射出的是一个 Entity，而不是 LivingEntity），则不处理。
             ItemStack heldStack = attacker.getMainHandItem();
             if (heldStack.getItem() instanceof IModularItem item) {
-                float level = item.getEffectLevel(heldStack, arcaneArcaneEdgeEffect);
+                float level = MMTEffectHelper.getInstance().getMainHandEffectLevel(attacker, arcaneArcaneEdgeEffect);
                 if (level > 0&& MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
                     //基础攻击伤害量
                     float baseAmount = event.getAmount();
-                    //额外法伤+基础伤害
-                    float magicBonusDamage = baseAmount+getDecimalPercentage(level, baseAmount);
                     //获取法力值属性（最高提升100%
-                    float mana = Math.min(2000, (float) attacker.getAttributeValue(AttributeRegistry.MAX_MANA.get()) );
-                    float power = (float) attacker.getAttributeValue(AttributeRegistry.SPELL_POWER.get());
-                    float manaUp =1+mana/2000;
+                    float mana =  (float) (attacker.getAttributeValue(AttributeRegistry.MAX_MANA.get())/2000)*(level/100)+1 ;
+                    float power = (float) (attacker.getAttributeValue(AttributeRegistry.SPELL_POWER.get())-1)*(level/100)+1;
                     //结算
-                    float finish =manaUp*power*magicBonusDamage;
+                    float finish =mana*power*baseAmount;
                     //获取怪物之前的无敌时间
                     int time = target.invulnerableTime;
                     target.invulnerableTime=0;

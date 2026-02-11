@@ -1,11 +1,17 @@
 package com.inolia_zaicek.more_mod_tetra;
 
 
+import com.google.common.collect.ImmutableList;
 import com.inolia_zaicek.more_mod_tetra.ArmorEffect.Cataclysm.CursiumSuit;
 import com.inolia_zaicek.more_mod_tetra.ArmorEffect.Cataclysm.IgnitiumSuit;
 import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT.*;
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT.Concept.CriAndClone;
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT.Concept.DeathAndTick;
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT.Concept.DropEvent;
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT.Concept.HurtAndDamage;
 import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMT.Thorns.*;
 import com.inolia_zaicek.more_mod_tetra.ArmorEffect.MMTEffectClent;
+import com.inolia_zaicek.more_mod_tetra.ArmorEffect.WhiteAttack;
 import com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.Core.MagneticField;
 import com.inolia_zaicek.more_mod_tetra.Effect.AlexCave.Core.RadiationAbsorption;
@@ -51,7 +57,6 @@ import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.Fr
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.GunKnightPatriotIngotEffect.ExhortationOfGunKnightPatriot;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.GunKnightPatriotIngotEffect.RitualOfExhortation;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.GunKnightPatriotIngotEffect.RitualOfHolyGuard;
-import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.IngotDrop.MMTIngotDrop;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect.MarchingTimeAndRuinationTime;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect.MarchingTimeHurt;
 import com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.PatriotIngotEffect.SacrificeAndThrowingTheHalberd;
@@ -95,6 +100,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.MMT.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.BuffClear.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.BuffGive.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.*;
+import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.Ars.ArsCuriosMagicDamageUp;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.CuriosAllDamageUp;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.CuriosMagicDamageUp;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.CuriosMeleeDamageUp;
@@ -122,6 +128,8 @@ import com.inolia_zaicek.more_mod_tetra.Effect.Malum.TotemicRunes.*;
 import com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft.SMCFrost;
 import com.inolia_zaicek.more_mod_tetra.Effect.StarMeowCraft.SMCFrostBurst;
 import com.inolia_zaicek.more_mod_tetra.Event.BokushuuIngotEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.EntityJoinEvent;
+import com.inolia_zaicek.more_mod_tetra.Event.IngotDrop.MMTIngotDrop;
 import com.inolia_zaicek.more_mod_tetra.Event.MMTFluidCollisionEvent;
 import com.inolia_zaicek.more_mod_tetra.Event.SacrificeStoneEvent;
 import com.inolia_zaicek.more_mod_tetra.Network.GhostSwordChannel;
@@ -151,6 +159,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 import se.mickelus.tetra.TetraMod;
 import se.mickelus.tetra.TetraRegistries;
+import se.mickelus.tetra.blocks.scroll.ScrollData;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -180,6 +189,14 @@ public class MoreModTetra {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         //监听事件
+        MinecraftForge.EVENT_BUS.register(WhiteAttack.class);
+        //意志
+        MinecraftForge.EVENT_BUS.register(EntityJoinEvent.class);
+        MinecraftForge.EVENT_BUS.register(CriAndClone.class);
+        MinecraftForge.EVENT_BUS.register(DeathAndTick.class);
+        MinecraftForge.EVENT_BUS.register(DropEvent.class);
+        MinecraftForge.EVENT_BUS.register(HurtAndDamage.class);
+        MinecraftForge.EVENT_BUS.register(Orders.class);
         //灾变
         if(ModList.get().isLoaded("cataclysm")) {
             MinecraftForge.EVENT_BUS.register(AbyssalCurse.class);
@@ -289,10 +306,11 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(IceDragonPower.class);
             MinecraftForge.EVENT_BUS.register(LightningDragonPower.class);
             //幻灵
-            MinecraftForge.EVENT_BUS.register(UndeadHydra.class);
             MinecraftForge.EVENT_BUS.register(GhostSword.class);
         }
+        MinecraftForge.EVENT_BUS.register(UndeadHydra.class);
         MinecraftForge.EVENT_BUS.register(Notes.class);
+        MinecraftForge.EVENT_BUS.register(Freeze.class);
         //明日方舟mrfz
         if(ModList.get().isLoaded("torchesbecomesunlight")) {
             MinecraftForge.EVENT_BUS.register(MMTIngotDrop.class);
@@ -300,7 +318,6 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(NociceptorInhibition.class);
 
             MinecraftForge.EVENT_BUS.register(ColdWave.class);
-            MinecraftForge.EVENT_BUS.register(Freeze.class);
             MinecraftForge.EVENT_BUS.register(FreezeRing.class);
 
             MinecraftForge.EVENT_BUS.register(RitualOfHolyGuard.class);
@@ -314,10 +331,9 @@ public class MoreModTetra {
             MinecraftForge.EVENT_BUS.register(Dominion.class);
         }
         MinecraftForge.EVENT_BUS.register(EtheriumGuard.class);
-        MinecraftForge.EVENT_BUS.register(Orders.class);
+        MinecraftForge.EVENT_BUS.register(EvilIngotMaterial.class);
+        MinecraftForge.EVENT_BUS.register(EtheriumIngotMaterial.class);
         if(ModList.get().isLoaded("enigmaticlegacy")) {
-            MinecraftForge.EVENT_BUS.register(EvilIngotMaterial.class);
-            MinecraftForge.EVENT_BUS.register(EtheriumIngotMaterial.class);
 
             MinecraftForge.EVENT_BUS.register(EvilCurse.class);
         }
@@ -328,6 +344,7 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(ShiningPower.class);
         MinecraftForge.EVENT_BUS.register(SpeedForce.class);
         if(ModList.get().isLoaded("botania")) {
+            MinecraftForge.EVENT_BUS.register(TerraRay.class);
             MinecraftForge.EVENT_BUS.register(PixieSummon.class);
             MinecraftForge.EVENT_BUS.register(ManaAbsorption.class);
 
@@ -528,6 +545,9 @@ public class MoreModTetra {
 
         MinecraftForge.EVENT_BUS.register(InvulnerableTimeDown.class);
 
+        if(ModList.get().isLoaded("ars_nouveau")) {
+            MinecraftForge.EVENT_BUS.register(ArsCuriosMagicDamageUp.class);
+        }
         MinecraftForge.EVENT_BUS.register(ArmorCriticalStrike.class);
         MinecraftForge.EVENT_BUS.register(ArmorSturdyAndTenacity.class);
         MinecraftForge.EVENT_BUS.register(ArmorHealAndRevival.class);
@@ -746,12 +766,9 @@ public class MoreModTetra {
                 NociceptorInhibition.init();
 
                 ColdWave.init();
-                Freeze.init();
                 FreezeRing.init();
 
-                RitualOfHolyGuard.init();
                 RitualOfExhortation.init();
-                ExhortationOfGunKnightPatriot.init();
 
                 MarchingTimeAndRuinationTime.init();
                 MarchingTimeHurt.init();
@@ -760,6 +777,9 @@ public class MoreModTetra {
                 CollapsingFear.init();
                 Dominion.init();
             }
+            Freeze.init();
+            RitualOfHolyGuard.init();
+            ExhortationOfGunKnightPatriot.init();
             if(ModList.get().isLoaded("aquamirae")) {
                 RuneOfTheStorm.init();
             }
@@ -820,10 +840,9 @@ public class MoreModTetra {
                 AncientWillVerac.init();
             }
             EtheriumGuard.init();
+            EvilIngotMaterial.init();
+            EtheriumIngotMaterial.init();
             if(ModList.get().isLoaded("enigmaticlegacy")) {
-                EvilIngotMaterial.init();
-                EtheriumIngotMaterial.init();
-
                 EvilCurse.init();
             }
             if(ModList.get().isLoaded("irons_spellbooks")) {
@@ -957,10 +976,10 @@ public class MoreModTetra {
                 IceDragonPower.init();
                 LightningDragonPower.init();
 
-                UndeadHydra.init();
                 //幻灵
                 GhostSword.init();UnlimitedPhantasmalBladeWorks.init();
             }
+            UndeadHydra.init();
         });
     }
 
@@ -1084,10 +1103,23 @@ public class MoreModTetra {
                     new String[]{"shared/the_legend_scroll_of_passage_titan"}, false, 2,//材料数量影响卷轴本体颜色
                     16711680//rgb十进制代码
                     , 9, 3, 6, 2));
-
             event.accept(this.setupSchematic("shared/the_legend_scroll_of_cyrene_titan", "more_mod_tetra",
                     new String[]{"shared/the_legend_scroll_of_cyrene_titan"}, false, 2,//材料数量影响卷轴本体颜色
                     16738751//rgb十进制代码
+                    , 9, 3, 6, 2));
+            //高质量
+            event.accept(this.setupTreatise("mmt_quality_scroll", false, 0,//材料数量影响卷轴本体颜色
+                    13421772//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupTreatise("mmt_high_quality_scroll", false, 0,//材料数量影响卷轴本体颜色
+                    13421772//rgb十进制代码
+                    , 9, 3, 6, 2));
+            //稳固
+            event.accept(this.setupTreatise("mmt_settled_scroll", false, 0,//材料数量影响卷轴本体颜色
+                    13421772//rgb十进制代码
+                    , 9, 3, 6, 2));
+            event.accept(this.setupTreatise("mmt_high_settled_scroll", false, 0,//材料数量影响卷轴本体颜色
+                    13421772//rgb十进制代码
                     , 9, 3, 6, 2));
             //附属
             if(ModList.get().isLoaded("iceandfire")) {
@@ -1105,6 +1137,12 @@ public class MoreModTetra {
             if(ModList.get().isLoaded("botania")) {
                 event.accept(this.setupSchematic("shared/mmt_botania_scroll", "more_mod_tetra",
                         new String[]{"shared/mmt_botania_scroll"}, false, 1,//材料数量影响卷轴本体颜色
+                        24991//rgb十进制代码
+                        , 9, 3, 6, 2));
+            }
+            if(ModList.get().isLoaded("witherstormmod")) {
+                event.accept(this.setupSchematic("shared/witherstormmod_command_block_tools", "more_mod_tetra",
+                        new String[]{"shared/witherstormmod_command_block_tools"}, false, 1,//材料数量影响卷轴本体颜色
                         24991//rgb十进制代码
                         , 9, 3, 6, 2));
             }
@@ -1175,5 +1213,10 @@ public class MoreModTetra {
         data.write(itemStack);
         return itemStack;
     }
-
+    private ItemStack setupTreatise(String key, boolean isIntricate, int material, int tint, Integer... glyphs) {
+        ScrollData data = new ScrollData(key, Optional.empty(), isIntricate, material, tint, Arrays.asList(glyphs), Collections.emptyList(), ImmutableList.of(new ResourceLocation("tetra", key)));
+        ItemStack itemStack = new ItemStack(tetraScroll.get());
+        data.write(itemStack);
+        return itemStack;
+    }
 }

@@ -25,7 +25,7 @@
     ]
   },
   "effects" : {
-    "more_mod_tetra:undead_hydra": 1
+    "more_mod_tetra:undead_hydra": [25,45]
   },
   "conditions": [
     {

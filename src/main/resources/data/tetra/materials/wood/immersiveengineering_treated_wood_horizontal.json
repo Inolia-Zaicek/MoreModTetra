@@ -1,0 +1,36 @@
+{
+    "key": "immersiveengineering_treated_wood_horizontal",
+    "category": "wood",
+    "primary": 3,
+    "secondary": 1.2,
+    "tertiary": 7.5,
+    "durability": 95,
+    "integrityCost": 2,
+    "integrityGain": 6,
+    "magicCapacity": 90,
+    "toolLevel": "minecraft:gold",
+    "toolEfficiency": 4,
+    "tints": {
+        "glyph": "5d3421",
+        "texture": "5d3421"
+    },
+    "textures": [
+        "crude",
+        "wooden"
+    ],
+    "material": {
+        "items": [ "immersiveengineering:treated_wood_horizontal" ]
+    },
+    "effects": {
+        "more_mod_tetra:industrial_protection": 1
+    },
+    "requiredTools": {
+        "axe_dig": "minecraft:stone"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "enigmaticdelicacy"
+        }
+    ]
+}

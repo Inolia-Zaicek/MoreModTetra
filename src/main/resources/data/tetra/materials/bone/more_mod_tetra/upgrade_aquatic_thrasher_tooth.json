@@ -1,0 +1,33 @@
+{
+    "key": "upgrade_aquatic_thrasher_tooth",
+    "category": "bone",
+    "primary": 7.7,
+    "secondary": 3,
+    "tertiary": 1,
+    "durability": 300,
+    "integrityCost": 1,
+    "integrityGain": 6,
+    "magicCapacity": 108,
+    "toolLevel": 6,
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "e5f1ed",
+        "texture": "e5f1ed"
+    },
+    "textures": [
+        "bone",
+        "crude"
+    ],
+    "material": {
+        "items": [ "upgrade_aquatic:thrasher_tooth" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "upgrade_aquatic"
+        }
+    ]
+}

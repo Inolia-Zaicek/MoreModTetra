@@ -2,7 +2,6 @@
   {
     "key": "the_legend_scroll_of_worldbearing_titan_up",
     "level": 0,
-    "integrity": -1,
     "aspects": {
       "honed": 1
     },
@@ -13,7 +12,8 @@
       "**tetra:draw_strength": 0.05
     },
     "effects": {
-      "more_mod_tetra:pyric_corpus": 1000
+      "more_mod_tetra:pyric_corpus": 1000,
+      "more_mod_tetra:titan_slayer": 20
     }
   }
 ]

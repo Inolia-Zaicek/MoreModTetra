@@ -20,7 +20,7 @@
     ],
     "effects" : {
         "more_mod_tetra:fire_edge": 20,
-        "more_mod_tetra:fire_fire_combo": 15
+        "more_mod_tetra:fire_combo": 15
     },
     "material": {
         "items": [ "twilightforest:fiery_ingot" ]

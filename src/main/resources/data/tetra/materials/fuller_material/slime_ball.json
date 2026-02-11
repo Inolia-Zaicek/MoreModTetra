@@ -17,6 +17,9 @@
     "effects" : {
         "more_mod_tetra:slowness": 1
     },
+    "attributes": {
+        "**generic.attack_damage": 0.01
+    },
     "textures": [
         "default"
     ],

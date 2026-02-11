@@ -1,5 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
+import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.nbt.CompoundTag;
@@ -20,6 +21,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -28,8 +30,11 @@ import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
+import java.util.Random;
+
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MoreModTetra.MODID)
 public class Beheading {
     @OnlyIn(Dist.CLIENT)
     public static void init() {
@@ -44,7 +49,7 @@ public class Beheading {
         HoloStatsGui.addBar(statBar);
     }
     @SubscribeEvent
-    public void onLivingDropEvent(LivingDropsEvent event) {
+    public static void drop(LivingDropsEvent event) {
         LivingEntity target = event.getEntity();
         Entity attackingEntity = event.getSource().getEntity();
         if (attackingEntity instanceof LivingEntity attacker) {
@@ -52,7 +57,6 @@ public class Beheading {
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(attacker,beheadingEffect);
 
             if (effectLevel > 0) {
-                    float chance = (float) effectLevel / 100;
                     ItemStack headDrop = ItemStack.EMPTY;
                     if (target instanceof Zombie) {
                         headDrop = new ItemStack(Items.ZOMBIE_HEAD);
@@ -74,8 +78,7 @@ public class Beheading {
                     }
 
                     if (!headDrop.isEmpty()) {
-                        boolean drop = target.level().random.nextFloat() < chance;
-                        if (drop) {
+                        if (new Random().nextInt(100) <= effectLevel) {
                             ItemEntity itemDrop = new ItemEntity(target.level(), target.getX(), target.getY(), target.getZ(), headDrop);
                             itemDrop.setDefaultPickUpDelay();
                             event.getDrops().add(itemDrop);

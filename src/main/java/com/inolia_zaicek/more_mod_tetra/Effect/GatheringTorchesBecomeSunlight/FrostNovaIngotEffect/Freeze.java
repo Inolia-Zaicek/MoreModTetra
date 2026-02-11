@@ -1,6 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect;
 
-import com.freefish.torchesbecomesunlight.server.init.EffectHandle;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
@@ -8,12 +8,9 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -54,9 +51,10 @@ public class Freeze {
             }
         }
             //圣爹
-        //挨打
-        if (event.getAttacked() instanceof Player livingEntity) {
-            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,ritualOfHolyGuardEffect);
+        //挨打————减伤
+        if (event.getAttacked()!=null) {
+            LivingEntity livingEntity=event.getAttacked();
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectEfficiency(livingEntity,ritualOfHolyGuardEffect);
             if (effectLevel > 0&&livingEntity.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
                 int buffLevel = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
                 int buffTime = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getDuration();
@@ -74,45 +72,31 @@ public class Freeze {
             }
         }
         //打人
-        if (event.hurtEvent.getSource().getEntity() instanceof Player livingEntity) {
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,ritualOfHolyGuardEffect);
             float effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,exhortationOfGunKnightPatriotEffect);
+            int effectEfficiency2 = (int) MMTEffectHelper.getInstance().getMainOffHandMaxEffectEfficiency(livingEntity,exhortationOfGunKnightPatriotEffect);
             if (effectLevel > 0) {
                 //有圣卫核心
-                if(effectLevel2>0){
-                    //挨打的上重伤
-                    if(event.getAttacked()!=null) {
-                        event.getAttacked().addEffect(new MobEffectInstance(MMTEffectsRegister.BanHeal.get(), 400, 3 ));
-                    }
-                    //有buff
-                    if (livingEntity.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
-                        int buffLevel = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
-                        livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400,  Math.min(8,buffLevel + 2)  ));
-                        //增伤==1+buff等级*减伤比例
-                        event.addNormalMulti((buffLevel + 1) * ((float) effectLevel / 100));
-                    }else{
-                        livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, 1));
-                        //增伤伤==1+buff等级*减伤比例
-                        event.addNormalMulti(((float) effectLevel / 100));
-                    }
-                }else{
-                    //无核心
-                    //有buff
-                    if (livingEntity.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
-                        int buffLevel = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
-                        livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, Math.min(8,buffLevel + 1)  ));
-                        //增伤==1+buff等级*减伤比例
-                        event.addNormalMulti((buffLevel + 1) * ((float) effectLevel / 200));
-                    }else{
-                        livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, 0));
-                        //增伤伤==1+buff等级*减伤比例
-                        event.addNormalMulti((((float) effectLevel / 200)));
-                    }
+                if (effectLevel2 > 0 && event.getAttacked() != null) {
+                    event.getAttacked().addEffect(new MobEffectInstance(MMTEffectsRegister.BanHeal.get(), 400, 3));
+                }
+                //有buff
+                if (livingEntity.hasEffect(MMTEffectsRegister.RitualOfHolyGuard.get())) {
+                    int buffLevel = livingEntity.getEffect(MMTEffectsRegister.RitualOfHolyGuard.get()).getAmplifier();
+                    livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, Math.min(8, buffLevel + 1 + effectEfficiency2)));
+                    //增伤==1+buff等级*减伤比例
+                    event.addNormalMulti((buffLevel + 1) * ((effectLevel2+effectLevel) / 100));
+                } else {
+                    livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), 400, effectEfficiency2));
+                    //增伤伤==1+buff等级*减伤比例
+                    event.addNormalMulti( ((effectLevel2+effectLevel) / 100));
                 }
             }
         }
         //减伤
-        if (event.getAttacked() instanceof Player livingEntity) {
+        if (event.getAttacked()!=null) {
+            LivingEntity livingEntity=event.getAttacked();
             var mob = event.hurtEvent.getSource().getEntity();
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,ritualOfExhortationEffect);
             if (effectLevel > 0) {

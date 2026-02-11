@@ -1,12 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.RosmontisIngotEffect;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -26,7 +26,6 @@ public class Notes {
                 statGetter, LabelGetterBasic.integerLabel,
                 new TooltipGetterInteger(notesTooltip, statGetter)
         );
-
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
@@ -53,6 +52,18 @@ public class Notes {
                     }else{
                         event.addIndependentMulti((1 + (float) effectLevel / 50));
                     }
+                }
+            }
+            //泰坦杀手
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, titan_slayer_Effect);
+                if (effectLevel > 0) {
+                    event.addIndependentMulti((1 + (float) effectLevel / 100));
+                }
+            }else if(event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, titan_slayer_Effect);
+                if (effectLevel > 0) {
+                    event.addIndependentMulti((1 + (float) effectLevel / 100));
                 }
             }
         }

@@ -7,6 +7,7 @@ import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
@@ -29,53 +30,59 @@ public class MMTWandUtilMixin {
             cancellable = true, // 允许修改返回值
             remap = false // 不进行混淆映射
     )
-    private static void getLevelsMixin(Enchantment enchantment, LivingEntity livingEntity, CallbackInfoReturnable<Integer> cir){
+    private static void getLevelsMixin(Enchantment enchantment, LivingEntity livingEntity, CallbackInfoReturnable<Integer> cir) {
         // 获取原方法的返回值，即返回的等级
         float number = cir.getReturnValue();
         float percentageDiscount = 0;
         float fixedDiscount = 0;
         /// 对词条进行判断
-        if(livingEntity.getMainHandItem().getItem() == MoreModTetraItemRegister.MODULAR_GoetyWandItem.get() || livingEntity.getOffhandItem().getItem() == MoreModTetraItemRegister.MODULAR_GoetyWandItem.get()) {
-            //饰品取最大值
-            fixedDiscount += (float) MMTCuriosHelper.getInstance().getCuriosEffectMaxLevel(livingEntity, curios_goety_soul_focus_potency_Effect);
-            percentageDiscount += MMTCuriosHelper.getInstance().getCuriosEffectMaxEfficiency(livingEntity, curios_goety_soul_focus_potency_Effect) / 100;
-            //主副手取最大值
-            fixedDiscount += (float) MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_soul_focus_potency_Effect);
-            percentageDiscount += MMTEffectHelper.getInstance().getMainOffHandMaxEffectEfficiency(livingEntity, goety_soul_focus_potency_Effect) / 100;
-            // 这里可以添加自定义逻辑，例如修改等级
-            if (fixedDiscount > 0) {
-                number += fixedDiscount; // 自定义增加的等级
-            }
-            if (percentageDiscount > 0) {
-                number *= 1 + percentageDiscount / 100;
-            }
+        //饰品取最大值
+        fixedDiscount += (float) MMTCuriosHelper.getInstance().getCuriosEffectMaxLevel(livingEntity, curios_goety_soul_focus_potency_Effect);
+        percentageDiscount += MMTCuriosHelper.getInstance().getCuriosEffectMaxEfficiency(livingEntity, curios_goety_soul_focus_potency_Effect) / 100;
+        //主副手取最大值
+        fixedDiscount += (float) MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_soul_focus_potency_Effect);
+        percentageDiscount += MMTEffectHelper.getInstance().getMainOffHandMaxEffectEfficiency(livingEntity, goety_soul_focus_potency_Effect) / 100;
+        // 这里可以添加自定义逻辑，例如修改等级
+        if (fixedDiscount > 0) {
+            number += fixedDiscount; // 自定义增加的等级
+        }
+        if (percentageDiscount > 0) {
+            number *= 1 + percentageDiscount / 100;
         }
         // 设置新的返回值
         cir.setReturnValue((int) number);
     }
+
     @Inject(
             method = "isMatchingItem", // 目标方法名称
             at = @At("RETURN"), // 在方法返回点插入（即调用getLevels后）
             cancellable = true, // 允许修改返回值
             remap = false // 不进行混淆映射
     )
-    private static void getMatchingItemMixin(ItemStack itemStack, CallbackInfoReturnable<Boolean> cir){
-        if(itemStack.getItem() == MoreModTetraItemRegister.MODULAR_GoetyWandItem.get()) {
-            cir.setReturnValue(true);
+    private static void getMatchingItemMixin(ItemStack itemStack, CallbackInfoReturnable<Boolean> cir) {
+
+        if (ModList.get().isLoaded("goety") && !ModList.get().isLoaded("goety_revelation")) {
+            if (itemStack.getItem() == MoreModTetraItemRegister.MODULAR_GoetyWandItem.get()) {
+                cir.setReturnValue(true);
+            }
         }
     }
+
     @Inject(
             method = "enchantedFocus", // 目标方法名称
             at = @At("RETURN"), // 在方法返回点插入（即调用getLevels后）
             cancellable = true, // 允许修改返回值
             remap = false // 不进行混淆映射
     )
-    private static void enchantedFocusMixin(LivingEntity livingEntity, CallbackInfoReturnable<Boolean> cir){
-        //主副手其中一个是诡厄法杖
-        if(!findFocus(livingEntity).isEmpty() && (livingEntity.getMainHandItem().getItem() == MoreModTetraItemRegister.MODULAR_GoetyWandItem.get()
-        || livingEntity.getOffhandItem().getItem() == MoreModTetraItemRegister.MODULAR_GoetyWandItem.get() )
-        ) {
-            cir.setReturnValue(true);
+    private static void enchantedFocusMixin(LivingEntity livingEntity, CallbackInfoReturnable<Boolean> cir) {
+
+        if (ModList.get().isLoaded("goety") && !ModList.get().isLoaded("goety_revelation")) {
+            //主副手其中一个是诡厄法杖
+            if (!findFocus(livingEntity).isEmpty() && (livingEntity.getMainHandItem().getItem() == MoreModTetraItemRegister.MODULAR_GoetyWandItem.get()
+                    || livingEntity.getOffhandItem().getItem() == MoreModTetraItemRegister.MODULAR_GoetyWandItem.get())
+            ) {
+                cir.setReturnValue(true);
+            }
         }
     }
 }

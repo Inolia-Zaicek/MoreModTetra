@@ -1,0 +1,38 @@
+{
+    "key": "witherstormmod_tainted_dust",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 7,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "9933FF",
+        "texture": "9933FF"
+    },
+    "effects" : {
+        "more_mod_tetra:magic_combo": 52
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "witherstormmod:tainted_dust" ]
+    },
+    "attributes": {
+        "**generic.attack_speed": 0.05
+    },
+    "requiredTools": {
+        "hammer_dig": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "witherstormmod"
+        }
+    ]
+}

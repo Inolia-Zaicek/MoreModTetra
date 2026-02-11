@@ -1,0 +1,34 @@
+{
+  "key": "witherstormmod_formidibomb",
+  "category": "socket",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 1000,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "9933FF",
+    "texture": "9933FF"
+  },
+  "textures": [
+    "default"
+  ],
+  "effects": {
+    "more_mod_tetra:fire_combo": 220
+  },
+  "material": {
+    "items": [
+      "witherstormmod:formidibomb"
+    ]
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "witherstormmod"
+    }
+  ]
+}

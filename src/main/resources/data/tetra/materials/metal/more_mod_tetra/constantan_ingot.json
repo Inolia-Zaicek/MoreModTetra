@@ -1,0 +1,27 @@
+{
+    "key": "constantan_ingot",
+    "category": "metal",
+    "primary": 6.55,
+    "secondary": 2.6,
+    "tertiary": 2.84,
+    "durability": 1270,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 180,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "FF8A14",
+        "texture": "FF8A14"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "tag": "forge:ingots/constantan"
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    }
+}

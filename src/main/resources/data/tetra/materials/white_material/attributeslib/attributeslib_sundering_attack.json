@@ -1,0 +1,33 @@
+{
+  "key": "attributeslib_sundering_attack",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "attributeslib"
+    }
+  ],
+  "category": "white_material",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "4d566f"
+  },
+  "textures": [
+    ""
+  ],
+  "material": {
+    "items": [
+      "minecraft:fermented_spider_eye"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:white_attributeslib_sundering_attack": 1
+  }
+}

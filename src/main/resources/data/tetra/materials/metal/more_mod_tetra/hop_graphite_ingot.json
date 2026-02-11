@@ -1,0 +1,27 @@
+{
+    "key": "hop_graphite_ingot",
+    "category": "metal",
+    "primary": 5.8,
+    "secondary": 0.7,
+    "tertiary": 5,
+    "durability": 260,
+    "integrityCost": 2,
+    "integrityGain": 5,
+    "magicCapacity": 108,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "000000",
+        "texture": "000000"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "tag": "forge:ingots/hop_graphite"
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:stone"
+    }
+}

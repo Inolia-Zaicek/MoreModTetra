@@ -22,7 +22,7 @@
         "items": [ "fantasy_ending:dream_shadow_metal" ]
     },
     "effects" : {
-      "more_mod_tetra:fantasy_arcane_edge": 20
+      "more_mod_tetra:fantasy_arcane_edge": 25
 	},
   "attributes": {
       "**fantasy_ending:fantasy_spell_power": 0.05,

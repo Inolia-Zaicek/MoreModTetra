@@ -1,0 +1,30 @@
+{
+    "key": "vibranium_ingot",
+    "category": "metal",
+    "primary": 15,
+    "secondary": 7.5,
+    "tertiary": 5,
+    "durability": 5000,
+    "integrityCost": 2,
+    "integrityGain": 10,
+    "magicCapacity": 500,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "9AF3EE",
+        "texture": "9AF3EE"
+    },
+    "effects" : {
+        "more_mod_tetra:invulnerability_blade": 15
+    },
+    "textures": [
+        "heavy",
+        "metal"
+    ],
+    "material": {
+        "items": [ "allthemodium:vibranium_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    }
+}

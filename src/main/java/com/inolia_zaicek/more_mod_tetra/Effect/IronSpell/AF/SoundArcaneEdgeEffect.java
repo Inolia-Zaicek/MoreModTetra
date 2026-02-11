@@ -62,13 +62,11 @@ public class SoundArcaneEdgeEffect {
                 if (level > 0&& MMTDamageSourceHelper.isMeleeAttack(event.getSource())) {
                     //基础攻击伤害量
                     float baseAmount = event.getAmount();
-                    //额外法伤+基础伤害
-                    float magicBonusDamage = baseAmount+getDecimalPercentage(level, baseAmount);
                     //获取法强属性
-                    float fire = (float) attacker.getAttributeValue(net.alshanex.alshanex_familiars.registry.AttributeRegistry.SOUND_SPELL_POWER.get());
-                    float power = (float) attacker.getAttributeValue(AttributeRegistry.SPELL_POWER.get());
+                    float fire = (float) (attacker.getAttributeValue(net.alshanex.alshanex_familiars.registry.AttributeRegistry.SOUND_SPELL_POWER.get())-1)*(level/100)+1;
+                    float power = (float) (attacker.getAttributeValue(AttributeRegistry.SPELL_POWER.get())-1)*(level/100)+1;
                     //结算
-                    float finish =fire*power*magicBonusDamage;
+                    float finish =fire*power*baseAmount;
                     //获取怪物之前的无敌时间
                     int time = target.invulnerableTime;
                     target.invulnerableTime=0;

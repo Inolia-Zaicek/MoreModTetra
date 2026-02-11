@@ -1,0 +1,36 @@
+{
+    "key": "witherstormmod_withered_bone",
+    "category": "bone",
+    "primary": 7.5,
+    "secondary": 4,
+    "tertiary": 3,
+    "durability": 120,
+    "integrityCost": 1,
+    "integrityGain": 6,
+    "magicCapacity": 108,
+    "toolLevel": 5,
+    "toolEfficiency": 6,
+    "tints": {
+        "glyph": "9933FF",
+        "texture": "9933FF"
+    },
+    "effects" : {
+        "more_mod_tetra:wither": 1
+    },
+    "textures": [
+        "bone",
+        "crude"
+    ],
+    "material": {
+        "items": [ "witherstormmod:withered_bone" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 2
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "witherstormmod"
+        }
+    ]
+}

@@ -1,12 +1,7 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
-import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -29,23 +24,5 @@ public class DiamondGuard {
 
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
-    }
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void hurt(LivingHurtEvent event) {
-            //挨打的是玩家
-        if (event.getEntity()!=null) {
-            LivingEntity player = event.getEntity();
-                float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, diamond_guard_Effect);
-                if (effectLevel > 0) {
-                    if(effectLevel>95){effectLevel=95;}
-                    float mhp =player.getMaxHealth();
-                    float damage =event.getAmount();
-                    //最大扣血：最大生命值*（100%-比例)
-                    float maxAmount=( mhp*(1- effectLevel /100) );
-                    if(damage>maxAmount){
-                        event.setAmount(maxAmount);
-                    }
-            }
-        }
     }
 }

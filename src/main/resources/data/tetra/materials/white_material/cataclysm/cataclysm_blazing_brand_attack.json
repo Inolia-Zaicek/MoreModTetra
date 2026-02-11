@@ -1,0 +1,33 @@
+{
+  "key": "cataclysm_blazing_brand_attack",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "category": "white_material",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "ffd73f"
+  },
+  "textures": [
+    ""
+  ],
+  "material": {
+    "items": [
+      "cataclysm:ignitium_ingot"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:white_cataclysm_blazing_brand_attack": 1
+  }
+}

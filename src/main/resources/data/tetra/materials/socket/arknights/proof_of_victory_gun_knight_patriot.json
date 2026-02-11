@@ -15,9 +15,9 @@
         "texture": "F8FFCA"
     },
     "effects" : {
-        "more_mod_tetra:ritual_of_holy_guard": 10,
+        "more_mod_tetra:ritual_of_holy_guard": [15,5],
         "more_mod_tetra:ritual_of_exhortation": 17,
-        "more_mod_tetra:exhortation_of_gun_knight_patriot": 1
+        "more_mod_tetra:exhortation_of_gun_knight_patriot": [20,1]
     },
     "textures": [
         "perk_glow_0",

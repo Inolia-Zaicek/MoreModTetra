@@ -1,0 +1,36 @@
+{
+    "key": "immersiveengineering_hemp_fabric",
+    "category": "fabric",
+    "primary": 4,
+    "secondary": 1,
+    "tertiary": 7.5,
+    "durability": 600,
+    "integrityCost": 1,
+    "integrityGain": 4,
+    "magicCapacity": 290,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "FFEBC1",
+        "texture": "FFEBC1"
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": ["immersiveengineering:hemp_fabric"]
+    },
+    "effects" : {
+        "more_mod_tetra:industrial_protection": 1
+    },
+    "requiredTools": {
+        "cut": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "immersiveengineering"
+        }
+    ]
+}

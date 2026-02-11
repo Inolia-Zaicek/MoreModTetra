@@ -1,0 +1,33 @@
+{
+    "key": "atmospheric_aloe_gel_bottle",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 3,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "91fc58",
+        "texture": "91fc58"
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "atmospheric:aloe_gel_bottle" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.015,
+        "**generic.attack_speed": 0.015
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "atmospheric"
+        }
+    ]
+}

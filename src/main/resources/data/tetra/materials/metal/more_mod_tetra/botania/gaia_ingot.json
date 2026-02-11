@@ -21,7 +21,8 @@
     "effects": {
         "more_mod_tetra:will_of_gaia": 1,
         "more_mod_tetra:mana_regeneration": 20,
-        "more_mod_tetra:mana_repair": 5
+        "more_mod_tetra:mana_repair": 5,
+        "more_mod_tetra:diamond_guard": 5
     },
     "material": {
         "items": [ "botania:gaia_ingot" ]

@@ -10,13 +10,13 @@
       "item": "minecraft:writable_book"
     },
     "B": {
-      "item": "tetra:stick"
+      "item": "minecraft:stick"
     },
     "C": {
       "item": "tetra:dragon_sinew"
     },
     "D": {
-      "item": "tetra:string"
+      "item": "minecraft:string"
     }
   },
   "result": {

@@ -1,9 +1,13 @@
 package com.inolia_zaicek.more_mod_tetra.Modular.Iron; // 定义该类所属的包，表示它是“More Mod Tetra”模组中“Modular Curios”部分的一部分。
 
+import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -12,11 +16,11 @@ import se.mickelus.tetra.gui.GuiModuleOffsets;
 import se.mickelus.tetra.items.modular.ItemModularHandheld;
 import se.mickelus.tetra.module.ItemModule;
 import se.mickelus.tetra.module.ItemUpgradeRegistry;
+import se.mickelus.tetra.module.SchematicRegistry;
+import se.mickelus.tetra.module.schematic.RepairSchematic;
+import se.mickelus.tetra.properties.AttributeHelper;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -66,6 +70,8 @@ public class ModularIronStaff extends ItemModularHandheld { // 声明一个名�
         minorModuleKeys = new String[]{mmt_iron_staff_inscription,mmt_iron_staff_crystals};
         // 定义该项链所必需的模块（Required Modules）。游戏会确保这些模块至少存在一个，否则物品可能无法正常工作或显示。
         requiredModules = new String[]{mmt_iron_staff_core, mmt_iron_staff_head,mmt_iron_staff_handle};
+        //可修复
+        SchematicRegistry.instance.registerSchematic(new RepairSchematic(this, identifier));
     }
     /*** 获取该模块化物品所有已安装的模块。** @param stack 当前物品的ItemStack。* @return 包含所有已安装模块的Collection。*/
     //不用动他
@@ -109,7 +115,21 @@ public class ModularIronStaff extends ItemModularHandheld { // 声明一个名�
     }
 
     @Override
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(ItemStack itemStack) {
-        return super.getAttributeModifiers(itemStack);
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack itemStack) {
+        if (isBroken(itemStack)) {
+            return AttributeHelper.emptyMap;
+        }
+
+        if (slot == EquipmentSlot.MAINHAND) {
+            return getAttributeModifiersCached(itemStack);
+        }
+
+        if (slot == EquipmentSlot.OFFHAND) {
+            return getAttributeModifiersCached(itemStack).entries().stream()
+                    .filter(entry -> !(entry.getKey().equals(Attributes.ATTACK_DAMAGE) || entry.getKey().equals(Attributes.ATTACK_DAMAGE)))
+                    .collect(Multimaps.toMultimap(Map.Entry::getKey, Map.Entry::getValue, ArrayListMultimap::create));
+        }
+
+        return AttributeHelper.emptyMap;
     }
 }

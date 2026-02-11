@@ -1,0 +1,38 @@
+{
+  "key": "irons_spellbooks_bloody_vellum",
+  "category": "fabric",
+  "primary": 2,
+  "secondary": 2,
+  "tertiary": 5.5,
+  "durability": 500,
+  "integrityCost": 1,
+  "integrityGain": 6,
+  "magicCapacity": 1800,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "E77369",
+    "texture": "E77369"
+  },
+  "attributes": {
+    "**irons_spellbooks:blood_spell_power": 0.025
+  },
+  "textures": [
+    "crude",
+    "default"
+  ],
+  "material": {
+    "items": [
+      "irons_spellbooks:bloody_vellum"
+    ]
+  },
+  "requiredTools": {
+    "cut": 2
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ]
+}

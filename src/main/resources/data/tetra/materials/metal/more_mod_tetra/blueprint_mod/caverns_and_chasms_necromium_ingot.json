@@ -1,0 +1,36 @@
+{
+    "key": "caverns_and_chasms_necromium_ingot",
+    "category": "metal",
+    "primary": 6.84,
+    "secondary": 2.9,
+    "tertiary": 3.5,
+    "durability": 2031,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 90,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 9,
+    "tints": {
+        "glyph": "86b19c",
+        "texture": "86b19c"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "effects": {
+        "more_mod_tetra:slowness": 1
+    },
+    "material": {
+        "items": [ "caverns_and_chasms:necromium_ingot" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "caverns_and_chasms"
+        }
+    ]
+}

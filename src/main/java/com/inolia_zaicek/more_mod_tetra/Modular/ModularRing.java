@@ -6,28 +6,20 @@ import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriousHelper;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
-import com.inolia_zaicek.more_mod_tetra.Util.MMTTargetMode;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import org.jetbrains.annotations.NotNull;
 import se.mickelus.tetra.gui.GuiModuleOffsets;
@@ -38,12 +30,10 @@ import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.*;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.curiosProjectileTrackingEffect;
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.projectileTrackingEffect;
 
 @SuppressWarnings({"all", "removal"})
 public class ModularRing extends ModularItem implements  ICurioItem { // 声明一个名为Modularring的公共类，它继承自ModularItem并实现ICurio接口。
@@ -77,8 +67,6 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
     public ModularRing() {
         // 调用父类（ModularItem）的构造函数，并设置物品的基本属性：// new Item.Properties(): 创建物品属性对象。// .stacksTo(1): 设置该物品堆叠上限为1，表示项链是独立的、不可堆叠的物品。// .fireResistant(): 使该物品具有防火属性，在火焰中不会被烧毁。
         super(new Properties().stacksTo(1).fireResistant());
-        // 注册事件监听器：在实体加入到世界时触发addMode方法
-        MinecraftForge.EVENT_BUS.addListener(ModularRing::addMode);
         //可否打磨
         canHone = false;
         //设置主要部件有什么
@@ -167,7 +155,7 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
         }
     }
 
-    private static final String Tracking_Mode = MoreModTetra.MODID + ":tracking_mode_nbt";
+    public static final String Tracking_Mode = MoreModTetra.MODID + ":tracking_mode_nbt";
 
     // 在物品提示里显示当前模式（读取玩家的PersistentData）
     @OnlyIn(Dist.CLIENT)
@@ -193,63 +181,5 @@ public class ModularRing extends ModularItem implements  ICurioItem { // 声明�
         }
     }
     // 关键部分：当实体加入到某个层级（世界）时触发
-    @SubscribeEvent
-    public static void addMode(EntityJoinLevelEvent event) {
-        Entity entity = event.getEntity();
-        if (entity instanceof Projectile projectile) {
-            // 如果实体是投射物（如箭），尝试找到它的发射者
-            Entity owner = projectile.getOwner();
-            if (owner instanceof LivingEntity player &&
-                    // 对追踪词条进行判断
-                    MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosProjectileTrackingEffect) > 0
-            ) {
-                // 获取玩家存储的追踪模式（已修改存储在玩家PersistentData中）
-                // 你需要传入正确的玩家对象，这里假设已获取到player
-                CompoundTag playerData = player.getPersistentData();
-                int mode = playerData.getInt(Tracking_Mode);
 
-                // 根据玩家的模式设置目标筛选规则
-                Predicate targetPredicate;
-                switch (mode) {
-                    //锁定非玩家实体
-                    case 1 -> targetPredicate = (target) -> target instanceof LivingEntity && !(target instanceof Player);
-                    //锁定敌对实体
-                    case 2 -> targetPredicate = (target) -> target instanceof Enemy;
-                    //锁定所有实体
-                    default -> targetPredicate = (target) -> target instanceof LivingEntity;
-                }
-
-                Predicate<Entity> targetMode = targetPredicate;
-
-                if (projectile instanceof MMTTargetMode modeObj) {
-                   modeObj.mmt$setMode(targetMode);
-               }
-            }
-            //如果是工具
-            else if (owner instanceof LivingEntity player &&
-                    // 对追踪词条进行判断
-                    MMTEffectHelper.getInstance().getAllEffectLevel(player, projectileTrackingEffect)>0
-            ) {
-                // 获取玩家存储的追踪模式（已修改存储在玩家PersistentData中）
-                // 你需要传入正确的玩家对象，这里假设已获取到player
-                CompoundTag playerData = player.getPersistentData();
-                int mode = playerData.getInt(Tracking_Mode);
-
-                // 根据玩家的模式设置目标筛选规则
-                Predicate targetPredicate;
-                switch (mode) {
-                    //固定锁定
-                    case 1 -> targetPredicate = (target) -> target instanceof LivingEntity && !(target instanceof Player) && !(target!=player);
-                    case 2 -> targetPredicate = (target) -> target instanceof LivingEntity && !(target instanceof Player) && !(target!=player);
-                    default -> targetPredicate = (target) -> target instanceof LivingEntity && !(target instanceof Player) && !(target!=player);
-                }
-
-                Predicate<Entity> targetMode = targetPredicate;
-
-                if (projectile instanceof MMTTargetMode modeObj) {
-                    modeObj.mmt$setMode(targetMode);
-                }
-            }
-        }
-    }
 }

@@ -2,8 +2,20 @@
   "key": "curios_goety_swirling",
   "conditions": [
     {
-      "type": "forge:mod_loaded",
-      "modid": "goety"
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "goety"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "goety_revelation"
+          }
+        }
+      ]
     }
   ],
   "category": "rainbow",

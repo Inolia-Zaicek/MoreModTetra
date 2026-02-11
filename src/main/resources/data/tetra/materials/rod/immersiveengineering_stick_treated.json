@@ -1,0 +1,33 @@
+{
+    "key": "immersiveengineering_stick_treated",
+    "category": "misc",
+    "primary": 2,
+    "secondary": 0.7,
+    "tertiary": 5.7,
+    "durability": 120,
+    "integrityCost": 1,
+    "integrityGain": 3,
+    "magicCapacity": 90,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "5d3421",
+        "texture": "5d3421"
+    },
+    "effects" : {
+        "more_mod_tetra:industrial_protection": 1
+    },
+    "material": {
+        "items": [ "immersiveengineering:stick_treated" ]
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "immersiveengineering"
+        }
+    ]
+}

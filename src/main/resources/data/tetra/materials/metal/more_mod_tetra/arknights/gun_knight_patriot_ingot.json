@@ -15,7 +15,7 @@
         "texture": "F8FFCA"
     },
     "effects" : {
-        "more_mod_tetra:ritual_of_holy_guard": 10,
+        "more_mod_tetra:ritual_of_holy_guard": [15,5],
         "more_mod_tetra:ritual_of_exhortation": 17
     },
     "textures": [

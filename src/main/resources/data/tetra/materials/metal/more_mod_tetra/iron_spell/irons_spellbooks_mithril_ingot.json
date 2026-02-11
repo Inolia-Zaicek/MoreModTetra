@@ -1,0 +1,54 @@
+{
+    "key": "irons_spellbooks_mithril_ingot",
+    "category": "metal",
+    "primary": 8.24,
+    "secondary": 3.9,
+    "tertiary": 4.5,
+    "durability": 2250,
+    "integrityCost": 2,
+    "integrityGain": 8,
+    "magicCapacity": 1500,
+    "toolLevel": "minecraft:netherite",
+    "toolEfficiency": 10,
+    "tints": {
+        "glyph": "bdf3f3",
+        "texture": "bdf3f3"
+    },
+    "textures": [
+        "metal",
+        "default"
+    ],
+    "material": {
+        "items": [ "irons_spellbooks:mithril_ingot" ]
+    },
+        "effects" : {
+      "more_mod_tetra:arcane_arcane_edge": 25
+	},
+      "attributes": {
+      "**irons_spellbooks:spell_power": 0.025,
+        "irons_spellbooks:max_mana": 50
+  },
+    "requiredTools": {
+        "hammer_dig": "minecraft:iron"
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "contexts": {
+    "armor": {
+      "attributes": {
+        "**irons_spellbooks:spell_power": 0.025,
+        "**irons_spellbooks:fire_spell_power": 0.05,
+        "irons_spellbooks:max_mana": 62.5,
+        "**irons_spellbooks:spell_resist": 0.025,
+        "**irons_spellbooks:fire_magic_resist": 0.025
+      },
+      "effects": {
+        "more_mod_tetra:fire_arcane_guard": 20
+      }
+    }
+  }
+}

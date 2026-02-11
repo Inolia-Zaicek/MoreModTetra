@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ACE",
+        "FBF",
+        "EDA"
+    ],
+    "key": {
+        "A": {
+            "item": "minecraft:iron_ingot"
+        },
+        "B": {
+            "item": "minecraft:blaze_rod"
+        },
+        "C": {
+            "item": "minecraft:white_dye"
+        },
+        "D": {
+            "item": "minecraft:black_dye"
+        },
+        "E": {
+            "item": "minecraft:arrow"
+        },
+        "F": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "more_mod_tetra:tetra_white_quiver",
+        "count": 1
+    }
+}

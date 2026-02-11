@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:stonecutting",
+    "count": 1,
+    "group": "more_mod_tetra_proof_of_victory_frost_nova",
+    "ingredient": {
+        "item": "torchesbecomesunlight:winter_pass"
+    },
+    "result": "more_mod_tetra:proof_of_victory_frost_nova"
+}

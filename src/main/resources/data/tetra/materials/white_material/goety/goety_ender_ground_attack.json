@@ -1,0 +1,33 @@
+{
+  "key": "goety_ender_ground_attack",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
+  "category": "white_material",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "105e51"
+  },
+  "textures": [
+    ""
+  ],
+  "material": {
+    "items": [
+      "goety:ender_chest_focus"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:white_goety_ender_ground_attack": 1
+  }
+}

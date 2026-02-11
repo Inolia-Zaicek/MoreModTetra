@@ -11,7 +11,7 @@ import java.util.List;
 public class EffectLevelEvent extends Event {
     //固定增减
     private float fixedDamage = 0.0f;
-    private float normalMulti = 0.0f;
+    private float normalMulti = 0f;
     //怎么工作的知道吗上面两个计算完后*它，如果小于1就是减，大于1增，不是吧
     private List<Float> independentMulti = new ArrayList<>();
     private final LivingEntity attacker;

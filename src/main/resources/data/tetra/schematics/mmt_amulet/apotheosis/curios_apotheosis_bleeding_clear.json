@@ -1,0 +1,44 @@
+{
+    
+    "slots": [ "mmt_amulet/fill" ],
+    "materialSlotCount": 1,
+    "rarity": "temporary",
+    "displayType": "improvement",
+    "glyph": {
+        "textureX": 176,
+        "textureY": 48
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "apotheosis"
+        }
+    ],
+    "requirement": {
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:module",
+                "module": "mmt_amulet/fill/fill_item"
+            },
+            {
+                "type": "tetra:not",
+                "requirement": {
+                    "type": "tetra:improvement",
+                    "improvement": "curios_apotheosis_bleeding_clear"
+                }
+            }
+        ]
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "minecraft:arrow" ],
+                "count": 8
+            },
+            "improvements": {
+                "curios_apotheosis_bleeding_clear": 0
+            }
+        }
+    ]
+}

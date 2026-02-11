@@ -1,0 +1,33 @@
+{
+    "key": "endergetic_booflo_hide",
+    "category": "skin",
+    "primary": 6,
+    "secondary": 1.5,
+    "tertiary": 4,
+    "durability": 400,
+    "integrityCost": 2,
+    "integrityGain": 4,
+    "magicCapacity": 90,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "efdd90",
+        "texture": "efdd90"
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": [ "endergetic:booflo_hide" ]
+    },
+    "requiredTools": {
+        "cut": 4
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "endergetic"
+        }
+    ]
+}

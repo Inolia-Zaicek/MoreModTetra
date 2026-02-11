@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "CAC",
+    " C "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:writable_book"
+    },
+    "B": {
+      "item": "tetra:planar_stabilizer"
+    },
+    "C": {
+      "item": "tetra:metal_scrap"
+    }
+  },
+  "result": {
+    "item": "tetra:scroll_rolled",
+    "count": 1,
+    "nbt": {
+      "BlockEntityTag": {
+        "data": [
+          {
+            "key": "mmt_quality_scroll",
+            "effects": ["tetra:mmt_quality_scroll"],
+            "intricate": false,
+            "details": "mmt_quality_scroll",
+            "material": 0,
+            "ribbon": "b2b2b2",
+            "glyphs": [ 3, 8, 1, 4 ]
+          }
+        ]
+      }
+    }
+  }
+}

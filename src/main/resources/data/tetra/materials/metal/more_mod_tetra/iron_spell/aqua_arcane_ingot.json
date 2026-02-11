@@ -22,7 +22,7 @@
         "items": [ "more_mod_tetra:aqua_arcane_ingot" ]
     },
     "effects" : {
-      "more_mod_tetra:aqua_arcane_edge": 20
+      "more_mod_tetra:aqua_arcane_edge": 25
 	},
       "attributes": {
       "**traveloptics:aqua_spell_power": 0.05,

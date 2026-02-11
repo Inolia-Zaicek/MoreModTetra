@@ -17,7 +17,7 @@
     "effects" : {
         "more_mod_tetra:expanded_cognition": 36,
         "more_mod_tetra:nociceptor_inhibition": 15,
-        "more_mod_tetra:notes": 50
+        "more_mod_tetra:notes": 30
     },
     "textures": [
         "perk_glow_0",

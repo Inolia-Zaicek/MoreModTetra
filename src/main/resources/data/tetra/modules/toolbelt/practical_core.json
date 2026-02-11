@@ -5,7 +5,6 @@
     "slotSuffixes": ["_slot1","_slot2","_slot3" ],
     "variants": [
         {
-
             "materials": [ "tetra:practical_core/"],
             "key": "practical_core/",
             "effects": {

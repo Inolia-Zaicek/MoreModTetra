@@ -1,0 +1,33 @@
+{
+  "key": "irons_spellbooks_blight_3",
+  "hidden": true,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "category": "white_material",
+  "primary": 0,
+  "secondary": 0,
+  "tertiary": 0,
+  "durability": 0,
+  "integrityCost": 1,
+  "integrityGain": 0,
+  "magicCapacity": 0,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+  "tints": {
+    "glyph": "b6c534"
+  },
+  "textures": [
+    ""
+  ],
+  "material": {
+    "items": ["irons_spellbooks:scroll"],
+    "nbt": "{\"ISB_Spells\":{\"data\":[{\"id\":\"irons_spellbooks:blight\",\"index\":0,\"level\":3,\"locked\":1b}],\"maxSpells\":1,\"mustEquip\":0b,\"spellWheel\":0b}}"
+  },
+  "effects" : {
+    "more_mod_tetra:white_irons_spellbooks_blight_3_attack": 1
+  }
+}

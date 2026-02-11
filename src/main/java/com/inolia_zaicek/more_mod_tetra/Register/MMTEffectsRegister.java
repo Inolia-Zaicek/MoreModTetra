@@ -44,4 +44,7 @@ public class MMTEffectsRegister {
     public static final RegistryObject<MobEffect> SanctuaryOfMooncocoonCooldown = INOEFFECT.register("sanctuary_of_mooncocoon_cooldown", SanctuaryOfMooncocoonCooldown::new);
     public static final RegistryObject<MobEffect> Enderference = INOEFFECT.register("enderference", Enderference::new);
     public static final RegistryObject<MobEffect> BokushuuSDesire = INOEFFECT.register("bokushuu_s_desire", BokushuuSDesireBuff::new);
+    public static final RegistryObject<MobEffect> DamageBuffering = INOEFFECT.register("damage_buffering", DamageBufferingBuff::new);
+    public static final RegistryObject<MobEffect> SoulBreak = INOEFFECT.register("soul_break", SoulBreakBuff::new);
+    public static final RegistryObject<MobEffect> Pure = INOEFFECT.register("pure", PureBuff::new);
 }

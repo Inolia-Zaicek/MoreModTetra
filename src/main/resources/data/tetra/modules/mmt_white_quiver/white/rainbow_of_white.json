@@ -1,0 +1,38 @@
+{
+    
+    "type": "tetra:basic_major_module",
+    "slots": [ "mmt_white_quiver/white" ],
+    "improvements": [],
+    "variants": [
+        {
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/","tetra:skin/","tetra:fibre/","tetra:fabric/" ],
+            "key": "rainbow_of_white/",
+            "effects": {
+                "more_mod_tetra:curios_materials_effect_invalidation": 1,
+                "more_mod_tetra:white_quiver": [10,2]
+            },
+            "extract": {
+                "primaryEffects": {
+                    "more_mod_tetra:white_quiver": [4,0]
+                },
+                "secondaryEffects": {
+                    "more_mod_tetra:white_quiver": [2,0.15]
+                },
+                "tertiaryEffects": {
+                    "more_mod_tetra:white_quiver": [0,0.3]
+                },
+                "glyph": {
+                    "textureX": 176,
+                    "textureY": 48
+                },
+                "integrity": 1
+            },
+            "availableTextures": [ "" ],
+            "models": [
+                {
+                    "location": "more_mod_tetra:item/tetra_white_quiver"
+                }
+            ]
+        }
+    ]
+}

@@ -11,7 +11,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -61,6 +60,7 @@ public class RuneOfAlimentCleansing {
                     MobEffectInstance effect = event.getEffectInstance();
                     MobEffect type = effect.getEffect();
                     if (type.getCategory().equals(MobEffectCategory.HARMFUL)) {
+                        //缩短25%的时间
                         MMTEffectHelper.shortenEffect(effect, player, effect.getDuration() / 4);
                     }
                 }

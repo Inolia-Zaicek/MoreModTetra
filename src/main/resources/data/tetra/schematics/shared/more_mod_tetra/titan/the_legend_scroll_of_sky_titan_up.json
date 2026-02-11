@@ -62,7 +62,18 @@
 "modular_annihilator/left_hammer",
 "modular_astrape/blade",
 "modular_dark_wand/end",
-
+"modular_enchanters_sword/blade",
+"modular_ars_spell_bow/stave",
+"modular_ars_spell_crossbow/stave",
+"modular_sentinels_blade_of_naught/blade",
+"modular_valbar_the_sword_of_courage/blade",
+"modular_domain_of_genesis/blade",
+"modular_rever_slasher/core",
+"modular_void_blossom/blade",
+"modular_dark_stillness/blade",
+"modular_creation_and_destruction/blade",
+"modular_chilling_moon/blade",
+"modular_solar_radiance/blade",
 
 
         "slashblade/blade",
@@ -97,9 +108,14 @@
             }
         ]
     },
+    "materialSlotCount": 1,
     "outcomes": [
         {
             "experienceFactor": 15,
+            "material": {
+                "items": [ "minecraft:diamond" ],
+                "count":8
+            },
             "improvements": {
                 "the_legend_scroll_of_sky_titan_up": 0
             }

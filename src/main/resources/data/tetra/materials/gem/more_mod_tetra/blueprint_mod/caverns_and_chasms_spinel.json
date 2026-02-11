@@ -1,0 +1,33 @@
+{
+    "key": "caverns_and_chasms_spinel",
+    "category": "gem",
+    "primary": 5.5,
+    "secondary": 2.9,
+    "tertiary": 0,
+    "durability": 1250,
+    "integrityCost": 2,
+    "integrityGain": 2,
+    "magicCapacity": 72,
+    "toolLevel": "minecraft:iron",
+    "toolEfficiency": 7,
+    "tints": {
+        "glyph": "d382aa",
+        "texture": "d382aa"
+    },
+    "textures": [
+        "shiny",
+        "crude"
+    ],
+    "material": {
+        "items": [ "caverns_and_chasms:spinel" ]
+    },
+    "requiredTools": {
+        "hammer_dig": 1
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "caverns_and_chasms"
+        }
+    ]
+}

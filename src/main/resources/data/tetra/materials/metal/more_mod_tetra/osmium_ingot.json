@@ -1,7 +1,7 @@
 {
     "key": "osmium_ingot",
     "category": "metal",
-    "primary": 6.8,
+    "primary": 6.5,
     "secondary": 3.8,
     "tertiary": 1.1,
     "durability": 1500,

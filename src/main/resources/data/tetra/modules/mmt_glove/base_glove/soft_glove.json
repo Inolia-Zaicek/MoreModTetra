@@ -5,7 +5,7 @@
     "improvements": [],
     "variants": [
         {
-            "materials": [ "tetra:skin/","tetra:fibre/","tetra:fabric/" ],
+            "materials": ["tetra:bone/", "tetra:metal/", "tetra:stone/", "tetra:wood/", "tetra:gem/","tetra:skin/","tetra:fibre/","tetra:fabric/" ],
             "key": "soft_glove/",
             "effects": {
                 "more_mod_tetra:curios_materials_effect_invalidation": 1

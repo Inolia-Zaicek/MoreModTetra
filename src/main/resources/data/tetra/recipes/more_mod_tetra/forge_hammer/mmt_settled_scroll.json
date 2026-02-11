@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "CAC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:writable_book"
+    },
+    "B": {
+      "item": "tetra:lubricant_dispenser"
+    },
+    "C": {
+      "item": "tetra:metal_scrap"
+    },
+    "D": {
+      "item": "tetra:vent_plate"
+    }
+  },
+  "result": {
+    "item": "tetra:scroll_rolled",
+    "count": 1,
+    "nbt": {
+      "BlockEntityTag": {
+        "data": [
+          {
+            "key": "mmt_settled_scroll",
+            "effects": ["tetra:mmt_settled_scroll"],
+            "intricate": false,
+            "details": "mmt_settled_scroll",
+            "material": 0,
+            "ribbon": "b2b2b2",
+            "glyphs": [ 3, 8, 1, 4 ]
+          }
+        ]
+      }
+    }
+  }
+}

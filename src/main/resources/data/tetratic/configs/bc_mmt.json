@@ -101,7 +101,23 @@
             "mmt_iron_staff/core/spell_core": {
                 "config": {
                     "attributes": {
-                        "parent": "bettercombat:battlestaff"
+                        "parent": "bettercombat:wand"
+                    }
+                }
+            }
+        },
+        "modular_dark_wand/core": {
+            "modular_dark_wand/core/goety_spell_core": {
+                "config": {
+                    "attributes": {
+                        "parent": "bettercombat:wand"
+                    }
+                }
+            },
+            "modular_dark_wand/core/goety_summon_core": {
+                "config": {
+                    "attributes": {
+                        "parent": "bettercombat:wand"
                     }
                 }
             }

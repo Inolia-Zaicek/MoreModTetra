@@ -15,7 +15,7 @@
         "texture": "b600ff"
     },
     "effects" : {
-        "more_mod_tetra:evil_ingot_material": 30,
+        "more_mod_tetra:evil_ingot_material": [30,30],
         "more_mod_tetra:evil_curse": 3
     },
     "textures": [

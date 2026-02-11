@@ -167,9 +167,14 @@
             }
         ]
     },
+    "materialSlotCount": 1,
     "outcomes": [
         {
-            "experienceFactor": 13,
+            "experienceFactor": 20,
+            "material": {
+                "items": [ "minecraft:netherite_ingot" ],
+                "count": 2
+            },
             "improvements": {
                 "ode_to_strife": 0
             }

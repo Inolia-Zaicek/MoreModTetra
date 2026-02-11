@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "more_mod_tetra:bokushuu_ingot"
+        },
+        {
+            "item": "minecraft:coast_armor_trim_smithing_template"
+        }
+    ],
+    "result": {
+        "item": "more_mod_tetra:bokuka_ingot",
+        "count": 4
+    }
+}
