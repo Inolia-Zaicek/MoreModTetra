@@ -3,9 +3,9 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios;
 import com.inolia_zaicek.more_mod_tetra.Event.MMTFluidCollisionEvent;
 import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,9 +17,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
-import top.theillusivec4.curios.api.CuriosApi;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
@@ -40,21 +38,13 @@ public class CuriosMagmaWalker {
     @SubscribeEvent
     public static void onLivingAttack(EffectLevelEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getAttacked()!=null) {
+            if (event.getAttacked() != null) {
                 LivingEntity player = event.getAttacked();
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                        (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                        slotResult -> {
-                            slotResult.stack();
-                            ItemStack itemStack = slotResult.stack();
-                            IModularItem iModularItem = (IModularItem) itemStack.getItem();
-                            int effectLevel = iModularItem.getEffectLevel(itemStack, curiosMagmaWalkerEffect);
-                            if (effectLevel > 0 && event.hurtEvent.getSource() == event.getAttacked().level().damageSources().hotFloor()) {
-                                // 则取消伤害事件，使玩家不受伤害。
-                                event.setCanceled(true);
-                            }
-                        }
-                ));
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagmaWalkerEffect);
+                if (effectLevel > 0 && event.hurtEvent.getSource() == event.getAttacked().level().damageSources().hotFloor()) {
+                    // 则取消伤害事件，使玩家不受伤害。
+                    event.setCanceled(true);
+                }
             }
         }
     }
@@ -66,23 +56,15 @@ public class CuriosMagmaWalker {
     @SubscribeEvent
     public static void onFluidCollide(MMTFluidCollisionEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getEntity()!=null) {
+            if (event.getEntity() != null) {
                 LivingEntity player = event.getEntity();
-                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                        (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                        slotResult -> {
-                            slotResult.stack();
-                            ItemStack itemStack = slotResult.stack();
-                            IModularItem iModularItem = (IModularItem) itemStack.getItem();
-                            float effectLevel = iModularItem.getEffectLevel(itemStack, curiosMagmaWalkerEffect);
-                            if (event.getFluid().is(FluidTags.LAVA) && !player.isShiftKeyDown()) {
-                                // 取消流体碰撞事件，阻止玩家因接触熔岩而受到伤害或被移除。
-                                if (effectLevel > 0) {
-                                    event.setCanceled(true);
-                                }
-                            }
-                        }
-                ));
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagmaWalkerEffect);
+                if (event.getFluid().is(FluidTags.LAVA) && !player.isShiftKeyDown()) {
+                    // 取消流体碰撞事件，阻止玩家因接触熔岩而受到伤害或被移除。
+                    if (effectLevel > 0) {
+                        event.setCanceled(true);
+                    }
+                }
             }
         }
     }

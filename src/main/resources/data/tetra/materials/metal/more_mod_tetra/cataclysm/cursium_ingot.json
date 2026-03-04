@@ -16,7 +16,7 @@
     },
     "effects" : {
         "more_mod_tetra:ghost_form": 2,
-        "quickStrike": 10
+        "quickStrike": 8
     },
     "textures": [
         "heavy",

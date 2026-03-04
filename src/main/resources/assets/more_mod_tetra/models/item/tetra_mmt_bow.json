@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer0": "more_mod_tetra:item/tetra_mmt_bow"
+    }
+}

@@ -68,14 +68,21 @@ public class MoreModTetraItemRegister {
     public static final RegistryObject<Item> MODULAR_TotemOfUndying = ZeroingITEM.register(ModularTotemOfUndying.identifier, ModularTotemOfUndying::new);
     public static final RegistryObject<Item> CuriosTotemOfUndying = registerCommonMaterials(ZeroingITEM,"curios_totem_of_undying", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
     public static final RegistryObject<Item> MODULAR_WhiteContainer = ZeroingITEM.register(ModularWhiteContainer.identifier, ModularWhiteContainer::new);
-    public static final RegistryObject<Item> CuriosWhiteContainer = registerCommonMaterials(ZeroingITEM,"tetra_white_container", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> CuriosWhiteContainer = registerCommonMaterials(ZeroingITEM,"tetra_white_container", () -> new TooltipItem(new Item.Properties().stacksTo(1).fireResistant() ));
     public static final RegistryObject<Item> MODULAR_WhiteScabbard = ZeroingITEM.register(ModularWhiteScabbard.identifier, ModularWhiteScabbard::new);
-    public static final RegistryObject<Item> CuriosWhiteScabbard = registerCommonMaterials(ZeroingITEM,"tetra_white_scabbard", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> CuriosWhiteScabbard = registerCommonMaterials(ZeroingITEM,"tetra_white_scabbard", () -> new TooltipItem(new Item.Properties().stacksTo(1).fireResistant() ));
     public static final RegistryObject<Item> MODULAR_WhiteQuiver = ZeroingITEM.register(ModularWhiteQuiver.identifier, ModularWhiteQuiver::new);
-    public static final RegistryObject<Item> CuriosWhiteQuiver = registerCommonMaterials(ZeroingITEM,"tetra_white_quiver", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> CuriosWhiteQuiver = registerCommonMaterials(ZeroingITEM,"tetra_white_quiver", () -> new TooltipItem(new Item.Properties().stacksTo(1).fireResistant() ));
     public static final RegistryObject<Item> MODULAR_WhiteBag = ZeroingITEM.register(ModularWhiteBag.identifier, ModularWhiteBag::new);
-    public static final RegistryObject<Item> CuriosWhiteBag = registerCommonMaterials(ZeroingITEM,"tetra_white_bag", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+    public static final RegistryObject<Item> CuriosWhiteBag = registerCommonMaterials(ZeroingITEM,"tetra_white_bag", () -> new TooltipItem(new Item.Properties().stacksTo(1).fireResistant() ));
+
+    public static final RegistryObject<Item> MODULAR_MMTBow =ZeroingITEM.register(ModularMMTBow.identifier, ModularMMTBow::new);
+    public static final RegistryObject<Item> TetraMMTBow = registerCommonMaterials(ZeroingITEM,"tetra_mmt_bow", () -> new TooltipItem(new Item.Properties().stacksTo(1).fireResistant() ));
+
     //原版
+    public static final RegistryObject<Item> eclipse_skill_book = registerCommonMaterials(ZeroingITEM,"eclipse_skill_book", () -> new TooltipItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> eclipse_star_burst_stream_skill_book = registerCommonMaterials(ZeroingITEM,"eclipse_star_burst_stream_skill_book", () -> new TooltipItem(new Item.Properties().stacksTo(64)));
+
     public static final RegistryObject<Item> CopperLantern = registerCommonMaterials(ZeroingITEM,"copper_lantern", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> ReverseMirror = registerCommonMaterials(ZeroingITEM,"reverse_mirror", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> OxygenTank = registerCommonMaterials(ZeroingITEM,"oxygen_tank", () -> new Item(new Item.Properties().stacksTo(64)));
@@ -118,11 +125,11 @@ public class MoreModTetraItemRegister {
     public static final RegistryObject<Item> FakeSilkyCloth = registerCommonMaterials(ZeroingITEM,"fake_silky_cloth", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> FakeAlumiteIngot = registerCommonMaterials(ZeroingITEM,"fake_alumite_ingot", () -> new Item(new Item.Properties().stacksTo(64)));
     //钱币
-    public static final RegistryObject<Item> CopperMoney = registerCommonMaterials(ZeroingITEM,"copper_money", () -> new Item(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> IronMoney = registerCommonMaterials(ZeroingITEM,"iron_money", () -> new Item(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> GoldMoney = registerCommonMaterials(ZeroingITEM,"gold_money", () -> new Item(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> DiamondMoney = registerCommonMaterials(ZeroingITEM,"diamond_money", () -> new Item(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> NetheriteMoney = registerCommonMaterials(ZeroingITEM,"netherite_money", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> CopperMoney = registerCommonMaterials(ZeroingITEM,"copper_money", () -> new TooltipItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> IronMoney = registerCommonMaterials(ZeroingITEM,"iron_money", () -> new TooltipItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> GoldMoney = registerCommonMaterials(ZeroingITEM,"gold_money", () -> new TooltipItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> DiamondMoney = registerCommonMaterials(ZeroingITEM,"diamond_money", () -> new TooltipItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> NetheriteMoney = registerCommonMaterials(ZeroingITEM,"netherite_money", () -> new TooltipItem(new Item.Properties().stacksTo(64)));
     //铁魔法法杖
     public static final RegistryObject<Item> MODULAR_IronStaff = IronSpellITEM.register(ModularIronStaff.identifier, ModularIronStaff::new);
     public static final RegistryObject<Item> TetraIronStaff = registerCommonMaterials(IronSpellITEM,"tetra_iron_staff", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
@@ -204,10 +211,10 @@ public class MoreModTetraItemRegister {
         if(ModList.get().isLoaded("torchesbecomesunlight")){
             ArkNightsITEM.register(bus);
         }
-        if(ModList.get().isLoaded("goety")&&!ModList.get().isLoaded("goety_revelation")){
+        if(ModList.get().isLoaded("goety")){
             GoetyITEM.register(bus);
             MODULAR_GoetyWandItem = GoetyITEM.register(ModularGoetyWandItem.identifier, ModularGoetyWandItem::new);
-            TetraGoetyWandItem = registerCommonMaterials(GoetyITEM,"tetra_dark_wand", () -> new Item(new Item.Properties().stacksTo(1).fireResistant() ));
+            TetraGoetyWandItem = registerCommonMaterials(GoetyITEM,"tetra_dark_wand", () -> new TooltipItem(new Item.Properties().stacksTo(1).fireResistant() ));
         }
         if(ModList.get().isLoaded("irons_spellbooks")){
             IronSpellITEM.register(bus);

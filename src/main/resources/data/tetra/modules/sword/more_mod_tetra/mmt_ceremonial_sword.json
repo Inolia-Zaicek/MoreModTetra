@@ -31,12 +31,12 @@
       "tags": [ "forge:sword" ],
       "extract": {
         "primaryAttributes": {
-          "generic.attack_damage": 0.75,
+          "generic.attack_damage": 0.85,
           "generic.armor": 0.5,
           "generic.armor_toughness": 0.5
         },
         "primaryEffects": {
-          "more_mod_tetra:heavy_chop": 0.85
+          "more_mod_tetra:heavy_chop": 0.75
         },
         "secondaryEffects": {
           "more_mod_tetra:heavy_chop": 0.5

@@ -20,10 +20,11 @@ public class EmergencyRescueCurious {
     public static void tick(TickEvent.PlayerTickEvent event) {
         if (ModList.get().isLoaded("curios")) {
             Player player = event.player;
-            CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
-                    (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                    slotResult -> {
-                        slotResult.stack();
+            if (player.isInLava()||player.getRemainingFireTicks()>0) {
+                CuriosApi.getCuriosInventory(player).ifPresent(inv -> inv.findCurios
+                        (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
+                        slotResult -> {
+                            slotResult.stack();
                             ItemStack itemStack = slotResult.stack();
                             IModularItem item = (IModularItem) itemStack.getItem();
                             int level = item.getEffectLevel(itemStack, emergencyRescueEffect);
@@ -31,13 +32,12 @@ public class EmergencyRescueCurious {
                             if (level > 0) {
                                 if (player.getCooldowns().isOnCooldown(item.getItem()))
                                     return;
-                                if (player.isInLava()) {
-                                    player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20*level, 0, true, true, true));
-                                    player.getCooldowns().addCooldown(item.getItem(), 20 * 15);
-                                }
+                                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20 * level, 0, true, true, true));
+                                player.getCooldowns().addCooldown(item.getItem(), 20 * 15);
+                            }
                         }
-                    }
-            ));
+                ));
+            }
         }
     }
 }

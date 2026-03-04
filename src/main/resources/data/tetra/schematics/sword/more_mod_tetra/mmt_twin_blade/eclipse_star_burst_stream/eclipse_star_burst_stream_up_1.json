@@ -5,7 +5,6 @@
     ],
     "rarity": "hone",
     "displayType": "improvement",
-    "materialSlotCount": 0,
     "hone":true,
                 "glyph": {
                     "textureLocation": "tetra:textures/gui/wizard_glyphs.png",
@@ -29,9 +28,14 @@
             }
         ]
     },
+    "materialSlotCount": 1,
     "outcomes": [
         {
             "experienceFactor": 3,
+            "material": {
+                "items": [ "more_mod_tetra:eclipse_star_burst_stream_skill_book" ],
+                "count":1
+            },
             "improvements": {
                 "eclipse_star_burst_stream_up": 1
             }

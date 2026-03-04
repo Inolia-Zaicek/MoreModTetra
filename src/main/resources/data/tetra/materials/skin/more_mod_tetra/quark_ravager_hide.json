@@ -1,0 +1,36 @@
+{
+    "key": "quark_ravager_hide",
+  "category": "skin",
+  "primary": 6,
+  "secondary": 3.5,
+  "tertiary": 3,
+  "durability": 750,
+  "integrityCost": 1,
+  "integrityGain": 5,
+  "magicCapacity": 180,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+    "tints": {
+        "glyph": "5a4f48",
+        "texture": "5a4f48"
+    },
+  "textures": [
+    "default"
+  ],
+    "material": {
+        "items": [ "quark:armor_plate" ]
+    },
+  "attributes": {
+    "generic.armor": 1,
+    "generic.armor_toughness": 1
+  },
+    "requiredTools": {
+        "cut": 4
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "quark"
+    }
+  ]
+}

@@ -27,13 +27,16 @@
       },
       "effects": {
         "throwable": [ 1, 1.7 ],
-        "more_mod_tetra:assassinate": 400
+        "more_mod_tetra:assassinate": 60
       },
       "durability": -20,
       "integrity": -1,
       "extract": {
         "primaryAttributes": {
           "generic.attack_damage": 1
+        },
+        "primaryEffects": {
+          "more_mod_tetra:assassinate": 20
         },
         "secondaryEffects": {
           "throwable": [ 0, 0.15 ]

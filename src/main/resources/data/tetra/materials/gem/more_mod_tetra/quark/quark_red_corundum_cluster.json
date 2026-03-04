@@ -22,7 +22,7 @@
         "items": [ "quark:red_corundum_cluster" ]
     },
     "attributes": {
-        "**generic.max_health": 10
+        "**generic.max_health": 0.1
     },
     "requiredTools": {
         "hammer_dig": "minecraft:wood"

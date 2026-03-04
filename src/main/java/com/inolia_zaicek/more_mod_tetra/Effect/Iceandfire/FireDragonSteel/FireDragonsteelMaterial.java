@@ -3,6 +3,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.FireDragonSteel;
 import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
 import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 import com.github.alexthe666.iceandfire.entity.EntityLightningDragon;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -10,7 +11,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -56,6 +56,20 @@ public class FireDragonsteelMaterial {
                     }
                 }
             }
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                var mob = event.getAttacked();
+                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, fireDragonsteelMaterialEffect);
+                if (effectLevel > 0) {
+                    float number = (float) effectLevel / 100;
+                    float numberA = (float) effectLevel / 200;
+                    if (mob instanceof EntityIceDragon || mob instanceof EntityLightningDragon) {
+                        event.addNormalMulti((number));
+                    }
+                    if (mob instanceof EntityFireDragon) {
+                        event.addNormalMulti((numberA));
+                    }
+                }
+            }
         }
     }
     @SubscribeEvent
@@ -63,47 +77,10 @@ public class FireDragonsteelMaterial {
         //攻击
         if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
             var mob = event.getEntity();
-            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, fireDragonsteelMaterialEffect);
-            if (effectLevel > 0) {
-                mob.setRemainingFireTicks(mob.getRemainingFireTicks()+200);
-                float number = (float) effectLevel / 100;
-                float numberA = (float) effectLevel / 200;
-                float damage =event.getAmount();
-                event.setAmount(damage*(1-number));
-                //非火龙
-                if(mob instanceof EntityLightningDragon||mob instanceof EntityIceDragon) {
-                    mob.invulnerableTime=0;
-                    if(livingEntity instanceof Player player) {
-                        mob.setLastHurtByPlayer(player);
-                    }
-                    mob.hurt(mob.damageSources().onFire(),damage*number*(1+number));
-                    if(livingEntity instanceof Player player) {
-                        mob.setLastHurtByPlayer(player);
-                    }
-                }
-                if(mob instanceof EntityFireDragon) {
-                    mob.invulnerableTime=0;
-                    if(livingEntity instanceof Player player) {
-                        mob.setLastHurtByPlayer(player);
-                    }
-                    mob.hurt(mob.damageSources().onFire(),damage*number*(1+numberA));
-                    if(livingEntity instanceof Player player) {
-                        mob.setLastHurtByPlayer(player);
-                    }
-                }
-                //不是龙
-                if(!(mob instanceof EntityFireDragon)&&!(mob instanceof EntityIceDragon)&&!(mob instanceof EntityLightningDragon)){
-                    mob.invulnerableTime=0;
-                    if(livingEntity instanceof Player player) {
-                        mob.setLastHurtByPlayer(player);
-                    }
-                    mob.hurt(mob.damageSources().onFire(),damage*number);
-                    if(livingEntity instanceof Player player) {
-                        mob.setLastHurtByPlayer(player);
-                    }
-                }
+            float fireDragonSteelMaterialEffectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, fireDragonsteelMaterialEffect);
+            if (fireDragonSteelMaterialEffectLevel > 0 ) {
+                mob.setRemainingFireTicks(mob.getRemainingFireTicks() + 200);
             }
         }
-
     }
 }

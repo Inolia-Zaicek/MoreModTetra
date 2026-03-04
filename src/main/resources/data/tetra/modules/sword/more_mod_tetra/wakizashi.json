@@ -27,21 +27,21 @@
         "edged_weapon": 2.5,
         "breakable": 2.5
       },
-      "primaryEffects": {
-        "generic.attack_damage": 0.8,
-        "jab": 0.75
-      },
-      "secondaryEffects": {
-        "generic.attack_speed": -0.1,
-        "jab": 0.5
-      },
-      "tertiaryEffects": {
-        "sweeping": 0.3,
-        "jab": 0.1
-      },
       "durability": 50,
       "tags": [ "forge:sword" ],
       "extract": {
+        "primaryEffects": {
+          "generic.attack_damage": 0.8,
+          "jab": 0.75
+        },
+        "secondaryEffects": {
+          "generic.attack_speed": -0.1,
+          "jab": 0.5
+        },
+        "tertiaryEffects": {
+          "sweeping": 0.3,
+          "jab": 0.1
+        },
         "primaryAttributes": {
           "generic.attack_damage": 1
         },

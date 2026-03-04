@@ -1,0 +1,40 @@
+{
+    "key": "irons_spellbooks_dragonskin",
+  "category": "skin",
+  "primary": 8,
+  "secondary": 5.5,
+  "tertiary": 8,
+  "durability": 1750,
+  "integrityCost": 1,
+  "integrityGain": 6,
+  "magicCapacity": 2000,
+  "toolLevel": 0,
+  "toolEfficiency": 0,
+    "tints": {
+        "glyph": "210044",
+        "texture": "210044"
+    },
+  "textures": [
+    "default"
+  ],
+    "material": {
+        "items": [ "irons_spellbooks:dragonskin" ]
+    },
+  "effects" : {
+    "more_mod_tetra:ender_arcane_guard": 25,
+    "irons_spellbooks:mana_siphon": 100
+  },
+  "attributes": {
+    "**irons_spellbooks:spell_resist": 0.1,
+    "**irons_spellbooks:ender_spell_power": 0.1
+  },
+    "requiredTools": {
+        "cut": 4
+    },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ]
+}

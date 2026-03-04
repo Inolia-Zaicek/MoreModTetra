@@ -22,7 +22,7 @@
         "items": [ "quark:white_corundum_cluster" ]
     },
     "effects" : {
-        "more_mod_tetra:diamond_guard": 6
+        "more_mod_tetra:diamond_guard": 4
     },
     "requiredTools": {
         "hammer_dig": "minecraft:wood"

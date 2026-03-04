@@ -42,15 +42,6 @@ public class DragonBreathProficiency {
                         event.setAmount(damage * (1 + number));
                     }
             }
-        }            if (event.getSource().getDirectEntity() instanceof LivingEntity player) {
-            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,dragonBreathProficiencyEffect);
-            if (effectLevel > 0) {
-                if (event.getSource().is(DamageTypes.DRAGON_BREATH)) {
-                    float number = (float) effectLevel / 100;
-                    float damage = event.getAmount();
-                    event.setAmount(damage * (1 + number));
-                }
-            }
         }
     }
 }

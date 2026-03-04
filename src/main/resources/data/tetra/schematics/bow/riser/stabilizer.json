@@ -1,0 +1,33 @@
+{
+    "slots": [ "modular_mmt_bow/riser" ],
+    "materialSlotCount": 1,
+    "displayType": "minor",
+    "glyph": {
+        "textureX": 112,
+        "textureY": 112
+    },
+    "translation": {
+        "tertiaryEffects": {
+            "velocity": 3
+        },
+        "durability": 1
+    },
+    "outcomes": [
+        {
+            "materials": [ "tetra:wood/", "tetra:metal/", "tetra:bone/" ],
+            "moduleKey": "modular_mmt_bow/stabilizer",
+            "moduleVariant": "stabilizer/"
+        },
+        {
+            "material": {
+                "items": [ "tetra:planar_stabilizer" ],
+                "count": 2
+            },
+            "requiredTools": {
+                "hammer_dig": "minecraft:diamond"
+            },
+            "moduleKey": "modular_mmt_bow/stabilizer",
+            "moduleVariant": "stabilizer/linear"
+        }
+    ]
+}

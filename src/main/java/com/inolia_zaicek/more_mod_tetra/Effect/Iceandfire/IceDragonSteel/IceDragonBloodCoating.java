@@ -3,12 +3,12 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.IceDragonSteel;
 import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
 import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 import com.github.alexthe666.iceandfire.entity.EntityLightningDragon;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -33,9 +33,10 @@ public class IceDragonBloodCoating {
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
+
     @SubscribeEvent
     public static void hurt(EffectLevelEvent event) {
-        if(ModList.get().isLoaded("iceandfire")) {
+        if (ModList.get().isLoaded("iceandfire")) {
             //攻击
             if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getAttacked();
@@ -43,14 +44,14 @@ public class IceDragonBloodCoating {
                 if (effectLevel > 0) {
                     float number = (float) effectLevel / 100;
                     float numberA = (float) effectLevel / 200;
-                    if(mob instanceof EntityFireDragon||mob instanceof EntityLightningDragon) {
+                    if (mob instanceof EntityFireDragon || mob instanceof EntityLightningDragon) {
                         event.addNormalMulti((number));
                     }
-                    if(mob instanceof EntityIceDragon) {
+                    if (mob instanceof EntityIceDragon) {
                         event.addNormalMulti((numberA));
-                    }
                     }
                 }
             }
         }
     }
+}

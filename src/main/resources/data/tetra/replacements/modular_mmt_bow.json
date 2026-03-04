@@ -1,0 +1,15 @@
+[
+    {
+        "predicate": {
+            "items": [ "more_mod_tetra:tetra_mmt_bow" ]
+        },
+        "item": "more_mod_tetra:modular_mmt_bow",
+        "modules": {
+            "bow/stave": [ "modular_mmt_bow/straight_stave", "straight_stave/stick" ],
+            "bow/string": [ "modular_mmt_bow/basic_string", "basic_string/string" ]
+        },
+        "improvements": {
+            "bow/stave:stave/wrap/string": 0
+        }
+    }
+]

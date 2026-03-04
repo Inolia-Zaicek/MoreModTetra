@@ -28,13 +28,13 @@
       "tags": [ "forge:sword" ],
       "extract": {
         "primaryAttributes": {
-          "generic.attack_damage": 0.55
+          "generic.attack_damage": 0.7
         },
         "primaryEffects": {
-          "more_mod_tetra:puncture": 7.5
+          "more_mod_tetra:puncture": 6
         },
         "secondaryEffects": {
-          "more_mod_tetra:puncture": 5.5
+          "more_mod_tetra:puncture": 5
         },
         "tertiaryEffects": {
           "more_mod_tetra:puncture": 3

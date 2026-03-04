@@ -2,20 +2,8 @@
     {
         "conditions": [
             {
-                "type": "forge:and",
-                "values": [
-                    {
-                        "type": "forge:mod_loaded",
-                        "modid": "goety"
-                    },
-                    {
-                        "type": "forge:not",
-                        "value": {
-                            "type": "forge:mod_loaded",
-                            "modid": "goety_revelation"
-                        }
-                    }
-                ]
+                "type": "forge:mod_loaded",
+                "modid": "goety"
             }
         ],
             "predicate": {

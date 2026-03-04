@@ -3,15 +3,12 @@ package com.inolia_zaicek.more_mod_tetra.Effect.Iceandfire.LightningDragonSteel;
 import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
 import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 import com.github.alexthe666.iceandfire.entity.EntityLightningDragon;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
-import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -34,56 +31,6 @@ public class LightningDragonsteelMaterial {
 
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
-    }
-    @SubscribeEvent
-    public static void hurt(LivingHurtEvent event) {
-        if(ModList.get().isLoaded("iceandfire")) {
-            //攻击
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                var mob = event.getEntity();
-                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, lightningDragonsteelMaterialEffect);
-                float effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, lightningDragonPowerEffect);
-                if (effectLevel > 0) {
-                    float number = effectLevel / 100;
-                    float numberA = effectLevel / 200;
-                    float up =1 + effectLevel2/100;
-                    float damage =event.getAmount();
-                    event.setAmount(damage*(1-number));
-                    //冰龙
-                    if(mob instanceof EntityFireDragon||mob instanceof EntityIceDragon) {
-                        mob.invulnerableTime=0;
-                        if(livingEntity instanceof Player player) {
-                            mob.setLastHurtByPlayer(player);
-                        }
-                        mob.hurt(mob.damageSources().lightningBolt(),damage*number*(1+number)*up);
-                        if(livingEntity instanceof Player player) {
-                            mob.setLastHurtByPlayer(player);
-                        }
-                    }
-                    if(mob instanceof EntityLightningDragon) {
-                        mob.invulnerableTime=0;
-                        if(livingEntity instanceof Player player) {
-                            mob.setLastHurtByPlayer(player);
-                        }
-                        mob.hurt(mob.damageSources().lightningBolt(),damage*number*(1+numberA)*up);
-                        if(livingEntity instanceof Player player) {
-                            mob.setLastHurtByPlayer(player);
-                        }
-                    }
-                    //不是龙
-                    if(!(mob instanceof EntityFireDragon)&&!(mob instanceof EntityIceDragon)&&!(mob instanceof EntityLightningDragon)){
-                        mob.invulnerableTime=0;
-                        if(livingEntity instanceof Player player) {
-                            mob.setLastHurtByPlayer(player);
-                        }
-                        mob.hurt(mob.damageSources().lightningBolt(),damage*number);
-                        if(livingEntity instanceof Player player) {
-                            mob.setLastHurtByPlayer(player);
-                        }
-                    }
-                }
-            }
-        }
     }
     @SubscribeEvent
     public static void hurt(EffectLevelEvent event) {

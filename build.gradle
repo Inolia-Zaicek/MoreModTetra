@@ -108,6 +108,20 @@ dependencies {
     }
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    //jarjar
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.4.1") {
+        jarJar.ranged(it, "[0.4.1,)")
+    })
+    implementation fg.deobf(jarJar("blank:expandability-1.20.1:9.0.4") {
+        jarJar.ranged(it, "[9.0.4,)")
+    })
+    implementation fg.deobf(jarJar("blank:packetfixer-1.20.1:1") {
+        jarJar.ranged(it, "[9.0.4,)")
+    })
+    implementation fg.deobf(jarJar("blank:tetra_attribute_rebalancing-1.20.1:1") {
+        jarJar.ranged(it, "[9.0.4,)")
+    })
     //implementation fg.deobf("blank:jei-1.20.1:forge-15.20.0.112")
     //compileOnly————编译时【你写代码的时候，你能找到他的类，能找到他的文件，但是如果你在开发环境启动游戏
     //runtimeOnly————运行时【写代码找不到，运行看得见
@@ -150,6 +164,8 @@ dependencies {
     implementation fg.deobf("blank:botania-1.20.1:1")
     implementation fg.deobf("blank:obscure_api-1.20.1:1")
     compileOnly fg.deobf("blank:aquamirae-1.20.1:1")
+    //神化
+    implementation fg.deobf("blank:apotheosis-1.20.1:1")
     compileOnly fg.deobf("blank:l2library-1.20.1:1")
     compileOnly fg.deobf("blank:l2complements-1.20.1:1")
     compileOnly fg.deobf("blank:l2hostility-1.20.1:1")
@@ -160,7 +176,6 @@ dependencies {
     implementation fg.deobf("blank:relics-1.20.1:1")
     implementation fg.deobf("blank:octolib-1.20.1:1")
     implementation fg.deobf("blank:more_tetra_tools-1.20.1:1")
-    implementation fg.deobf("blank:packetfixer-1.20.1:1")
     compileOnly fg.deobf("blank:fantasy_ending-1.20.1:1")
     compileOnly fg.deobf("blank:primogemcraft-1.20.1:1")
     compileOnly fg.deobf("blank:slashblade-1.20.1:1")

@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "minecraft:bow"
+        },
+        {
+            "item": "minecraft:iron_ingot"
+        }
+    ],
+    "result": {
+        "item": "more_mod_tetra:tetra_mmt_bow",
+        "count": 1
+    }
+}
