@@ -1,11 +1,11 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Slash;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -42,17 +42,7 @@ public class OverSlash {
                     float number = (float) effectLevel / 100;
                     event.addNormalMulti((number));
                     }
-                }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
-                var mob = event.getAttacked();
-                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,overSlashEffect);
-                float hp =mob.getHealth();
-                float mhp =mob.getMaxHealth();
-                float finish =hp/mhp;
-                if (effectLevel > 0&&finish>=0.5f) {
-                    float number = (float) effectLevel / 100;
-                    event.addNormalMulti((number));
                 }
-            }
             }
         }
 

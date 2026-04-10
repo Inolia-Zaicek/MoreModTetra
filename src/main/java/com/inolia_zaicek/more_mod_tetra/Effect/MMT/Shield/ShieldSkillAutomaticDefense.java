@@ -42,7 +42,7 @@ public class ShieldSkillAutomaticDefense {
                     float mainEffectLevel = item.getEffectLevel(mainHandItem, shieldSkillAutomaticDefenseEffect);
                     if (mainEffectLevel > 0&&  !(player.getCooldowns().isOnCooldown((Item) item))  ) {
                         effectLevel += (int) mainEffectLevel;
-                         event.addNormalMulti((1- (float) effectLevel /100));
+                         event.addIndependentMulti((1 - (float) effectLevel /100));
                         player.getCooldowns().addCooldown((Item) item, 7*20);
                     }
                 }
@@ -50,7 +50,7 @@ public class ShieldSkillAutomaticDefense {
                     float offEffectLevel = item.getEffectLevel(offhandItem, shieldSkillAutomaticDefenseEffect);
                     if (offEffectLevel > 0&&  !(player.getCooldowns().isOnCooldown((Item) item))  ) {
                         effectLevel += (int) offEffectLevel;
-                         event.addNormalMulti((1- (float) effectLevel /100));
+                         event.addIndependentMulti((1 - (float) effectLevel /100));
                         player.getCooldowns().addCooldown((Item) item, 7*20);
                     }
                 }

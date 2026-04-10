@@ -3,7 +3,8 @@ package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.AF;
 import com.inolia_zaicek.more_mod_tetra.Damage.MMTTickZero;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTDamageSourceHelper;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import net.alshanex.alshanex_familiars.datagen.AFDamageTypes;
+import net.alshanex.familiarslib.registry.FDamageTypes;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -12,6 +13,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -20,6 +22,8 @@ import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
+
+import java.util.Objects;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
@@ -63,7 +67,8 @@ public class SoundArcaneEdgeEffect {
                     //基础攻击伤害量
                     float baseAmount = event.getAmount();
                     //获取法强属性
-                    float fire = (float) (attacker.getAttributeValue(net.alshanex.alshanex_familiars.registry.AttributeRegistry.SOUND_SPELL_POWER.get())-1)*(level/100)+1;
+                    float fire = (float) (attacker.getAttributeValue(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(
+                            new ResourceLocation("familiarslib", "sound_spell_power"))))-1)*(level/100)+1;
                     float power = (float) (attacker.getAttributeValue(AttributeRegistry.SPELL_POWER.get())-1)*(level/100)+1;
                     //结算
                     float finish =fire*power*baseAmount;
@@ -71,7 +76,7 @@ public class SoundArcaneEdgeEffect {
                     int time = target.invulnerableTime;
                     target.invulnerableTime=0;
                     //获取伤害类型
-                    var FIRE_MAGIC_DAMAGE = MMTTickZero.hasSource(attacker.level(), AFDamageTypes.SOUND_MAGIC,attacker);
+                    var FIRE_MAGIC_DAMAGE = MMTTickZero.hasSource(attacker.level(), FDamageTypes.SOUND_MAGIC,attacker);
                     target.hurt(FIRE_MAGIC_DAMAGE, finish);
                     if(attacker instanceof Player player) {
                         target.setLastHurtByPlayer(player);

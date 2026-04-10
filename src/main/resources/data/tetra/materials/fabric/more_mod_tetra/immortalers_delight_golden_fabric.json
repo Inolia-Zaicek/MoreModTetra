@@ -1,0 +1,33 @@
+{
+    "key": "immortalers_delight_golden_fabric",
+    "category": "fabric",
+    "primary": 1.8,
+    "secondary": 1.4,
+    "tertiary": 5.5,
+    "durability": 300,
+    "integrityCost": 1,
+    "integrityGain": 6,
+    "magicCapacity": 420,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "gold_glyph",
+        "texture": "gold"
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": ["immortalers_delight:golden_fabric"]
+    },
+    "requiredTools": {
+        "cut": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "immortalers_delight"
+        }
+    ]
+}

@@ -1,12 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility;
 
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -37,13 +37,13 @@ public class ObsessionOfWarden {
                 LivingEntity livingEntity = event.getAttacked();;
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,obsessionOfWardenEffect);
                 if (effectLevel > 0) {
-                        event.addNormalMulti((1 - (float) effectLevel / 100));
+                        event.addIndependentMulti((1 - (float) effectLevel / 100));
                 }
             }else if (!( event.hurtEvent.getSource().getDirectEntity() instanceof Warden )) {
                 LivingEntity livingEntity = event.getAttacked();;
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,obsessionOfWardenEffect);
                 if (effectLevel > 0) {
-                        event.addNormalMulti((1 - (float) effectLevel / 100));
+                        event.addIndependentMulti((1 - (float) effectLevel / 100));
                 }
             }
             //打人

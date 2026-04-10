@@ -1,0 +1,33 @@
+{
+    "key": "immortalers_delight_ancient_fiber",
+    "category": "fibre",
+    "primary": 3,
+    "secondary": 2,
+    "tertiary": 5.8,
+    "durability": 1200,
+    "integrityCost": 1,
+    "integrityGain": 6,
+    "magicCapacity": 280,
+    "toolLevel": 0,
+    "toolEfficiency": 0,
+    "tints": {
+        "glyph": "8f9c5c",
+        "texture": "8f9c5c"
+    },
+    "textures": [
+        "crude",
+        "default"
+    ],
+    "material": {
+        "items": ["immortalers_delight:ancient_fiber"]
+    },
+    "requiredTools": {
+        "cut": "minecraft:wood"
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "immortalers_delight"
+        }
+    ]
+}

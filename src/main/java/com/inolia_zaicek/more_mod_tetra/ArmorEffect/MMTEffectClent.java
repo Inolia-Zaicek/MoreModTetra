@@ -21,6 +21,38 @@ public class MMTEffectClent {
         );
         WorkbenchStatsGui.addBar(statBar12331335);
         HoloStatsGui.addBar(statBar12331335);
+        var statGetter12468535 = new StatGetterEffectLevel(gather_ore_Effect, 1);
+        GuiStatBar statBar12468535 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                gather_ore_Name, 0, 1, false, false, false,
+                statGetter12468535, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(gather_ore_Tooltip, statGetter12468535)
+        );
+        WorkbenchStatsGui.addBar(statBar12468535);
+        HoloStatsGui.addBar(statBar12468535);
+        var statGetter12431535 = new StatGetterEffectLevel(immortalers_delight_gas_poison_Effect, 1);
+        GuiStatBar statBar12431535 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                immortalers_delight_gas_poison_Name, 0, 1, false, false, false,
+                statGetter12431535, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(immortalers_delight_gas_poison_Tooltip, statGetter12431535)
+        );
+        WorkbenchStatsGui.addBar(statBar12431535);
+        HoloStatsGui.addBar(statBar12431535);
+        var statGetter12432535 = new StatGetterEffectLevel(immortalers_delight_incandescence_Effect, 1);
+        GuiStatBar statBar12432535 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                immortalers_delight_incandescence_Name, 0, 1, false, false, false,
+                statGetter12432535, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(immortalers_delight_incandescence_Tooltip, statGetter12432535)
+        );
+        WorkbenchStatsGui.addBar(statBar12432535);
+        HoloStatsGui.addBar(statBar12432535);
+        var statGetter12432635 = new StatGetterEffectLevel(immortalers_delight_moon_bright_Effect, 1);
+        GuiStatBar statBar12432635 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                immortalers_delight_moon_bright_Name, 0, 1, false, false, false,
+                statGetter12432635, LabelGetterBasic.integerLabel,
+                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(immortalers_delight_moon_bright_Tooltip, statGetter12432635)
+        );
+        WorkbenchStatsGui.addBar(statBar12432635);
+        HoloStatsGui.addBar(statBar12432635);
         var statGetter012331335 = new StatGetterEffectLevel(damage_adaptation_Effect, 1);
         GuiStatBar statBar012331335 = new GuiStatBar(0, 0, StatsHelper.barLength,
                 damage_adaptation_Name, 0, 10, false, false, false,
@@ -420,23 +452,6 @@ public class MMTEffectClent {
         WorkbenchStatsGui.addBar(statBar15);
         HoloStatsGui.addBar(statBar15);
 
-        var statGetter16 = new StatGetterEffectLevel(armor_final_stand_Effect, 1);
-        GuiStatBar statBar16 = new GuiStatBar(0, 0, StatsHelper.barLength,
-                armor_final_stand_Name, 0, 100, false, false, false,
-                statGetter16, LabelGetterBasic.integerLabel,
-                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(armor_final_stand_Tooltip, statGetter16)
-        );
-        WorkbenchStatsGui.addBar(statBar16);
-        HoloStatsGui.addBar(statBar16);
-
-        var statGetter17 = new StatGetterEffectLevel(armor_last_stand_Effect, 1);
-        GuiStatBar statBar17 = new GuiStatBar(0, 0, StatsHelper.barLength,
-                armor_last_stand_Name, 0, 100, false, false, false,
-                statGetter17, LabelGetterBasic.integerLabel,
-                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(armor_last_stand_Tooltip, statGetter17)
-        );
-        WorkbenchStatsGui.addBar(statBar17);
-        HoloStatsGui.addBar(statBar17);
 
 
         var statGetter18 = new StatGetterEffectLevel(armor_thorns_Effect, 1);
@@ -502,14 +517,6 @@ public class MMTEffectClent {
         WorkbenchStatsGui.addBar(statBar24);
         HoloStatsGui.addBar(statBar24);
 
-        var statGetter25 = new StatGetterEffectLevel(etherium_protection_Effect, 1);
-        GuiStatBar statBar25 = new GuiStatBar(0, 0, StatsHelper.barLength,
-                etherium_protection_Name, 0, 100, false, false, false,
-                statGetter25, LabelGetterBasic.integerLabel,
-                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(etherium_protection_Tooltip, statGetter25)
-        );
-        WorkbenchStatsGui.addBar(statBar25);
-        HoloStatsGui.addBar(statBar25);
 
         var statGetter26 = new StatGetterEffectLevel(flawless_attack_Effect, 1);
         GuiStatBar statBar26 = new GuiStatBar(0, 0, StatsHelper.barLength,
@@ -654,22 +661,6 @@ public class MMTEffectClent {
         );
         WorkbenchStatsGui.addBar(statBar41);
         HoloStatsGui.addBar(statBar41);
-        var statGetter42 = new StatGetterEffectLevel(gather_ore_Effect, 1);
-        GuiStatBar statBar42 = new GuiStatBar(0, 0, StatsHelper.barLength,
-                gather_ore_Name, 0, 10, false, false, false,
-                statGetter42, LabelGetterBasic.integerLabel,
-                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(gather_ore_Tooltip, statGetter42)
-        );
-        WorkbenchStatsGui.addBar(statBar42);
-        HoloStatsGui.addBar(statBar42);
-        var statGetter43 = new StatGetterEffectLevel(mineral_essence_Effect, 1);
-        GuiStatBar statBar43 = new GuiStatBar(0, 0, StatsHelper.barLength,
-                mineral_essence_Name, 0, 10, false, false, false,
-                statGetter43, LabelGetterBasic.integerLabel,
-                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(mineral_essence_Tooltip, statGetter43)
-        );
-        WorkbenchStatsGui.addBar(statBar43);
-        HoloStatsGui.addBar(statBar43);
         var statGetter44 = new StatGetterEffectLevel(turning_stone_into_gold_Effect, 1);
         GuiStatBar statBar44 = new GuiStatBar(0, 0, StatsHelper.barLength,
                 turning_stone_into_gold_Name, 0, 50, false, false, false,
@@ -678,30 +669,6 @@ public class MMTEffectClent {
         );
         WorkbenchStatsGui.addBar(statBar44);
         HoloStatsGui.addBar(statBar44);
-        var statGetter45 = new StatGetterEffectLevel(hunting_Effect, 1);
-        GuiStatBar statBar45 = new GuiStatBar(0, 0, StatsHelper.barLength,
-                hunting_Name, 0, 20, false, false, false,
-                statGetter45, LabelGetterBasic.integerLabel,
-                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(hunting_Tooltip, statGetter45)
-        );
-        WorkbenchStatsGui.addBar(statBar45);
-        HoloStatsGui.addBar(statBar45);
-        var statGetter46 = new StatGetterEffectLevel(archaeology_Effect, 1);
-        GuiStatBar statBar46 = new GuiStatBar(0, 0, StatsHelper.barLength,
-                archaeology_Name, 0, 10, false, false, false,
-                statGetter46, LabelGetterBasic.integerLabel,
-                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(archaeology_Tooltip, statGetter46)
-        );
-        WorkbenchStatsGui.addBar(statBar46);
-        HoloStatsGui.addBar(statBar46);
-        var statGetter47 = new StatGetterEffectLevel(warden_killer_Effect, 1);
-        GuiStatBar statBar47 = new GuiStatBar(0, 0, StatsHelper.barLength,
-                warden_killer_Name, 0, 50, false, false, false,
-                statGetter47, LabelGetterBasic.integerLabel,
-                new se.mickelus.tetra.gui.stats.getter.TooltipGetterDecimalSingle(warden_killer_Tooltip, statGetter47)
-        );
-        WorkbenchStatsGui.addBar(statBar47);
-        HoloStatsGui.addBar(statBar47);
         var statGetter48 = new StatGetterEffectLevel(projectileTrackingEffect, 1);
         GuiStatBar statBar48 = new GuiStatBar(0, 0, StatsHelper.barLength,
                 projectileTrackingName, 0, 1, false, false, false,

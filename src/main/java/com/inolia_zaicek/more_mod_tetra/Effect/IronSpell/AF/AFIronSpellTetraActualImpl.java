@@ -5,7 +5,7 @@ import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.MMTManaSiphonTetraEffec
 import com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.MMTStatGetterPercentAttribute;
 import com.inolia_zaicek.more_mod_tetra.Effect.MMTITetraProxy;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
-import net.alshanex.alshanex_familiars.registry.AttributeRegistry;
+import net.alshanex.familiarslib.registry.AttributeRegistry;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;

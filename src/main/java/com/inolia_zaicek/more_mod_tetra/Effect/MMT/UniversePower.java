@@ -43,6 +43,78 @@ public class UniversePower {
         );
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
+
+        var statGetter123456 = new StatGetterEffectLevel(armor_last_stand_Effect, 1);
+        var statGetter263456 = new StatGetterEffectEfficiency(armor_last_stand_Effect, 1);
+        IStatGetter[] statGetters123456 = {statGetter123456, statGetter263456};
+        IStatFormat[] statFormats263456 = {StatFormat.noDecimal, StatFormat.noDecimal};
+        GuiStatBar statBar123456 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                armor_last_stand_Name, 0, 30, false, false, false,
+                statGetter123456, LabelGetterBasic.integerLabel,
+                new TooltipGetterMultiValue(armor_last_stand_Tooltip, statGetters123456, statFormats263456)
+        );
+        WorkbenchStatsGui.addBar(statBar123456);
+        HoloStatsGui.addBar(statBar123456);
+
+        var statGetter123457 = new StatGetterEffectLevel(armor_final_stand_Effect, 1);
+        var statGetter263457 = new StatGetterEffectEfficiency(armor_final_stand_Effect, 1);
+        IStatGetter[] statGetters123457 = {statGetter123457, statGetter263457};
+        IStatFormat[] statFormats263457 = {StatFormat.noDecimal, StatFormat.noDecimal};
+        GuiStatBar statBar123457 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                armor_final_stand_Name, 0, 30, false, false, false,
+                statGetter123457, LabelGetterBasic.integerLabel,
+                new TooltipGetterMultiValue(armor_final_stand_Tooltip, statGetters123457, statFormats263457)
+        );
+        WorkbenchStatsGui.addBar(statBar123457);
+        HoloStatsGui.addBar(statBar123457);
+
+        var statGetter123458 = new StatGetterEffectLevel(mineral_essence_Effect, 1);
+        var statGetter263458 = new StatGetterEffectEfficiency(mineral_essence_Effect, 1);
+        IStatGetter[] statGetters123458 = {statGetter123458, statGetter263458};
+        IStatFormat[] statFormats263458 = {StatFormat.noDecimal, StatFormat.noDecimal};
+        GuiStatBar statBar123458 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                mineral_essence_Name, 0, 10, false, false, false,
+                statGetter123458, LabelGetterBasic.integerLabel,
+                new TooltipGetterMultiValue(mineral_essence_Tooltip, statGetters123458, statFormats263458)
+        );
+        WorkbenchStatsGui.addBar(statBar123458);
+        HoloStatsGui.addBar(statBar123458);
+
+        var statGetter123459 = new StatGetterEffectLevel(archaeology_Effect, 1);
+        var statGetter263459 = new StatGetterEffectEfficiency(archaeology_Effect, 1);
+        IStatGetter[] statGetters123459 = {statGetter123459, statGetter263459};
+        IStatFormat[] statFormats263459 = {StatFormat.noDecimal, StatFormat.noDecimal};
+        GuiStatBar statBar123459 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                archaeology_Name, 0, 10, false, false, false,
+                statGetter123459, LabelGetterBasic.integerLabel,
+                new TooltipGetterMultiValue(archaeology_Tooltip, statGetters123459, statFormats263459)
+        );
+        WorkbenchStatsGui.addBar(statBar123459);
+        HoloStatsGui.addBar(statBar123459);
+
+        var statGetter123460 = new StatGetterEffectLevel(hunting_Effect, 1);
+        var statGetter263460 = new StatGetterEffectEfficiency(hunting_Effect, 1);
+        IStatGetter[] statGetters123460 = {statGetter123460, statGetter263460};
+        IStatFormat[] statFormats263460 = {StatFormat.noDecimal, StatFormat.noDecimal};
+        GuiStatBar statBar123460 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                hunting_Name, 0, 10, false, false, false,
+                statGetter123460, LabelGetterBasic.integerLabel,
+                new TooltipGetterMultiValue(hunting_Tooltip, statGetters123460, statFormats263460)
+        );
+        WorkbenchStatsGui.addBar(statBar123460);
+        HoloStatsGui.addBar(statBar123460);
+
+        var statGetter123461 = new StatGetterEffectLevel(warden_killer_Effect, 1);
+        var statGetter263461 = new StatGetterEffectEfficiency(warden_killer_Effect, 1);
+        IStatGetter[] statGetters123461 = {statGetter123461, statGetter263461};
+        IStatFormat[] statFormats263461 = {StatFormat.noDecimal, StatFormat.noDecimal};
+        GuiStatBar statBar123461 = new GuiStatBar(0, 0, StatsHelper.barLength,
+                warden_killer_Name, 0, 10, false, false, false,
+                statGetter123461, LabelGetterBasic.integerLabel,
+                new TooltipGetterMultiValue(warden_killer_Tooltip, statGetters123461, statFormats263461)
+        );
+        WorkbenchStatsGui.addBar(statBar123461);
+        HoloStatsGui.addBar(statBar123461);
     }
     @SubscribeEvent
     public static void hurt(EffectLevelEvent event) {

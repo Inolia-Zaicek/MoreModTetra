@@ -1,13 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.GatheringTorchesBecomeSunlight.FrostNovaIngotEffect;
 
-import com.freefish.torchesbecomesunlight.server.init.EffectHandle;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -37,7 +36,7 @@ public class FreezeRing {
                 LivingEntity livingEntity = event.getAttacked();;
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,freezeRingEffect);
                 if (effectLevel > 0 && mob.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
-                    event.addNormalMulti((1- (float) effectLevel /100));
+                    event.addIndependentMulti((1 - (float) effectLevel /100));
                 }
             }
         }

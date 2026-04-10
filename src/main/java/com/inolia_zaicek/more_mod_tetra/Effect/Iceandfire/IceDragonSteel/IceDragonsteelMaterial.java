@@ -41,20 +41,17 @@ public class IceDragonsteelMaterial {
     @SubscribeEvent
     public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("iceandfire")) {
-            //挨打
-            if (event.getAttacked() != null && !(event.hurtEvent.getSource().getEntity() instanceof Player)) {
-                LivingEntity livingEntity = event.getAttacked();
-                ;
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                var mob = event.getAttacked();
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, iceDragonsteelMaterialEffect);
-                if (effectLevel > 0 && livingEntity.getLastAttacker() != null) {
+                if (effectLevel > 0) {
                     float number = (float) effectLevel / 100;
                     float numberA = (float) effectLevel / 200;
-                    //冰龙
-                    if (livingEntity.getLastAttacker() instanceof EntityFireDragon || livingEntity.getLastAttacker() instanceof EntityLightningDragon) {
-                        event.addNormalMulti((1 - number));
+                    if (mob instanceof EntityFireDragon || mob instanceof EntityLightningDragon) {
+                        event.addNormalMulti((number));
                     }
-                    if (livingEntity.getLastAttacker() instanceof EntityIceDragon) {
-                        event.addNormalMulti((1 - numberA));
+                    if (mob instanceof EntityIceDragon) {
+                        event.addNormalMulti((numberA));
                     }
                 }
             }
@@ -68,6 +65,22 @@ public class IceDragonsteelMaterial {
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, iceDragonsteelMaterialEffect);
             if (effectLevel > 0) {
                 mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 2));
+            }
+        }
+        //挨打
+        if (event.getEntity() != null && !(event.getSource().getEntity() instanceof Player)) {
+            LivingEntity livingEntity = event.getEntity();
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, iceDragonsteelMaterialEffect);
+            if (effectLevel > 0 && livingEntity.getLastAttacker() != null) {
+                float number = (float) effectLevel / 100;
+                float numberA = (float) effectLevel / 200;
+                //冰龙
+                if (livingEntity.getLastAttacker() instanceof EntityFireDragon || livingEntity.getLastAttacker() instanceof EntityLightningDragon) {
+                    event.setAmount(event.getAmount() * (1 - number));
+                }
+                if (livingEntity.getLastAttacker() instanceof EntityIceDragon) {
+                    event.setAmount(event.getAmount() * (1 - numberA));
+                }
             }
         }
     }

@@ -1,0 +1,45 @@
+{
+  "key": "call_of_drowner_coral_ingot",
+  "category": "metal",
+  "primary": 8.5,
+  "secondary": 2.1,
+  "tertiary": 4,
+  "durability": 2500,
+  "integrityCost": 2,
+  "integrityGain": 7,
+  "magicCapacity": 60,
+  "toolLevel": "minecraft:netherite",
+  "toolEfficiency": 6,
+  "tints": {
+    "glyph": "0066CC",
+    "texture": "0066CC"
+  },
+  "textures": [
+    "metal",
+    "default"
+  ],
+  "material": {
+    "items": [
+      "call_of_drowner:coral_ingot"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:blessings_of_water": 10
+  },
+  "requiredTools": {
+    "hammer_dig": "minecraft:iron"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "call_of_drowner"
+    }
+  ],
+  "contexts": {
+    "armor": {
+      "effects": {
+        "more_mod_tetra:blessings_of_water": 2
+      }
+    }
+  }
+}

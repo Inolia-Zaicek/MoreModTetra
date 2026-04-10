@@ -2,7 +2,7 @@ package com.inolia_zaicek.more_mod_tetra.Effect.MMT.Curios.DamageUp.Iron;
 
 import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
-import net.alshanex.alshanex_familiars.datagen.AFDamageTypes;
+import net.alshanex.familiarslib.registry.FDamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -16,14 +16,14 @@ public class AFCuriosMagicDamageUp {
             if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagicDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.hurtEvent.getSource().is(AFDamageTypes.SOUND_MAGIC)) {
+                    if (event.hurtEvent.getSource().is(FDamageTypes.SOUND_MAGIC)) {
                         event.addIndependentMulti(1+effectLevel / 100);
                     }
                 }
             } else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosMagicDamageUpEffect);
                 if (effectLevel > 0) {
-                    if (event.hurtEvent.getSource().is(AFDamageTypes.SOUND_MAGIC)) {
+                    if (event.hurtEvent.getSource().is(FDamageTypes.SOUND_MAGIC)) {
                         event.addIndependentMulti(1+effectLevel / 100);
                     }
                 }

@@ -15,7 +15,7 @@
         "texture": "a8d0d9"
     },
     "effects": {
-        "more_mod_tetra:fragile": 300
+        "more_mod_tetra:fragile": 100
     },
     "textures": [
         "shiny",

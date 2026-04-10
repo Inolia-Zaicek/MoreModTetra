@@ -1,14 +1,13 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Biomancy;
 
 import com.github.elenterius.biomancy.init.ModMobEffects;
+import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
@@ -17,6 +16,8 @@ import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
+
+import java.util.Objects;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
@@ -39,12 +40,12 @@ public class FrenzySerum {
             if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,frenzySerumEffect);
                 if (effectLevel > 0) {
-                    event.getAttacked().addEffect(new MobEffectInstance(ModMobEffects.FRENZY.get(), 60, 0, true, true, true));
-                }
-            }else if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity livingEntity) {
-                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,frenzySerumEffect);
-                if (effectLevel > 0) {
-                    event.getAttacked().addEffect(new MobEffectInstance(ModMobEffects.FRENZY.get(), 60, 0, true, true, true));
+                    if(event.getAttacker().hasEffect(ModMobEffects.FRENZY.get())) {
+                        int level = Objects.requireNonNull(event.getAttacker().getEffect(ModMobEffects.FRENZY.get())).getAmplifier();
+                        event.getAttacker().addEffect(new MobEffectInstance(ModMobEffects.FRENZY.get(), 200, Math.min(2,level+1), true, true, true));
+                    }else {
+                        event.getAttacker().addEffect(new MobEffectInstance(ModMobEffects.FRENZY.get(), 200, 0, true, true, true));
+                    }
                 }
             }
         }

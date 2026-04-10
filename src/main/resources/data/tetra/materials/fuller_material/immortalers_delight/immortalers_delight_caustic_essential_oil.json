@@ -1,0 +1,38 @@
+{
+    "key": "immortalers_delight_caustic_essential_oil",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 6,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "dc003a",
+        "texture": "dc003a"
+    },
+    "effects" : {
+        "more_mod_tetra:immortalers_delight_gas_poison": 1
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "immortalers_delight:caustic_essential_oil" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.04
+    },
+    "requiredTools": {
+        "hammer_dig": 2
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "immortalers_delight"
+        }
+    ]
+}

@@ -6,20 +6,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.flawless_attack_Effect;
-import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.flawless_protection_Effect;
 
 public class FlawlessEffect {
     @SubscribeEvent
     public static void hurt(EffectLevelEvent event) {
-        //挨打
-        if (event.getAttacked() != null) {
-            LivingEntity livingEntity = event.getAttacked();
-            //全身等级
-            float allEffectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(livingEntity, flawless_protection_Effect);
-            if (allEffectLevel > 0) {
-                event.addNormalMulti((1 - allEffectLevel / 100));
-            }
-        }
         //打人
         if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
             /// 无瑕之刃

@@ -25,6 +25,7 @@ import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
 
 public class CuriosArmorPenetration {
     private static final UUID uuid = UUID.fromString("CFB465FC-9BF4-2283-E255-88864219DE97");
+
     @OnlyIn(Dist.CLIENT)
     public static void init() {
         var statGetter = new StatGetterEffectLevel(curiosArmorPenetrationEffect, 1);
@@ -41,7 +42,7 @@ public class CuriosArmorPenetration {
     @SubscribeEvent
     public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getAttacked()!=null) {
+            if (event.getAttacked() != null) {
                 LivingEntity player = event.getAttacked();
                 float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosArmorPenetrationEffect);
                 if (effectLevel > 0) {
@@ -57,20 +58,13 @@ public class CuriosArmorPenetration {
             }
         }
     }
+
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent event) {
-        if (ModList.get().isLoaded("curios")) {
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
-                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(livingEntity, curiosArmorPenetrationEffect);
-                if (effectLevel > 0) {
-                    Optional.of(event.getEntity())
-                            .map(LivingEntity::getAttributes)
-                            .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
-                            .map(manager -> manager.getInstance(Attributes.ARMOR))
-                            .ifPresent(instance -> instance.removeModifier(uuid));
-                }
-            }
-
-        }
+        Optional.of(event.getEntity())
+                .map(LivingEntity::getAttributes)
+                .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
+                .map(manager -> manager.getInstance(Attributes.ARMOR))
+                .ifPresent(instance -> instance.removeModifier(uuid));
     }
 }

@@ -4,6 +4,7 @@
     ],
     "type": "tetra:basic_major_module",
     "improvements": [
+        "tetra:bow/",
         "tetra:bow/long_stave/",
         "tetra:bow/shared_stave/",
         "tetra:bow/shared/",

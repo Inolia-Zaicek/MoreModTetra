@@ -1,10 +1,11 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait;
 
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -19,9 +20,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
-import top.theillusivec4.curios.api.CuriosApi;
 
 import java.util.Objects;
 
@@ -52,30 +51,8 @@ public class UndyingEffectTrait {
                     !event.getEntity().hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "curse"))))
             ) {
                 LivingEntity livingEntity = event.getEntity();;
-                //饰品部分（莱特兰必定有饰品
-                CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
-                        (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                        slotResult -> {
-                            slotResult.stack();
-                            ItemStack itemStack = slotResult.stack();
-                            IModularItem curiousItem = (IModularItem) itemStack.getItem();
-                            //获取一下玩家主副手
-                            ItemStack mainHandItem = livingEntity.getMainHandItem();
-                            ItemStack offhandItem = livingEntity.getOffhandItem();
-                            int effectLevel = 0;
-                            effectLevel += curiousItem.getEffectLevel(itemStack, undyingEffectTraitEffect);
-                if (mainHandItem.getItem() instanceof IModularItem item) {
-                    float mainEffectLevel = item.getEffectLevel(mainHandItem, undyingEffectTraitEffect);
-                    if (mainEffectLevel > 0) {
-                        effectLevel +=  mainEffectLevel;
-                    }
-                }
-                if (offhandItem.getItem() instanceof IModularItem item) {
-                    float offEffectLevel = item.getEffectLevel(offhandItem, undyingEffectTraitEffect);
-                    if (offEffectLevel > 0) {
-                        effectLevel += (int) offEffectLevel;
-                    }
-                }
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(livingEntity, undyingEffectTraitEffect)
+                        + MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, undyingEffectTraitEffect);
                 if (effectLevel > 0) {
                     //设置玩家血量（不要滥用改写
                     livingEntity.setHealth(livingEntity.getMaxHealth());
@@ -87,7 +64,6 @@ public class UndyingEffectTrait {
                     //事件可以被取消
                     event.setCanceled(true);
                 }
-                }));
             }
         }
     }

@@ -85,16 +85,7 @@ public class HurtAndDamage {
                     }
                     // 如果目标实体还未死亡或正在死亡...
                     if (!attacked.isDeadOrDying()) {
-                        // 检查目标实体是否是玩家。
-                        if (attacked instanceof Player) {
-                            // 如果是玩家，则对其造成一个极高的伤害，强制使其死亡。
                             attacked.hurt(MMTTickZero.hasSource(attacker.level(), MMTTickZero.TRUEDAMAGE, attacker), Float.MAX_VALUE);
-                        } else {
-                            // 如果不是玩家 (而是其他类型的生物)...直接调用 target.die(...) 方法来使其死亡。
-                            attacked.die( MMTTickZero.hasSource(attacker.level(), MMTTickZero.TRUEDAMAGE, attacker) );
-                            // 移除目标实体。target.discard() 会将实体从游戏中移除，通常在死亡后执行。
-                            attacked.discard();
-                        }
                     }
                 }
             }
@@ -134,12 +125,16 @@ public class HurtAndDamage {
                             (int) Math.max(0, attacker.getPersistentData().getInt(concept_of_life_time) * (1 - lifeLevel / 100) ));
                 }
                 //秩序
-                float orderLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(attacker, concept_of_order_Effect);//上限
-                float orderEfficiency = MMTEffectHelper.getInstance().getMainOffHandMaxEffectEfficiency(attacker, concept_of_order_Effect);//增伤
-                if(orderLevel>0&&orderEfficiency>0&&attacked.getMaxHealth()>attacker.getMaxHealth() ) {
-                    //每有1%，增伤(orderEfficiency/100)，至多增伤(orderLevel/100)
-                    float number = (float) Math.min( (orderLevel/100) , (int)(1-attacked.getMaxHealth()/attacker.getMaxHealth() / 0.01) * (orderEfficiency/100) );
-                    event.addNormalMulti(number);
+                float orderLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(attacker, concept_of_order_Effect);
+                float orderEfficiency = MMTEffectHelper.getInstance().getMainOffHandMaxEffectEfficiency(attacker, concept_of_order_Effect);
+                float maxHealthAttacker = attacker.getMaxHealth();
+                float maxHealthTarget = attacked.getMaxHealth();
+                //计算目标生命值比自己高的百分比差
+                float healthDiffPercent = (maxHealthTarget - maxHealthAttacker) / maxHealthAttacker * 100;
+                //只有当 healthDiffPercent > 1 时，才会开始增加伤害，增加的比例为orderEfficiency%，最多orderLevel%
+                if (healthDiffPercent > 0 && maxHealthTarget > maxHealthAttacker) {
+                    float damageIncreasePercent = Math.min(healthDiffPercent * orderEfficiency, orderLevel);
+                    event.addNormalMulti(damageIncreasePercent / 100);
                 }
                 //灵魂
                 if (random.nextInt(100) <= MMTCuriosHelper.getInstance().getCuriosEffectEfficiency(attacker, concept_of_soul_Effect)

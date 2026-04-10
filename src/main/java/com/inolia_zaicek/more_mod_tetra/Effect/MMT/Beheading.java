@@ -14,6 +14,8 @@ import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.piglin.Piglin;
+import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -64,6 +66,8 @@ public class Beheading {
                         headDrop = new ItemStack(Items.CREEPER_HEAD);
                     } else if (target instanceof Skeleton) {
                         headDrop = new ItemStack(Items.SKELETON_SKULL);
+                    } else if (target instanceof Piglin||target instanceof PiglinBrute) {
+                        headDrop = new ItemStack(Items.PIGLIN_HEAD);
                     } else if (!(target instanceof WitherSkeleton) && !(target instanceof WitherBoss)) {
                         if (target instanceof EnderDragon) {
                             headDrop = new ItemStack(Items.DRAGON_HEAD);

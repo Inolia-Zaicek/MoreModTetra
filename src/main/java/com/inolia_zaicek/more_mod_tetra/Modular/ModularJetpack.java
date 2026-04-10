@@ -4,7 +4,9 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import com.inolia_zaicek.more_mod_tetra.Network.MMTNetworkHandler;
 import com.inolia_zaicek.more_mod_tetra.Network.Packet.MMTPlayerFlyPacketS2C;
+import com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraItemRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriousHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -30,6 +32,10 @@ import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.curiosFlyEf
 
 @SuppressWarnings({"all", "removal"})
 public class ModularJetpack extends ModularItem implements  ICurioItem { // 声明一个名为Modularjetpack的公共类，它继承自ModularItem并实现ICurio接口。
+    @Override
+    public boolean canEquip(SlotContext slotContext, ItemStack stack) {
+        return MMTUtil.noSameCurio(slotContext.entity(), MoreModTetraItemRegister.MODULAR_Jetpack.get());
+    }
     //部件类型/槽位——[slot]
     public final static String mmt_jetpackShell = "mmt_jetpack/shell";
     public final static String mmt_jetpackBattery = "mmt_jetpack/battery";

@@ -2,7 +2,7 @@
   "condition":
   {
     "type": "forge:mod_loaded",
-    "modid": "alshanex_familiars"
+    "modid": "familiarslib"
   },
   "type": "minecraft:smithing_transform",
   "addition":{

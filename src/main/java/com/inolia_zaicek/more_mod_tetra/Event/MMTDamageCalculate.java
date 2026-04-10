@@ -21,14 +21,17 @@ public class MMTDamageCalculate {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void hurt(LivingHurtEvent event) {
         //攻击
-        LivingEntity livingEntity;
+        LivingEntity attacker;
+        //攻击源
         if (event.getSource().getEntity() instanceof LivingEntity entity) {
-            livingEntity = entity;
+            attacker = entity;
         } else if (event.getSource().getDirectEntity() instanceof LivingEntity entity) {
-            livingEntity = entity;
-        } else return;
-        var mob = event.getEntity();
-        EffectLevelEvent effectLevel = new EffectLevelEvent(livingEntity, mob, event);
+            attacker = entity;
+        }
+        //空攻击源
+        else return;
+        var attacked = event.getEntity();
+        EffectLevelEvent effectLevel = new EffectLevelEvent(attacker, attacked, event);
         MinecraftForge.EVENT_BUS.post(effectLevel);
         Event.Result result = effectLevel.getResult();
 
@@ -44,13 +47,12 @@ public class MMTDamageCalculate {
                 newDamage *= multi;
             }
             //钻石守卫减伤计算
-            LivingEntity player = event.getEntity();
-            float diamondGuard = MMTEffectHelper.getInstance().getAllEffectLevel(player, diamond_guard_Effect);
+            float diamondGuard = MMTEffectHelper.getInstance().getAllEffectLevel(attacked, diamond_guard_Effect);
             if (diamondGuard > 0) {
                 if (diamondGuard > 95) {
                     diamondGuard = 95;
                 }
-                float mhp = player.getMaxHealth();
+                float mhp = attacked.getMaxHealth();
                 float damage = event.getAmount();
                 //最大扣血：最大生命值*（100%-比例)
                 float maxAmount = (mhp * (1 - diamondGuard / 100));

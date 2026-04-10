@@ -1416,10 +1416,6 @@ public class EffectGuiStats {
     public static final String dragon_breath_thorns_Name = MoreModTetra.MODID + ".effect.dragon_breath_thorns.name";
     public static final String dragon_breath_thorns_Tooltip = MoreModTetra.MODID + ".effect.dragon_breath_thorns.tooltip";
 
-    public static final ItemEffect etherium_protection_Effect = ItemEffect.get(MoreModTetra.MODID + ":etherium_protection");
-    public static final String etherium_protection_Name = MoreModTetra.MODID + ".effect.etherium_protection.name";
-    public static final String etherium_protection_Tooltip = MoreModTetra.MODID + ".effect.etherium_protection.tooltip";
-
     public static final ItemEffect flawless_protection_Effect = ItemEffect.get(MoreModTetra.MODID + ":flawless_protection");
     public static final String flawless_protection_Name = MoreModTetra.MODID + ".effect.flawless_protection.name";
     public static final String flawless_protection_Tooltip = MoreModTetra.MODID + ".effect.flawless_protection.tooltip";
@@ -2341,6 +2337,18 @@ public class EffectGuiStats {
     public static final ItemEffect damage_adaptation_Effect = ItemEffect.get(MoreModTetra.MODID + ":damage_adaptation");
     public static final String damage_adaptation_Name = MoreModTetra.MODID + ".effect.damage_adaptation.name";
     public static final String damage_adaptation_Tooltip = MoreModTetra.MODID + ".effect.damage_adaptation.tooltip";
+
+    public static final ItemEffect immortalers_delight_gas_poison_Effect = ItemEffect.get(MoreModTetra.MODID + ":immortalers_delight_gas_poison");
+    public static final String immortalers_delight_gas_poison_Name = MoreModTetra.MODID + ".effect.immortalers_delight_gas_poison.name";
+    public static final String immortalers_delight_gas_poison_Tooltip = MoreModTetra.MODID + ".effect.immortalers_delight_gas_poison.tooltip";
+
+    public static final ItemEffect immortalers_delight_moon_bright_Effect = ItemEffect.get(MoreModTetra.MODID + ":immortalers_delight_moon_bright");
+    public static final String immortalers_delight_moon_bright_Name = MoreModTetra.MODID + ".effect.immortalers_delight_moon_bright.name";
+    public static final String immortalers_delight_moon_bright_Tooltip = MoreModTetra.MODID + ".effect.immortalers_delight_moon_bright.tooltip";
+
+    public static final ItemEffect immortalers_delight_incandescence_Effect = ItemEffect.get(MoreModTetra.MODID + ":immortalers_delight_incandescence");
+    public static final String immortalers_delight_incandescence_Name = MoreModTetra.MODID + ".effect.immortalers_delight_incandescence.name";
+    public static final String immortalers_delight_incandescence_Tooltip = MoreModTetra.MODID + ".effect.immortalers_delight_incandescence.tooltip";
 
 
 

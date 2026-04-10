@@ -39,7 +39,7 @@
   "conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "alshanex_familiars"
+      "modid": "familiarslib"
     }
   ]
 }

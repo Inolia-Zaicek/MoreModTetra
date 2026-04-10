@@ -1,13 +1,13 @@
 {
     "key": "golden_silk",
     "category": "fibre",
-    "primary": 1.8,
+    "primary": 2.2,
     "secondary": 1.4,
-    "tertiary": 3,
+    "tertiary": 5,
     "durability": 300,
     "integrityCost": 1,
     "integrityGain": 6,
-    "magicCapacity": 120,
+    "magicCapacity": 420,
     "toolLevel": 0,
     "toolEfficiency": 0,
     "tints": {

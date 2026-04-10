@@ -21,12 +21,12 @@ public class UnderoceanTick {
         if (ModList.get().isLoaded("alexscaves")) {
             int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,underoceanEffect);
             if (effectLevel > 0) {
-                if (livingEntity.level().getGameTime() % 10L == 0) {
-                    livingEntity.addEffect(new MobEffectInstance(ACEffectRegistry.DEEPSIGHT.get(), 100, effectLevel - 1, true, true, true));
-                    livingEntity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 100, effectLevel - 1, true, true, true));
-                    livingEntity.addEffect(new MobEffectInstance(ACEffectRegistry.BUBBLED.get(), 100, effectLevel - 1, true, true, true));
-                    livingEntity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 100, effectLevel - 1, true, true, true));
-                    livingEntity.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 100, effectLevel - 1, true, true, true));
+                if (livingEntity.level().getGameTime() % 20L == 0) {
+                    livingEntity.addEffect(new MobEffectInstance(ACEffectRegistry.DEEPSIGHT.get(), 300, effectLevel - 1, true, true, true));
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 300, effectLevel - 1, true, true, true));
+                    livingEntity.addEffect(new MobEffectInstance(ACEffectRegistry.BUBBLED.get(), 300, effectLevel - 1, true, true, true));
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 300, effectLevel - 1, true, true, true));
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 300, effectLevel - 1, true, true, true));
                 }
             }
         }

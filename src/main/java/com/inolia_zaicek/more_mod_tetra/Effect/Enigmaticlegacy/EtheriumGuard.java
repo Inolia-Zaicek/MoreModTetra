@@ -1,6 +1,5 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.Enigmaticlegacy;
 
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,21 +29,6 @@ public class EtheriumGuard {
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
-
-    @SubscribeEvent
-    public static void hurt(EffectLevelEvent event) {
-            //挨打是玩家
-            LivingEntity livingEntity = event.getAttacked();;
-            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandSumEffectLevel(livingEntity,etheriumGuardEffect);
-            float hp = livingEntity.getHealth();
-            float mhp = livingEntity.getMaxHealth();
-            float finish = hp / mhp;
-            if (effectLevel > 0 && finish <= 0.5f) {
-                float number = Math.min(0.75f, (float) effectLevel / 100);
-                event.addNormalMulti((1 - number));
-        }
-    }
-
     @SubscribeEvent
     public static void heal(LivingHealEvent event) {
         LivingEntity livingEntity = event.getEntity();;

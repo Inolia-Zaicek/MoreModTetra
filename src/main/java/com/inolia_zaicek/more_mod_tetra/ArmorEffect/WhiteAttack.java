@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Random;
 
 import static com.inolia_zaicek.more_mod_tetra.Effect.EffectGuiStats.*;
+import static net.minecraft.tags.DamageTypeTags.IS_PROJECTILE;
 
 public class WhiteAttack {
     @SubscribeEvent
@@ -31,7 +32,9 @@ public class WhiteAttack {
                 time += MMTCuriosHelper.getInstance().getCuriosEffectMaxEfficiency(attacker, white_scabbard_Effect) * 20;
             }
             //箭袋
-            else if (event.hurtEvent.getSource().is(DamageTypes.ARROW)) {
+            else if (event.hurtEvent.getSource().is(DamageTypes.ARROW)
+                    ||event.hurtEvent.getSource().is(IS_PROJECTILE)
+            ) {
                 chance += MMTCuriosHelper.getInstance().getCuriosEffectMaxLevel(attacker, white_quiver_Effect);
                 time += MMTCuriosHelper.getInstance().getCuriosEffectMaxEfficiency(attacker, white_quiver_Effect) * 20;
             }

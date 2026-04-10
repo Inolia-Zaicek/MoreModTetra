@@ -4,6 +4,7 @@ import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -46,13 +47,13 @@ public class SirenicSerenade {
                     int debuffNumber =0;
                     if(random.nextInt(70)<10){
                         mob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
-                        if(!mob.hasEffect(MobEffects.WEAKNESS)) {
+                        if(!mob.hasEffect(MobEffects.WEAKNESS)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.WEAKNESS, new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
                         }
                     }
                     else if(random.nextInt(70)<20&&random.nextInt(70)>=10){
                         mob.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
-                        if(!mob.hasEffect(MobEffects.POISON)) {
+                        if(!mob.hasEffect(MobEffects.POISON)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.POISON, new MobEffectInstance(MobEffects.POISON, 200, 0));
                         }
                     }
@@ -63,25 +64,25 @@ public class SirenicSerenade {
                     }
                     else if(random.nextInt(70)<40&&random.nextInt(70)>=30){
                         mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
-                        if(!mob.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
+                        if(!mob.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.MOVEMENT_SLOWDOWN, new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
                         }
                     }
                     else if(random.nextInt(70)<50&&random.nextInt(70)>=40) {
                         mob.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
-                        if (!mob.hasEffect(MobEffects.WITHER)) {
+                        if (!mob.hasEffect(MobEffects.WITHER)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.WITHER, new MobEffectInstance(MobEffects.WITHER, 200, 0));
                         }
                     }
                     else if(random.nextInt(70)<60&&random.nextInt(70)>=50) {
                         mob.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
-                        if (!mob.hasEffect(MobEffects.DARKNESS)) {
+                        if (!mob.hasEffect(MobEffects.DARKNESS)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.DARKNESS, new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
                         }
                     }
                     else if(random.nextInt(70)>=60) {
                         mob.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 0));
-                        if (!mob.hasEffect(MobEffects.BLINDNESS)) {
+                        if (!mob.hasEffect(MobEffects.BLINDNESS)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.BLINDNESS, new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
                         }
                     }
@@ -119,13 +120,13 @@ public class SirenicSerenade {
                     int debuffNumber =0;
                     if(random.nextInt(70)<10){
                         mob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
-                        if(!mob.hasEffect(MobEffects.WEAKNESS)) {
+                        if(!mob.hasEffect(MobEffects.WEAKNESS)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.WEAKNESS, new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
                         }
                     }
                     else if(random.nextInt(70)<20&&random.nextInt(70)>=10){
                         mob.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
-                        if(!mob.hasEffect(MobEffects.POISON)) {
+                        if(!mob.hasEffect(MobEffects.POISON)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.POISON, new MobEffectInstance(MobEffects.POISON, 200, 0));
                         }
                     }
@@ -136,25 +137,25 @@ public class SirenicSerenade {
                     }
                     else if(random.nextInt(70)<40&&random.nextInt(70)>=30){
                         mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
-                        if(!mob.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
+                        if(!mob.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.MOVEMENT_SLOWDOWN, new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
                         }
                     }
                     else if(random.nextInt(70)<50&&random.nextInt(70)>=40) {
                         mob.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
-                        if (!mob.hasEffect(MobEffects.WITHER)) {
+                        if (!mob.hasEffect(MobEffects.WITHER)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.WITHER, new MobEffectInstance(MobEffects.WITHER, 200, 0));
                         }
                     }
                     else if(random.nextInt(70)<60&&random.nextInt(70)>=50) {
                         mob.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
-                        if (!mob.hasEffect(MobEffects.DARKNESS)) {
+                        if (!mob.hasEffect(MobEffects.DARKNESS)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.DARKNESS, new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
                         }
                     }
                     else if(random.nextInt(70)>=60) {
                         mob.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 0));
-                        if (!mob.hasEffect(MobEffects.BLINDNESS)) {
+                        if (!mob.hasEffect(MobEffects.BLINDNESS)&& !EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal")  ) {
                             map.put(MobEffects.BLINDNESS, new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
                         }
                     }

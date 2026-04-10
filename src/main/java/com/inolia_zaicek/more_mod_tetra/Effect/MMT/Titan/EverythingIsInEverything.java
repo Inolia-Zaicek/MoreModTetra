@@ -14,7 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.player.PlayerXpEvent;
+import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
@@ -45,13 +45,15 @@ public class EverythingIsInEverything {
     }
 
     @SubscribeEvent
-    public static void event(PlayerXpEvent.XpChange event){
-        if (event.getEntity()!=null&&event.getAmount()>1) {
-            LivingEntity player = event.getEntity();
-            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player,everythingIsInEverythingEffect);
+    public static void evenas1t(LivingExperienceDropEvent event) {
+        Player player = event.getAttackingPlayer();
+        if(player!=null&&event.getEntity()!=null) {
+            float number = 1;
+            int effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player, everythingIsInEverythingEffect);
             if (effectLevel > 0) {
-                event.setAmount((int) (event.getAmount()*(1+effectLevel/100)+1));
+                number += (float) effectLevel / 100;
             }
+            event.setDroppedExperience((int) (event.getDroppedExperience() * (1 + number / 100) + 1));
         }
     }
     @SubscribeEvent
@@ -115,7 +117,7 @@ public class EverythingIsInEverything {
             CompoundTag compoundTag = livingEntity.getPersistentData();
             int bufferingDamageNumber = compoundTag.getInt(damage_buffering_Number_NBT);
             //伤害数额（nbt数额/【20*tick(时间)*100】
-            float damage = (float) bufferingDamageNumber /(20* Objects.requireNonNull(livingEntity.getEffect(MMTEffectsRegister.NeutralReverDuel.get())).getDuration()*100);
+            float damage = (float) bufferingDamageNumber /(20* Objects.requireNonNull(livingEntity.getEffect(MMTEffectsRegister.DamageBuffering.get())).getDuration()*100);
             var DamageType = MMTTickZero.source(livingEntity.level(), MMTTickZero.TRUEDAMAGE);
             livingEntity.hurt(DamageType, damage);
             //NBT结算

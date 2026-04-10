@@ -32,9 +32,11 @@ public class Orders {
             //取周围玩家/实体词条最大值
             for (Mob mobs : mobList) {
                 level1 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(mobs, orders_Effect);
+                level1 += MMTCuriosHelper.getInstance().getCuriosEffectMaxLevel(mobs,orders_Effect);
             }
             for (Player player : playerList) {
                 level2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player, orders_Effect);
+                level2 += MMTCuriosHelper.getInstance().getCuriosEffectMaxLevel(player,orders_Effect);
             }
             float finish = Math.max(level1, level2);
             if (finish > 0) {

@@ -2,7 +2,9 @@ package com.inolia_zaicek.more_mod_tetra.Modular; // 定义该类所属的包，
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraItemRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriousHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -23,6 +25,10 @@ import java.util.stream.Stream;
 
 @SuppressWarnings({"all", "removal"})
 public class ModularShoes extends ModularItem implements  ICurioItem { // 声明一个名为Modularshoes的公共类，它继承自ModularItem并实现ICurio接口。
+    @Override
+    public boolean canEquip(SlotContext slotContext, ItemStack stack) {
+        return MMTUtil.no2SameCurio(slotContext.entity(), MoreModTetraItemRegister.MODULAR_Shoes.get());
+    }
     //部件类型/槽位——[slot]
     public final static String mmt_shoesUpper = "mmt_shoes/upper";
     public final static String mmt_shoesSole = "mmt_shoes/sole";

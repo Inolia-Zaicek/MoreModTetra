@@ -40,7 +40,7 @@ public class CollapsingFear {
             LivingEntity livingEntity = event.getAttacked();;
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,dominionEffect);
             if (effectLevel > 0&&mob.hasEffect(MMTEffectsRegister.Dominion.get())) {
-                 event.addNormalMulti((1- (float) effectLevel /100));
+                 event.addIndependentMulti((1 - (float) effectLevel /100));
             }
         }
     }

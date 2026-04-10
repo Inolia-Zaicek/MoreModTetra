@@ -43,10 +43,24 @@ public class LightningDragonsteelMaterial {
                 float numberA = (float) effectLevel / 200;
                 //冰龙
                 if(livingEntity.getLastAttacker() instanceof EntityFireDragon||livingEntity.getLastAttacker() instanceof EntityIceDragon) {
-                    event.addNormalMulti((1-number));
+                    event.addIndependentMulti((1 -number));
                 }
                 if(livingEntity.getLastAttacker() instanceof EntityLightningDragon) {
-                    event.addNormalMulti((1-numberA));
+                    event.addIndependentMulti((1 -numberA));
+                }
+            }
+        }
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            var mob = event.getAttacked();
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, lightningDragonsteelMaterialEffect);
+            if (effectLevel > 0) {
+                float number = (float) effectLevel / 100;
+                float numberA = (float) effectLevel / 200;
+                if (mob instanceof EntityFireDragon || mob instanceof EntityIceDragon) {
+                    event.addNormalMulti((number));
+                }
+                if (mob instanceof EntityLightningDragon) {
+                    event.addNormalMulti((numberA));
                 }
             }
         }

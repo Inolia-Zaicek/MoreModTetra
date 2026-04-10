@@ -30,30 +30,21 @@ public class UltimateSlash {
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
+
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void hurt(EffectLevelEvent event) {
-            //攻击
-            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
-                var mob = event.getAttacked();
-                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player, ultimateSlashEffect);
-                float hp =mob.getHealth();
-                float mhp =mob.getMaxHealth();
-                float finish =hp/mhp;
-                if (effectLevel > 0&&finish<=0.5f) {
-                    float number = (float) effectLevel / 100;
-                    event.addNormalMulti((number));
-                    }
-                }else             if (event.hurtEvent.getSource().getDirectEntity() instanceof LivingEntity player) {
-                var mob = event.getAttacked();
-                float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player, ultimateSlashEffect);
-                float hp =mob.getHealth();
-                float mhp =mob.getMaxHealth();
-                float finish =hp/mhp;
-                if (effectLevel > 0&&finish<=0.5f) {
-                    float number = (float) effectLevel / 100;
-                    event.addNormalMulti((number));
-                }
-            }
+        //攻击
+        if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity player) {
+            var mob = event.getAttacked();
+            float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(player, ultimateSlashEffect);
+            float hp = mob.getHealth();
+            float mhp = mob.getMaxHealth();
+            float finish = hp / mhp;
+            if (effectLevel > 0 && finish <= 0.5f) {
+                float number = (float) effectLevel / 100;
+                event.addNormalMulti((number));
             }
         }
+    }
+}
 

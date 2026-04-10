@@ -127,7 +127,8 @@ dependencies {
     //runtimeOnly————运行时【写代码找不到，运行看得见
     //implementation————任何时候
     compileOnly fg.deobf("blank:alexscaves-1.20.1:1")
-    compileOnly fg.deobf("blank:alshanex_familiars-1.20.1:1")
+    compileOnly fg.deobf("blank:alshanex_familiars-1.20.1:3.8")
+    compileOnly fg.deobf("blank:familiarslib-1.20.1:1.6")
     implementation fg.deobf("blank:attributeslib-1.20.1:1")
     compileOnly fg.deobf("blank:art_of_forging-1.20.1:1")
     implementation fg.deobf("blank:caelus-1.20.1:1")
@@ -161,7 +162,7 @@ dependencies {
     compileOnly fg.deobf("blank:iceandfire-1.20.1:1")
     //implementation fg.deobf("blank:tetranomicon-1.20.1:1")
     compileOnly fg.deobf("blank:enigmaticlegacy-1.20.1:1")
-    implementation fg.deobf("blank:botania-1.20.1:1")
+    compileOnly fg.deobf("blank:botania-1.20.1:1")
     implementation fg.deobf("blank:obscure_api-1.20.1:1")
     compileOnly fg.deobf("blank:aquamirae-1.20.1:1")
     //神化
@@ -172,16 +173,19 @@ dependencies {
     implementation fg.deobf("blank:torchesbecomesunlight-1.20.1:1")
     compileOnly fg.deobf("blank:caerula_arbor-1.20.1:1")
     implementation fg.deobf("blank:tetra_re_enlarged-1.20.1:1")
-    compileOnly fg.deobf("blank:tacz-1.20.1:1")
+    implementation fg.deobf("blank:tacz-1.20.1:1")
     implementation fg.deobf("blank:relics-1.20.1:1")
     implementation fg.deobf("blank:octolib-1.20.1:1")
     implementation fg.deobf("blank:more_tetra_tools-1.20.1:1")
     compileOnly fg.deobf("blank:fantasy_ending-1.20.1:1")
     compileOnly fg.deobf("blank:primogemcraft-1.20.1:1")
     compileOnly fg.deobf("blank:slashblade-1.20.1:1")
-    compileOnly fg.deobf("blank:goety_revelation-1.20.1:1")
-    implementation fg.deobf("blank:goety-1.20.1:1")
-    implementation fg.deobf("blank:witherstormmod-1.20.1:1")
+    compileOnly fg.deobf("blank:witherstormmod-1.20.1:1")
+    //诡厄
+    implementation fg.deobf("blank:goety-2.5.49.0-1.20.1:1")
+    //implementation fg.deobf("blank:goety_revelation-2.3.1-1.20.1:1")
+    //compileOnly fg.deobf("blank:revelation_fix-1.20.1:4.0")
+    //implementation fg.deobf("blank:endingLibrary-1.20.1:2.1.9")
 }
 
 tasks.named('processResources', ProcessResources).configure {

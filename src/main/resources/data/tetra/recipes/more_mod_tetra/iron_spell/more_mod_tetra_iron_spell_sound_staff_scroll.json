@@ -3,7 +3,7 @@
   "conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "alshanex_familiars"
+      "modid": "familiarslib"
     }
   ],
   "pattern": [
@@ -22,7 +22,7 @@
       "glyphs": [ 3, 8, 1, 4 ]
     },
     "B": {
-      "item": "alshanex_familiars:sound_rune"
+      "item": "familiarslib:sound_rune"
     }
   },
   "result": {

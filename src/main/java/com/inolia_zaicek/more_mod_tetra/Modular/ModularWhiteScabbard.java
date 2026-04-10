@@ -2,7 +2,9 @@ package com.inolia_zaicek.more_mod_tetra.Modular; // 定义该类所属的包，
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import com.inolia_zaicek.more_mod_tetra.Register.MoreModTetraItemRegister;
 import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriousHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTUtil;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -23,6 +25,12 @@ import java.util.stream.Stream;
 
 @SuppressWarnings({"all", "removal"})
 public class ModularWhiteScabbard extends ModularItem implements ICurioItem { // 声明一个名为ModularNecklace的公共类，它继承自ModularItem并实现ICurio接口。
+    @Override
+    public boolean canEquip(SlotContext slotContext, ItemStack stack) {
+        return MMTUtil.noSameCurio(slotContext.entity(), MoreModTetraItemRegister.MODULAR_WhiteScabbard.get())
+                ||MMTUtil.noSameCurio(slotContext.entity(), MoreModTetraItemRegister.MODULAR_WhiteQuiver.get())
+                ||MMTUtil.noSameCurio(slotContext.entity(), MoreModTetraItemRegister.MODULAR_WhiteBag.get());
+    }
     //部件类型/槽位——[slot]
     //法杖核心————决定法杖类型≈配重部位
     public final static String mmt_white_scabbard_white = "mmt_white_scabbard/white";

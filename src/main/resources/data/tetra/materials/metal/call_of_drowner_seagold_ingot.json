@@ -1,0 +1,45 @@
+{
+  "key": "call_of_drowner_seagold_ingot",
+  "category": "metal",
+  "primary": 9.1,
+  "secondary": 2.1,
+  "tertiary": 4,
+  "durability": 2500,
+  "integrityCost": 2,
+  "integrityGain": 7,
+  "magicCapacity": 60,
+  "toolLevel": "minecraft:netherite",
+  "toolEfficiency": 6,
+  "tints": {
+    "glyph": "99FF33",
+    "texture": "99FF33"
+  },
+  "textures": [
+    "metal",
+    "default"
+  ],
+  "material": {
+    "items": [
+      "call_of_drowner:seagold_ingot"
+    ]
+  },
+  "effects" : {
+    "more_mod_tetra:blessings_of_water": 15
+  },
+  "requiredTools": {
+    "hammer_dig": "minecraft:iron"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "call_of_drowner"
+    }
+  ],
+  "contexts": {
+    "armor": {
+      "effects": {
+        "more_mod_tetra:blessings_of_water": 2
+      }
+    }
+  }
+}

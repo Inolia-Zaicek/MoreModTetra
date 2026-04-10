@@ -1,10 +1,8 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.MMT;
 
-import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
 import com.inolia_zaicek.more_mod_tetra.MoreModTetra;
 import com.inolia_zaicek.more_mod_tetra.Register.MMTEffectsRegister;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -36,6 +34,7 @@ public class TwinSlash {
         HoloStatsGui.addBar(statBar);
     }
 
+                    /*双剑自我减伤（不是这玩意哪来的？
     @SubscribeEvent
     public static void hurt(EffectLevelEvent event) {
         //挨打
@@ -52,19 +51,19 @@ public class TwinSlash {
                     int effectLevel = Math.max(1, (Math.min(mainEffectLevel,offEffectLevel)) );
                     if (player.hasEffect(MMTEffectsRegister.EclipseStarBurstStream.get())) {
                         int buffLevel = mob.getEffect(MMTEffectsRegister.EclipseStarBurstStream.get()).getAmplifier();
-                        event.addNormalMulti((1 - (float) (effectLevel * buffLevel) / 100));
+                        event.addIndependentMulti((1 - (float) (effectLevel * buffLevel) / 100));
                     } else if (player.hasEffect(MMTEffectsRegister.Eclipse.get())) {
                         int buffLevel = mob.getEffect(MMTEffectsRegister.Eclipse.get()).getAmplifier();
-                        event.addNormalMulti((1 - (float) (effectLevel * buffLevel) / 100));
+                        event.addIndependentMulti((1 - (float) (effectLevel * buffLevel) / 100));
                     } else if (player.hasEffect(MMTEffectsRegister.StarBurstStream.get())) {
                         int buffLevel = mob.getEffect(MMTEffectsRegister.StarBurstStream.get()).getAmplifier();
-                        event.addNormalMulti((1 - (float) (effectLevel * buffLevel) / 100));
+                        event.addIndependentMulti((1 - (float) (effectLevel * buffLevel) / 100));
                     }
                 }
             }
         }
     }
-    //如果两个buff都没有
+                     */
 
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {

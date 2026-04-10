@@ -427,6 +427,7 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(Powerless.class);
         MinecraftForge.EVENT_BUS.register(PowerlessEvent.class);
         MinecraftForge.EVENT_BUS.register(Poison.class);
+
         MinecraftForge.EVENT_BUS.register(NitenIchiryuKatana.class);
         MinecraftForge.EVENT_BUS.register(NitenIchiryuWakizashi.class);
         MinecraftForge.EVENT_BUS.register(ReverseMirrorHurt.class);
@@ -530,7 +531,6 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(CuriosMagmaWalker.class);
         MinecraftForge.EVENT_BUS.register(CuriosWaterWalker.class);
         MinecraftForge.EVENT_BUS.register(CuriosFly.class);
-
         MinecraftForge.EVENT_BUS.register(MMTFluidCollisionEvent.class);
         MinecraftForge.EVENT_BUS.register(CuriosTotemEvent.class);
         MinecraftForge.EVENT_BUS.register(SacrificeStoneEvent.class);
@@ -543,6 +543,7 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(FieryPalpitation.class);
         MinecraftForge.EVENT_BUS.register(DiamondGuard.class);
 
+
         MinecraftForge.EVENT_BUS.register(InvulnerableTimeDown.class);
 
         if(ModList.get().isLoaded("ars_nouveau")) {
@@ -551,11 +552,14 @@ public class MoreModTetra {
         MinecraftForge.EVENT_BUS.register(ArmorCriticalStrike.class);
         MinecraftForge.EVENT_BUS.register(ArmorSturdyAndTenacity.class);
         MinecraftForge.EVENT_BUS.register(ArmorHealAndRevival.class);
+
+        ///
         MinecraftForge.EVENT_BUS.register(UndeadAndArthropodsProtection.class);
         MinecraftForge.EVENT_BUS.register(ArmorLastAndFinalStand.class);
         MinecraftForge.EVENT_BUS.register(ArmorCompleteForm.class);
         MinecraftForge.EVENT_BUS.register(EtheriumProtection.class);
         MinecraftForge.EVENT_BUS.register(FlawlessEffect.class);
+        ///
 
         MinecraftForge.EVENT_BUS.register(ArmorThorns.class);
         MinecraftForge.EVENT_BUS.register(DragonBreathThorns.class);

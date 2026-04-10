@@ -1,0 +1,38 @@
+{
+    "key": "immortalers_delight_moon_oil",
+    "category": "fuller_material",
+    "primary": 0,
+    "secondary": 0,
+    "tertiary": 0,
+    "durability": 0,
+    "integrityCost": 0,
+    "integrityGain": 6,
+    "magicCapacity": 0,
+    "toolLevel": 0,
+    "toolEfficiency":0,
+    "tints": {
+        "glyph": "cbe0fc",
+        "texture": "cbe0fc"
+    },
+    "effects" : {
+        "more_mod_tetra:immortalers_delight_moon_bright": 1
+    },
+    "textures": [
+        "default"
+    ],
+    "material": {
+        "items": [ "immortalers_delight:moon_oil" ]
+    },
+    "attributes": {
+        "**generic.attack_damage": 0.03
+    },
+    "requiredTools": {
+        "hammer_dig": 2
+    },
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "immortalers_delight"
+        }
+    ]
+}

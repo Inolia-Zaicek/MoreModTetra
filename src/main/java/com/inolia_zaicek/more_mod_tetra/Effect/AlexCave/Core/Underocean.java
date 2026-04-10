@@ -45,7 +45,7 @@ public class Underocean {
             LivingEntity mob = event.hurtEvent.getSource().getEntity().getControllingPassenger();
             float effectLevel = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,underoceanEffect);
             if (mob!=null&&effectLevel > 0&&mob.hasEffect(ACEffectRegistry.BUBBLED.get())) {
-                 event.addNormalMulti((1- (float) effectLevel /100));
+                 event.addIndependentMulti((1 - (float) effectLevel /100));
             }
         }
         }

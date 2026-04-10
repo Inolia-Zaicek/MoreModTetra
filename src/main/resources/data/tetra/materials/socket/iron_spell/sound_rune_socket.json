@@ -21,7 +21,7 @@
 ],
   "material": {
     "items": [
-      "alshanex_familiars:sound_rune"
+      "familiarslib:sound_rune"
     ]
   },
   "attributes": {
@@ -30,7 +30,7 @@
   "conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "alshanex_familiars"
+      "modid": "familiarslib"
     }
   ]
 }

@@ -2,6 +2,7 @@
     "slots": [ "modular_mmt_bow/string" ],
     "type": "tetra:basic_major_module",
     "improvements": [
+        "tetra:bow/",
         "tetra:bow/basic_string/",
         "tetra:bow/shared_string/",
         "tetra:bow/shared/",

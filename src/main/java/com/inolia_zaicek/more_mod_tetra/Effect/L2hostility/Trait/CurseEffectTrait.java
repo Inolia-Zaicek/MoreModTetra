@@ -1,10 +1,12 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.L2hostility.Trait;
 
 import com.inolia_zaicek.more_mod_tetra.Event.Post.EffectLevelEvent;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTCuriosHelper;
+import com.inolia_zaicek.more_mod_tetra.Util.MMTEffectHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,9 +18,7 @@ import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
 import se.mickelus.tetra.gui.stats.getter.LabelGetterBasic;
 import se.mickelus.tetra.gui.stats.getter.StatGetterEffectLevel;
 import se.mickelus.tetra.gui.stats.getter.TooltipGetterInteger;
-import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
-import top.theillusivec4.curios.api.CuriosApi;
 
 import java.util.Objects;
 
@@ -29,51 +29,34 @@ public class CurseEffectTrait {
     public static void init() {
         var statGetter = new StatGetterEffectLevel(cursedEffectTraitEffect, 1);
         GuiStatBar statBar = new GuiStatBar(0, 0, StatsHelper.barLength,
-                cursedEffectTraitName, 0, 5  , false, false, false,
+                cursedEffectTraitName, 0, 5, false, false, false,
                 statGetter, LabelGetterBasic.integerLabel,
                 new TooltipGetterInteger(cursedEffectTraitTooltip, statGetter)
         );
         WorkbenchStatsGui.addBar(statBar);
         HoloStatsGui.addBar(statBar);
     }
+
     @SubscribeEvent
     public static void hurt(EffectLevelEvent event) {
         if (ModList.get().isLoaded("l2complements")) {
-            //攻击者是玩家
-            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity &&event.getAttacked()!=null) {
-                CuriosApi.getCuriosInventory(livingEntity).ifPresent(inv -> inv.findCurios
-                                (itemStack -> itemStack.getItem() instanceof IModularItem).forEach(
-                                slotResult -> {
-                                    slotResult.stack();
-                                    ItemStack itemStack = slotResult.stack();
-                                    IModularItem curiousItem = (IModularItem) itemStack.getItem();
-                                    int effectLevel = curiousItem.getEffectLevel(itemStack, cursedEffectTraitEffect);
-                                    //获取一下玩家主副手
-                                    ItemStack mainHandItem = livingEntity.getMainHandItem();
-                                    ItemStack offhandItem = livingEntity.getOffhandItem();
-                                    if (mainHandItem.getItem() instanceof IModularItem item) {
-                                        float mainEffectLevel = item.getEffectLevel(mainHandItem, cursedEffectTraitEffect);
-                                        if (mainEffectLevel > 0) {
-                                            effectLevel +=  mainEffectLevel;
-                                        }
-                                    }
-                                    if (offhandItem.getItem() instanceof IModularItem item) {
-                                        float offEffectLevel = item.getEffectLevel(offhandItem, cursedEffectTraitEffect);
-                                        if (offEffectLevel > 0) {
-                                            effectLevel += (int) offEffectLevel;
-                                        }
-                                    }
-                                    if (effectLevel > 0&&event.getAttacked()!=null) {
-                                        var mob = event.getAttacked();
-                                        var map = mob.getActiveEffectsMap();
-                                        //通过id直接给buff
-                                        map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "curse")))
-                                                ,new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "curse"))), 200*effectLevel, effectLevel - 1));
-                                        mob.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "curse"))), 200*effectLevel, effectLevel - 1));
-                                    }
-                                }
-                        )
-                );
+            if (event.hurtEvent.getSource().getEntity() instanceof LivingEntity livingEntity && event.getAttacked() != null) {
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(livingEntity, cursedEffectTraitEffect)
+                        + MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, cursedEffectTraitEffect);
+                if (effectLevel > 0 && event.getAttacked() != null) {
+                    var mob = event.getAttacked();
+                    mob.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.
+                            getValue(new ResourceLocation("l2complements", "curse"))), (int) (200 * effectLevel), (int) (effectLevel - 1)));
+                    if (!EntityType.getKey(mob.getType()).toString().equals("eeeabsmobs:immortal") && !mob.hasEffect(Objects.requireNonNull(
+                            ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "curse")))) ) {
+                        var map = mob.getActiveEffectsMap();
+                        //通过id直接给buff
+                        map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                                        new ResourceLocation("l2complements", "curse")))
+                                , new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                                        new ResourceLocation("l2complements", "curse"))), (int) (200 * effectLevel), (int) (effectLevel - 1)));
+                    }
+                }
             }
         }
     }

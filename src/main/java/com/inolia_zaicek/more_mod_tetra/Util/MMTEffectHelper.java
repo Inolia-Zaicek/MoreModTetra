@@ -20,166 +20,198 @@ public class MMTEffectHelper {
     }
     //单独获取主副手
     public int getMainHandEffectLevel(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack mainHandItem = livingEntity.getMainHandItem();
-        if (mainHandItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectLevel(mainHandItem, effect);
-            return level > 0 ? (int) level : 0;
+        if(livingEntity!=null) {
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            if (mainHandItem.getItem() instanceof IModularItem item) {
+                float level = item.getEffectLevel(mainHandItem, effect);
+                return level > 0 ? (int) level : 0;
+            }
         }
         return 0;
     }
     public float getMainHandEffectEfficiency(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack mainHandItem = livingEntity.getMainHandItem();
-        if (mainHandItem.getItem() instanceof IModularItem item) {
-            float efficiency = item.getEffectEfficiency(mainHandItem, effect);
-            return efficiency > 0 ? efficiency : 0;
+        if(livingEntity!=null) {
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            if (mainHandItem.getItem() instanceof IModularItem item) {
+                float efficiency = item.getEffectEfficiency(mainHandItem, effect);
+                return efficiency > 0 ? efficiency : 0;
+            }
         }
         return 0;
     }
     public int getOffHandEffectLevel(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack offhandItem = livingEntity.getOffhandItem();
-        if (offhandItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectLevel(offhandItem, effect);
-            return level > 0 ? (int) level : 0;
+        if(livingEntity!=null) {
+            ItemStack offhandItem = livingEntity.getOffhandItem();
+            if (offhandItem.getItem() instanceof IModularItem item) {
+                float level = item.getEffectLevel(offhandItem, effect);
+                return level > 0 ? (int) level : 0;
+            }
         }
         return 0;
     }
     public float getOffHandEffectEfficiency(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack offhandItem = livingEntity.getOffhandItem();
-        if (offhandItem.getItem() instanceof IModularItem item) {
-            float efficiency = item.getEffectEfficiency(offhandItem, effect);
-            return efficiency > 0 ? efficiency : 0;
+        if(livingEntity!=null) {
+            ItemStack offhandItem = livingEntity.getOffhandItem();
+            if (offhandItem.getItem() instanceof IModularItem item) {
+                float efficiency = item.getEffectEfficiency(offhandItem, effect);
+                return efficiency > 0 ? efficiency : 0;
+            }
         }
         return 0;
     }
     //获取主副手等级之和
     public int getMainOffHandSumEffectLevel(LivingEntity livingEntity, ItemEffect effect) {
         int effectLevel = 0;
-        ItemStack mainHandItem = livingEntity.getMainHandItem();
-        ItemStack offhandItem = livingEntity.getOffhandItem();
-        if (mainHandItem.getItem() instanceof IModularItem item) {
-            effectLevel += item.getEffectLevel(mainHandItem, effect);
-        }
-        if (offhandItem.getItem() instanceof IModularItem item) {
-            effectLevel += item.getEffectLevel(offhandItem, effect);
+        if(livingEntity!=null) {
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
+            if (mainHandItem.getItem() instanceof IModularItem item) {
+                effectLevel += item.getEffectLevel(mainHandItem, effect);
+            }
+            if (offhandItem.getItem() instanceof IModularItem item) {
+                effectLevel += item.getEffectLevel(offhandItem, effect);
+            }
         }
         return effectLevel;
     }
     public float getMainOffHandSumEffectEfficiency(LivingEntity livingEntity, ItemEffect effect) {
         float EffectEfficiency = 0;
-        ItemStack mainHandItem = livingEntity.getMainHandItem();
-        ItemStack offhandItem = livingEntity.getOffhandItem();
-        if (mainHandItem.getItem() instanceof IModularItem item) {
-            EffectEfficiency += item.getEffectEfficiency(mainHandItem, effect);
-        }
-        if (offhandItem.getItem() instanceof IModularItem item) {
-            EffectEfficiency += item.getEffectEfficiency(offhandItem, effect);
+        if(livingEntity!=null) {
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
+            if (mainHandItem.getItem() instanceof IModularItem item) {
+                EffectEfficiency += item.getEffectEfficiency(mainHandItem, effect);
+            }
+            if (offhandItem.getItem() instanceof IModularItem item) {
+                EffectEfficiency += item.getEffectEfficiency(offhandItem, effect);
+            }
         }
         return EffectEfficiency;
     }
     //取主副手最大值
     public int getMainOffHandMaxEffectLevel(LivingEntity livingEntity, ItemEffect effect) {
         int maxEffectLevel = 0;
-        ItemStack mainHandItem = livingEntity.getMainHandItem();
-        ItemStack offhandItem = livingEntity.getOffhandItem();
-        if (mainHandItem.getItem() instanceof IModularItem item) {
-            float mainLevel = item.getEffectLevel(mainHandItem, effect);
-            // 只考虑大于0的等级，并更新最大值
-            if (mainLevel > 0) {
-                maxEffectLevel = Math.max(maxEffectLevel, (int) mainLevel);
+        if(livingEntity!=null) {
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
+            if (mainHandItem.getItem() instanceof IModularItem item) {
+                float mainLevel = item.getEffectLevel(mainHandItem, effect);
+                // 只考虑大于0的等级，并更新最大值
+                if (mainLevel > 0) {
+                    maxEffectLevel = Math.max(maxEffectLevel, (int) mainLevel);
+                }
             }
-        }
-        if (offhandItem.getItem() instanceof IModularItem item) {
-            float offLevel = item.getEffectLevel(offhandItem, effect);
-            if (offLevel > 0) {
-                maxEffectLevel = Math.max(maxEffectLevel, (int) offLevel);
+            if (offhandItem.getItem() instanceof IModularItem item) {
+                float offLevel = item.getEffectLevel(offhandItem, effect);
+                if (offLevel > 0) {
+                    maxEffectLevel = Math.max(maxEffectLevel, (int) offLevel);
+                }
             }
         }
         return maxEffectLevel;
     }
     public float getMainOffHandMaxEffectEfficiency(LivingEntity livingEntity, ItemEffect effect) {
         float maxEffectEfficiency = 0;
-        ItemStack mainHandItem = livingEntity.getMainHandItem();
-        ItemStack offhandItem = livingEntity.getOffhandItem();
-        if (mainHandItem.getItem() instanceof IModularItem item) {
-            float mainLevel = item.getEffectEfficiency(mainHandItem, effect);
-            // 只考虑大于0的等级，并更新最大值
-            if (mainLevel > 0) {
-                maxEffectEfficiency = Math.max(maxEffectEfficiency, (float) mainLevel);
+        if(livingEntity!=null) {
+            ItemStack mainHandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
+            if (mainHandItem.getItem() instanceof IModularItem item) {
+                float mainLevel = item.getEffectEfficiency(mainHandItem, effect);
+                // 只考虑大于0的等级，并更新最大值
+                if (mainLevel > 0) {
+                    maxEffectEfficiency = Math.max(maxEffectEfficiency, (float) mainLevel);
+                }
             }
-        }
-        if (offhandItem.getItem() instanceof IModularItem item) {
-            float offLevel = item.getEffectEfficiency(offhandItem, effect);
-            if (offLevel > 0) {
-                maxEffectEfficiency = Math.max(maxEffectEfficiency, (float) offLevel);
+            if (offhandItem.getItem() instanceof IModularItem item) {
+                float offLevel = item.getEffectEfficiency(offhandItem, effect);
+                if (offLevel > 0) {
+                    maxEffectEfficiency = Math.max(maxEffectEfficiency, (float) offLevel);
+                }
             }
         }
         return maxEffectEfficiency;
     }
     //头部护甲
     public int getHeadArmorEffectLevel(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack headArmorItem = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
-        if (headArmorItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectLevel(headArmorItem, effect);
-            return level > 0 ? (int) level : 0;
+        if(livingEntity!=null) {
+            ItemStack headArmorItem = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
+            if (headArmorItem.getItem() instanceof IModularItem item) {
+                float level = item.getEffectLevel(headArmorItem, effect);
+                return level > 0 ? (int) level : 0;
+            }
         }
         return 0;
     }
     public float getHeadArmorEffectEfficiency(LivingEntity livingEntity, ItemEffect effect) {
+        if(livingEntity!=null) {
         ItemStack headArmorItem = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
         if (headArmorItem.getItem() instanceof IModularItem item) {
             float level = item.getEffectEfficiency(headArmorItem, effect);
             return level > 0 ?  level : 0;
         }
+        }
         return 0;
     }
     //胸甲
     public int getChestArmorEffectLevel(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack chestArmorItem = livingEntity.getItemBySlot(EquipmentSlot.CHEST);
-        if (chestArmorItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectLevel(chestArmorItem, effect);
-            return level > 0 ? (int) level : 0;
+        if(livingEntity!=null) {
+            ItemStack chestArmorItem = livingEntity.getItemBySlot(EquipmentSlot.CHEST);
+            if (chestArmorItem.getItem() instanceof IModularItem item) {
+                float level = item.getEffectLevel(chestArmorItem, effect);
+                return level > 0 ? (int) level : 0;
+            }
         }
         return 0;
     }
     public float getChestArmorEffectEfficiency(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack chestArmorItem = livingEntity.getItemBySlot(EquipmentSlot.CHEST);
-        if (chestArmorItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectEfficiency(chestArmorItem, effect);
-            return level > 0 ?  level : 0;
+        if(livingEntity!=null) {
+            ItemStack chestArmorItem = livingEntity.getItemBySlot(EquipmentSlot.CHEST);
+            if (chestArmorItem.getItem() instanceof IModularItem item) {
+                float level = item.getEffectEfficiency(chestArmorItem, effect);
+                return level > 0 ? level : 0;
+            }
         }
         return 0;
     }
     //护腿
     public int getLegsArmorEffectLevel(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack legsArmorItem = livingEntity.getItemBySlot(EquipmentSlot.LEGS);
-        if (legsArmorItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectLevel(legsArmorItem, effect);
-            return level > 0 ? (int) level : 0;
+        if(livingEntity!=null) {
+            ItemStack legsArmorItem = livingEntity.getItemBySlot(EquipmentSlot.LEGS);
+            if (legsArmorItem.getItem() instanceof IModularItem item) {
+                float level = item.getEffectLevel(legsArmorItem, effect);
+                return level > 0 ? (int) level : 0;
+            }
         }
         return 0;
     }
     public float getLegsArmorEffectEfficiency(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack legsArmorItem = livingEntity.getItemBySlot(EquipmentSlot.LEGS);
-        if (legsArmorItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectEfficiency(legsArmorItem, effect);
-            return level > 0 ?  level : 0;
+        if(livingEntity!=null) {
+            ItemStack legsArmorItem = livingEntity.getItemBySlot(EquipmentSlot.LEGS);
+            if (legsArmorItem.getItem() instanceof IModularItem item) {
+                float level = item.getEffectEfficiency(legsArmorItem, effect);
+                return level > 0 ? level : 0;
+            }
         }
         return 0;
     }
     //靴子
     public int getFeetArmorEffectLevel(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack bootsArmorItem = livingEntity.getItemBySlot(EquipmentSlot.FEET); 
-        if (bootsArmorItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectLevel(bootsArmorItem, effect);
-            return level > 0 ? (int) level : 0;
+        if(livingEntity!=null) {
+            ItemStack bootsArmorItem = livingEntity.getItemBySlot(EquipmentSlot.FEET);
+            if (bootsArmorItem.getItem() instanceof IModularItem item) {
+                float level = item.getEffectLevel(bootsArmorItem, effect);
+                return level > 0 ? (int) level : 0;
+            }
         }
         return 0;
     }
     public float getFeetArmorEffectEfficiency(LivingEntity livingEntity, ItemEffect effect) {
-        ItemStack bootsArmorItem = livingEntity.getItemBySlot(EquipmentSlot.FEET); 
-        if (bootsArmorItem.getItem() instanceof IModularItem item) {
-            float level = item.getEffectEfficiency(bootsArmorItem, effect);
-            return level > 0 ?  level : 0;
+        if(livingEntity!=null) {
+            ItemStack bootsArmorItem = livingEntity.getItemBySlot(EquipmentSlot.FEET);
+            if (bootsArmorItem.getItem() instanceof IModularItem item) {
+                float level = item.getEffectEfficiency(bootsArmorItem, effect);
+                return level > 0 ? level : 0;
+            }
         }
         return 0;
     }

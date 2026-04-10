@@ -61,12 +61,12 @@ public class Freeze {
                 //大于1
                 if (buffLevel != 0) {
                     //减伤==buff等级*减伤比例
-                    event.addNormalMulti(1 - (buffLevel + 1) * ((float) effectLevel / 100));
+                    event.addIndependentMulti(1 - (buffLevel + 1) * ((float) effectLevel / 100));
                     livingEntity.removeEffect(MMTEffectsRegister.RitualOfHolyGuard.get());
                     livingEntity.addEffect(new MobEffectInstance(MMTEffectsRegister.RitualOfHolyGuard.get(), buffTime, buffLevel - 1));
                 }else{
                     //减伤==buff等级*减伤比例
-                    event.addNormalMulti(1 - (buffLevel + 1) * ((float) effectLevel / 100));
+                    event.addIndependentMulti(1 - (buffLevel + 1) * ((float) effectLevel / 100));
                     livingEntity.removeEffect(MMTEffectsRegister.RitualOfHolyGuard.get());
                 }
             }

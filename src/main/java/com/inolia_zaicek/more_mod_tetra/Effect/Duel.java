@@ -95,7 +95,7 @@ public class Duel {
                             && livingEntity.hasEffect(MMTEffectsRegister.BeneficialReverDuel.get())) {
                         int BeLevel = mob.getEffect(MMTEffectsRegister.NeutralReverDuel.get()).getAmplifier();
                         int NeLevel = attacked.getEffect(MMTEffectsRegister.BeneficialReverDuel.get()).getAmplifier();
-                        event.addNormalMulti((1-(BeLevel+NeLevel)*effectEfficiency/100f));
+                        event.addIndependentMulti((1 -(BeLevel+NeLevel)*effectEfficiency/100f));
                     }
                 }
             }

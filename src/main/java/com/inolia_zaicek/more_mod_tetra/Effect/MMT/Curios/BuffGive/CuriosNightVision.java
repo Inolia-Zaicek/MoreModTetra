@@ -41,7 +41,7 @@ public class CuriosNightVision {
         if (ModList.get().isLoaded("curios")) {
             float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(player, curiosNightVisionEffect);
             if (effectLevel > 0 && player.level().getGameTime() % 20L == 0) {
-                player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION,300,0));
+                player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION,400,0));
             }
         }
     }

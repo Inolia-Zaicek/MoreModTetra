@@ -1,6 +1,6 @@
 package com.inolia_zaicek.more_mod_tetra.Effect.IronSpell.AF;
 
-import net.alshanex.alshanex_familiars.datagen.AFDamageTypes;
+import net.alshanex.familiarslib.registry.FDamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,7 +36,7 @@ public class SoundStaffSocket {
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if (event.getSource().getEntity() instanceof LivingEntity attacker) {
-            if(event.getSource().is(AFDamageTypes.SOUND_MAGIC)) {
+            if(event.getSource().is(FDamageTypes.SOUND_MAGIC)) {
                 ItemStack mainStack = attacker.getMainHandItem();
                 ItemStack offStack = attacker.getMainHandItem();
                 if (mainStack.getItem() instanceof IModularItem item) {
@@ -52,7 +52,7 @@ public class SoundStaffSocket {
                 }
             }
         }else if (event.getSource().getDirectEntity() instanceof LivingEntity attacker) {
-            if(event.getSource().is(AFDamageTypes.SOUND_MAGIC)) {
+            if(event.getSource().is(FDamageTypes.SOUND_MAGIC)) {
                 ItemStack mainStack = attacker.getMainHandItem();
                 ItemStack offStack = attacker.getMainHandItem();
                 if (mainStack.getItem() instanceof IModularItem item) {

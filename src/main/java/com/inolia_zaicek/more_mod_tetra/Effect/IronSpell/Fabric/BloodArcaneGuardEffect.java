@@ -41,7 +41,7 @@ public class BloodArcaneGuardEffect {
             //获取法抗属性
             float magic = (float) target.getAttributeValue(AttributeRegistry.BLOOD_MAGIC_RESIST.get());
             float resist = (float) target.getAttributeValue(AttributeRegistry.SPELL_RESIST.get());
-            event.addNormalMulti((1 - (magic+resist-2) * (effectLevel / 100)  ));
+            event.addIndependentMulti((1 - (magic+resist-2) * (effectLevel / 100)  ));
         }
     }
 }

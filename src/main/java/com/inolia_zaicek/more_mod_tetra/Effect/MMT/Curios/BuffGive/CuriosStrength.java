@@ -44,380 +44,417 @@ public class CuriosStrength {
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
         LivingEntity livingEntity = event.getEntity();
-        if (livingEntity.level().getGameTime() % 10L == 0) {
-            float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(livingEntity, curiosStrengthEffect);
-            if (effectLevel > 0) {
+        if (livingEntity.level().getGameTime() % 20L == 0) {
+            if (MMTCuriosHelper.getInstance().getCuriosEffectLevel(livingEntity, curiosStrengthEffect) > 0) {
+                float effectLevel = MMTCuriosHelper.getInstance().getCuriosEffectLevel(livingEntity, curiosStrengthEffect);
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 300, 0));
             }
-            int effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, strength_buff_Effect);
-            if (effectLevel2 > 0) {
-                livingEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 100, effectLevel2 - 1));
+            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, strength_buff_Effect) > 0) {
+                int effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, strength_buff_Effect);
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, effectLevel2 - 1));
             }
             /// 新生魔艺部分
-            //工具
-            int effectLevel3 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, ars_spell_damage_Effect);
-            if (effectLevel3 > 0 && ModList.get().isLoaded("ars_nouveau")) {
-                livingEntity.addEffect(new MobEffectInstance(
-                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "spell_damage")))
-                        , 100, effectLevel3 - 1));
+            if (ModList.get().isLoaded("ars_nouveau")) {
+                if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, ars_spell_damage_Effect) > 0 ) {
+                    int effectLevel3 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, ars_spell_damage_Effect);
+                    livingEntity.addEffect(new MobEffectInstance(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "spell_damage")))
+                            , 200, effectLevel3 - 1));
+                }
+                if(MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, ars_mana_regen_Effect)>0) {
+                    int effectLevel4 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, ars_mana_regen_Effect);
+                    livingEntity.addEffect(new MobEffectInstance(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "mana_regen")))
+                            , 200, effectLevel4 - 1));
+                }
+                //饰品（固定
+                if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_ars_spell_damage_Effect)) {
+                    livingEntity.addEffect(new MobEffectInstance(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "spell_damage")))
+                            , 200, 0));
+                }
+                if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_ars_mana_regen_Effect)) {
+                    livingEntity.addEffect(new MobEffectInstance(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "mana_regen")))
+                            , 200, 0));
+                }
             }
-            int effectLevel4 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, ars_mana_regen_Effect);
-            if (effectLevel4 > 0 && ModList.get().isLoaded("ars_nouveau")) {
-                livingEntity.addEffect(new MobEffectInstance(
-                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "mana_regen")))
-                        , 100, effectLevel4 - 1));
+
+            if (ModList.get().isLoaded("immortalers_delight")) {
+                int effectLevel1 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,immortalers_delight_moon_bright_Effect);
+                if (effectLevel1 > 0 ) {
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(
+                            ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("immortalers_delight", "moon_bright")))
+                            ,200,effectLevel1-1));
+                }
+                int effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,immortalers_delight_incandescence_Effect);
+                if (effectLevel2 > 0 ) {
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(
+                            ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("immortalers_delight", "incandescence")))
+                            ,200,effectLevel2-1));
+                }
             }
-            //饰品（固定
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_ars_spell_damage_Effect) && ModList.get().isLoaded("ars_nouveau")) {
-                livingEntity.addEffect(new MobEffectInstance(
-                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "spell_damage")))
-                        , 100, 0));
+            if (MMTCuriosHelper.getInstance().getCuriosEffectLevel(livingEntity, curiosFireResistanceEffect)
+                    + MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, fieryEffectTraitEffect) > 0 ) {
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE,100,0));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_ars_mana_regen_Effect) && ModList.get().isLoaded("ars_nouveau")) {
-                livingEntity.addEffect(new MobEffectInstance(
-                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "mana_regen")))
-                        , 100, 0));
+            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,fire_resistance_buff_Effect) > 0 ) {
+                int effectLevel2 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,fire_resistance_buff_Effect);
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE,100,effectLevel2-1));
+            }
+            int effectLevel3 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,invisibility_buff_Effect);
+            if (effectLevel3 > 0 ) {
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY,100,effectLevel3-1));
+            }
+            int effectLevel4 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,slow_falling_buff_Effect);
+            if (effectLevel4 > 0 ) {
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,effectLevel4-1));
+            }
+            int effectLevel5 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity,dolphins_grace_buff_Effect);
+            if (effectLevel5 > 0 ) {
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE,100,effectLevel5-1));
             }
             /// 铁魔法
-            int effectLevel5 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, irons_spellbooks_oakskin_Effect);
-            if (effectLevel5 > 0 && ModList.get().isLoaded("irons_spellbooks")) {
-                livingEntity.addEffect(new MobEffectInstance(
-                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "oakskin")))
-                        , 100, effectLevel5 - 1));
-            }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_irons_spellbooks_oakskin_Effect) && ModList.get().isLoaded("irons_spellbooks")) {
-                livingEntity.addEffect(new MobEffectInstance(
-                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "oakskin")))
-                        , 100, 0));
+            if ( ModList.get().isLoaded("irons_spellbooks")) {
+                if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, irons_spellbooks_oakskin_Effect) > 0) {
+                    int effectLevel51 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, irons_spellbooks_oakskin_Effect);
+                    livingEntity.addEffect(new MobEffectInstance(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , 200, effectLevel51 - 1));
+                }
+                if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_irons_spellbooks_oakskin_Effect) ) {
+                    livingEntity.addEffect(new MobEffectInstance(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , 200, 0));
+                }
             }
             /// 诡厄
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_climbing_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_climbing_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "climbing")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_climbing_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_climbing_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_climbing_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_climbing_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "climbing")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_explosive_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_explosive_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "explosive")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_explosive_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_explosive_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_explosive_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_explosive_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "explosive")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_swift_swim_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_swift_swim_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "swift_swim")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_swift_swim_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_swift_swim_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_swift_swim_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_swift_swim_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "swift_swim")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_flame_hands_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_flame_hands_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "flame_hands")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_flame_hands_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_flame_hands_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_flame_hands_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_flame_hands_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "flame_hands")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_venomous_hands_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_venomous_hands_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "venomous_hands")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_venomous_hands_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_venomous_hands_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_venomous_hands_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_venomous_hands_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "venomous_hands")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_repulsive_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_repulsive_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "repulsive")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_repulsive_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_repulsive_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_repulsive_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_repulsive_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "repulsive")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_fiery_aura_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_fiery_aura_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "fiery_aura")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_fiery_aura_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_fiery_aura_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_fiery_aura_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_fiery_aura_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "fiery_aura")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_frosty_aura_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_frosty_aura_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "frosty_aura")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_frosty_aura_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_frosty_aura_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_frosty_aura_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_frosty_aura_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "frosty_aura")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_photosynthesis_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_photosynthesis_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "photosynthesis")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_photosynthesis_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_photosynthesis_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_photosynthesis_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_photosynthesis_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "photosynthesis")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_insight_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_insight_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "insight")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_insight_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_insight_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_insight_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_insight_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "insight")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_fortunate_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_fortunate_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "fortunate")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_fortunate_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_fortunate_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_fortunate_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_fortunate_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "fortunate")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_bottling_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_bottling_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "bottling")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_bottling_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_bottling_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_bottling_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_bottling_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "bottling")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_radiance_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_radiance_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "radiance")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_radiance_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_radiance_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_radiance_Effect) && ModList.get().isLoaded("goety")
-                    && !ModList.get().isLoaded("goety_revelation")) {
+            if (ModList.get().isLoaded("goety") && !ModList.get().isLoaded("goety_revelation") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_radiance_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "radiance")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (!ModList.get().isLoaded("goety_revelation")&&MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_deflective_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && !ModList.get().isLoaded("goety_revelation") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_deflective_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "deflective")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_deflective_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_deflective_Effect) - 1));
             }
-            if ( !ModList.get().isLoaded("goety_revelation") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_deflective_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && !ModList.get().isLoaded("goety_revelation") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_deflective_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "deflective")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_leeching_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_leeching_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "leeching")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_leeching_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_leeching_Effect) - 1));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_swirling_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_swirling_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "swirling")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_swirling_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_swirling_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_radiance_Effect) && ModList.get().isLoaded("goety")
-                    && !ModList.get().isLoaded("goety_revelation")) {
+            if (ModList.get().isLoaded("goety") && !ModList.get().isLoaded("goety_revelation") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_radiance_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "swirling")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_shielding_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_shielding_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "shielding")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_shielding_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_shielding_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_shielding_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_shielding_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "shielding")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_rallying_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_rallying_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "rallying")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_rallying_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_rallying_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_rallying_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_rallying_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "rallying")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_gravity_pulse_Effect) > 0 && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_gravity_pulse_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "gravity_pulse")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_gravity_pulse_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, goety_gravity_pulse_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_gravity_pulse_Effect) && ModList.get().isLoaded("goety")) {
+            if (ModList.get().isLoaded("goety") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_goety_gravity_pulse_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("goety", "gravity_pulse")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, quark_resilience_Effect) > 0 && ModList.get().isLoaded("quark")) {
+            if (ModList.get().isLoaded("quark") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, quark_resilience_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("quark", "resilience")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, quark_resilience_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, quark_resilience_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_quark_resilience_Effect) && ModList.get().isLoaded("quark")) {
+            if (ModList.get().isLoaded("quark") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_quark_resilience_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("quark", "resilience")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, cataclysm_blessing_of_amethyst_Effect) > 0 && ModList.get().isLoaded("cataclysm")) {
+            if (ModList.get().isLoaded("cataclysm") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, cataclysm_blessing_of_amethyst_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("cataclysm", "blessing_of_amethyst")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, cataclysm_blessing_of_amethyst_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, cataclysm_blessing_of_amethyst_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_cataclysm_blessing_of_amethyst_Effect) && ModList.get().isLoaded("cataclysm")) {
+            if (ModList.get().isLoaded("cataclysm") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_cataclysm_blessing_of_amethyst_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("cataclysm", "blessing_of_amethyst")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_bug_pheromones_Effect) > 0 && ModList.get().isLoaded("alexsmobs")) {
+            if (ModList.get().isLoaded("alexsmobs") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_bug_pheromones_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexsmobs", "bug_pheromones")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_bug_pheromones_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_bug_pheromones_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexsmobs_bug_pheromones_Effect) && ModList.get().isLoaded("alexsmobs")) {
+            if (ModList.get().isLoaded("alexsmobs") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexsmobs_bug_pheromones_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexsmobs", "bug_pheromones")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_mosquito_repellent_Effect) > 0 && ModList.get().isLoaded("alexsmobs")) {
+            if (ModList.get().isLoaded("alexsmobs") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_mosquito_repellent_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexsmobs", "mosquito_repellent")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_mosquito_repellent_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_mosquito_repellent_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexsmobs_mosquito_repellent_Effect) && ModList.get().isLoaded("alexsmobs")) {
+            if (ModList.get().isLoaded("alexsmobs") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexsmobs_mosquito_repellent_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexsmobs", "mosquito_repellent")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_clinging_Effect) > 0 && ModList.get().isLoaded("alexsmobs")) {
+            if (ModList.get().isLoaded("alexsmobs") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_clinging_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexsmobs", "clinging")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_clinging_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_clinging_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexsmobs_clinging_Effect) && ModList.get().isLoaded("alexsmobs")) {
+            if (ModList.get().isLoaded("alexsmobs") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexsmobs_clinging_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexsmobs", "clinging")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_knockback_resistance_Effect) > 0 && ModList.get().isLoaded("alexsmobs")) {
+            if (ModList.get().isLoaded("alexsmobs") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_knockback_resistance_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexsmobs", "knockback_resistance")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_knockback_resistance_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_knockback_resistance_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexsmobs_knockback_resistance_Effect) && ModList.get().isLoaded("alexsmobs")) {
+            if (ModList.get().isLoaded("alexsmobs") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexsmobs_knockback_resistance_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexsmobs", "knockback_resistance")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_soulsteal_Effect) > 0 && ModList.get().isLoaded("alexsmobs")) {
+            if (ModList.get().isLoaded("alexsmobs") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_soulsteal_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexsmobs", "soulsteal")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_soulsteal_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexsmobs_soulsteal_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexsmobs_soulsteal_Effect) && ModList.get().isLoaded("alexsmobs")) {
+            if (ModList.get().isLoaded("alexsmobs") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexsmobs_soulsteal_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexsmobs", "soulsteal")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexscaves_deepsight_Effect) > 0 && ModList.get().isLoaded("alexscaves")) {
+            if (ModList.get().isLoaded("alexscaves") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexscaves_deepsight_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "deepsight")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexscaves_deepsight_Effect) - 1));
+                        , 400, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, alexscaves_deepsight_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexscaves_deepsight_Effect) && ModList.get().isLoaded("alexscaves")) {
+            if (ModList.get().isLoaded("alexscaves") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_alexscaves_deepsight_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "deepsight")))
-                        , 100, 0));
+                        , 400, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_caffeinated_Effect) > 0 && ModList.get().isLoaded("youkaishomecoming")) {
+            if (ModList.get().isLoaded("youkaishomecoming") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_caffeinated_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("youkaishomecoming", "caffeinated")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_caffeinated_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_caffeinated_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_youkaishomecoming_caffeinated_Effect) && ModList.get().isLoaded("youkaishomecoming")) {
+            if (ModList.get().isLoaded("youkaishomecoming") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_youkaishomecoming_caffeinated_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("youkaishomecoming", "caffeinated")))
-                        , 100, 0));
+                        , 200, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_tea_polyphenols_Effect) > 0 && ModList.get().isLoaded("youkaishomecoming")) {
+            if (ModList.get().isLoaded("youkaishomecoming") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_tea_polyphenols_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("youkaishomecoming", "tea_polyphenols")))
-                        , 100, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_tea_polyphenols_Effect) - 1));
+                        , 200, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_tea_polyphenols_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_youkaishomecoming_tea_polyphenols_Effect) && ModList.get().isLoaded("youkaishomecoming")) {
+            if (ModList.get().isLoaded("youkaishomecoming") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_youkaishomecoming_tea_polyphenols_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("youkaishomecoming", "tea_polyphenols")))
-                        , 100, 0));
+                        , 200, 0));
             }
         }
         if (livingEntity.level().getGameTime() % 200L == 0) {
-            int effectLevel6 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, irons_spellbooks_true_invisibility_Effect);
-            if (effectLevel6 > 0 && ModList.get().isLoaded("irons_spellbooks")) {
+            ;
+            if (ModList.get().isLoaded("irons_spellbooks") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, irons_spellbooks_true_invisibility_Effect) > 0) {
+                int effectLevel6 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, irons_spellbooks_true_invisibility_Effect);
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "true_invisibility")))
                         , 220, effectLevel6 - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_irons_spellbooks_true_invisibility_Effect) && ModList.get().isLoaded("irons_spellbooks")) {
+            if (ModList.get().isLoaded("irons_spellbooks") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_irons_spellbooks_true_invisibility_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "true_invisibility")))
                         , 220, 0));
             }
-            int effectLevel7 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_unconscious_Effect);
-            if (effectLevel7 > 0 && ModList.get().isLoaded("youkaishomecoming")) {
+            if (ModList.get().isLoaded("youkaishomecoming") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_unconscious_Effect) > 0) {
+                int effectLevel7 = MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_unconscious_Effect);
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("youkaishomecoming", "unconscious")))
                         , 220, effectLevel7 - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_youkaishomecoming_unconscious_Effect) && ModList.get().isLoaded("youkaishomecoming")) {
+            if (ModList.get().isLoaded("youkaishomecoming") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_youkaishomecoming_unconscious_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("youkaishomecoming", "unconscious")))
                         , 220, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_youkaified_Effect) > 0 && ModList.get().isLoaded("youkaishomecoming")) {
+            if (ModList.get().isLoaded("youkaishomecoming") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_youkaified_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("youkaishomecoming", "youkaified")))
                         , 220, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_youkaified_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_youkaishomecoming_youkaified_Effect) && ModList.get().isLoaded("youkaishomecoming")) {
+            if (ModList.get().isLoaded("youkaishomecoming") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_youkaishomecoming_youkaified_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("youkaishomecoming", "youkaified")))
                         , 220, 0));
             }
-            if (MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_youkaifying_Effect) > 0 && ModList.get().isLoaded("youkaishomecoming")) {
+            if (ModList.get().isLoaded("youkaishomecoming") && MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_youkaifying_Effect) > 0) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("youkaishomecoming", "youkaifying")))
                         , 220, MMTEffectHelper.getInstance().getMainOffHandMaxEffectLevel(livingEntity, youkaishomecoming_youkaifying_Effect) - 1));
             }
-            if (MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_youkaishomecoming_youkaifying_Effect) && ModList.get().isLoaded("youkaishomecoming")) {
+            if (ModList.get().isLoaded("youkaishomecoming") && MMTCuriosHelper.getInstance().hasCuriosEffectLevel(livingEntity, curios_youkaishomecoming_youkaifying_Effect)) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("youkaishomecoming", "youkaifying")))
                         , 220, 0));

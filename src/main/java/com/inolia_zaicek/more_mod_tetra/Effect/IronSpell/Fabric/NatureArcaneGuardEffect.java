@@ -7,7 +7,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.StatsHelper;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -42,7 +41,7 @@ public class NatureArcaneGuardEffect {
             //获取法抗属性
             float magic = (float) target.getAttributeValue(AttributeRegistry.NATURE_MAGIC_RESIST.get());
             float resist = (float) target.getAttributeValue(AttributeRegistry.SPELL_RESIST.get());
-            event.addNormalMulti((1 - (magic+resist-2) * (effectLevel / 100)  ));
+            event.addIndependentMulti((1 - (magic+resist-2) * (effectLevel / 100)  ));
         }
     }
 }

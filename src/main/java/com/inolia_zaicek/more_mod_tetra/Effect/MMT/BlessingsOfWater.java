@@ -37,7 +37,7 @@ public class BlessingsOfWater {
             float effectLevel = MMTEffectHelper.getInstance().getAllEffectLevel(player, blessingsOfWaterEffect);
             if (effectLevel > 0) {
                 if (player.isInWaterOrRain() || player.isInWater() || player.isUnderWater()) {
-                    event.addNormalMulti((1 - (float) effectLevel / 100));
+                    event.addIndependentMulti((1 - (float) effectLevel / 100));
                 }
             }
         }
